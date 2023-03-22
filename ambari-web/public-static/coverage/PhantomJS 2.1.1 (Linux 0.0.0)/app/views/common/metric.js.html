@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/metric.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/common/metric.js</span></h1>
+    <h2>
+        Statements: <span class="metric">17.65% <small>(3 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">11.11% <small>(1 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">17.65% <small>(3 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/</a> &#187; metric.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/common/metric", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  /**
+   * use: {{view App.MetricFilteringWidget controllerBinding="App.router.mainChartsController"}}
+   * set controller.metric field with metric value
+   * widget assign itself to controller like metricWidget (controller.get('metricWidget'))
+   * @type {*}
+   */
+  App.MetricFilteringWidget = Em.View.extend({
+    classNames: ['metric-filtering-widget'],
+    /**
+     * chosen metric value
+     */
+    chosenMetric: null,
+    chosenMoreMetric: null,
+    showMore: 0, // toggle more metrics indicator
+    /**
+     * metrics
+     */
+    metrics: [Em.Object.create({ label: Em.I18n.t('metric.default'), value: null }), Em.Object.create({ label: Em.I18n.t('metric.cpu'), value: 'cpu' }), Em.Object.create({ label: Em.I18n.t('metric.memory'), value: 'memory' }), Em.Object.create({ label: Em.I18n.t('metric.network'), value: 'network' }), Em.Object.create({ label: Em.I18n.t('metric.io'), value: 'io' })],
+&nbsp;
+    moreMetrics: [Em.Object.create({ label: Em.I18n.t('metric.more.cpu'), code: 'cpu', items: [Em.Object.create({ value: "cpu_nice" }), Em.Object.create({ value: "cpu_wio" }), Em.Object.create({ value: "cpu_user" }), Em.Object.create({ value: "cpu_idle" }), Em.Object.create({ value: "cpu_system" }), Em.Object.create({ value: "cpu_aidle" })] }), Em.Object.create({ label: Em.I18n.t('metric.more.disk'), code: 'disk',
+      items: [Em.Object.create({ value: 'disk_free' }), Em.Object.create({ value: 'disk_total' }), Em.Object.create({ value: 'part_max_used' })]
+    }), Em.Object.create({ label: Em.I18n.t('metric.more.load'), code: 'load',
+      items: [Em.Object.create({ value: 'load_one' }), Em.Object.create({ value: 'load_five' }), Em.Object.create({ value: 'load_fifteen' })]
+    }), Em.Object.create({ label: Em.I18n.t('metric.more.memory'), code: 'memory',
+      items: [Em.Object.create({ value: 'swap_free' }), Em.Object.create({ value: 'cpu' })]
+    }), Em.Object.create({ label: Em.I18n.t('metric.more.network'), code: 'network',
+      items: [Em.Object.create({ value: 'bytes_out' }), Em.Object.create({ value: 'bytes_in' }), Em.Object.create({ value: 'pkts_in' }), Em.Object.create({ value: 'pkts_out' })]
+    }), Em.Object.create({ label: Em.I18n.t('metric.more.process'), code: 'process',
+      items: [Em.Object.create({ value: 'proc_run' }), Em.Object.create({ value: 'proc_total' })]
+    })],
+&nbsp;
+    /**
+     * return array of chosen metrics
+     */
+    chosenMetrics: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('chosenMetric') ? [this.get('chosenMetric')] : this.get('defaultMetrics');</span>
+    }.property('chosenMetric'),
+&nbsp;
+    /**
+     * metric item view
+     */
+    itemView: Em.View.extend({
+      tagName: 'li',
+      classNameBindings: ['disabled'],
+      disabled: Em.computed.ifThenElse('isActive', 'disabled', false),
+      isActive: Em.computed.equalProperties('metric.value', 'widget.chosenMetric'),
+      label: Em.computed.alias('metric.label'),
+      template: Em.Handlebars.compile('&lt;a {{action activate view.metric.value target="view.widget" href="#" }}&gt;{{unbound view.label}}&lt;/a&gt;')
+    }),
+&nbsp;
+    moreItemView: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('itemView').extend({</span>
+        label: Em.computed.alias('metric.value')
+      });
+    }.property(),
+&nbsp;
+    /**
+     * return default selected metrics (currently - all)
+     */
+    defaultMetrics: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var values = [];</span>
+<span class="cstat-no" title="statement not covered" >      $.each(this.get('metrics'), <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (this.value) {</span>
+<span class="cstat-no" title="statement not covered" >          values.push(this.value);</span>
+        }
+      });
+<span class="cstat-no" title="statement not covered" >      return values;</span>
+    }.property(),
+&nbsp;
+    bindToController: <span class="fstat-no" title="function not covered" >function bindToController() {</span>
+<span class="cstat-no" title="statement not covered" >      var thisW = this;</span>
+<span class="cstat-no" title="statement not covered" >      var controller = this.get('controller');</span>
+<span class="cstat-no" title="statement not covered" >      controller.set('metricWidget', thisW);</span>
+    },
+&nbsp;
+    toggleMore: <span class="fstat-no" title="function not covered" >function toggleMore() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('showMore', 1 - this.get('showMore'));</span>
+    },
+&nbsp;
+    /**
+     * assign this widget to controller, prepare items by metricsConfig
+     */
+    init: <span class="fstat-no" title="function not covered" >function init() {</span>
+<span class="cstat-no" title="statement not covered" >      this._super();</span>
+<span class="cstat-no" title="statement not covered" >      this.bindToController();</span>
+    },
+&nbsp;
+    /**
+     * write active metric to widget
+     * @param event
+     */
+    activate: <span class="fstat-no" title="function not covered" >function activate(event) {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('chosenMetric', event.context);</span>
+    },
+&nbsp;
+    templateName: require('templates/common/metric')
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

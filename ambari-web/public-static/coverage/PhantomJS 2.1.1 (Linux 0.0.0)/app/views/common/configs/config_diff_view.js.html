@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/configs/config_diff_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/common/configs/config_diff_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">12% <small>(3 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">25% <small>(1 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">12% <small>(3 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/configs/</a> &#187; config_diff_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/common/configs/config_diff_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one or more
+   * contributor license agreements. See the NOTICE file distributed with this
+   * work for additional information regarding copyright ownership. The ASF
+   * licenses this file to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   * http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+   * License for the specific language governing permissions and limitations under
+   * the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.ConfigDiffView = Em.View.extend({
+    template: Em.Handlebars.compile('{{view.diff}}'),
+    diff: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var trimAndSort = <span class="fstat-no" title="function not covered" >function trimAndSort(value) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (value == null) {</span>
+<span class="cstat-no" title="statement not covered" >          return [];</span>
+        }
+<span class="cstat-no" title="statement not covered" >        var values = value.split("\n").filter(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >          return item != "";</span>
+        }).sort().join("\n");
+<span class="cstat-no" title="statement not covered" >        return difflib.stringAsLines(values);</span>
+      };
+<span class="cstat-no" title="statement not covered" >      var initialValues = trimAndSort(this.get('config.initialValue')),</span>
+          recommendedValues = trimAndSort(this.get('config.recommendedValue')),
+          opcodes = new difflib.SequenceMatcher(initialValues, recommendedValues).get_opcodes();
+<span class="cstat-no" title="statement not covered" >      if (initialValues.length === 1 &amp;&amp; recommendedValues.length === 1) {</span>
+        // changes in properties with single-line values shouldn't be highlighted
+<span class="cstat-no" title="statement not covered" >        opcodes[0][0] = 'equal';</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (!initialValues.length) {</span>
+<span class="cstat-no" title="statement not covered" >        if (recommendedValues.length &gt; 1) {</span>
+          // initial and recommended values should have the same number of rows
+<span class="cstat-no" title="statement not covered" >          initialValues = Array(recommendedValues.length - 1).join('.').split('.');</span>
+        }
+<span class="cstat-no" title="statement not covered" >        initialValues.unshift(Em.I18n.t('popup.dependent.configs.table.undefined'));</span>
+<span class="cstat-no" title="statement not covered" >        opcodes[0][0] = 'not-defined'; </span>// class name for cell corresponding to undefined property
+<span class="cstat-no" title="statement not covered" >        opcodes[0][2] = recommendedValues.length; </span>// specifying rows number explicitly to avoid omitting of 'Property undefined' message
+      }
+<span class="cstat-no" title="statement not covered" >      if (!recommendedValues.length) {</span>
+<span class="cstat-no" title="statement not covered" >        if (initialValues.length &gt; 1) {</span>
+          // initial and recommended values should have the same number of rows
+<span class="cstat-no" title="statement not covered" >          recommendedValues = Array(initialValues.length - 1).join('.').split('.');</span>
+        }
+<span class="cstat-no" title="statement not covered" >        recommendedValues.unshift(Em.I18n.t('popup.dependent.configs.table.removed'));</span>
+<span class="cstat-no" title="statement not covered" >        opcodes[0][0] = 'is-removed'; </span>// class name for cell corresponding to removed property
+<span class="cstat-no" title="statement not covered" >        opcodes[0][4] = initialValues.length; </span>// specifying rows number explicitly to avoid omitting of 'Property removed' message
+      }
+<span class="cstat-no" title="statement not covered" >      return new Handlebars.SafeString(diffview.buildView({</span>
+        baseTextLines: initialValues,
+        newTextLines: recommendedValues,
+        opcodes: opcodes
+      }).outerHTML);
+    }.property('config.initialValues', 'config.recommendedValues')
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

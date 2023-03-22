@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/routes/add_kerberos_routes.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/routes/add_kerberos_routes.js</span></h1>
+    <h2>
+        Statements: <span class="metric">1.9% <small>(3 / 158)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">1.67% <small>(1 / 60)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">1.9% <small>(3 / 158)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/routes/</a> &#187; add_kerberos_routes.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("routes/add_kerberos_routes", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+  var App = require('app');
+&nbsp;
+  module.exports = App.WizardRoute.extend({
+    route: '/enable',
+    breadcrumbs: null,
+    enter: <span class="fstat-no" title="function not covered" >function enter(router) {</span>
+<span class="cstat-no" title="statement not covered" >      router.get('mainController').dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        return App.clusterStatus.updateFromServer();</span>
+      }).done(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosWizardController = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        App.router.get('updateController').set('isWorking', false);</span>
+<span class="cstat-no" title="statement not covered" >        var popup = App.ModalPopup.show({</span>
+          classNames: ['wizard-modal-wrapper'],
+          modalDialogClasses: ['modal-xlg'],
+          header: Em.I18n.t('admin.kerberos.wizard.header'),
+          bodyClass: App.KerberosWizardView.extend({
+            controller: kerberosWizardController
+          }),
+          primary: Em.I18n.t('form.cancel'),
+          showFooter: false,
+          secondary: null,
+&nbsp;
+          onClose: <span class="fstat-no" title="function not covered" >function onClose() {</span>
+<span class="cstat-no" title="statement not covered" >            var self = this;</span>
+<span class="cstat-no" title="statement not covered" >            switch (kerberosWizardController.get('currentStep')) {</span>
+              case "2":
+<span class="cstat-no" title="statement not covered" >                var step2Controller = router.get('kerberosWizardStep2Controller');</span>
+<span class="cstat-no" title="statement not covered" >                if (step2Controller.get('testConnectionInProgress')) {</span>
+<span class="cstat-no" title="statement not covered" >                  step2Controller.showConnectionInProgressPopup(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                    kerberosWizardController.warnBeforeExitPopup(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                      self.exitWizard();</span>
+                    }, false);
+                  });
+                } else {
+<span class="cstat-no" title="statement not covered" >                  kerberosWizardController.warnBeforeExitPopup(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                    self.exitWizard();</span>
+                  }, false);
+                }
+<span class="cstat-no" title="statement not covered" >                break;</span>
+              case "6":
+              case "7":
+<span class="cstat-no" title="statement not covered" >                kerberosWizardController.warnBeforeExitPopup(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                  self.exitWizard();</span>
+                }, true);
+<span class="cstat-no" title="statement not covered" >                break;</span>
+              case "8":
+<span class="cstat-no" title="statement not covered" >                kerberosWizardController.warnBeforeExitPopup(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                  self.exitWizard(true);</span>
+                }, false);
+<span class="cstat-no" title="statement not covered" >                break;</span>
+              default:
+<span class="cstat-no" title="statement not covered" >                kerberosWizardController.warnBeforeExitPopup(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                  self.exitWizard();</span>
+                }, false);
+            }
+          },
+          didInsertElement: <span class="fstat-no" title="function not covered" >function didInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >            this._super();</span>
+<span class="cstat-no" title="statement not covered" >            this.fitHeight();</span>
+          },
+&nbsp;
+          exitWizard: <span class="fstat-no" title="function not covered" >function exitWizard(skipDiscardChanges) {</span>
+<span class="cstat-no" title="statement not covered" >            var controller = App.router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >            var exitPath = controller.getDBProperty('onClosePath') || 'adminKerberos.index';</span>
+<span class="cstat-no" title="statement not covered" >            controller.clearTasksData();</span>
+<span class="cstat-no" title="statement not covered" >            if (skipDiscardChanges) {</span>
+<span class="cstat-no" title="statement not covered" >              controller.resetOnClose(controller, exitPath);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              controller.discardChanges().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                controller.resetOnClose(controller, exitPath);</span>
+              });
+            }
+          }
+        });
+<span class="cstat-no" title="statement not covered" >        kerberosWizardController.set('popup', popup);</span>
+<span class="cstat-no" title="statement not covered" >        var currentClusterStatus = App.clusterStatus.get('value');</span>
+<span class="cstat-no" title="statement not covered" >        if (currentClusterStatus) {</span>
+<span class="cstat-no" title="statement not covered" >          if (App.get('testMode')) {</span>
+<span class="cstat-no" title="statement not covered" >            kerberosWizardController.setCurrentStep(App.db.data.KerberosWizard.currentStep);</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            switch (currentClusterStatus.clusterState) {</span>
+              case 'KERBEROS_DEPLOY':
+<span class="cstat-no" title="statement not covered" >                kerberosWizardController.setCurrentStep(currentClusterStatus.localdb.KerberosWizard.currentStep);</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+              default:
+<span class="cstat-no" title="statement not covered" >                var currStep = App.get('router.kerberosWizardController.currentStep');</span>
+<span class="cstat-no" title="statement not covered" >                kerberosWizardController.setCurrentStep(currStep);</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        Em.run.next(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          App.router.get('wizardWatcherController').setUser(kerberosWizardController.get('name'));</span>
+<span class="cstat-no" title="statement not covered" >          router.transitionTo('step' + kerberosWizardController.get('currentStep'));</span>
+        });
+      });
+    },
+&nbsp;
+    step1: App.StepRoute.extend({
+      route: '/step1',
+&nbsp;
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('kerberosWizardController').setCurrentStep('1');</span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            controller.connectOutlet('kerberosWizardStep1', controller.get('content'));</span>
+          });
+        });
+      },
+&nbsp;
+      unroutePath: <span class="fstat-no" title="function not covered" >function unroutePath() {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      },
+&nbsp;
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosWizardController = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosStep1controller = router.get('kerberosWizardStep1Controller');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        kerberosWizardController.saveKerberosOption(kerberosStep1controller);</span>
+<span class="cstat-no" title="statement not covered" >        kerberosWizardController.clearServiceConfigProperties();</span>
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step2');</span>
+      }
+    }),
+&nbsp;
+    step2: App.StepRoute.extend({
+      route: '/step2',
+&nbsp;
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('kerberosWizardController').setCurrentStep('2');</span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            var kerberosWizardStep2Controller = router.get('kerberosWizardStep2Controller');</span>
+<span class="cstat-no" title="statement not covered" >            kerberosWizardStep2Controller.set('wizardController', controller);</span>
+<span class="cstat-no" title="statement not covered" >            controller.connectOutlet('kerberosWizardStep2', controller.get('content'));</span>
+          });
+        });
+      },
+      unroutePath: <span class="fstat-no" title="function not covered" >function unroutePath() {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      },
+      backTransition: <span class="fstat-no" title="function not covered" >function backTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('kerberosWizardStep2Controller');</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosWizardController = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        kerberosWizardController.overrideVisibility(controller.get('configs'), true, []);</span>
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step1');</span>
+      },
+&nbsp;
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosWizardController = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosWizardStep2Controller = router.get('kerberosWizardStep2Controller');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (kerberosWizardController.get('skipClientInstall')) {</span>
+<span class="cstat-no" title="statement not covered" >          kerberosWizardStep2Controller.get('stepConfigs')[0].get('configs').findProperty('name', 'manage_identities').set('value', 'false');</span>
+<span class="cstat-no" title="statement not covered" >          kerberosWizardStep2Controller.get('stepConfigs')[0].get('configs').findProperty('name', 'install_packages').set('value', 'false');</span>
+<span class="cstat-no" title="statement not covered" >          kerberosWizardStep2Controller.get('stepConfigs')[0].get('configs').findProperty('name', 'manage_krb5_conf').set('value', 'false');</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        kerberosWizardController.saveServiceConfigProperties(kerberosWizardStep2Controller, true);</span>
+<span class="cstat-no" title="statement not covered" >        kerberosWizardController.clearTasksData();</span>
+<span class="cstat-no" title="statement not covered" >        if (kerberosWizardController.get('skipClientInstall')) {</span>
+<span class="cstat-no" title="statement not covered" >          kerberosWizardController.setDBProperty('kerberosDescriptorConfigs', null);</span>
+<span class="cstat-no" title="statement not covered" >          router.transitionTo('step4');</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          router.transitionTo('step3');</span>
+        }
+      }
+    }),
+&nbsp;
+    step3: App.StepRoute.extend({
+      route: '/step3',
+&nbsp;
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('kerberosWizardController').setCurrentStep('3');</span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            controller.connectOutlet('kerberosWizardStep3', controller.get('content'));</span>
+          });
+        });
+      },
+      unroutePath: <span class="fstat-no" title="function not covered" >function unroutePath() {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      },
+      back: Em.Router.transitionTo('step2'),
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosWizardController = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        kerberosWizardController.setDBProperty('kerberosDescriptorConfigs', null);</span>
+<span class="cstat-no" title="statement not covered" >        kerberosWizardController.clearCachedStepConfigValues(router.get('kerberosWizardStep4Controller'));</span>
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step4');</span>
+      }
+    }),
+&nbsp;
+    step4: App.StepRoute.extend({
+      route: '/step4',
+&nbsp;
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        var step4Controller = router.get('kerberosWizardStep4Controller');</span>
+<span class="cstat-no" title="statement not covered" >        controller.setCurrentStep(4);</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('kerberosWizardController').setCurrentStep('4');</span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            controller.setLowerStepsDisable(4);</span>
+<span class="cstat-no" title="statement not covered" >            step4Controller.set('wizardController', controller);</span>
+<span class="cstat-no" title="statement not covered" >            controller.connectOutlet('kerberosWizardStep4', controller.get('content'));</span>
+          });
+        });
+      },
+      unroutePath: <span class="fstat-no" title="function not covered" >function unroutePath() {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      },
+      backTransition: <span class="fstat-no" title="function not covered" >function backTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        if (router.get('kerberosWizardController.skipClientInstall')) {</span>
+<span class="cstat-no" title="statement not covered" >          router.transitionTo('step2');</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          router.transitionTo('step3');</span>
+        }
+      },
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var wizardCtrl = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        var step5Controller = router.get('kerberosWizardStep5Controller');</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosDescriptor = wizardCtrl.get('kerberosDescriptorConfigs');</span>
+<span class="cstat-no" title="statement not covered" >        wizardCtrl.cacheStepConfigValues(router.get('kerberosWizardStep4Controller'));</span>
+<span class="cstat-no" title="statement not covered" >        step5Controller.postKerberosDescriptor(kerberosDescriptor).always(<span class="fstat-no" title="function not covered" >function (data, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (result === 'error' &amp;&amp; data.status === 409) {</span>
+<span class="cstat-no" title="statement not covered" >            step5Controller.putKerberosDescriptor(kerberosDescriptor);</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            step5Controller.unkerberizeCluster();</span>
+          }
+        });
+      }
+    }),
+&nbsp;
+    step5: App.StepRoute.extend({
+      route: '/step5',
+&nbsp;
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('kerberosWizardController').setCurrentStep('5');</span>
+<span class="cstat-no" title="statement not covered" >          controller.setLowerStepsDisable(5);</span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            controller.connectOutlet('kerberosWizardStep5', controller.get('content'));</span>
+          });
+        });
+      },
+&nbsp;
+      unroutePath: <span class="fstat-no" title="function not covered" >function unroutePath() {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      },
+&nbsp;
+      exitWizard: <span class="fstat-no" title="function not covered" >function exitWizard(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var popup = router.get('kerberosWizardController.popup');</span>
+<span class="cstat-no" title="statement not covered" >        popup.onClose();</span>
+      },
+&nbsp;
+      downloadCSV: <span class="fstat-no" title="function not covered" >function downloadCSV(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosWizardStep5Controller = router.get('kerberosWizardStep5Controller');</span>
+<span class="cstat-no" title="statement not covered" >        kerberosWizardStep5Controller.getCSVData();</span>
+      },
+&nbsp;
+      backTransition: Em.Router.transitionTo('step4'),
+&nbsp;
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosWizardController = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        kerberosWizardController.setDBProperties({</span>
+          tasksStatuses: null,
+          tasksRequestIds: null
+        });
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step6');</span>
+      }
+    }),
+&nbsp;
+    step6: App.StepRoute.extend({
+      route: '/step6',
+&nbsp;
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('kerberosWizardController').setCurrentStep('6');</span>
+<span class="cstat-no" title="statement not covered" >          controller.setLowerStepsDisable(6);</span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            controller.connectOutlet('kerberosWizardStep6', controller.get('content'));</span>
+          });
+        });
+      },
+      unroutePath: <span class="fstat-no" title="function not covered" >function unroutePath() {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      },
+      backTransition: Em.Router.transitionTo('step4'),
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var kerberosWizardController = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        kerberosWizardController.setDBProperties({</span>
+          tasksStatuses: null,
+          tasksRequestIds: null
+        });
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step7');</span>
+      }
+    }),
+&nbsp;
+    step7: App.StepRoute.extend({
+      route: '/step7',
+&nbsp;
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        var step7Controller = router.get('kerberosWizardStep7Controller');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('kerberosWizardController').setCurrentStep('7');</span>
+<span class="cstat-no" title="statement not covered" >          controller.setLowerStepsDisable(7);</span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            step7Controller.setRequest();</span>
+<span class="cstat-no" title="statement not covered" >            controller.connectOutlet('kerberosWizardStep7', controller.get('content'));</span>
+          });
+        });
+      },
+      unroutePath: <span class="fstat-no" title="function not covered" >function unroutePath() {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      },
+      backTransition: Em.Router.transitionTo('step4'),
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step8');</span>
+      }
+    }),
+&nbsp;
+    step8: App.StepRoute.extend({
+      route: '/step8',
+&nbsp;
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('kerberosWizardController').setCurrentStep('8');</span>
+<span class="cstat-no" title="statement not covered" >          controller.setLowerStepsDisable(8);</span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            controller.connectOutlet('kerberosWizardStep8', controller.get('content'));</span>
+          });
+        });
+      },
+      unroutePath: <span class="fstat-no" title="function not covered" >function unroutePath() {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      },
+      backTransition: Em.Router.transitionTo('step7'),
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('kerberosWizardController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.resetOnClose(controller, 'adminKerberos.index');</span>
+      }
+    })
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

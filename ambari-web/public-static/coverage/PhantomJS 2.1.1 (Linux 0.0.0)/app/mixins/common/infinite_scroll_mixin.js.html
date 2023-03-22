@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/mixins/common/infinite_scroll_mixin.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/mixins/common/infinite_scroll_mixin.js</span></h1>
+    <h2>
+        Statements: <span class="metric">8.11% <small>(3 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">6.25% <small>(1 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">8.33% <small>(3 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/mixins/common/</a> &#187; infinite_scroll_mixin.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("mixins/common/infinite_scroll_mixin", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  /**
+  * @typedef {Object} InfiniteScrollMixinOptions
+  * @property {String} appendHtml html to append when scroll ends and callback executed. It's common
+  *   that root node has unique &lt;code&gt;id&lt;/code&gt; or &lt;code&gt;class&lt;/code&gt; attributes.
+  * @property {Function} callback function to execute when scroll ends. This function should return
+  *   &lt;code&gt;$.Deferred().promise()&lt;/code&gt; instance
+  * @property {Function} onReject function to execute when &lt;code&gt;callback&lt;/code&gt; rejected.
+  */
+&nbsp;
+  /**
+   * @mixin App.InfiniteScrollMixin
+   * This mixin provides methods to attach infinite scroll to specific scrollable element.
+   *
+   * Usage:
+   * &lt;code&gt;
+   *  // mix it
+   *  var myView = Em.View.extend(App.InfiniteScrollMixin, {
+   *    didInsertElement: function() {
+   *    	// call method infiniteScrollInit
+   *    	this.infiniteScrollInit($('.some-scrollable'), {
+   *    		callback: this.someCallbacOnEndReached
+   *    	});
+   *    }
+   *  });
+   * &lt;/code&gt;
+   *
+   */
+  App.InfiniteScrollMixin = Ember.Mixin.create({
+&nbsp;
+    /**
+     * Stores callback execution progress.
+     *
+     * @type {Boolean}
+     */
+    _infiniteScrollCallbackInProgress: false,
+&nbsp;
+    /**
+     * Stores HTMLElement infinite scroll initiated on.
+     *
+     * @type {HTMLElement}
+     */
+    _infiniteScrollEl: null,
+&nbsp;
+    /**
+     * Default options for infinite scroll.
+     *
+     * @type {InfiniteScrollMixinOptions}
+     */
+    _infiniteScrollDefaults: {
+      appendHtml: '&lt;div id="infinite-scroll-append"&gt;&lt;i class="icon-spinner icon-spin"&gt;&lt;/i&gt;&lt;/div&gt;',
+      callback: <span class="fstat-no" title="function not covered" >function callback() {</span>
+<span class="cstat-no" title="statement not covered" >        return $.Deferred().resolve().promise();</span>
+      },
+      onReject: <span class="fstat-no" title="function not covered" >function onReject() {</span>},
+      onResolve: <span class="fstat-no" title="function not covered" >function onResolve() {</span>}
+    },
+&nbsp;
+    /**
+     * Determines that there is no data to load on next callback call.
+     *
+     */
+    _infiniteScrollMoreData: true,
+&nbsp;
+    /**
+     * Initialize infinite scroll on specified HTMLElement.
+     *
+     * @param  {HTMLElement} el DOM element to attach infinite scroll.
+     * @param  {InfiniteScrollMixinOptions} opts
+     */
+    infiniteScrollInit: <span class="fstat-no" title="function not covered" >function infiniteScrollInit(el, opts) {</span>
+<span class="cstat-no" title="statement not covered" >      var options = $.extend({}, this.get('_infiniteScrollDefaults'), opts || {});</span>
+<span class="cstat-no" title="statement not covered" >      this.set('_infiniteScrollEl', el);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('_infiniteScrollEl').on('scroll', this._infiniteScrollHandler.bind(this));</span>
+<span class="cstat-no" title="statement not covered" >      this.get('_infiniteScrollEl').on('infinite-scroll-end', this._infiniteScrollEndHandler(options).bind(this));</span>
+    },
+&nbsp;
+    /**
+     * Handler executed on scrolling.
+     * @param  {jQuery.Event} e
+     */
+    _infiniteScrollHandler: <span class="fstat-no" title="function not covered" >function _infiniteScrollHandler(e) {</span>
+<span class="cstat-no" title="statement not covered" >      var el = $(e.target);</span>
+<span class="cstat-no" title="statement not covered" >      var height = el.get(0).clientHeight;</span>
+<span class="cstat-no" title="statement not covered" >      var scrollHeight = el.prop('scrollHeight');</span>
+<span class="cstat-no" title="statement not covered" >      var endPoint = scrollHeight - height;</span>
+<span class="cstat-no" title="statement not covered" >      if (endPoint === el.scrollTop() &amp;&amp; !this.get('_infiniteScrollCallbackInProgress')) {</span>
+<span class="cstat-no" title="statement not covered" >        el.trigger('infinite-scroll-end');</span>
+      }
+    },
+&nbsp;
+    /**
+     * Handler called when scroll ends.
+     *
+     * @param  {InfiniteScrollMixinOptions} options
+     * @return {Function}
+     */
+    _infiniteScrollEndHandler: <span class="fstat-no" title="function not covered" >function _infiniteScrollEndHandler(options) {</span>
+<span class="cstat-no" title="statement not covered" >      return <span class="fstat-no" title="function not covered" >function (e) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+<span class="cstat-no" title="statement not covered" >        if (this.get('_infiniteScrollCallbackInProgress') || !this.get('_infiniteScrollMoreData')) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        this._infiniteScrollAppendHtml(options.appendHtml);</span>
+        // always scroll to bottom
+<span class="cstat-no" title="statement not covered" >        this.get('_infiniteScrollEl').scrollTop(this.get('_infiniteScrollEl').get(0).scrollHeight);</span>
+<span class="cstat-no" title="statement not covered" >        this.set('_infiniteScrollCallbackInProgress', true);</span>
+<span class="cstat-no" title="statement not covered" >        options.callback().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          options.onResolve();</span>
+        }, <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >          options.onReject();</span>
+        }).always(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >          self.set('_infiniteScrollCallbackInProgress', false);</span>
+<span class="cstat-no" title="statement not covered" >          self._infiniteScrollRemoveHtml(options.appendHtml);</span>
+        });
+      }.bind(this);
+    },
+&nbsp;
+    /**
+     * Helper function to append String as html node to.
+     * @param  {String} htmlString string to append
+     */
+    _infiniteScrollAppendHtml: <span class="fstat-no" title="function not covered" >function _infiniteScrollAppendHtml(htmlString) {</span>
+<span class="cstat-no" title="statement not covered" >      this.get('_infiniteScrollEl').append(htmlString);</span>
+    },
+&nbsp;
+    /**
+     * Remove HTMLElement by specified string that can be converted to html. HTMLElement root node
+     * should have unique &lt;code&gt;id&lt;/code&gt; or &lt;code&gt;class&lt;/code&gt; attribute to avoid removing additional
+     * elements.
+     *
+     * @param  {String} htmlString string to remove
+     */
+    _infiniteScrollRemoveHtml: <span class="fstat-no" title="function not covered" >function _infiniteScrollRemoveHtml(htmlString) {</span>
+<span class="cstat-no" title="statement not covered" >      this.get('_infiniteScrollEl').find(this._infiniteScrollGetSelector(htmlString)).remove();</span>
+    },
+&nbsp;
+    /**
+     * Get root node selector.
+     * &lt;code&gt;id&lt;/code&gt; attribute has higher priority and will return if found.
+     * &lt;code&gt;class&lt;/code&gt; if no &lt;code&gt;id&lt;/code&gt; attribute found &lt;code&gt;class&lt;/code&gt; attribute
+     * will be used.
+     *
+     * @param  {String} htmlString string processed as HTML
+     * @return {[type]}            [description]
+     */
+    _infiniteScrollGetSelector: <span class="fstat-no" title="function not covered" >function _infiniteScrollGetSelector(htmlString) {</span>
+<span class="cstat-no" title="statement not covered" >      var html = $(htmlString);</span>
+<span class="cstat-no" title="statement not covered" >      var elId = html.attr('id');</span>
+<span class="cstat-no" title="statement not covered" >      var elClass = (html.attr('class') || '').split(' ').join('.');</span>
+<span class="cstat-no" title="statement not covered" >      html = null;</span>
+<span class="cstat-no" title="statement not covered" >      return !!elId ? '#' + elId : '.' + elClass;</span>
+    },
+&nbsp;
+    /**
+     * Remove infinite scroll.
+     * Unbind all listeners.
+     */
+    infiniteScrollDestroy: <span class="fstat-no" title="function not covered" >function infiniteScrollDestroy() {</span>
+<span class="cstat-no" title="statement not covered" >      this.get('_infiniteScrollEl').off('scroll', this._infiniteScrollHandler);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('_infiniteScrollEl').off('infinite-scroll-end', this._infiniteScrollHandler);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('_infiniteScrollEl', null);</span>
+    },
+&nbsp;
+    /**
+     * Set if there is more data to load on next scroll end event.
+     * @param {boolean} isAvailable &lt;code&gt;true&lt;/code&gt; when there are more data to fetch
+     */
+    infiniteScrollSetDataAvailable: <span class="fstat-no" title="function not covered" >function infiniteScrollSetDataAvailable(isAvailable) {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('_infiniteScrollMoreData', isAvailable);</span>
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

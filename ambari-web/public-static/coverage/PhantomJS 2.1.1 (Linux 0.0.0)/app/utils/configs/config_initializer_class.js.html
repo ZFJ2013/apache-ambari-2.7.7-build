@@ -1,0 +1,1173 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/utils/configs/config_initializer_class.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/utils/configs/config_initializer_class.js</span></h1>
+    <h2>
+        Statements: <span class="metric">98.63% <small>(72 / 73)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">80% <small>(16 / 20)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(13 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">98.63% <small>(72 / 73)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/utils/configs/</a> &#187; config_initializer_class.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-yes">353</span>
+<span class="cline-any cline-yes">353</span>
+<span class="cline-any cline-yes">353</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">353</span>
+<span class="cline-any cline-yes">353</span>
+<span class="cline-any cline-yes">353</span>
+<span class="cline-any cline-yes">353</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">349</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">353</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">455</span>
+<span class="cline-any cline-yes">455</span>
+<span class="cline-any cline-yes">455</span>
+<span class="cline-any cline-yes">455</span>
+<span class="cline-any cline-yes">337</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">118</span>
+<span class="cline-any cline-yes">118</span>
+<span class="cline-any cline-yes">118</span>
+<span class="cline-any cline-yes">56</span>
+<span class="cline-any cline-yes">56</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">62</span>
+<span class="cline-any cline-yes">62</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">29</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">29</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-yes">276</span>
+<span class="cline-any cline-yes">276</span>
+<span class="cline-any cline-yes">285</span>
+<span class="cline-any cline-yes">285</span>
+<span class="cline-any cline-yes">285</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">276</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">127</span>
+<span class="cline-any cline-yes">127</span>
+<span class="cline-any cline-yes">97</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">127</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("utils/configs/config_initializer_class", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  /**
+   * @typedef {object} initializer
+   * @property {string} type initializer type name
+   * @property {boolean} [isChecker] determines control flow callback
+   */
+&nbsp;
+  /**
+   * @typedef {object} initializerType
+   * @property {string} name key
+   * @property {string} method function's name (prefer to start method-name with '_init' or '_initAs'). Each method here is called with arguments equal to &lt;code&gt;initialValue&lt;/code&gt;-call args. Initializer-settings are added as last argument
+   */
+&nbsp;
+  /**
+   * Minimal fields-list that should be in the config-object
+   * There is no way to set value without any of them
+   *
+   * @typedef {object} configProperty
+   * @property {string} name config's name
+   * @property {number|string} value current value
+   * @property {string} filename file name where this config is
+   * @property {number|string} [recommendedValue] value which is recommended
+   */
+&nbsp;
+  /**
+   * Basic class for config-initializers
+   * Each child should fill &lt;code&gt;initializers&lt;/code&gt; or &lt;code&gt;uniqueInitializers&lt;/code&gt; and &lt;code&gt;initializerTypes&lt;/code&gt;
+   * Usage:
+   * &lt;pre&gt;
+   * var myCoolInitializer = App.ConfigInitializerClass.create({
+   *  initializers: {
+   *    'my-cool-config': {
+   *      type: 'some_type'
+   *    }
+   *  },
+   *
+   *  initializerTypes: {
+   *    some_type: {
+   *      method: '_initAsCool'
+   *    }
+   *  },
+   *
+   *  _initAsCool: function (configProperty, localDB, dependencies, initializer) {
+   *    // some magic
+   *    return configProperty;
+   *  }
+   * });
+   *
+   * var myConfig = { name: 'my-cool-config' };
+   * var localDB = getLocalDB();
+   * var dependencies = {};
+   * myCoolInitializer.initialValue(myConfig, localDB, dependencies);
+   * &lt;/pre&gt;
+   * &lt;code&gt;dependencies&lt;/code&gt; - it's an object with almost any information that might be needed to set config's value. It
+   * shouldn't contain App.*-flags like 'isHaEnabled' or 'isHadoop2Stack'. They might be accessed directly from App. But something
+   * bigger data should be pulled to the &lt;code&gt;dependencies&lt;/code&gt;.
+   * Information about cluster's hosts, topology of master components should be in the &lt;code&gt;localDB&lt;/code&gt;
+   *
+   * @type {ConfigInitializerClass}
+   * @augments {Em.Object}
+   */
+  App.ConfigInitializerClass = Em.Object.extend({
+&nbsp;
+    _initializerFlowCode: {
+      next: 0,
+      skipNext: 1,
+      skipAll: 2
+    },
+&nbsp;
+    concatenatedProperties: ['initializerTypes'],
+&nbsp;
+    /**
+     * Map with configurations for config initializers
+     * It's used only for initializers which are common for some configs (if not - use &lt;code&gt;uniqueInitializers&lt;/code&gt;-map)
+     * Key {string} configProperty-name
+     * Value {initializer|initializer[]} settings for initializer
+     *
+     * @type {object}
+     */
+    initializers: {},
+&nbsp;
+    /**
+     * Map with initializers types
+     * It's not overridden in the child-classes (@see Ember's concatenatedProperties)
+     *
+     * @type {initializerType[]}
+     */
+    initializerTypes: [],
+&nbsp;
+    /**
+     * Map with initializers that are used only for one config (are unique)
+     * Key: configProperty-name
+     * Value: method-name
+     * Every method from this map is called with same arguments as &lt;code&gt;initialValue&lt;/code&gt; is (prefer to start method-name with '_init' or '_initAs')
+     *
+     * @type {object}
+     */
+    uniqueInitializers: {},
+&nbsp;
+    /**
+     * Wrapper for common initializers
+     * Execute initializer if it is a function or throw an error otherwise
+     *
+     * @param {configProperty} configProperty
+     * @param {topologyLocalDB} localDB
+     * @param {object} dependencies
+     * @returns {Object}
+     * @private
+     */
+    _defaultInitializer: function _defaultInitializer(configProperty, localDB, dependencies) {
+      var args = [].slice.call(arguments);
+      var self = this;
+      var initializers = this.get('initializers');
+      var initializerTypes = this.get('initializerTypes');
+      var initializer = initializers[Em.get(configProperty, 'name')];
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (initializer) {
+        initializer = Em.makeArray(initializer);
+        var i = 0;
+        while (i &lt; initializer.length) {
+          var init = initializer[i];
+          var _args = [].slice.call(args);
+          var type = initializerTypes.findProperty('name', init.type);
+          // add initializer-settings
+          _args.push(init);
+          var methodName = type.method;
+          Em.assert('method-initializer is not a function ' + methodName, 'function' === Em.typeOf(self[methodName]));
+          if (init.isChecker) {
+            var result = self[methodName].apply(self, _args);
+            if (result === this.flowSkipNext()) {
+              i++; // skip next
+            } else {
+              <span class="missing-if-branch" title="if path not taken" >I</span>if (result === this.flowSkipAll()) {
+<span class="cstat-no" title="statement not covered" >                break;</span>
+              }
+            }
+          } else {
+            configProperty = self[methodName].apply(self, _args);
+          }
+          i++;
+        }
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Entry-point for any config's value initializing
+     * Before calling it, be sure that &lt;code&gt;initializers&lt;/code&gt; or &lt;code&gt;uniqueInitializers&lt;/code&gt;
+     * contains record about needed configs
+     *
+     * @param {configProperty} configProperty
+     * @param {topologyLocalDB} localDB
+     * @param {object} dependencies
+     * @returns {Object}
+     * @method initialValue
+     */
+    initialValue: function initialValue(configProperty, localDB, dependencies) {
+      var configName = Em.get(configProperty, 'name');
+      var initializers = this.get('initializers');
+      var initializer = initializers[configName];
+      if (initializer) {
+        return this._defaultInitializer(configProperty, localDB, dependencies);
+      }
+&nbsp;
+      var uniqueInitializers = this.get('uniqueInitializers');
+      var uniqueInitializer = uniqueInitializers[configName];
+      if (uniqueInitializer) {
+        var args = [].slice.call(arguments);
+        return this[uniqueInitializer].apply(this, args);
+      }
+      Em.set(configProperty, 'initialValue', Em.get(configProperty, 'value'));
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Should do some preparing for initializing-process
+     * Shouldn't be redefined without needs
+     * Should be used before any &lt;code&gt;initialValue&lt;/code&gt;-calls (if needed)
+     *
+     * @method setup
+     */
+    setup: Em.K,
+&nbsp;
+    /**
+     * Should restore Initializer's to the initial state
+     * Basically, should revert changes done in the &lt;code&gt;setup&lt;/code&gt;
+     *
+     * @method cleanup
+     */
+    cleanup: Em.K,
+&nbsp;
+    /**
+     * Setup &lt;code&gt;initializers&lt;/code&gt;
+     * There are some configs with names based on other config's values.
+     * Example: config with name &lt;code&gt;hadoop.proxyuser.{{oozieUser}}.hosts&lt;/code&gt;
+     * Here &lt;code&gt;{{oozieUser}}&lt;/code&gt; is value of the config &lt;code&gt;['oozie-env']['oozie_user']&lt;/code&gt;.
+     * So, when &lt;code&gt;initializers&lt;/code&gt; are manually set up in the Initializer-instance, there is no way to populate initializer
+     * for such configs. Reason: each initializer's key is a config-name which is compared strictly to the provided config-name.
+     * Solution: use config-names with placeholders. Example: &lt;code&gt;hadoop.proxyuser.${oozieUser}.hosts&lt;/code&gt;
+     * In this case, before calling &lt;code&gt;initialValue&lt;/code&gt; this key should be updated with real value. And it should be done
+     * in the common way for the all such configs.
+     * Code example:
+     * &lt;pre&gt;
+     *   var mySettings = {
+     *    oozieUser: 'someDude'
+     *   };
+     *
+     *   var myCoolInitializer = App.MoveComponentConfigInitializerClass.create({
+     *    initializers: {
+     *      'hadoop.proxyuser.{{oozieUser}}.hosts': {
+     *        // some setting are here
+     *      }
+     *    },
+     *
+     *    setup: function (settings) {
+     *      this._updateInitializers(settings);
+     *    },
+     *
+     *    cleanup: function () {
+     *      this._restoreInitializers();
+     *    }
+     *
+     *   });
+     *
+     *   myCoolInitializer.setup(mySettings); // after this call `myCoolInitializer.initializers` will contain two keys
+     *   console.log(myCoolInitializer.initializers); // {'hadoop.proxyuser.{{oozieUser}}.hosts': {}, 'hadoop.proxyuser.someDude.hosts': {}}
+     *   // it's possible to call `initialValue` now
+     *   myCoolInitializer.initialValue({name: 'hadoop.proxyuser.someDude.hosts', value: ''}, {}, {});
+     *   myCoolInitializer.cleanup(); // after updating values for the all configs
+     * &lt;/pre&gt;
+     * Additional key in the &lt;code&gt;initializers&lt;/code&gt; won't cause any issues.
+     * Keep in mind replacing-rules:
+     * &lt;ul&gt;
+     *  &lt;li&gt;Each field in the &lt;code&gt;settings&lt;/code&gt; should be a string or number&lt;/li&gt;
+     *  &lt;li&gt;Substring that will be replaced should be wrapped with '{{', '}}'&lt;/li&gt;
+     *  &lt;li&gt;Each field is searched in the each initializers-key, so try to avoid names-collision&lt;/li&gt;
+     *  &lt;li&gt;Value for 'new' key is the same as for 'old' ('hadoop.proxyuser.{{oozieUser}}.hosts' and 'hadoop.proxyuser.someDude.hosts' will have same initializer)&lt;/li&gt;
+     * &lt;/ul&gt;
+     * &lt;b&gt;Important! Be sure, that you call &lt;code&gt;_restoreInitializers&lt;/code&gt; before calling &lt;code&gt;_updateInitializers&lt;/code&gt; second time&lt;/b&gt;
+     *
+     * @param {object} settings
+     * @method _updateInitializers
+     */
+    _updateInitializers: function _updateInitializers(settings) {
+      settings = settings || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+      var originalInitializers = this.get('initializers');
+      var copyInitializers = Em.copy(originalInitializers, true);
+      this.set('__copyInitializers', copyInitializers);
+      var initializers = this._updateNames('initializers', settings);
+      this._setForComputed('initializers', initializers);
+&nbsp;
+      var originalUniqueInitializers = this.get('uniqueInitializers');
+      var copyUniqueInitializers = Em.copy(originalUniqueInitializers, true);
+      this.set('__copyUniqueInitializers', copyUniqueInitializers);
+      var uniqueInitializers = this._updateNames('uniqueInitializers', settings);
+      this._setForComputed('uniqueInitializers', uniqueInitializers);
+    },
+&nbsp;
+    /**
+     * Revert names changes done in the &lt;code&gt;_updateInitializers&lt;/code&gt;
+     *
+     * @method _restoreInitializers
+     */
+    _restoreInitializers: function _restoreInitializers() {
+      var copyInitializers = this.get('__copyInitializers');
+      var copyUniqueInitializers = this.get('__copyUniqueInitializers');
+      if ('object' === Em.typeOf(copyInitializers)) {
+        this._setForComputed('initializers', Em.copy(copyInitializers, true));
+      }
+      if ('object' === Em.typeOf(copyUniqueInitializers)) {
+        this._setForComputed('uniqueInitializers', Em.copy(copyUniqueInitializers, true));
+      }
+    },
+&nbsp;
+    /**
+     * Replace list of &lt;code&gt;settings&lt;/code&gt; in the sourceKey
+     * Example:
+     * &lt;pre&gt;
+     *   var sourceKey = '{{A}},{{B}},{{C}}';
+     *   var settings = {A: 'a', B: 'b', C: 'c'};
+     *   sourceKey = _updateNames(sourceKey, settings);
+     *   console.log(sourceKey); // 'a,b,c'
+     * &lt;/pre&gt;
+     *
+     * @param {string} sourceKey
+     * @param {object} settings
+     * @returns {object}
+     * @private
+     * @method _updateNames
+     */
+    _updateNames: function _updateNames(sourceKey, settings) {
+      settings = settings || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+      var source = this.get(sourceKey);
+      Object.keys(source).forEach(function (configName) {
+        var initializer = source[configName];
+        Object.keys(settings).forEach(function (key) {
+          var replaceWith = settings[key];
+          var toReplace = '{{' + key + '}}';
+          configName = configName.replace(toReplace, replaceWith);
+        });
+        source[configName] = initializer;
+      });
+      return source;
+    },
+&nbsp;
+    flowNext: function flowNext() {
+      return this.get('_initializerFlowCode.next');
+    },
+&nbsp;
+    flowSkipNext: function flowSkipNext() {
+      return this.get('_initializerFlowCode.skipNext');
+    },
+&nbsp;
+    flowSkipAll: function flowSkipAll() {
+      return this.get('_initializerFlowCode.skipAll');
+    },
+&nbsp;
+    /**
+     * Set value for computed property using `reopen`. Currently used to update 'initializers'
+     * and 'uniqueInitializers'.
+     * Used to set value for props like:
+     * &lt;code&gt;cp: function() { }.property()&lt;/code&gt;
+     * &lt;code&gt;
+     * var obj = App.ConfigInitializerClass.create({
+     *   cp: function() {
+     *   		return {
+     *     		key: "value"
+     *   		}
+     *   }.property(),
+     *   setProp: function() {
+     *   		this.set('cp', {newKey: "new_value"}); // will not change `cp` value
+     *   },
+     *   updateProp: function() {
+     *   		this._setForComputed('cp', { newKey: "new_value"}); // will update
+     *   }
+     * });
+     *
+     * obj.get('cp'); // {key: "value"}
+     * obj.setProp();
+     * obj.get('cp'); // {key: "value"}
+     * obj.updateProp();
+     * obj.get('cp'); // {newKey: "new_value"}
+     * &lt;/code&gt;
+     * @private
+     * @param  {string} key
+     * @param  {*} value
+     */
+    _setForComputed: function _setForComputed(key, value) {
+      var obj = {};
+      obj[key] = function () {
+        return value;
+      }.property();
+      this.reopen(obj);
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

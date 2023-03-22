@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/log_tail_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/common/log_tail_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">4.6% <small>(4 / 87)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">3.57% <small>(1 / 28)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">4.94% <small>(4 / 81)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/</a> &#187; log_tail_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/common/log_tail_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var dateUtils = require('utils/date/date');
+&nbsp;
+  App.LogTailView = Em.View.extend(App.InfiniteScrollMixin, {
+    startIndex: 0,
+    selectedTailCount: 50,
+    autoResize: false,
+    logRows: Em.A([]),
+    totalCount: 0,
+    totalItems: 0,
+    lastLogTime: 0,
+    isDataReady: false,
+    refreshEnd: true,
+    pollLogs: true,
+    pollLogInterval: 2000,
+    pollLogTimeoutId: null,
+&nbsp;
+    oldLogsAvailable: false,
+    oldLogsIsFetching: false,
+&nbsp;
+    templateName: require('templates/common/log_tail'),
+&nbsp;
+    content: null,
+&nbsp;
+    isVisible: Em.computed.not('App.isClusterUser'),
+&nbsp;
+    /**
+     * elements size are:
+     * .modal margin 40px x 2
+     * .modal inner padding 15px x 2
+     * .top-wrap-header height + margin 60px
+     * .modal-footer 60px
+     * .log-tail-popup-info 45px
+     *
+     * @property {number} resizeDelta
+     */
+    resizeDelta: 15 * 2 + 60 + 60 + 40 + 45,
+&nbsp;
+    didInsertElement: <span class="fstat-no" title="function not covered" >function didInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      this.infiniteScrollInit(this.$('.log-tail-content'), {</span>
+        appendHtml: '&lt;span id="empty-span"&gt;&lt;/span&gt;'
+      });
+<span class="cstat-no" title="statement not covered" >      this.fetchRows({</span>
+        startIndex: 0
+      }).then(<span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >        var logs = self.fetchRowsSuccess(data);</span>
+<span class="cstat-no" title="statement not covered" >        self.infiniteScrollSetDataAvailable(true);</span>
+<span class="cstat-no" title="statement not covered" >        self.appendLogRows(logs.reverse());</span>
+<span class="cstat-no" title="statement not covered" >        self.saveLastTimestamp(logs);</span>
+<span class="cstat-no" title="statement not covered" >        self.set('isDataReady', true);</span>
+<span class="cstat-no" title="statement not covered" >        self.scrollToBottom();</span>
+<span class="cstat-no" title="statement not covered" >        self.startLogPolling();</span>
+      });
+<span class="cstat-no" title="statement not covered" >      this.subscribeResize();</span>
+    },
+&nbsp;
+    scrollToBottom: <span class="fstat-no" title="function not covered" >function scrollToBottom() {</span>
+<span class="cstat-no" title="statement not covered" >      Em.run.next(this, <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        this.$('.log-tail-content').scrollTop(this.$('.log-tail-content').prop('scrollHeight'));</span>
+      });
+    },
+&nbsp;
+    _infiniteScrollHandler: <span class="fstat-no" title="function not covered" >function _infiniteScrollHandler(e) {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      this._super(e);</span>
+<span class="cstat-no" title="statement not covered" >      if ($(e.target).scrollTop() === 0) {</span>
+<span class="cstat-no" title="statement not covered" >        if (this.get('noOldLogs') &amp;&amp; !this.get('oldLogsIsFetching')) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        self.set('oldLogsIsFetching', true);</span>
+<span class="cstat-no" title="statement not covered" >        this.fetchRows(this.oldestLogs()).then(<span class="fstat-no" title="function not covered" >function (data) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var oldestLog = self.get('logRows.0.logtime');</span>
+<span class="cstat-no" title="statement not covered" >          var logRows = self.fetchRowsSuccess(data).filter(<span class="fstat-no" title="function not covered" >function (i) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return parseInt(i.get('logtime'), 10) &lt; parseInt(oldestLog, 10);</span>
+          });
+<span class="cstat-no" title="statement not covered" >          if (logRows.length) {</span>
+<span class="cstat-no" title="statement not covered" >            self.get('logRows').unshiftObjects(logRows.reverse());</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            self.set('noOldLogs', true);</span>
+          }
+<span class="cstat-no" title="statement not covered" >          self.set('oldLogsIsFetching', false);</span>
+        });
+      }
+    },
+&nbsp;
+    willDestroyElement: <span class="fstat-no" title="function not covered" >function willDestroyElement() {</span>
+<span class="cstat-no" title="statement not covered" >      this._super();</span>
+<span class="cstat-no" title="statement not covered" >      this.stopLogPolling();</span>
+<span class="cstat-no" title="statement not covered" >      this.unsubscribeResize();</span>
+<span class="cstat-no" title="statement not covered" >      this.get('logRows').clear();</span>
+    },
+&nbsp;
+    resizeHandler: <span class="fstat-no" title="function not covered" >function resizeHandler() {</span>
+      // window.innerHeight * 0.1 = modal popup top 5% from both sides = 10%
+<span class="cstat-no" title="statement not covered" >      if (this.get('state') === 'destroyed') <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >      var newSize = $(window).height() - this.get('resizeDelta') - window.innerHeight * 0.08;</span>
+<span class="cstat-no" title="statement not covered" >      this.$().find('.log-tail-content.pre-styled').css('maxHeight', newSize + 'px');</span>
+    },
+&nbsp;
+    unsubscribeResize: <span class="fstat-no" title="function not covered" >function unsubscribeResize() {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('autoResize')) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >      $(window).off('resize', this.resizeHandler.bind(this));</span>
+    },
+&nbsp;
+    subscribeResize: <span class="fstat-no" title="function not covered" >function subscribeResize() {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('autoResize')) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >      this.resizeHandler();</span>
+<span class="cstat-no" title="statement not covered" >      $(window).on('resize', this.resizeHandler.bind(this));</span>
+    },
+&nbsp;
+    fetchRows: <span class="fstat-no" title="function not covered" >function fetchRows(opts) {</span>
+<span class="cstat-no" title="statement not covered" >      var options = $.extend({}, true, {</span>
+        startIndex: this.get('startIndex'),
+        pageSize: this.get('selectedTailCount')
+      }, opts || {});
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        sender: this,
+        name: 'logtail.get',
+        data: {
+          hostName: this.get('content.hostName'),
+          logComponentName: this.get('content.logComponentName'),
+          pageSize: "" + options.pageSize,
+          startIndex: "" + options.startIndex
+        },
+        error: 'fetchRowsError'
+      });
+    },
+&nbsp;
+    fetchRowsSuccess: <span class="fstat-no" title="function not covered" >function fetchRowsSuccess(data) {</span>
+<span class="cstat-no" title="statement not covered" >      var logRows = Em.getWithDefault(data, 'logList', []).map(<span class="fstat-no" title="function not covered" >function (logItem, i) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var item = App.keysUnderscoreToCamelCase(App.permit(logItem, ['log_message', 'logtime', 'level', 'id']));</span>
+<span class="cstat-no" title="statement not covered" >        item.logtimeFormatted = dateUtils.dateFormat(parseInt(item.logtime, 10), 'YYYY-MM-DD HH:mm:ss,SSS');</span>
+<span class="cstat-no" title="statement not covered" >        return Em.Object.create(item);</span>
+      });
+<span class="cstat-no" title="statement not covered" >      if (logRows.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >        this.infiniteScrollSetDataAvailable(false);</span>
+<span class="cstat-no" title="statement not covered" >        return [];</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return logRows;</span>
+    },
+&nbsp;
+    fetchRowsError: <span class="fstat-no" title="function not covered" >function fetchRowsError() {</span>},
+&nbsp;
+    /** actions **/
+&nbsp;
+    openInLogSearch: <span class="fstat-no" title="function not covered" >function openInLogSearch() {</span>},
+&nbsp;
+    refreshContent: <span class="fstat-no" title="function not covered" >function refreshContent() {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this,</span>
+          allIds;
+<span class="cstat-no" title="statement not covered" >      if (!this.get('refreshEnd')) {</span>
+<span class="cstat-no" title="statement not covered" >        return $.Deferred().resolve().promise();</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.set('refreshEnd', false);</span>
+      //this.infiniteScrollSetDataAvailable(true);
+<span class="cstat-no" title="statement not covered" >      allIds = this.get('logRows').mapProperty('id');</span>
+<span class="cstat-no" title="statement not covered" >      return this.fetchRows(this.currentPage()).then(<span class="fstat-no" title="function not covered" >function (data) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var logRows = self.fetchRowsSuccess(data).filter(<span class="fstat-no" title="function not covered" >function (i) {</span></span>
+<span class="cstat-no" title="statement not covered" >          return parseInt(i.logtime, 10) &gt; parseInt(self.get('lastLogTime'), 10) &amp;&amp; !allIds.contains(i.get('id'));</span>
+        });
+<span class="cstat-no" title="statement not covered" >        if (logRows.length) {</span>
+<span class="cstat-no" title="statement not covered" >          self.appendLogRows(logRows.reverse());</span>
+<span class="cstat-no" title="statement not covered" >          self.saveLastTimestamp(logRows);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        self.set('refreshEnd', true);</span>
+      });
+    },
+&nbsp;
+    appendLogRows: <span class="fstat-no" title="function not covered" >function appendLogRows(logRows) {</span>
+<span class="cstat-no" title="statement not covered" >      this.get('logRows').pushObjects(logRows);</span>
+    },
+&nbsp;
+    saveLastTimestamp: <span class="fstat-no" title="function not covered" >function saveLastTimestamp(logRows) {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('lastLogTime', Em.getWithDefault(logRows, '0.logtime', 0));</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('lastLogTime');</span>
+    },
+&nbsp;
+    currentPage: <span class="fstat-no" title="function not covered" >function currentPage() {</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        startIndex: 0,
+        pageSize: this.get('selectedTailCount')
+      };
+    },
+&nbsp;
+    nextPage: <span class="fstat-no" title="function not covered" >function nextPage() {</span>
+<span class="cstat-no" title="statement not covered" >      var newIndex = this.get('startIndex') + this.get('selectedTailCount');</span>
+<span class="cstat-no" title="statement not covered" >      if (newIndex &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        newIndex = 0;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.set('startIndex', newIndex);</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        startIndex: newIndex,
+        pageSize: this.get('selectedTailCount')
+      };
+    },
+&nbsp;
+    oldestLogs: <span class="fstat-no" title="function not covered" >function oldestLogs() {</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        startIndex: this.get('logRows.length'),
+        pageSize: this.get('selectedTailCount')
+      };
+    },
+&nbsp;
+    startLogPolling: <span class="fstat-no" title="function not covered" >function startLogPolling() {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('pollLogs') || this.get('state') === 'destroyed') <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >      this.set('pollLogTimeoutId', setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        self.stopLogPolling();</span>
+<span class="cstat-no" title="statement not covered" >        self.refreshContent().then(self.startLogPolling.bind(self));</span>
+      }, this.get('pollLogInterval')));
+    },
+&nbsp;
+    stopLogPolling: <span class="fstat-no" title="function not covered" >function stopLogPolling() {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('pollLogs') || this.get('pollLogTimeoutId') === null) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >      clearTimeout(this.get('pollLogTimeoutId'));</span>
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

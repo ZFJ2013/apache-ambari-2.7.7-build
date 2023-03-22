@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/main/admin/stack_upgrade/upgrade_history_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/main/admin/stack_upgrade/upgrade_history_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">48.08% <small>(50 / 104)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">35.71% <small>(15 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">53.85% <small>(14 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">48.08% <small>(50 / 104)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">app/views/main/admin/stack_upgrade/</a> &#187; upgrade_history_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/main/admin/stack_upgrade/upgrade_history_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var date = require('utils/date/date');
+  var arrayUtils = require('utils/array_utils');
+&nbsp;
+  App.MainAdminStackUpgradeHistoryView = App.TableView.extend(App.TableServerViewMixin, {
+&nbsp;
+    controllerBinding: 'App.router.mainAdminStackUpgradeHistoryController',
+&nbsp;
+    templateName: require('templates/main/admin/stack_upgrade/upgrade_history'),
+&nbsp;
+    summary: [],
+&nbsp;
+    isReady: false,
+&nbsp;
+    categories: [Em.Object.create({
+      labelKey: 'admin.stackVersions.upgradeHistory.filter.all',
+      value: 'ALL',
+      isSelected: true
+    }), Em.Object.create({
+      labelKey: 'admin.stackVersions.upgradeHistory.filter.upgrade',
+      value: 'UPGRADE',
+      isSelected: false
+    }), Em.Object.create({
+      labelKey: 'admin.stackVersions.upgradeHistory.filter.downgrade',
+      value: 'DOWNGRADE',
+      isSelected: false
+    }), Em.Object.create({
+      labelKey: 'admin.stackVersions.upgradeHistory.filter.successful.upgrade',
+      value: 'UPGRADE_COMPLETED',
+      isSelected: false
+    }), Em.Object.create({
+      labelKey: 'admin.stackVersions.upgradeHistory.filter.aborted.upgrade',
+      value: 'UPGRADE_ABORTED',
+      isSelected: false
+    }), Em.Object.create({
+      labelKey: 'admin.stackVersions.upgradeHistory.filter.failed.upgrade',
+      value: 'UPGRADE_FAILED',
+      isSelected: false
+    }), Em.Object.create({
+      labelKey: 'admin.stackVersions.upgradeHistory.filter.successful.downgrade',
+      value: 'DOWNGRADE_COMPLETED',
+      isSelected: false
+    }), Em.Object.create({
+      labelKey: 'admin.stackVersions.upgradeHistory.filter.aborted.downgrade',
+      value: 'DOWNGRADE_ABORTED',
+      isSelected: false
+    }), Em.Object.create({
+      labelKey: 'admin.stackVersions.upgradeHistory.filter.failed.downgrade',
+      value: 'DOWNGRADE_FAILED',
+      isSelected: false
+    })],
+    upgradeMethods: [Em.Object.create({
+      displayName: Em.I18n.t('common.rolling'),
+      type: 'ROLLING'
+    }), Em.Object.create({
+      displayName: Em.I18n.t('common.express'),
+      type: 'NON_ROLLING'
+    }), Em.Object.create({
+      displayName: Em.I18n.t('common.hostOrdered'),
+      type: 'HOST_ORDERED'
+    })],
+&nbsp;
+    /**
+     * @type {object}
+     */
+    selectedCategory: Em.computed.findBy('categories', 'isSelected', true),
+&nbsp;
+    filteredCount: Em.computed.alias('filteredContent.length'),
+&nbsp;
+    /**
+     * displaying content filtered by upgrade type and upgrade status.
+     */
+    filteredContent: function () {
+      var filterValue = 'ALL';
+      var category = this.get('selectedCategory');
+      if (category) {
+        filterValue = category.get('value');
+      }
+      return this.filterBy(filterValue).reverse();
+    }.property('selectedCategory'),
+&nbsp;
+    /**
+     * sort and slice received content by pagination parameters
+     */
+    pageContent: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var content = this.get('filteredContent').toArray();</span>
+<span class="cstat-no" title="statement not covered" >      content = this.processForDisplay(content);</span>
+<span class="cstat-no" title="statement not covered" >      content = content.slice(this.get('startIndex') - 1, this.get('endIndex'));</span>
+<span class="cstat-no" title="statement not covered" >      return content;</span>
+    }.property('filteredContent', 'startIndex', 'endIndex'),
+&nbsp;
+    processForDisplay: function processForDisplay(content) {
+      var upgradeMethods = this.get('upgradeMethods');
+      var repoVersions = App.RepositoryVersion.find();
+      return content.map(function (item) {
+        var versions = item.get('versions');
+        var repoVersion = repoVersions.findProperty('repositoryVersion', item.get('associatedVersion'));
+        var method = upgradeMethods.findProperty('type', item.get('upgradeType'));
+        return {
+          idHref: '#' + item.get('upgradeId'),
+          id: item.get('upgradeId'),
+          repositoryName: repoVersion.get('displayName'),
+          repositoryType: repoVersion.get('type').toLowerCase().capitalize(),
+          directionLabel: item.get('direction') === 'UPGRADE' ? Em.I18n.t('common.upgrade') : Em.I18n.t('common.downgrade'),
+          upgradeTypeLabel: method ? method.get('displayName') : method,
+          startTimeLabel: date.startTime(App.dateTimeWithTimeZone(item.get('startTime'))),
+          endTimeLabel: date.endTime(App.dateTimeWithTimeZone(item.get('endTime'))),
+          duration: date.durationSummary(item.get('startTime'), item.get('endTime')),
+          displayStatus: item.get('displayStatus'),
+          stackUpgradeHistoryItem: item,
+          services: this.getRepoServicesForDisplay(versions)
+        };
+      }, this);
+    },
+&nbsp;
+    getRepoServicesForDisplay: function getRepoServicesForDisplay(versions) {
+      return Object.keys(versions).map(function (serviceName) {
+        var displayName = App.RepositoryVersion.find(versions[serviceName].from_repository_id).get('stackServices').findProperty('name', serviceName).get('displayName');
+        return {
+          name: serviceName,
+          displayName: displayName,
+          fromVersion: versions[serviceName].from_repository_version,
+          toVersion: versions[serviceName].to_repository_version
+        };
+      });
+    },
+&nbsp;
+    paginationLeftClass: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get("startIndex") &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >        return "paginate_previous";</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return "paginate_disabled_previous";</span>
+    }.property("startIndex", 'filteredCount'),
+&nbsp;
+    /**
+     * Determines how display "next"-link - as link or text
+     * @type {string}
+     */
+    paginationRightClass: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get("endIndex") &lt; this.get("filteredCount")) {</span>
+<span class="cstat-no" title="statement not covered" >        return "paginate_next";</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return "paginate_disabled_next";</span>
+    }.property("endIndex", 'filteredCount'),
+&nbsp;
+    /**
+     * Show previous-page if user not in the first page
+     * @method previousPage
+     */
+    previousPage: <span class="fstat-no" title="function not covered" >function previousPage() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('paginationLeftClass') === 'paginate_previous') {</span>
+<span class="cstat-no" title="statement not covered" >        this._super();</span>
+      }
+    },
+&nbsp;
+    /**
+     * Show next-page if user not in the last page
+     * @method nextPage
+     */
+    nextPage: <span class="fstat-no" title="function not covered" >function nextPage() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('paginationRightClass') === 'paginate_next') {</span>
+<span class="cstat-no" title="statement not covered" >        this._super();</span>
+      }
+    },
+&nbsp;
+    willInsertElement: function willInsertElement() {
+      var self = this;
+      this.get('controller').loadStackUpgradeHistoryToModel().done(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        self.populateUpgradeHistorySummary();</span>
+      });
+    },
+&nbsp;
+    didInsertElement: function didInsertElement() {
+      this.observesCategories();
+      this.$(".accordion").on("show.bs.collapse hide.bs.collapse", <span class="fstat-no" title="function not covered" >function (e) {</span>
+<span class="cstat-no" title="statement not covered" >        $(e.target).siblings(".accordion-heading").find("i.accordion-toggle").toggleClass('icon-caret-right icon-caret-down');</span>
+      });
+&nbsp;
+      Em.run.later(this, function () {
+        App.tooltip($('.widest-column span'));
+      }, 1000);
+    },
+&nbsp;
+    observesCategories: function () {
+      this.get('categories').forEach(function (category) {
+        var label = Em.I18n.t(category.labelKey).format(this.filterBy(category.value).length);
+        category.set('label', label);
+      }, this);
+    }.observes('isReady'),
+&nbsp;
+    filterBy: function filterBy(filterValue) {
+      if ('ALL' == filterValue) {
+        var all_records = App.StackUpgradeHistory.find();
+        return all_records.toArray();
+      } else {
+        var tokens = filterValue.split('_');
+        var direction_token = null;
+        var status_token = null;
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (tokens.length == 1) {
+<span class="cstat-no" title="statement not covered" >          direction_token = tokens[0];</span>
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (tokens.length &gt; 1) {
+          direction_token = tokens[0];
+          status_token = tokens[1];
+        }
+&nbsp;
+        var result = [];
+        App.StackUpgradeHistory.find().forEach(function (item) {
+          var direction = item.get('direction');
+          if (direction == direction_token) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (status_token != null) {
+              //only for the given status
+              var status = item.get('requestStatus');
+              if (status == status_token) {
+                result.push(item);
+              }
+            } else {
+              //regardless status
+<span class="cstat-no" title="statement not covered" >              result.push(item);</span>
+            }
+          }
+        }, this);
+        return result;
+      }
+    },
+&nbsp;
+    selectCategory: function selectCategory(event) {
+      this.get('categories').filterProperty('isSelected').setEach('isSelected', false);
+      event.context.set('isSelected', true);
+    },
+&nbsp;
+    populateUpgradeHistorySummary: <span class="fstat-no" title="function not covered" >function populateUpgradeHistorySummary() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('isReady', false);</span>
+<span class="cstat-no" title="statement not covered" >      var result = [Em.Object.create({</span>
+        direction: 'UPGRADE',
+        label: Em.I18n.t('common.upgrade'),
+        hasSuccess: false,
+        success: 0,
+        hasAbort: false,
+        abort: 0
+      }), Em.Object.create({
+        direction: 'DOWNGRADE',
+        label: Em.I18n.t('common.downgrade'),
+        hasSuccess: false,
+        success: 0,
+        hasAbort: false,
+        abort: 0
+      })];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      App.StackUpgradeHistory.find().forEach(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var direction = item.get('direction');</span>
+<span class="cstat-no" title="statement not covered" >        var status = item.get('requestStatus');</span>
+<span class="cstat-no" title="statement not covered" >        if ('UPGRADE' == direction) {</span>
+<span class="cstat-no" title="statement not covered" >          if ('COMPLETED' == status) {</span>
+<span class="cstat-no" title="statement not covered" >            result[0].set('success', result[0].get('success') + 1);</span>
+          } else <span class="cstat-no" title="statement not covered" >if ('ABORTED' == status) {</span>
+<span class="cstat-no" title="statement not covered" >            result[0].set('abort', result[0].get('abort') + 1);</span>
+          }
+        } else <span class="cstat-no" title="statement not covered" >if ('DOWNGRADE' == direction) {</span>
+<span class="cstat-no" title="statement not covered" >          if ('COMPLETED' == status) {</span>
+<span class="cstat-no" title="statement not covered" >            result[1].set('success', result[1].get('success') + 1);</span>
+          } else <span class="cstat-no" title="statement not covered" >if ('ABORTED' == status) {</span>
+<span class="cstat-no" title="statement not covered" >            result[1].set('abort', result[1].get('abort') + 1);</span>
+          }
+        }
+      }, this);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      result[0].set('hasSuccess', result[0].get('success') &gt; 0);</span>
+<span class="cstat-no" title="statement not covered" >      result[1].set('hasSuccess', result[1].get('success') &gt; 0);</span>
+<span class="cstat-no" title="statement not covered" >      result[0].set('hasAbort', result[0].get('abort') &gt; 0);</span>
+<span class="cstat-no" title="statement not covered" >      result[1].set('hasAbort', result[1].get('abort') &gt; 0);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.set('summary', result);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('isReady', true);</span>
+    },
+&nbsp;
+    showUpgradeHistoryRecord: <span class="fstat-no" title="function not covered" >function showUpgradeHistoryRecord(event) {</span>
+<span class="cstat-no" title="statement not covered" >      var record = event.context;</span>
+<span class="cstat-no" title="statement not covered" >      var direction = App.format.normalizeName(record.get('direction'));</span>
+<span class="cstat-no" title="statement not covered" >      var associatedVersion = record.get('associatedVersion');</span>
+<span class="cstat-no" title="statement not covered" >      var type = this.get('upgradeMethods').findProperty('type', record.get('upgradeType'));</span>
+<span class="cstat-no" title="statement not covered" >      var displayName = type ? type.get('displayName') : App.format.normalizeName(record.get('upgradeType'));</span>
+<span class="cstat-no" title="statement not covered" >      var i18nKeySuffix = direction.toLowerCase() === 'upgrade' ? 'upgrade' : 'downgrade';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.get('controller').set('currentUpgradeRecord', record);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      App.ModalPopup.show({</span>
+        classNames: ['wide-modal-wrapper'],
+        modalDialogClasses: ['modal-xlg'],
+        header: Em.I18n.t('admin.stackVersions.upgradeHistory.record.title.' + i18nKeySuffix).format(displayName, direction, associatedVersion),
+        bodyClass: App.MainAdminStackUpgradeHistoryDetailsView,
+        primary: Em.I18n.t('common.dismiss'),
+        secondary: null,
+        didInsertElement: <span class="fstat-no" title="function not covered" >function didInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >          this._super();</span>
+<span class="cstat-no" title="statement not covered" >          this.fitHeight();</span>
+<span class="cstat-no" title="statement not covered" >          this.fitInnerHeight();</span>
+        },
+        fitInnerHeight: <span class="fstat-no" title="function not covered" >function fitInnerHeight() {</span>
+<span class="cstat-no" title="statement not covered" >          var block = this.$().find('.modal .modal-body');</span>
+<span class="cstat-no" title="statement not covered" >          var scrollable = this.$().find('.modal .scrollable-block');</span>
+<span class="cstat-no" title="statement not covered" >          scrollable.css('max-height', Number(block.css('max-height').slice(0, -2)) - block.height());</span>
+<span class="cstat-no" title="statement not covered" >          block.css('max-height', 'none');</span>
+        }
+      });
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

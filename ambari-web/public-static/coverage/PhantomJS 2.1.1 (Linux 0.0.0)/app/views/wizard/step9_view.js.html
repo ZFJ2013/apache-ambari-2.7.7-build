@@ -1,0 +1,1299 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/wizard/step9_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/views/wizard/step9_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(92 / 92)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">94% <small>(47 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(27 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(92 / 92)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/views/wizard/</a> &#187; step9_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">98</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">133</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42</span>
+<span class="cline-any cline-yes">42</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">183</span>
+<span class="cline-any cline-yes">183</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">355</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">75</span>
+<span class="cline-any cline-yes">75</span>
+<span class="cline-any cline-yes">75</span>
+<span class="cline-any cline-yes">75</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">31</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">75</span>
+<span class="cline-any cline-yes">75</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">78</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">75</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">62</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/wizard/step9_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var date = require('utils/date/date');
+&nbsp;
+  App.WizardStep9View = App.TableView.extend({
+&nbsp;
+    templateName: require('templates/wizard/step9'),
+&nbsp;
+    /**
+     * Overall progress-bar color
+     * @type {string}
+     */
+    barColor: '',
+&nbsp;
+    /**
+     * Overall result message
+     * @type {string}
+     */
+    resultMsg: '',
+&nbsp;
+    /**
+     * Overall message color
+     * @type {string}
+     */
+    resultMsgColor: '',
+&nbsp;
+    /**
+     * When progress is 100, step is completed
+     * @type {bool}
+     */
+    isStepCompleted: Em.computed.equal('controller.progress', '100'),
+&nbsp;
+    /**
+     * Number of visible hosts
+     * @type {string}
+     */
+    displayLength: "25",
+&nbsp;
+    /**
+     * Same to &lt;code&gt;controller.hosts&lt;/code&gt;
+     * @type {object[]}
+     */
+    content: function () {
+      return this.get('controller.hosts');
+    }.property('controller.hosts'),
+&nbsp;
+    /**
+     * Active category
+     * @type {Ember.Object}
+     */
+    selectedCategory: Em.computed.findBy('categories', 'isActive', true),
+&nbsp;
+    /**
+     * Ember Object category. This object also contains
+     * &lt;code&gt;
+     *   hostStatus: {String} A valid status of a host.
+     *               Used to filter hosts in that status.
+     *   hostsCount: {Int} Dynamic count of hosts displayed in the category label
+     *   label : {String} status and hosts in that status displayed which consists as a category on the page
+     *   isActive: {boolean} Gets set when the category is selected/clicked by the user
+     *   itemClass: {computed property} Binds the category link to active class when user clicks on the link
+     * &lt;/code&gt;
+     */
+    categoryObject: Em.Object.extend({
+      hostsCount: 0,
+      label: Em.computed.format('{0} ({1})', 'value', 'hostsCount'),
+      isActive: false,
+      itemClass: Em.computed.ifThenElse('isActive', 'active', '')
+    }),
+&nbsp;
+    /**
+     * Domputed property creates the category objects on the load of the page and sets 'All' as the active category
+     * @Returns {Em.Object[]} All created categories which are binded and iterated in the template
+     */
+    categories: function () {
+      return [this.categoryObject.create({ value: Em.I18n.t('common.all'), hostStatus: 'all', isActive: true }), this.categoryObject.create({ value: Em.I18n.t('installer.step9.hosts.status.label.inProgress'), hostStatus: 'inProgress' }), this.categoryObject.create({ value: Em.I18n.t('installer.step9.hosts.status.label.warning'), hostStatus: 'warning' }), this.categoryObject.create({ value: Em.I18n.t('common.success'), hostStatus: 'success' }), this.categoryObject.create({ value: Em.I18n.t('common.fail'), hostStatus: 'failed', last: true })];
+    }.property(),
+&nbsp;
+    /**
+     * True if &lt;code&gt;controller.hostsWithHeartbeatLost&lt;/code&gt; contains some values
+     * @type {bool}
+     */
+    isHostHeartbeatLost: Em.computed.bool('controller.hostsWithHeartbeatLost.length'),
+&nbsp;
+    /**
+     * Css-string to overall progress-bar width-property
+     * @type {string}
+     */
+    barWidth: Em.computed.format('width: {0}%;', 'controller.progress'),
+&nbsp;
+    /**
+     * Filter hosts info shown up on bottom of the box. Set by filter function, when 'seletedCategory' changed
+     * @type {string}
+     */
+    filteredHostsInfo: '',
+&nbsp;
+    /**
+     * Message for overall progress
+     * @type {string}
+     */
+    progressMessage: Em.computed.i18nFormat('installer.step9.overallProgress', 'controller.progress'),
+&nbsp;
+    /**
+     * Run &lt;code&gt;countCategoryHosts&lt;/code&gt;, &lt;code&gt;filter&lt;/code&gt; only once
+     * @method hostStatusObserver
+     */
+    hostStatusObserver: function () {
+      Em.run.once(this, 'countCategoryHosts');
+      Em.run.once(this, 'filter');
+    }.observes('content.@each.status'),
+&nbsp;
+    /**
+     * Count each category hosts to update label
+     * @method countCategoryHosts
+     */
+    countCategoryHosts: function countCategoryHosts() {
+      var counters = {
+        "info": 0,
+        "pending": 0,
+        "in_progress": 0,
+        "heartbeat_lost": 0,
+        "warning": 0,
+        "success": 0,
+        "failed": 0
+      };
+&nbsp;
+      this.get('content').forEach(function (host) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (counters[host.get('status')] !== undefined) {
+          counters[host.get('status')]++;
+        }
+      }, this);
+      counters["all"] = this.get('content.length');
+      counters["inProgress"] = counters["info"] + counters["pending"] + counters["in_progress"];
+      counters["failed"] += counters["heartbeat_lost"];
+      this.get('categories').forEach(function (category) {
+        category.set('hostsCount', counters[category.get('hostStatus')]);
+      }, this);
+    },
+&nbsp;
+    /**
+     * Filter hosts by category
+     * @method filter
+     */
+    filter: function () {
+      var self = this;
+      Em.run.next(function () {
+        self.doFilter();
+      });
+    }.observes('selectedCategory'),
+&nbsp;
+    /**
+     * Real filter-method
+     * Called from &lt;code&gt;filter&lt;/code&gt; in Em.run.next-wrapper
+     * @method doFilter
+     */
+    doFilter: function doFilter() {
+      var result = [];
+      var content = this.get('content');
+      var selectedCategory = this.get('selectedCategory');
+      if (!selectedCategory || selectedCategory.get('hostStatus') === 'all') {
+        result = content;
+      } else if (selectedCategory.get('hostStatus') == 'inProgress') {
+        result = content.filter(function (_host) {
+          return _host.get('status') == 'info' || _host.get('status') == 'pending' || _host.get('status') == 'in_progress';
+        });
+      } else if (selectedCategory.get('hostStatus') == 'failed') {
+        result = content.filter(function (_host) {
+          return _host.get('status') == 'failed' || _host.get('status') == 'heartbeat_lost';
+        });
+      } else {
+        result = content.filterProperty('status', selectedCategory.get('hostStatus'));
+      }
+      this.set('filteredContent', result);
+      this.set('filteredHostsInfo', Em.I18n.t('installer.step9.hosts.filteredHostsInfo').format(result.get('length'), content.get('length')));
+    },
+&nbsp;
+    /**
+     * On click handler for 'show all' link
+     * @method showAllHosts
+     */
+    showAllHosts: function showAllHosts() {
+      this.get('categories').forEach(function (category) {
+        category.set('isActive', category.get('hostStatus') === 'all');
+      });
+    },
+&nbsp;
+    /**
+     * Trigger on Category click
+     * @param {Object} event
+     * @method selectCategory
+     */
+    selectCategory: function selectCategory(event) {
+      var categoryStatus = event.context.get('hostStatus');
+      this.get('categories').forEach(function (category) {
+        category.set('isActive', category.get('hostStatus') === categoryStatus);
+      });
+    },
+&nbsp;
+    didInsertElement: function didInsertElement() {
+      this.onStatus();
+      this.get('controller').navigateStep();
+    },
+&nbsp;
+    /**
+     * Set &lt;code&gt;resultMsg&lt;/code&gt;, &lt;code&gt;resultMsg&lt;/code&gt;, &lt;code&gt;resultMsgColor&lt;/code&gt; according to
+     * &lt;code&gt;controller.status&lt;/code&gt;, &lt;code&gt;controller.startCallFailed&lt;/code&gt;, &lt;code&gt;isHostHeartbeatLost&lt;/code&gt;
+     * @method onStatus
+     */
+    onStatus: function () {
+      if (this.get('controller.status') === 'info') {
+        this.set('resultMsg', '');
+        this.set('barColor', 'progress-bar-info');
+      } else if (this.get('controller.status') === 'warning') {
+        this.set('barColor', 'progress-bar-warning');
+        this.set('resultMsg', Em.I18n.t('installer.step9.status.warning'));
+        this.set('resultMsgColor', 'alert-warning');
+      } else if (this.get('controller.status') === 'failed') {
+        this.set('barColor', 'progress-bar-danger');
+        this.set('resultMsgColor', 'alert-danger');
+        if (this.get('isHostHeartbeatLost')) {
+          // When present requests succeeds but some host components are in UNKNOWN or INSTALL_FAILED state and
+          // hosts are in HEARTBEAT_LOST state
+          this.set('resultMsg', Em.I18n.t('installer.step9.status.hosts.heartbeat_lost').format(this.get('controller.hostsWithHeartbeatLost').length));
+        } else if (this.get('controller.startCallFailed')) {
+          this.set('resultMsg', Em.I18n.t('installer.step9.status.start.services.failed'));
+        } else {
+          this.set('resultMsg', Em.I18n.t('installer.step9.status.failed'));
+        }
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('controller.status') === 'success') {
+        this.set('barColor', 'progress-bar-success');
+        this.set('resultMsg', this.get('controller.content.cluster.status') === 'START_SKIPPED' ? <span class="branch-0 cbranch-no" title="branch not covered" >Em.I18n.t('installer.step9.status.skipStartSuccess') </span>: Em.I18n.t('installer.step9.status.success'));
+        this.set('resultMsgColor', 'alert-success');
+      }
+    }.observes('controller.status', 'controller.content.cluster.status', 'controller.startCallFailed', 'isHostHeartbeatLost'),
+&nbsp;
+    /**
+     * Show popup with info about failed hosts
+     * @return {App.ModalPopup}
+     * @method hostWithInstallFailed
+     */
+    hostWithInstallFailed: function hostWithInstallFailed() {
+      var controller = this.get('controller');
+      return App.ModalPopup.show({
+        header: Em.I18n.t('installer.step9.host.heartbeat_lost.header'),
+        classNames: ['common-modal-wrapper'],
+        modalDialogClasses: ['modal-lg'],
+        autoHeight: false,
+        secondary: null,
+&nbsp;
+        bodyClass: Em.View.extend({
+          templateName: require('templates/wizard/step9/step9_install_host_popup'),
+          c: controller,
+          failedHosts: function () {
+            return controller.get('hostsWithHeartbeatLost');
+          }.property()
+        })
+      });
+    }
+&nbsp;
+  });
+&nbsp;
+  function hostStatus(statuses) {
+    return Em.computed('isHostCompleted', 'obj.status', function () {
+      statuses = Em.makeArray(statuses);
+      return this.get('isHostCompleted') &amp;&amp; statuses.contains(this.get('obj.status'));
+    });
+  }
+&nbsp;
+  App.HostStatusView = Em.View.extend({
+&nbsp;
+    tagName: 'tr',
+&nbsp;
+    /**
+     * Current host
+     * @type {Em.Object}
+     */
+    obj: null,
+&nbsp;
+    /**
+     * wizardStep9Controller
+     * @type {App.WizardStep9Controller}
+     */
+    controller: null,
+&nbsp;
+    /**
+     * Progress-bar color for current host
+     * @type {string}
+     */
+    barColor: '',
+&nbsp;
+    /**
+     * Css-string to progress-bar width-property
+     * @type {string}
+     */
+    barWidth: Em.computed.format('width: {0}%;', 'obj.progress'),
+&nbsp;
+    /**
+     * Is current host failed
+     * @type {bool}
+     */
+    isFailed: hostStatus(['failed', 'heartbeat_lost']),
+&nbsp;
+    /**
+     * Is current host successfully installed
+     * @type {bool}
+     */
+    isSuccess: hostStatus('success'),
+&nbsp;
+    /**
+     * Current host has warnings
+     * @type {bool}
+     */
+    isWarning: hostStatus('warning'),
+&nbsp;
+    /**
+     * Current host completed all its tasks
+     * @type {bool}
+     */
+    isHostCompleted: function () {
+      return this.get('obj.progress') == 100;
+    }.property('obj.progress'),
+&nbsp;
+    didInsertElement: function didInsertElement() {
+      this.onStatus();
+    },
+&nbsp;
+    /**
+     * Set &lt;code&gt;barColor&lt;/code&gt;, &lt;code&gt;obj.progress&lt;/code&gt;, &lt;code&gt;obj.message&lt;/code&gt; according to
+     * &lt;code&gt;obj.status&lt;/code&gt;, &lt;code&gt;obj.progress&lt;/code&gt;, &lt;code&gt;controller.progress&lt;/code&gt;
+     * @method onStatus
+     */
+    onStatus: function () {
+      if (this.get('obj.status') === 'info') {
+        this.set('barColor', 'progress-bar-info');
+      } else if (this.get('obj.status') === 'warning') {
+        this.set('barColor', 'progress-bar-warning');
+        if (this.get('obj.progress') === '100') {
+          this.set('obj.message', Em.I18n.t('installer.step9.host.status.warning'));
+        }
+      } else if (this.get('obj.status') === 'failed') {
+        this.set('barColor', 'progress-bar-danger');
+        if (this.get('obj.progress') === '100') {
+          this.set('obj.message', Em.I18n.t('installer.step9.host.status.failed'));
+        }
+      } else if (this.get('obj.status') === 'heartbeat_lost') {
+        this.set('barColor', 'progress-bar-danger');
+        if (this.get('obj.progress') === '100') {
+          this.set('obj.message', Em.I18n.t('installer.step9.host.heartbeat_lost'));
+        }
+      } else if (this.get('obj.status') === 'success' &amp;&amp; this.get('isHostCompleted') &amp;&amp; parseInt(this.get('controller.progress')) &gt; 34) {
+        this.set('barColor', 'progress-bar-success');
+        this.set('obj.message', Em.I18n.t('installer.step9.host.status.success'));
+      }
+    }.observes('obj.status', 'obj.progress', 'controller.progress'),
+&nbsp;
+    /**
+     * Show popup with host logs
+     * @return {App.ModalPopup}
+     * @method hostLogPopup
+     */
+    hostLogPopup: function hostLogPopup() {
+      var controller = this.get('controller');
+      var host = this.get('obj');
+&nbsp;
+      return App.ModalPopup.show({
+&nbsp;
+        header: host.get('name'),
+&nbsp;
+        classNames: ['common-modal-wrapper'],
+        modalDialogClasses: ['modal-lg'],
+        'data-qa': 'host-log-modal',
+&nbsp;
+        autoHeight: false,
+&nbsp;
+        secondary: null,
+&nbsp;
+        /**
+         * Current host
+         * @type {Em.Object}
+         */
+        host: host,
+&nbsp;
+        /**
+         * wizardStep9Controller
+         * @type {App.WizardStep9Controller}
+         */
+        c: controller,
+&nbsp;
+        onClose: function onClose() {
+          this.set('c.currentOpenTaskId', 0);
+          this.hide();
+        },
+&nbsp;
+        bodyClass: App.WizardStep9HostLogPopupBodyView
+      });
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

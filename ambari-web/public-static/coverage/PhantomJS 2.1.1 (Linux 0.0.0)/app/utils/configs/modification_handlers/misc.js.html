@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/utils/configs/modification_handlers/misc.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/utils/configs/modification_handlers/misc.js</span></h1>
+    <h2>
+        Statements: <span class="metric">63.64% <small>(35 / 55)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">27.78% <small>(10 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">63.64% <small>(35 / 55)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/utils/configs/modification_handlers/</a> &#187; misc.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("utils/configs/modification_handlers/misc", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one or more
+   * contributor license agreements. See the NOTICE file distributed with this
+   * work for additional information regarding copyright ownership. The ASF
+   * licenses this file to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   * 
+   * http://www.apache.org/licenses/LICENSE-2.0
+   * 
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+   * License for the specific language governing permissions and limitations under
+   * the License.
+   */
+&nbsp;
+  var App = require('app');
+  require('utils/configs/modification_handlers/modification_handler');
+&nbsp;
+  module.exports = App.ServiceConfigModificationHandler.create({
+    serviceId: 'MISC',
+    getDependentConfigChanges: function getDependentConfigChanges(changedConfig, selectedServices, allConfigs, securityEnabled) {
+      var affectedProperties = [];
+      var newValue = changedConfig.get("value");
+      var curConfigs = "";
+      var affectedPropertyName;
+      var affectedPropery;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (changedConfig.get("name") == "hdfs_user") {
+<span class="cstat-no" title="statement not covered" >        curConfigs = allConfigs.findProperty("serviceName", "HDFS").get("configs");</span>
+<span class="cstat-no" title="statement not covered" >        affectedPropertyName = "dfs.permissions.superusergroup";</span>
+<span class="cstat-no" title="statement not covered" >        affectedPropery = curConfigs.findProperty("name", affectedPropertyName);</span>
+<span class="cstat-no" title="statement not covered" >        if (affectedPropery &amp;&amp; newValue != affectedPropery.get('value')) {</span>
+<span class="cstat-no" title="statement not covered" >          affectedProperties.push({</span>
+            serviceName: "HDFS",
+            sourceServiceName: "MISC",
+            propertyName: affectedPropertyName,
+            propertyDisplayName: affectedPropertyName,
+            newValue: newValue,
+            curValue: affectedPropery.get("value"),
+            changedPropertyName: "hdfs_user",
+            remove: false,
+            filename: 'hdfs-site.xml'
+          });
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        affectedPropertyName = "dfs.cluster.administrators";</span>
+<span class="cstat-no" title="statement not covered" >        affectedPropery = curConfigs.findProperty("name", affectedPropertyName);</span>
+<span class="cstat-no" title="statement not covered" >        if (affectedPropery &amp;&amp; $.trim(newValue) != $.trim(affectedPropery.get("value"))) {</span>
+<span class="cstat-no" title="statement not covered" >          affectedProperties.push({</span>
+            serviceName: "HDFS",
+            sourceServiceName: "MISC",
+            propertyName: affectedPropertyName,
+            propertyDisplayName: affectedPropertyName,
+            newValue: " " + $.trim(newValue),
+            curValue: affectedPropery.get("value"),
+            changedPropertyName: "hdfs_user",
+            remove: false,
+            filename: 'hdfs-site.xml'
+          });
+        }
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (changedConfig.get("name") == "yarn_user") {
+        curConfigs = allConfigs.findProperty('serviceName', 'YARN').get('configs');
+        var currentUsers, currentGroups;
+        var initialUser = changedConfig.get('initialValue');
+        var newUser = newValue;
+        var currentAclValue = curConfigs.findProperty("name", "yarn.admin.acl").get("value");
+        var currentAclValueSplits = $.trim(currentAclValue).split(/\s+/).filter(function (i) {
+          return !Em.isEmpty(i);
+        });
+        if (currentAclValueSplits.length == 2) {
+          currentUsers = currentAclValueSplits[0];
+          currentGroups = currentAclValueSplits[1];
+        } else {
+          currentUsers = currentAclValueSplits.length &gt; 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >currentAclValueSplits.shift() </span>: '';
+          currentGroups = currentAclValueSplits.join(" ");
+        }
+        var currentUserList = currentUsers.split(',').filter(function (i) {
+          return !Em.isEmpty(i);
+        });
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!currentUserList.contains(newUser)) {
+          var currentUserIndex = currentUserList.indexOf(initialUser);
+          if (currentUserIndex &gt; -1) {
+            currentUserList.splice(currentUserIndex, 1);
+          }
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (!currentUserList.contains(newUser)) {
+            currentUserList.push(newUser);
+          }
+          var newAclValue = $.trim(currentUserList.join(',') + ' ' + currentGroups);
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (currentAclValue != newAclValue) {
+            affectedProperties.push({
+              serviceName: "YARN",
+              sourceServiceName: "MISC",
+              propertyName: "yarn.admin.acl",
+              propertyDisplayName: "yarn.admin.acl",
+              newValue: newAclValue,
+              curValue: currentAclValue,
+              changedPropertyName: "yarn_user",
+              remove: false,
+              filename: 'yarn-site.xml'
+            });
+          }
+        }
+      } else <span class="cstat-no" title="statement not covered" >if (changedConfig.get("name") == "user_group") {</span>
+<span class="cstat-no" title="statement not covered" >        if (!selectedServices.contains('YARN')) {</span>
+<span class="cstat-no" title="statement not covered" >          return [];</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (selectedServices.contains("MAPREDUCE2")) {</span>
+<span class="cstat-no" title="statement not covered" >          curConfigs = allConfigs.findProperty("serviceName", "MAPREDUCE2").get("configs");</span>
+<span class="cstat-no" title="statement not covered" >          if ($.trim(newValue) != $.trim(curConfigs.findProperty("name", "mapreduce.cluster.administrators").get("value"))) {</span>
+<span class="cstat-no" title="statement not covered" >            affectedProperties.push({</span>
+              serviceName: "MAPREDUCE2",
+              sourceServiceName: "MISC",
+              propertyName: "mapreduce.cluster.administrators",
+              propertyDisplayName: "mapreduce.cluster.administrators",
+              newValue: " " + $.trim(newValue),
+              curValue: curConfigs.findProperty("name", "mapreduce.cluster.administrators").get("value"),
+              changedPropertyName: "user_group",
+              filename: 'mapred-site.xml'
+            });
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        if (selectedServices.contains("YARN")) {</span>
+<span class="cstat-no" title="statement not covered" >          curConfigs = allConfigs.findProperty("serviceName", "YARN").get("configs");</span>
+<span class="cstat-no" title="statement not covered" >          if (newValue != curConfigs.findProperty("name", "yarn.nodemanager.linux-container-executor.group").get("value")) {</span>
+<span class="cstat-no" title="statement not covered" >            affectedProperties.push({</span>
+              serviceName: "YARN",
+              sourceServiceName: "MISC",
+              propertyName: "yarn.nodemanager.linux-container-executor.group",
+              propertyDisplayName: "yarn.nodemanager.linux-container-executor.group",
+              newValue: newValue,
+              curValue: curConfigs.findProperty("name", "yarn.nodemanager.linux-container-executor.group").get("value"),
+              changedPropertyName: "user_group",
+              filename: 'yarn-site.xml'
+            });
+          }
+        }
+      }
+      return affectedProperties;
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/routes/add_host_routes.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/routes/add_host_routes.js</span></h1>
+    <h2>
+        Statements: <span class="metric">1.66% <small>(3 / 181)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">1.96% <small>(1 / 51)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">1.66% <small>(3 / 181)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/routes/</a> &#187; add_host_routes.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("routes/add_host_routes", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  module.exports = App.WizardRoute.extend({
+    route: '/host/add',
+&nbsp;
+    leaveWizard: <span class="fstat-no" title="function not covered" >function leaveWizard(router, context) {</span>
+<span class="cstat-no" title="statement not covered" >      var addHostController = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >      addHostController.resetOnClose(addHostController, 'hosts.index', router);</span>
+    },
+&nbsp;
+    enter: <span class="fstat-no" title="function not covered" >function enter(router) {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      router.get('mainController').dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        Ember.run.next(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          var addHostController = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >          App.router.get('updateController').set('isWorking', false);</span>
+<span class="cstat-no" title="statement not covered" >          var popup = App.ModalPopup.show({</span>
+            classNames: ['wizard-modal-wrapper'],
+            modalDialogClasses: ['modal-xlg'],
+            header: Em.I18n.t('hosts.add.header'),
+            bodyClass: App.AddHostView.extend({
+              controllerBinding: 'App.router.addHostController'
+            }),
+            primary: Em.I18n.t('form.cancel'),
+            secondary: null,
+            showFooter: false,
+&nbsp;
+            onPrimary: <span class="fstat-no" title="function not covered" >function onPrimary() {</span>
+<span class="cstat-no" title="statement not covered" >              this.hide();</span>
+<span class="cstat-no" title="statement not covered" >              App.router.get('updateController').set('isWorking', true);</span>
+<span class="cstat-no" title="statement not covered" >              router.transitionTo('hosts.index');</span>
+            },
+            onClose: <span class="fstat-no" title="function not covered" >function onClose() {</span>
+<span class="cstat-no" title="statement not covered" >              var popupContext = this;</span>
+<span class="cstat-no" title="statement not covered" >              router.set('nextBtnClickInProgress', true);</span>
+<span class="cstat-no" title="statement not covered" >              if (addHostController.get('currentStep') == '6') {</span>
+<span class="cstat-no" title="statement not covered" >                App.ModalPopup.show({</span>
+                  header: Em.I18n.t('hosts.add.exit.header'),
+                  body: Em.I18n.t('hosts.add.exit.body'),
+                  onPrimary: <span class="fstat-no" title="function not covered" >function onPrimary() {</span>
+<span class="cstat-no" title="statement not covered" >                    self.leaveWizard(router, popupContext);</span>
+                  }
+                });
+              } else {
+<span class="cstat-no" title="statement not covered" >                self.leaveWizard(router, this);</span>
+              }
+            },
+            didInsertElement: <span class="fstat-no" title="function not covered" >function didInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >              this._super();</span>
+<span class="cstat-no" title="statement not covered" >              this.fitHeight();</span>
+            }
+          });
+<span class="cstat-no" title="statement not covered" >          var currentClusterStatus = App.clusterStatus.get('value');</span>
+<span class="cstat-no" title="statement not covered" >          if (currentClusterStatus) {</span>
+<span class="cstat-no" title="statement not covered" >            switch (currentClusterStatus.clusterState) {</span>
+              case 'ADD_HOSTS_DEPLOY_PREP_2':
+<span class="cstat-no" title="statement not covered" >                addHostController.setCurrentStep('4');</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+              case 'ADD_HOSTS_INSTALLING_3':
+              case 'SERVICE_STARTING_3':
+<span class="cstat-no" title="statement not covered" >                addHostController.setCurrentStep('5');</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+              case 'ADD_HOSTS_INSTALLED_4':
+<span class="cstat-no" title="statement not covered" >                addHostController.setCurrentStep('6');</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+              default:
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          addHostController.set('popup', popup);</span>
+<span class="cstat-no" title="statement not covered" >          App.router.get('wizardWatcherController').setUser(addHostController.get('name'));</span>
+<span class="cstat-no" title="statement not covered" >          router.transitionTo('step' + addHostController.get('currentStep'));</span>
+        });
+      });
+    },
+&nbsp;
+    step1: App.StepRoute.extend({
+      route: '/step1',
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.setCurrentStep('1');</span>
+<span class="cstat-no" title="statement not covered" >        controller.set('hideBackButton', true);</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps();</span>
+<span class="cstat-no" title="statement not covered" >          var wizardStep2Controller = router.get('wizardStep2Controller');</span>
+<span class="cstat-no" title="statement not covered" >          wizardStep2Controller.set('wizardController', controller);</span>
+<span class="cstat-no" title="statement not covered" >          controller.connectOutlet('wizardStep2', controller.get('content'));</span>
+        });
+      },
+&nbsp;
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.save('installOptions');</span>
+        //hosts was saved to content.hosts inside wizardStep2Controller
+<span class="cstat-no" title="statement not covered" >        controller.save('hosts');</span>
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step2');</span>
+<span class="cstat-no" title="statement not covered" >        controller.setDBProperty('bootStatus', false);</span>
+      },
+      evaluateStep: <span class="fstat-no" title="function not covered" >function evaluateStep(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var addHostController = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        var wizardStep2Controller = router.get('wizardStep2Controller');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        wizardStep2Controller.set('hasSubmitted', true);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!wizardStep2Controller.get('isSubmitDisabled')) {</span>
+<span class="cstat-no" title="statement not covered" >          wizardStep2Controller.evaluateStep();</span>
+        }
+      }
+    }),
+&nbsp;
+    step2: App.StepRoute.extend({
+      route: '/step2',
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.setCurrentStep('2');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps();</span>
+<span class="cstat-no" title="statement not covered" >          var wizardStep3Controller = router.get('wizardStep3Controller');</span>
+<span class="cstat-no" title="statement not covered" >          wizardStep3Controller.set('wizardController', controller);</span>
+<span class="cstat-no" title="statement not covered" >          controller.connectOutlet('wizardStep3', controller.get('content'));</span>
+        });
+      },
+      backTransition: <span class="fstat-no" title="function not covered" >function backTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step1');</span>
+      },
+      exit: <span class="fstat-no" title="function not covered" >function exit(router) {</span>
+<span class="cstat-no" title="statement not covered" >        router.get('wizardStep3Controller').set('stopBootstrap', true);</span>
+      },
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router, context) {</span>
+<span class="cstat-no" title="statement not covered" >        var addHostController = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        var wizardStep3Controller = router.get('wizardStep3Controller');</span>
+<span class="cstat-no" title="statement not covered" >        var wizardStep6Controller = router.get('wizardStep6Controller');</span>
+<span class="cstat-no" title="statement not covered" >        addHostController.saveConfirmedHosts(wizardStep3Controller);</span>
+<span class="cstat-no" title="statement not covered" >        addHostController.saveClients();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        addHostController.setDBProperties({</span>
+          bootStatus: true,
+          slaveComponentHosts: undefined
+        });
+<span class="cstat-no" title="statement not covered" >        wizardStep6Controller.set('isClientsSet', false);</span>
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step3');</span>
+      },
+      /**
+       * Wrapper for remove host action.
+       * Since saving data stored in addHostController, we should call this from router
+       * @param router
+       * @param context Array of hosts to delete
+       */
+      removeHosts: <span class="fstat-no" title="function not covered" >function removeHosts(router, context) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.removeHosts(context);</span>
+      }
+    }),
+&nbsp;
+    step3: App.StepRoute.extend({
+      route: '/step3',
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router, context) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.setCurrentStep('3');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps();</span>
+<span class="cstat-no" title="statement not covered" >          var wizardStep6Controller = router.get('wizardStep6Controller');</span>
+<span class="cstat-no" title="statement not covered" >          wizardStep6Controller.set('wizardController', controller);</span>
+<span class="cstat-no" title="statement not covered" >          controller.connectOutlet('wizardStep6', controller.get('content'));</span>
+        });
+      },
+      backTransition: <span class="fstat-no" title="function not covered" >function backTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step2');</span>
+      },
+      next: <span class="fstat-no" title="function not covered" >function next(router) {</span>
+<span class="cstat-no" title="statement not covered" >        App.set('router.nextBtnClickInProgress', true);</span>
+<span class="cstat-no" title="statement not covered" >        var addHostController = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        var wizardStep6Controller = router.get('wizardStep6Controller');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        wizardStep6Controller.callValidation(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          wizardStep6Controller.showValidationIssuesAcceptBox(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            addHostController.saveSlaveComponentHosts(wizardStep6Controller);</span>
+<span class="cstat-no" title="statement not covered" >            if (wizardStep6Controller.isAllCheckboxesEmpty()) {</span>
+<span class="cstat-no" title="statement not covered" >              App.set('router.nextBtnClickInProgress', false);</span>
+<span class="cstat-no" title="statement not covered" >              router.transitionTo('step5');</span>
+<span class="cstat-no" title="statement not covered" >              addHostController.set('content.configGroups', []);</span>
+<span class="cstat-no" title="statement not covered" >              addHostController.saveServiceConfigGroups();</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              App.set('router.nextBtnClickInProgress', false);</span>
+<span class="cstat-no" title="statement not covered" >              router.transitionTo('step4');</span>
+            }
+          });
+        });
+      }
+    }),
+&nbsp;
+    step4: App.StepRoute.extend({
+      route: '/step4',
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router, context) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        var addHostStep4Controller = router.get('addHostStep4Controller');</span>
+<span class="cstat-no" title="statement not covered" >        controller.setCurrentStep('4');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          addHostStep4Controller.loadConfigGroups();</span>
+<span class="cstat-no" title="statement not covered" >          addHostStep4Controller.set('isConfigGroupLoaded', false);</span>
+<span class="cstat-no" title="statement not covered" >          addHostStep4Controller.configGroupsLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            controller.loadAllPriorSteps();</span>
+<span class="cstat-no" title="statement not covered" >            controller.loadServiceConfigGroups();</span>
+<span class="cstat-no" title="statement not covered" >            addHostStep4Controller.set('wizardController', controller);</span>
+<span class="cstat-no" title="statement not covered" >            controller.connectOutlet('addHostStep4', controller.get('content'));</span>
+          });
+        });
+      },
+      backTransition: <span class="fstat-no" title="function not covered" >function backTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var goToPreviousStep = <span class="fstat-no" title="function not covered" >function goToPreviousStep() {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.transitionTo('step3');</span>
+        };
+<span class="cstat-no" title="statement not covered" >        var wizardStep7Controller = router.get('wizardStep7Controller');</span>
+<span class="cstat-no" title="statement not covered" >        if (wizardStep7Controller.hasChanges()) {</span>
+<span class="cstat-no" title="statement not covered" >          wizardStep7Controller.showChangesWarningPopup(goToPreviousStep);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          goToPreviousStep();</span>
+        }
+      },
+      nextTransition: <span class="fstat-no" title="function not covered" >function nextTransition(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var addHostController = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        addHostController.saveServiceConfigGroups();</span>
+<span class="cstat-no" title="statement not covered" >        router.transitionTo('step5');</span>
+      }
+    }),
+&nbsp;
+    step5: Em.Route.extend({
+      route: '/step5',
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router, context) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.setCurrentStep('5');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('mainController').isLoading.call(router.get('clusterController'), 'isServiceContentFullyLoaded').done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            controller.loadAllPriorSteps();</span>
+<span class="cstat-no" title="statement not covered" >            controller.getServiceConfigGroups();</span>
+<span class="cstat-no" title="statement not covered" >            var wizardStep8Controller = router.get('wizardStep8Controller');</span>
+<span class="cstat-no" title="statement not covered" >            wizardStep8Controller.set('wizardController', controller);</span>
+<span class="cstat-no" title="statement not covered" >            controller.connectOutlet('wizardStep8', controller.get('content'));</span>
+          });
+        });
+      },
+      back: <span class="fstat-no" title="function not covered" >function back(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var addHostController = router.get('addHostController');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (addHostController.isConfigGroupsEmpty() &amp;&amp; !router.get('wizardStep8Controller.isBackBtnDisabled')) {</span>
+<span class="cstat-no" title="statement not covered" >          router.transitionTo('step3');</span>
+        } else <span class="cstat-no" title="statement not covered" >if (!router.get('wizardStep8Controller.isBackBtnDisabled')) {</span>
+<span class="cstat-no" title="statement not covered" >          router.transitionTo('step4');</span>
+        }
+      },
+      next: <span class="fstat-no" title="function not covered" >function next(router) {</span>
+<span class="cstat-no" title="statement not covered" >        router.get('mainAdminKerberosController').getKDCSessionState(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          var addHostController = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >          var wizardStep8Controller = router.get('wizardStep8Controller');</span>
+<span class="cstat-no" title="statement not covered" >          addHostController.applyConfigGroup();</span>
+<span class="cstat-no" title="statement not covered" >          addHostController.installServices(false, <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            addHostController.setInfoForStep9();</span>
+            // We need to do recovery based on whether we are in Add Host or Installer wizard
+<span class="cstat-no" title="statement not covered" >            router.set('nextBtnClickInProgress', true);</span>
+<span class="cstat-no" title="statement not covered" >            addHostController.saveClusterState('ADD_HOSTS_INSTALLING_3', {</span>
+              alwaysCallback: <span class="fstat-no" title="function not covered" >function alwaysCallback() {</span>
+<span class="cstat-no" title="statement not covered" >                wizardStep8Controller.set('servicesInstalled', true);</span>
+<span class="cstat-no" title="statement not covered" >                router.set('nextBtnClickInProgress', false);</span>
+<span class="cstat-no" title="statement not covered" >                router.transitionTo('step6');</span>
+              }
+            });
+          });
+        });
+      }
+    }),
+&nbsp;
+    step6: Em.Route.extend({
+      route: '/step6',
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router, context) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.setCurrentStep('6');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          var wizardStep9Controller = router.get('wizardStep9Controller');</span>
+<span class="cstat-no" title="statement not covered" >          wizardStep9Controller.set('wizardController', controller);</span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps();</span>
+<span class="cstat-no" title="statement not covered" >          if (!App.get('testMode')) {</span>
+            //if test mode is ON don't disable prior steps link.
+<span class="cstat-no" title="statement not covered" >            controller.setLowerStepsDisable(6);</span>
+          }
+<span class="cstat-no" title="statement not covered" >          controller.connectOutlet('wizardStep9', controller.get('content'));</span>
+        });
+      },
+      back: Em.Router.transitionTo('step5'),
+      retry: <span class="fstat-no" title="function not covered" >function retry(router, context) {</span>
+<span class="cstat-no" title="statement not covered" >        var addHostController = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        var wizardStep9Controller = router.get('wizardStep9Controller');</span>
+<span class="cstat-no" title="statement not covered" >        wizardStep9Controller.set('wizardController', addHostController);</span>
+<span class="cstat-no" title="statement not covered" >        if (wizardStep9Controller.get('showRetry')) {</span>
+<span class="cstat-no" title="statement not covered" >          if (wizardStep9Controller.get('content.cluster.status') === 'INSTALL FAILED') {</span>
+<span class="cstat-no" title="statement not covered" >            var isRetry = true;</span>
+<span class="cstat-no" title="statement not covered" >            addHostController.installServices(isRetry, <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >              addHostController.setInfoForStep9();</span>
+<span class="cstat-no" title="statement not covered" >              wizardStep9Controller.resetHostsForRetry();</span>
+              // We need to do recovery based on whether we are in Add Host or Installer wizard
+<span class="cstat-no" title="statement not covered" >              addHostController.saveClusterState('ADD_HOSTS_INSTALLING_3', {</span>
+                alwaysCallback: <span class="fstat-no" title="function not covered" >function alwaysCallback() {</span>
+<span class="cstat-no" title="statement not covered" >                  wizardStep9Controller.navigateStep();</span>
+                }
+              });
+            });
+          } else {
+<span class="cstat-no" title="statement not covered" >            wizardStep9Controller.navigateStep();</span>
+          }
+        }
+      },
+      unroutePath: <span class="fstat-no" title="function not covered" >function unroutePath() {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      },
+      next: <span class="fstat-no" title="function not covered" >function next(router) {</span>
+<span class="cstat-no" title="statement not covered" >        var addHostController = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        var wizardStep9Controller = router.get('wizardStep9Controller');</span>
+<span class="cstat-no" title="statement not covered" >        wizardStep9Controller.set('wizardController', addHostController);</span>
+<span class="cstat-no" title="statement not covered" >        addHostController.saveInstalledHosts(wizardStep9Controller);</span>
+<span class="cstat-no" title="statement not covered" >        router.set('nextBtnClickInProgress', true);</span>
+&nbsp;
+        // We need to do recovery based on whether we are in Add Host or Installer wizard
+<span class="cstat-no" title="statement not covered" >        addHostController.saveClusterState('ADD_HOSTS_INSTALLED_4', {</span>
+          alwaysCallback: <span class="fstat-no" title="function not covered" >function alwaysCallback() {</span>
+<span class="cstat-no" title="statement not covered" >            router.set('nextBtnClickInProgress', false);</span>
+<span class="cstat-no" title="statement not covered" >            router.transitionTo('step7');</span>
+          }
+        });
+      }
+    }),
+&nbsp;
+    step7: Em.Route.extend({
+      route: '/step7',
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router, context) {</span>
+<span class="cstat-no" title="statement not covered" >        var controller = router.get('addHostController');</span>
+<span class="cstat-no" title="statement not covered" >        controller.setCurrentStep('7');</span>
+<span class="cstat-no" title="statement not covered" >        controller.dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          controller.loadAllPriorSteps();</span>
+<span class="cstat-no" title="statement not covered" >          var wizardStep10Controller = router.get('wizardStep10Controller');</span>
+<span class="cstat-no" title="statement not covered" >          wizardStep10Controller.set('wizardController', controller);</span>
+<span class="cstat-no" title="statement not covered" >          if (!App.get('testMode')) {</span>
+            //if test mode is ON don't disable prior steps link.
+<span class="cstat-no" title="statement not covered" >            controller.setLowerStepsDisable(7);</span>
+          }
+<span class="cstat-no" title="statement not covered" >          controller.connectOutlet('wizardStep10', controller.get('content'));</span>
+<span class="cstat-no" title="statement not covered" >          router.get('updateController').set('isWorking', true);</span>
+        });
+      },
+      back: Em.Router.transitionTo('step6'),
+      complete: <span class="fstat-no" title="function not covered" >function complete(router, context) {</span>
+<span class="cstat-no" title="statement not covered" >        $(context.currentTarget).parents("#modal").find(".close").trigger('click');</span>
+      }
+    }),
+&nbsp;
+    backToHostsList: <span class="fstat-no" title="function not covered" >function backToHostsList(router, event) {</span>
+<span class="cstat-no" title="statement not covered" >      App.router.get('updateController').set('isWorking', true);</span>
+<span class="cstat-no" title="statement not covered" >      router.transitionTo('hosts.index');</span>
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

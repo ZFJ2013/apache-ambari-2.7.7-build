@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/utils/configs/nn_ha_config_initializer.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/utils/configs/nn_ha_config_initializer.js</span></h1>
+    <h2>
+        Statements: <span class="metric">92.5% <small>(74 / 80)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">65.38% <small>(17 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">93.75% <small>(15 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">92.5% <small>(74 / 80)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/utils/configs/</a> &#187; nn_ha_config_initializer.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("utils/configs/nn_ha_config_initializer", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  require('utils/configs/ha_config_initializer_class');
+  require('utils/configs/hosts_based_initializer_mixin');
+&nbsp;
+  /**
+   * @typedef {topologyLocalDB} extendedTopologyLocalDB
+   * @property {string[]} installedServices list of installed service names
+   */
+&nbsp;
+  /**
+   * Setting for &lt;code&gt;rename&lt;/code&gt;-initializer
+   * Used for configs which should be renamed
+   * Replace some part if their names with &lt;code&gt;namespaceId&lt;/code&gt; (provided by user on the wizard's 1st step)
+   *
+   * @param {string} toReplace
+   * @returns {{type: string, toReplace: string}}
+   */
+  function getRenameWithNamespaceConfig(toReplace) {
+    return {
+      type: 'rename',
+      toReplace: toReplace
+    };
+  }
+&nbsp;
+  /**
+   * Settings for &lt;code&gt;namespace&lt;/code&gt;-initializer
+   * Used for configs with value equal to the &lt;code&gt;namespaceId&lt;/code&gt; (provided by user on the wizard's 1st step)
+   * Value may be customized with prefix and suffix
+   *
+   * @param {string} [prefix=''] substring added before namespace in the replace
+   * @param {string} [suffix=''] substring added after namespace in the replace
+   * @returns {{type: string, modifier: {prefix: (string), suffix: (string)}}}
+   */
+  function getNamespaceConfig(prefix, suffix) {
+    prefix = prefix || '';
+    suffix = suffix || '';
+    return {
+      type: 'namespace',
+      modifier: {
+        prefix: prefix,
+        suffix: suffix
+      }
+    };
+  }
+&nbsp;
+  /**
+   * Settings for &lt;code&gt;replace_namespace&lt;/code&gt;
+   * Used for configs with values that have to be modified with replacing some part of them
+   * to the &lt;code&gt;namespaceId&lt;/code&gt; (provided by user on the wizard's 1st step)
+   *
+   * @param {string} toReplace
+   * @returns {{type: string, toReplace: *}}
+   */
+  function getReplaceNamespaceConfig(toReplace) {
+    return {
+      type: 'replace_namespace',
+      toReplace: toReplace
+    };
+  }
+&nbsp;
+  /**
+   * Initializer for configs that are updated when NameNode HA-mode is activated
+   *
+   * @class {NnHaConfigInitializer}
+   */
+  App.NnHaConfigInitializer = App.HaConfigInitializerClass.create(App.HostsBasedInitializerMixin, {
+&nbsp;
+    initializers: function () {
+&nbsp;
+      return {
+        'dfs.ha.namenodes.${dfs.nameservices}': getRenameWithNamespaceConfig('${dfs.nameservices}'),
+        'dfs.namenode.rpc-address.${dfs.nameservices}.nn1': [this.getHostWithPortConfig('NAMENODE', true, '', '', 'nnRpcPort', true), getRenameWithNamespaceConfig('${dfs.nameservices}')],
+        'dfs.namenode.rpc-address.${dfs.nameservices}.nn2': [this.getHostWithPortConfig('NAMENODE', false, '', '', '8020', false), getRenameWithNamespaceConfig('${dfs.nameservices}')],
+        'dfs.namenode.http-address.${dfs.nameservices}.nn1': [this.getHostWithPortConfig('NAMENODE', true, '', '', 'nnHttpPort', true), getRenameWithNamespaceConfig('${dfs.nameservices}')],
+        'dfs.namenode.http-address.${dfs.nameservices}.nn2': [this.getHostWithPortConfig('NAMENODE', false, '', '', '50070', false), getRenameWithNamespaceConfig('${dfs.nameservices}')],
+        'dfs.namenode.https-address.${dfs.nameservices}.nn1': [this.getHostWithPortConfig('NAMENODE', true, '', '', 'nnHttpsPort', true), getRenameWithNamespaceConfig('${dfs.nameservices}')],
+        'dfs.namenode.https-address.${dfs.nameservices}.nn2': [this.getHostWithPortConfig('NAMENODE', false, '', '', '50470', false), getRenameWithNamespaceConfig('${dfs.nameservices}')],
+        'dfs.client.failover.proxy.provider.${dfs.nameservices}': getRenameWithNamespaceConfig('${dfs.nameservices}'),
+        'dfs.nameservices': getNamespaceConfig(),
+        'dfs.internal.nameservices': getNamespaceConfig(),
+        'fs.defaultFS': getNamespaceConfig('hdfs://'),
+        'dfs.namenode.shared.edits.dir': [this.getHostsWithPortConfig('JOURNALNODE', 'qjournal://', '/${dfs.nameservices}', ';', '8485', false), getReplaceNamespaceConfig('${dfs.nameservices}')],
+        'ha.zookeeper.quorum': this.getHostsWithPortConfig('ZOOKEEPER_SERVER', '', '', ',', 'zkClientPort', true)
+      };
+    }.property(),
+&nbsp;
+    uniqueInitializers: {
+      'hbase.rootdir': '_initHbaseRootDir',
+      'hawq_dfs_url': '_initHawqDfsUrl',
+      'instance.volumes': '_initInstanceVolumes',
+      'instance.volumes.replacements': '_initInstanceVolumesReplacements',
+      'dfs.journalnode.edits.dir': '_initDfsJnEditsDir',
+      'xasecure.audit.destination.hdfs.dir': '_initXasecureAuditDestinationHdfsDir'
+    },
+&nbsp;
+    initializerTypes: [{ name: 'rename', method: '_initWithRename' }, { name: 'namespace', method: '_initAsNamespace' }, { name: 'replace_namespace', method: '_initWithNamespace' }],
+&nbsp;
+    /**
+     * Initializer for configs that should be renamed
+     * Some part of their names should be replaced with &lt;code&gt;namespaceId&lt;/code&gt; (user input this value on the wizard's 1st step)
+     * Affects both - name and displayName
+     * &lt;b&gt;Important! It's not the same as &lt;code&gt;_updateInitializers&lt;/code&gt;!&lt;/b&gt;
+     * Main diff - this initializer used for configs
+     * with names that come with some "predicates" in their names. &lt;code&gt;_updateInitializers&lt;/code&gt; is used to determine needed
+     * config name that depends on other config values or someting else
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @returns {object}
+     * @private
+     * @method _initWithRename
+     */
+    _initWithRename: function _initWithRename(configProperty, localDB, dependencies, initializer) {
+      var replaceWith = dependencies.namespaceId;
+      var toReplace = initializer.toReplace;
+      Em.assert('`dependencies.namespaceId` should be not empty string', !!replaceWith);
+      var name = Em.getWithDefault(configProperty, 'name', '');
+      var displayName = Em.getWithDefault(configProperty, 'displayName', '');
+      name = name.replace(toReplace, replaceWith);
+      displayName = displayName.replace(toReplace, replaceWith);
+      Em.setProperties(configProperty, {
+        name: name,
+        displayName: displayName
+      });
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Initializer for configs wih value equal to the &lt;code&gt;namespaceId&lt;/code&gt; (user input this value on the wizard's 1st step)
+     * Value may be customized with prefix and suffix (see &lt;code&gt;initializer.modifier&lt;/code&gt;)
+     * Value-examples: 'SOME_COOL_PREFIXmy_namespaceSOME_COOL_SUFFIX', 'my_namespace'
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @returns {object}
+     * @private
+     * @method _initAsNamespace
+     */
+    _initAsNamespace: <span class="fstat-no" title="function not covered" >function _initAsNamespace(configProperty, localDB, dependencies, initializer) {</span>
+<span class="cstat-no" title="statement not covered" >      var value = dependencies.namespaceId;</span>
+<span class="cstat-no" title="statement not covered" >      Em.assert('`dependencies.namespaceId` should be not empty string', !!value);</span>
+<span class="cstat-no" title="statement not covered" >      value = initializer.modifier.prefix + value + initializer.modifier.suffix;</span>
+<span class="cstat-no" title="statement not covered" >      Em.setProperties(configProperty, {</span>
+        value: value,
+        recommendedValue: value
+      });
+<span class="cstat-no" title="statement not covered" >      return configProperty;</span>
+    },
+&nbsp;
+    /**
+     * Initializer for configs with value that should be modified with replacing some substring
+     * to the &lt;code&gt;namespaceId&lt;/code&gt; (user input this value on the wizard's 1st step)
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @returns {object}
+     * @private
+     * @method _initWithNamespace
+     */
+    _initWithNamespace: function _initWithNamespace(configProperty, localDB, dependencies, initializer) {
+      var replaceWith = dependencies.namespaceId;
+      var toReplace = initializer.toReplace;
+      Em.assert('`dependencies.namespaceId` should be not empty string', !!replaceWith);
+      var value = Em.get(configProperty, 'value').replace(toReplace, replaceWith);
+      var recommendedValue = Em.get(configProperty, 'recommendedValue').replace(toReplace, replaceWith);
+      Em.setProperties(configProperty, {
+        value: value,
+        recommendedValue: recommendedValue
+      });
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;hbase.rootdir&lt;/code&gt;
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @method _initHbaseRootDir
+     * @return {object}
+     * @private
+     */
+    _initHbaseRootDir: function _initHbaseRootDir(configProperty, localDB, dependencies, initializer) {
+      var fileName = Em.get(configProperty, 'filename');
+      var args = [].slice.call(arguments);
+      if ('hbase-site' === fileName) {
+        return this._initHbaseRootDirForHbase.apply(this, args);
+      }
+      <span class="missing-if-branch" title="else path not taken" >E</span>if ('ams-hbase-site' === fileName) {
+        return this._initHbaseRootDirForAMS.apply(this, args);
+      }
+<span class="cstat-no" title="statement not covered" >      return configProperty;</span>
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;hbase.rootdir&lt;/code&gt; (HBASE-service)
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @method _initHbaseRootDirForHbase
+     * @return {object}
+     * @private
+     */
+    _initHbaseRootDirForHbase: function _initHbaseRootDirForHbase(configProperty, localDB, dependencies, initializer) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (localDB.installedServices.contains('HBASE')) {
+        var value = dependencies.serverConfigs.findProperty('type', 'hbase-site').properties['hbase.rootdir'].replace(/\/\/[^\/]*/, '//' + dependencies.namespaceId);
+        Em.setProperties(configProperty, {
+          value: value,
+          recommendedValue: value
+        });
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;hbase.rootdir&lt;/code&gt; (Ambari Metrics-service)
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @method _initHbaseRootDirForAMS
+     * @return {object}
+     * @private
+     */
+    _initHbaseRootDirForAMS: function _initHbaseRootDirForAMS(configProperty, localDB, dependencies, initializer) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (localDB.installedServices.contains('AMBARI_METRICS')) {
+        var value = dependencies.serverConfigs.findProperty('type', 'ams-hbase-site').properties['hbase.rootdir'];
+        var currentNameNodeHost = localDB.masterComponentHosts.filterProperty('component', 'NAMENODE').findProperty('isInstalled', true).hostName;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (value.contains("hdfs://" + currentNameNodeHost)) {
+          value = value.replace(/\/\/[^\/]*/, '//' + dependencies.namespaceId);
+          configProperty.isVisible = true;
+        }
+        Em.setProperties(configProperty, {
+          value: value,
+          recommendedValue: value
+        });
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;hawq_dfs_url&lt;/code&gt; (Hawq service)
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @method _initHawqDfsUrl
+     * @return {object}
+     * @private
+     */
+    _initHawqDfsUrl: function _initHawqDfsUrl(configProperty, localDB, dependencies, initializer) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (localDB.installedServices.contains('HAWQ')) {
+        var value = dependencies.serverConfigs.findProperty('type', 'hawq-site').properties['hawq_dfs_url'].replace(/(^.*:[0-9]+)(?=\/)/, dependencies.namespaceId);
+        Em.setProperties(configProperty, {
+          value: value,
+          recommendedValue: value
+        });
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;instance.volumes&lt;/code&gt;
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @method _initInstanceVolumes
+     * @return {object}
+     * @private
+     */
+    _initInstanceVolumes: function _initInstanceVolumes(configProperty, localDB, dependencies, initializer) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (localDB.installedServices.contains('ACCUMULO')) {
+        var oldValue = dependencies.serverConfigs.findProperty('type', 'accumulo-site').properties['instance.volumes'];
+        var value = oldValue.replace(/\/\/[^\/]*/, '//' + dependencies.namespaceId);
+        Em.setProperties(configProperty, {
+          value: value,
+          recommendedValue: value
+        });
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;instance.volumes.replacements&lt;/code&gt;
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @method _initInstanceVolumesReplacements
+     * @return {object}
+     * @private
+     */
+    _initInstanceVolumesReplacements: function _initInstanceVolumesReplacements(configProperty, localDB, dependencies, initializer) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (localDB.installedServices.contains('ACCUMULO')) {
+        var oldValue = dependencies.serverConfigs.findProperty('type', 'accumulo-site').properties['instance.volumes'];
+        var value = oldValue.replace(/\/\/[^\/]*/, '//' + dependencies.namespaceId);
+        var replacements = oldValue + " " + value;
+        Em.setProperties(configProperty, {
+          value: replacements,
+          recommendedValue: replacements
+        });
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;dfs.journalnode.edits.dir&lt;/code&gt;
+     * Used only for Windows Stacks
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @method _initDfsJnEditsDir
+     * @return {object}
+     * @private
+     */
+    _initDfsJnEditsDir: function _initDfsJnEditsDir(configProperty, localDB, dependencies, initializer) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (App.get('isHadoopWindowsStack') &amp;&amp; localDB.installedServices.contains('HDFS')) {
+        var value = dependencies.serverConfigs.findProperty('type', 'hdfs-site').properties['dfs.journalnode.edits.dir'];
+        Em.setProperties(configProperty, {
+          value: value,
+          recommendedValue: value
+        });
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;xasecure.audit.destination.hdfs.dir&lt;/code&gt;
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {nnHaConfigDependencies} dependencies
+     * @param {object} initializer
+     * @method _initXasecureAuditDestinationHdfsDir
+     * @return {object}
+     * @private
+     */
+    _initXasecureAuditDestinationHdfsDir: function _initXasecureAuditDestinationHdfsDir(configProperty, localDB, dependencies, initializer) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (localDB.installedServices.contains('RANGER')) {
+        var oldValue = dependencies.serverConfigs.findProperty('type', 'ranger-env').properties['xasecure.audit.destination.hdfs.dir'];
+        // Example of value - hdfs://c6401.ambari.apache.org:8020/ranger/audit
+        // Replace hostname and port with Namespace
+        var valueArray = oldValue.split("/");
+        valueArray[2] = dependencies.namespaceId;
+        var newValue = valueArray.join("/");
+        Em.setProperties(configProperty, {
+          value: newValue,
+          recommendedValue: newValue
+        });
+      }
+      return configProperty;
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

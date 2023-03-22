@@ -1,0 +1,2193 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/main/alerts/manage_alert_groups_controller.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/controllers/main/alerts/manage_alert_groups_controller.js</span></h1>
+    <h2>
+        Statements: <span class="metric">30% <small>(63 / 210)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">22.22% <small>(20 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">31.67% <small>(19 / 60)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">33.15% <small>(61 / 184)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/controllers/main/alerts/</a> &#187; manage_alert_groups_controller.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var _slicedToArray = function () { <span class="fstat-no" title="function not covered" >function sliceIterator(arr, i) {</span> <span class="cstat-no" title="statement not covered" >var _arr = []; <span class="cstat-no" title="statement not covered" ></span>var _n = true; <span class="cstat-no" title="statement not covered" ></span>var _d = false; <span class="cstat-no" title="statement not covered" ></span>var _e = undefined; <span class="cstat-no" title="statement not covered" ></span>try { <span class="cstat-no" title="statement not covered" >for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { <span class="cstat-no" title="statement not covered" >_arr.push(_s.value); <span class="cstat-no" title="statement not covered" ></span>if (i &amp;&amp; _arr.length === i) <span class="cstat-no" title="statement not covered" >break; </span></span>} </span>} catch (err) { <span class="cstat-no" title="statement not covered" >_d = true; <span class="cstat-no" title="statement not covered" ></span>_e = err; </span>} finally { <span class="cstat-no" title="statement not covered" >try { <span class="cstat-no" title="statement not covered" >if (!_n &amp;&amp; _i["return"]) <span class="cstat-no" title="statement not covered" >_i["return"](); </span></span>} finally { <span class="cstat-no" title="statement not covered" >if (_d) <span class="cstat-no" title="statement not covered" >throw _e; </span></span>} </span>} <span class="cstat-no" title="statement not covered" ></span>return _arr; </span>} return <span class="fstat-no" title="function not covered" >function (arr, i) {</span> <span class="cstat-no" title="statement not covered" >if (Array.isArray(arr)) { <span class="cstat-no" title="statement not covered" >return arr; </span>} else <span class="cstat-no" title="statement not covered" >if (Symbol.iterator in Object(arr)) { <span class="cstat-no" title="statement not covered" >return sliceIterator(arr, i); </span>} else { <span class="cstat-no" title="statement not covered" >throw new TypeError("Invalid attempt to destructure non-iterable instance"); </span>} </span></span>}; }();
+&nbsp;
+;require.register("controllers/main/alerts/manage_alert_groups_controller", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  var validator = require('utils/validator');
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function stringify(obj, property) {</span>
+<span class="cstat-no" title="statement not covered" >    return JSON.stringify(obj.get(property).slice().sort());</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function groupsAreNotEqual(group1, group2) {</span>
+<span class="cstat-no" title="statement not covered" >    return stringify(group1, 'definitions') !== stringify(group2, 'definitions') || stringify(group1, 'notifications') !== stringify(group2, 'notifications');</span>
+  }
+&nbsp;
+  function mapToEmObjects(collection, fields, renamedFields) {
+    var _renamedFields = arguments.length === 3 ? <span class="branch-0 cbranch-no" title="branch not covered" >renamedFields </span>: [];
+    return collection.map(function (item) {
+      var ret = Em.Object.create(Em.getProperties(item, fields));
+      _renamedFields.forEach(<span class="fstat-no" title="function not covered" >function (renamedField) {</span>
+<span class="cstat-no" title="statement not covered" >        var _renamedField$split = renamedField.split(':'),</span>
+            _renamedField$split2 = _slicedToArray(_renamedField$split, 2),
+            realName = _renamedField$split2[0],
+            newName = _renamedField$split2[1];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        Em.set(ret, newName, Em.get(item, realName));</span>
+      });
+      return ret;
+    });
+  }
+&nbsp;
+  var AlertGroupClone = Em.Object.extend({
+    displayName: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var name = App.config.truncateGroupName(this.get('name'));</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('default') ? name + ' Default' : name;</span>
+    }.property('name', 'default'),
+    label: Em.computed.format('{0} ({1})', 'displayName', 'definitions.length')
+  });
+&nbsp;
+  App.ManageAlertGroupsController = Em.Controller.extend({
+&nbsp;
+    name: 'manageAlertGroupsController',
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    isLoaded: false,
+&nbsp;
+    /**
+     * Property used to trigger Alert Groups Filter content updating
+     * @type {Boolean}
+     */
+    changeTrigger: false,
+&nbsp;
+    /**
+     * @type {App.AlertGroup[]}
+     */
+    alertGroups: [],
+&nbsp;
+    /**
+     * @type {App.AlertGroup[]}
+     */
+    originalAlertGroups: [],
+&nbsp;
+    /**
+     * @type {App.AlertGroup}
+     */
+    selectedAlertGroup: null,
+&nbsp;
+    /**
+     * @type {App.AlertDefinition[]}
+     */
+    selectedDefinitions: [],
+&nbsp;
+    /**
+     * List of all Alert Notifications
+     * @type {App.AlertNotification[]}
+     */
+    alertNotifications: function () {
+      return this.get('isLoaded') ? mapToEmObjects(App.AlertNotification.find(), ['id', 'name', 'description', 'type', 'global']) : [];
+    }.property('isLoaded'),
+&nbsp;
+    /**
+     * List of all global Alert Notifications
+     * @type {App.AlertNotification[]}
+     */
+    alertGlobalNotifications: Em.computed.filterBy('alertNotifications', 'global', true),
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    isRemoveButtonDisabled: true,
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    isRenameButtonDisabled: true,
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    isDuplicateButtonDisabled: true,
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    isDeleteDefinitionsDisabled: function () {
+      var selectedGroup = this.get('selectedAlertGroup');
+      return selectedGroup ? selectedGroup.default || this.get('selectedDefinitions').length === 0 : <span class="branch-1 cbranch-no" title="branch not covered" >true;</span>
+    }.property('selectedAlertGroup.definitions.length', 'selectedDefinitions.length'),
+&nbsp;
+    /**
+     * observes if any group changed including: group name, newly created group, deleted group, group with definitions/notifications changed
+     * @type {{toDelete: App.AlertGroup[], toSet: App.AlertGroup[], toCreate: App.AlertGroup[]}}
+     */
+    defsModifiedAlertGroups: {},
+&nbsp;
+    /**
+     * Determines if some group was edited/created/deleted
+     * @type {boolean}
+     */
+    isDefsModified: Em.computed.and('isLoaded', 'isDefsModifiedAlertGroups'),
+&nbsp;
+    isDefsModifiedAlertGroups: Em.computed.or('defsModifiedAlertGroups.toSet.length', 'defsModifiedAlertGroups.toCreate.length', 'defsModifiedAlertGroups.toDelete.length'),
+&nbsp;
+    /**
+     * Check when some config group was changed and updates &lt;code&gt;defsModifiedAlertGroups&lt;/code&gt; once
+     * @method defsModifiedAlertGroupsObs
+     */
+    defsModifiedAlertGroupsObs: function () {
+      Em.run.once(this, this.defsModifiedAlertGroupsObsOnce);
+    }.observes('selectedAlertGroup.definitions.[]', 'selectedAlertGroup.notifications.[]', 'alertGroups', 'isLoaded'),
+&nbsp;
+    /**
+     * Update &lt;code&gt;defsModifiedAlertGroups&lt;/code&gt;-value
+     * Called once in the &lt;code&gt;defsModifiedAlertGroupsObs&lt;/code&gt;
+     * @method defsModifiedAlertGroupsObsOnce
+     * @returns {boolean}
+     */
+    defsModifiedAlertGroupsObsOnce: function defsModifiedAlertGroupsObsOnce() {
+      if (!this.get('isLoaded')) {
+        return;
+      }
+      var groupsToDelete = [];
+      var groupsToSet = [];
+      var groupsToCreate = [];
+      var groups = this.get('alertGroups'); //current alert groups
+      var originalGroups = this.get('originalAlertGroups'); // original alert groups
+      var mappedOriginalGroups = {}; // map is faster than `originalGroups.findProperty('id', ...)`
+      originalGroups.forEach(<span class="fstat-no" title="function not covered" >function (group) {</span>
+<span class="cstat-no" title="statement not covered" >        mappedOriginalGroups[group.get('id')] = group;</span>
+      });
+      var originalGroupsIds = originalGroups.mapProperty('id');
+&nbsp;
+      groups.forEach(<span class="fstat-no" title="function not covered" >function (group) {</span>
+<span class="cstat-no" title="statement not covered" >        var originalGroup = mappedOriginalGroups[group.get('id')];</span>
+<span class="cstat-no" title="statement not covered" >        if (originalGroup) {</span>
+          // should update definitions or notifications
+<span class="cstat-no" title="statement not covered" >          if (groupsAreNotEqual(group, originalGroup) || group.get('name') !== originalGroup.get('name')) {</span>
+            // should update name
+<span class="cstat-no" title="statement not covered" >            groupsToSet.push(group.set('id', originalGroup.get('id')));</span>
+          }
+<span class="cstat-no" title="statement not covered" >          originalGroupsIds = originalGroupsIds.without(group.get('id'));</span>
+        } else {
+          // should add new group
+<span class="cstat-no" title="statement not covered" >          groupsToCreate.push(group);</span>
+        }
+      });
+      // should delete groups
+      originalGroupsIds.forEach(<span class="fstat-no" title="function not covered" >function (id) {</span>
+<span class="cstat-no" title="statement not covered" >        groupsToDelete.push(originalGroups.findProperty('id', id));</span>
+      });
+&nbsp;
+      this.set('defsModifiedAlertGroups', {
+        toDelete: groupsToDelete,
+        toSet: groupsToSet,
+        toCreate: groupsToCreate
+      });
+    },
+&nbsp;
+    /**
+     * Load all Alert Notifications from server
+     * @returns {$.ajax}
+     * @method loadAlertNotifications
+     */
+    loadAlertNotifications: <span class="fstat-no" title="function not covered" >function loadAlertNotifications() {</span>
+<span class="cstat-no" title="statement not covered" >      this.setProperties({</span>
+        isLoaded: false,
+        alertGroups: [],
+        originalAlertGroups: [],
+        selectedAlertGroup: null,
+        isRemoveButtonDisabled: true,
+        isRenameButtonDisabled: true,
+        isDuplicateButtonDisabled: true
+      });
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'alerts.notifications',
+        sender: this,
+        success: 'getAlertNotificationsSuccessCallback',
+        error: 'getAlertNotificationsErrorCallback'
+      });
+    },
+&nbsp;
+    /**
+     * Success-callback for load alert notifications request
+     * @param {object} json
+     * @method getAlertNotificationsSuccessCallback
+     */
+    getAlertNotificationsSuccessCallback: <span class="fstat-no" title="function not covered" >function getAlertNotificationsSuccessCallback(json) {</span>
+<span class="cstat-no" title="statement not covered" >      App.alertNotificationMapper.map(json);</span>
+<span class="cstat-no" title="statement not covered" >      this.loadAlertGroups();</span>
+    },
+&nbsp;
+    /**
+     * Error-callback for load alert notifications request
+     * @method getAlertNotificationsErrorCallback
+     */
+    getAlertNotificationsErrorCallback: <span class="fstat-no" title="function not covered" >function getAlertNotificationsErrorCallback() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('isLoaded', true);</span>
+    },
+&nbsp;
+    /**
+     * Load all alert groups from alert group model
+     * @method loadAlertGroups
+     */
+    loadAlertGroups: <span class="fstat-no" title="function not covered" >function loadAlertGroups() {</span>
+<span class="cstat-no" title="statement not covered" >      var alertGroups = App.AlertGroup.find().map(<span class="fstat-no" title="function not covered" >function (group) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var definitions = mapToEmObjects(group.get('definitions'), ['name', 'serviceName', 'componentName', 'label', 'id'], ['service.displayName:serviceNameDisplay', 'componentNameFormatted:componentNameDisplay']);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var targets = mapToEmObjects(group.get('targets'), ['name', 'id', 'description', 'type', 'global']);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var hash = Em.getProperties(group, ['id', 'name', 'default', 'isAddDefinitionsDisabled']);</span>
+<span class="cstat-no" title="statement not covered" >        hash.definitions = definitions;</span>
+<span class="cstat-no" title="statement not covered" >        hash.notifications = targets;</span>
+<span class="cstat-no" title="statement not covered" >        return AlertGroupClone.create(hash);</span>
+      });
+<span class="cstat-no" title="statement not covered" >      this.setProperties({</span>
+        alertGroups: alertGroups,
+        isLoaded: true,
+        originalAlertGroups: this.copyAlertGroups(alertGroups),
+        selectedAlertGroup: alertGroups[0]
+      });
+    },
+&nbsp;
+    /**
+     * Enable/disable "Remove"/"Rename"/"Duplicate" buttons basing on &lt;code&gt;controller.selectedAlertGroup&lt;/code&gt;
+     * @method buttonObserver
+     */
+    buttonObserver: function () {
+      var selectedAlertGroup = this.get('selectedAlertGroup');
+      var flag = selectedAlertGroup &amp;&amp; selectedAlertGroup.get('default');
+      this.setProperties({
+        isRemoveButtonDisabled: flag,
+        isRenameButtonDisabled: flag,
+        isDuplicateButtonDisabled: false
+      });
+    }.observes('selectedAlertGroup'),
+&nbsp;
+    /**
+     * @method resortAlertGroup
+     */
+    resortAlertGroup: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var alertGroups = Em.copy(this.get('alertGroups'));</span>
+<span class="cstat-no" title="statement not covered" >      if (alertGroups.length &lt; 2) {</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      var defaultGroups = alertGroups.filterProperty('default');</span>
+<span class="cstat-no" title="statement not covered" >      defaultGroups.forEach(<span class="fstat-no" title="function not covered" >function (defaultGroup) {</span></span>
+<span class="cstat-no" title="statement not covered" >        alertGroups.removeObject(defaultGroup);</span>
+      });
+<span class="cstat-no" title="statement not covered" >      var sorted = defaultGroups.sortProperty('name').concat(alertGroups.sortProperty('name'));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.removeObserver('alertGroups.@each.name', this, 'resortAlertGroup');</span>
+<span class="cstat-no" title="statement not covered" >      this.set('alertGroups', sorted);</span>
+<span class="cstat-no" title="statement not covered" >      this.addObserver('alertGroups.@each.name', this, 'resortAlertGroup');</span>
+    }.observes('alertGroups.@each.name'),
+&nbsp;
+    /**
+     * remove definitions from group
+     * @method deleteDefinitions
+     */
+    deleteDefinitions: function deleteDefinitions() {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('isDeleteDefinitionsDisabled')) {
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+      var groupDefinitions = this.get('selectedAlertGroup.definitions');
+      this.get('selectedDefinitions').slice().forEach(function (defObj) {
+        groupDefinitions.removeObject(defObj);
+      }, this);
+      this.set('selectedDefinitions', []);
+    },
+&nbsp;
+    /**
+     * Provides alert definitions which are available for inclusion in
+     * non-default alert groups.
+     * @param {App.AlertGroup} selectedAlertGroup
+     * @method getAvailableDefinitions
+     * @return {{name: string, serviceName: string, componentName: string, serviceNameDisplay: string, componentNameDisplay: string, label: string, id: number}[]}
+     */
+    getAvailableDefinitions: <span class="fstat-no" title="function not covered" >function getAvailableDefinitions(selectedAlertGroup) {</span>
+<span class="cstat-no" title="statement not covered" >      if (selectedAlertGroup.get('default')) <span class="cstat-no" title="statement not covered" >return [];</span></span>
+<span class="cstat-no" title="statement not covered" >      var usedDefinitionsMap = {};</span>
+<span class="cstat-no" title="statement not covered" >      var availableDefinitions = [];</span>
+<span class="cstat-no" title="statement not covered" >      var sharedDefinitions = App.AlertDefinition.find();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      usedDefinitionsMap = selectedAlertGroup.get('definitions').toWickMapByProperty('name');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      selectedAlertGroup.get('definitions').forEach(<span class="fstat-no" title="function not covered" >function (def) {</span></span>
+<span class="cstat-no" title="statement not covered" >        usedDefinitionsMap[def.name] = true;</span>
+      });
+<span class="cstat-no" title="statement not covered" >      sharedDefinitions.forEach(<span class="fstat-no" title="function not covered" >function (sharedDef) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (!usedDefinitionsMap[sharedDef.get('name')]) {</span>
+<span class="cstat-no" title="statement not covered" >          availableDefinitions.pushObject(sharedDef);</span>
+        }
+      });
+<span class="cstat-no" title="statement not covered" >      return mapToEmObjects(availableDefinitions, ['name', 'serviceName', 'componentName', 'label', 'id'], ['service.displayName:serviceNameDisplay', 'componentNameFormatted:componentNameDisplay']);</span>
+    },
+&nbsp;
+    /**
+     * add alert definitions to a group
+     * @method addDefinitions
+     */
+    addDefinitions: <span class="fstat-no" title="function not covered" >function addDefinitions() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('selectedAlertGroup.isAddDefinitionsDisabled')) {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      var availableDefinitions = this.getAvailableDefinitions(this.get('selectedAlertGroup'));</span>
+<span class="cstat-no" title="statement not covered" >      var validComponents = App.StackServiceComponent.find().map(<span class="fstat-no" title="function not covered" >function (component) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return Em.Object.create({</span>
+          componentName: component.get('componentName'),
+          displayName: App.format.role(component.get('componentName'), false),
+          selected: false
+        });
+      });
+<span class="cstat-no" title="statement not covered" >      var validServices = App.Service.find().map(<span class="fstat-no" title="function not covered" >function (service) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return Em.Object.create({</span>
+          serviceName: service.get('serviceName'),
+          displayName: App.format.role(service.get('serviceName'), true),
+          selected: false
+        });
+      });
+<span class="cstat-no" title="statement not covered" >      return this.launchDefsSelectionDialog(availableDefinitions, [], validServices, validComponents);</span>
+    },
+&nbsp;
+    /**
+     * Launch a table view of all available definitions to choose
+     * @method launchDefsSelectionDialog
+     * @return {App.ModalPopup}
+     */
+    launchDefsSelectionDialog: <span class="fstat-no" title="function not covered" >function launchDefsSelectionDialog(initialDefs, selectedDefs, validServices, validComponents) {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      return App.ModalPopup.show({</span>
+&nbsp;
+        classNames: ['common-modal-wrapper', 'full-height-modal'],
+&nbsp;
+        modalDialogClasses: ['modal-lg'],
+&nbsp;
+        header: Em.I18n.t('alerts.actions.manage_alert_groups_popup.selectDefsDialog.title'),
+&nbsp;
+        /**
+         * @type {string}
+         */
+        dialogMessage: Em.I18n.t('alerts.actions.manage_alert_groups_popup.selectDefsDialog.message').format(this.get('selectedAlertGroup.displayName')),
+&nbsp;
+        /**
+         * @type {string|null}
+         */
+        warningMessage: null,
+&nbsp;
+        /**
+         * @type {App.AlertDefinition[]}
+         */
+        availableDefs: [],
+&nbsp;
+        onPrimary: <span class="fstat-no" title="function not covered" >function onPrimary() {</span>
+<span class="cstat-no" title="statement not covered" >          this.set('warningMessage', null);</span>
+<span class="cstat-no" title="statement not covered" >          var arrayOfSelectedDefs = this.get('availableDefs').filterProperty('selected', true);</span>
+<span class="cstat-no" title="statement not covered" >          if (arrayOfSelectedDefs.length &lt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >            this.set('warningMessage', Em.I18n.t('alerts.actions.manage_alert_groups_popup.selectDefsDialog.message.warning'));</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          self.addDefinitionsCallback(arrayOfSelectedDefs);</span>
+<span class="cstat-no" title="statement not covered" >          this.hide();</span>
+        },
+&nbsp;
+        /**
+         * Primary button should be disabled while alert definitions are not loaded
+         * @type {boolean}
+         */
+        disablePrimary: Em.computed.not('isLoaded'),
+&nbsp;
+        onSecondary: <span class="fstat-no" title="function not covered" >function onSecondary() {</span>
+<span class="cstat-no" title="statement not covered" >          self.addDefinitionsCallback(null);</span>
+<span class="cstat-no" title="statement not covered" >          this.hide();</span>
+        },
+&nbsp;
+        bodyClass: App.SelectDefinitionsPopupBodyView.extend({
+&nbsp;
+          filterComponents: validComponents,
+&nbsp;
+          filterServices: validServices,
+&nbsp;
+          initialDefs: initialDefs
+&nbsp;
+        })
+&nbsp;
+      });
+    },
+&nbsp;
+    /**
+     * add alert definitions callback
+     * @method addDefinitionsCallback
+     */
+    addDefinitionsCallback: function addDefinitionsCallback(selectedDefs) {
+      var group = this.get('selectedAlertGroup');
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (selectedDefs) {
+        group.get('definitions').pushObjects(selectedDefs);
+      }
+    },
+&nbsp;
+    /**
+     * copy alert groups for backup, to compare with current alert groups, so will know if some groups changed/added/deleted
+     * @param {App.AlertGroup[]} originGroups
+     * @return {App.AlertGroup[]}
+     * @method copyAlertGroups
+     */
+    copyAlertGroups: <span class="fstat-no" title="function not covered" >function copyAlertGroups(originGroups) {</span>
+<span class="cstat-no" title="statement not covered" >      var alertGroups = [];</span>
+<span class="cstat-no" title="statement not covered" >      originGroups.forEach(<span class="fstat-no" title="function not covered" >function (alertGroup) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var copiedGroup = Em.Object.create($.extend(true, {}, alertGroup));</span>
+<span class="cstat-no" title="statement not covered" >        alertGroups.pushObject(copiedGroup);</span>
+      });
+<span class="cstat-no" title="statement not covered" >      return alertGroups;</span>
+    },
+&nbsp;
+    /**
+     * Create a new alert group
+     * @param {Em.Object} newAlertGroupData
+     * @param {callback} callback Callback function for Success or Error handling
+     * @return {App.AlertGroup} Returns the created alert group
+     * @method postNewAlertGroup
+     */
+    postNewAlertGroup: <span class="fstat-no" title="function not covered" >function postNewAlertGroup(newAlertGroupData, callback) {</span>
+      // create a new group with name , definition and notifications
+<span class="cstat-no" title="statement not covered" >      var data = {</span>
+        name: newAlertGroupData.get('name')
+      };
+<span class="cstat-no" title="statement not covered" >      if (newAlertGroupData.get('definitions').length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        data.definitions = newAlertGroupData.get('definitions').mapProperty('id');</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (newAlertGroupData.get('notifications').length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        data.targets = newAlertGroupData.get('notifications').mapProperty('id');</span>
+      }
+<span class="cstat-no" title="statement not covered" >      var sendData = {</span>
+        name: 'alert_groups.create',
+        data: data,
+        success: 'successFunction',
+        error: 'errorFunction',
+        successFunction: <span class="fstat-no" title="function not covered" >function successFunction() {</span>
+<span class="cstat-no" title="statement not covered" >          if (callback) {</span>
+<span class="cstat-no" title="statement not covered" >            callback();</span>
+          }
+        },
+        errorFunction: <span class="fstat-no" title="function not covered" >function errorFunction(xhr, text, errorThrown) {</span>
+<span class="cstat-no" title="statement not covered" >          if (callback) {</span>
+<span class="cstat-no" title="statement not covered" >            callback(xhr, text, errorThrown);</span>
+          }
+        }
+      };
+<span class="cstat-no" title="statement not covered" >      sendData.sender = sendData;</span>
+<span class="cstat-no" title="statement not covered" >      App.ajax.send(sendData);</span>
+<span class="cstat-no" title="statement not covered" >      return newAlertGroupData;</span>
+    },
+&nbsp;
+    /**
+     * PUTs the new alert group information on the server.
+     * Changes possible here are the name, definitions, notifications
+     *
+     * @param {App.AlertGroup} alertGroup
+     * @param {Function} successCallback
+     * @param {Function} errorCallback
+     * @method updateAlertGroup
+     */
+    updateAlertGroup: <span class="fstat-no" title="function not covered" >function updateAlertGroup(alertGroup, successCallback, errorCallback) {</span>
+<span class="cstat-no" title="statement not covered" >      var sendData = {</span>
+        name: 'alert_groups.update',
+        data: {
+          group_id: alertGroup.id,
+          name: alertGroup.get('name'),
+          definitions: alertGroup.get('definitions').mapProperty('id'),
+          targets: alertGroup.get('notifications').mapProperty('id')
+        },
+        success: 'successFunction',
+        error: 'errorFunction',
+        successFunction: <span class="fstat-no" title="function not covered" >function successFunction() {</span>
+<span class="cstat-no" title="statement not covered" >          if (successCallback) {</span>
+<span class="cstat-no" title="statement not covered" >            successCallback();</span>
+          }
+        },
+        errorFunction: <span class="fstat-no" title="function not covered" >function errorFunction(xhr, text, errorThrown) {</span>
+<span class="cstat-no" title="statement not covered" >          if (errorCallback) {</span>
+<span class="cstat-no" title="statement not covered" >            errorCallback(xhr, text, errorThrown);</span>
+          }
+        }
+      };
+<span class="cstat-no" title="statement not covered" >      sendData.sender = sendData;</span>
+<span class="cstat-no" title="statement not covered" >      App.ajax.send(sendData);</span>
+    },
+&nbsp;
+    /**
+     * Request for deleting alert group
+     * @param {App.AlertGroup} alertGroup
+     * @param {callback} successCallback
+     * @param {callback} errorCallback
+     * @method removeAlertGroup
+     */
+    removeAlertGroup: <span class="fstat-no" title="function not covered" >function removeAlertGroup(alertGroup, successCallback, errorCallback) {</span>
+<span class="cstat-no" title="statement not covered" >      var sendData = {</span>
+        name: 'alert_groups.delete',
+        data: {
+          group_id: alertGroup.id
+        },
+        success: 'successFunction',
+        error: 'errorFunction',
+        successFunction: <span class="fstat-no" title="function not covered" >function successFunction() {</span>
+<span class="cstat-no" title="statement not covered" >          if (successCallback) {</span>
+<span class="cstat-no" title="statement not covered" >            successCallback();</span>
+          }
+        },
+        errorFunction: <span class="fstat-no" title="function not covered" >function errorFunction(xhr, text, errorThrown) {</span>
+<span class="cstat-no" title="statement not covered" >          if (errorCallback) {</span>
+<span class="cstat-no" title="statement not covered" >            errorCallback(xhr, text, errorThrown);</span>
+          }
+        }
+      };
+<span class="cstat-no" title="statement not covered" >      sendData.sender = sendData;</span>
+<span class="cstat-no" title="statement not covered" >      App.ajax.send(sendData);</span>
+    },
+&nbsp;
+    /**
+     * confirm delete alert group
+     * @method confirmDelete
+     */
+    confirmDelete: <span class="fstat-no" title="function not covered" >function confirmDelete() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('isRemoveButtonDisabled')) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      App.showConfirmationPopup(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        self.deleteAlertGroup();</span>
+      });
+    },
+&nbsp;
+    /**
+     * delete selected alert group
+     * @method deleteAlertGroup
+     */
+    deleteAlertGroup: <span class="fstat-no" title="function not covered" >function deleteAlertGroup() {</span>
+<span class="cstat-no" title="statement not covered" >      var selectedAlertGroup = this.get('selectedAlertGroup');</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('isDeleteAlertDisabled')) {</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.get('alertGroups').removeObject(selectedAlertGroup);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('selectedAlertGroup', this.get('alertGroups')[0]);</span>
+    },
+&nbsp;
+    /**
+     * Rename non-default alert group
+     * @method renameAlertGroup
+     */
+    renameAlertGroup: function renameAlertGroup() {
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('selectedAlertGroup.default')) {
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+      var self = this;
+      var popup = App.ModalPopup.show({
+&nbsp;
+        header: Em.I18n.t('alerts.actions.manage_alert_groups_popup.renameButton'),
+&nbsp;
+        bodyClass: Ember.View.extend({
+          templateName: require('templates/main/alerts/create_new_alert_group')
+        }),
+&nbsp;
+        /**
+         * @type {string}
+         */
+        alertGroupName: self.get('selectedAlertGroup.name'),
+&nbsp;
+        alertGroupNameIsEmpty: function () {
+          return !this.get('alertGroupName').trim().length;
+        }.property('alertGroupName'),
+&nbsp;
+        /**
+         * @type {string|null}
+         */
+        warningMessage: function () {
+          var originalGroup = self.get('selectedAlertGroup');
+          var groupName = this.get('alertGroupName').trim();
+&nbsp;
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (originalGroup.get('name').trim() === groupName) {
+            return Em.I18n.t("alerts.actions.manage_alert_groups_popup.addGroup.exist");
+          }
+<span class="cstat-no" title="statement not covered" >          if (self.get('alertGroups').mapProperty('displayName').contains(groupName)) {</span>
+<span class="cstat-no" title="statement not covered" >            return Em.I18n.t("alerts.actions.manage_alert_groups_popup.addGroup.exist");</span>
+          }
+<span class="cstat-no" title="statement not covered" >          if (groupName &amp;&amp; !validator.isValidAlertGroupName(groupName)) {</span>
+<span class="cstat-no" title="statement not covered" >            return Em.I18n.t("form.validator.alertGroupName");</span>
+          }
+<span class="cstat-no" title="statement not covered" >          return '';</span>
+        }.property('alertGroupName'),
+&nbsp;
+        /**
+         * Primary button is disabled while user doesn't input valid group name
+         * @type {boolean}
+         */
+        disablePrimary: Em.computed.or('alertGroupNameIsEmpty', 'warningMessage'),
+&nbsp;
+        onPrimary: <span class="fstat-no" title="function not covered" >function onPrimary() {</span>
+<span class="cstat-no" title="statement not covered" >          self.set('selectedAlertGroup.name', this.get('alertGroupName'));</span>
+<span class="cstat-no" title="statement not covered" >          this._super();</span>
+        }
+&nbsp;
+      });
+      this.set('renameGroupPopup', popup);
+    },
+&nbsp;
+    /**
+     * Create new alert group
+     * @param {boolean} duplicated is new group a copy of the existing group
+     * @method addAlertGroup
+     */
+    addAlertGroup: function addAlertGroup(duplicated) {
+      duplicated = duplicated === true;
+      var self = this;
+      var popup = App.ModalPopup.show({
+&nbsp;
+        header: Em.I18n.t('alerts.actions.manage_alert_groups_popup.addButton'),
+&nbsp;
+        bodyClass: Em.View.extend({
+          templateName: require('templates/main/alerts/create_new_alert_group')
+        }),
+&nbsp;
+        /**
+         * Name for new alert group
+         * @type {string}
+         */
+        alertGroupName: duplicated ? self.get('selectedAlertGroup.name') + ' Copy' : "",
+&nbsp;
+        alertGroupNameIsEmpty: function () {
+          return !this.get('alertGroupName').trim().length;
+        }.property('alertGroupName'),
+&nbsp;
+        /**
+         * @type {string}
+         */
+        warningMessage: function () {
+          var groupName = this.get('alertGroupName').trim();
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (self.get('alertGroups').mapProperty('displayName').contains(groupName)) {
+<span class="cstat-no" title="statement not covered" >            return Em.I18n.t("alerts.actions.manage_alert_groups_popup.addGroup.exist");</span>
+          }
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (groupName &amp;&amp; !validator.isValidAlertGroupName(groupName)) {
+<span class="cstat-no" title="statement not covered" >            return Em.I18n.t("form.validator.alertGroupName");</span>
+          }
+          return '';
+        }.property('alertGroupName'),
+&nbsp;
+        /**
+         * Primary button is disabled while user doesn't input valid group name
+         * @type {boolean}
+         */
+        disablePrimary: Em.computed.or('alertGroupNameIsEmpty', 'warningMessage'),
+&nbsp;
+        onPrimary: <span class="fstat-no" title="function not covered" >function onPrimary() {</span>
+<span class="cstat-no" title="statement not covered" >          var newAlertGroup = AlertGroupClone.create({</span>
+            name: this.get('alertGroupName').trim(),
+            default: false,
+            definitions: duplicated ? self.get('selectedAlertGroup.definitions').slice(0) : [],
+            notifications: self.get('alertGlobalNotifications'),
+            isAddDefinitionsDisabled: false
+          });
+<span class="cstat-no" title="statement not covered" >          self.get('alertGroups').pushObject(newAlertGroup);</span>
+<span class="cstat-no" title="statement not covered" >          self.set('selectedAlertGroup', newAlertGroup);</span>
+<span class="cstat-no" title="statement not covered" >          this.hide();</span>
+        }
+&nbsp;
+      });
+      this.set('addGroupPopup', popup);
+    },
+&nbsp;
+    /**
+     * @method duplicateAlertGroup
+     */
+    duplicateAlertGroup: function duplicateAlertGroup() {
+      this.addAlertGroup(true);
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

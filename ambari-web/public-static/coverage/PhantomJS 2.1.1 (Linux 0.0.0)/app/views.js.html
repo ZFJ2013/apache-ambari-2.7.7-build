@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/views.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(366 / 366)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(1 / 1)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(366 / 366)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">app/</a> &#187; views.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  // load all views here
+&nbsp;
+  require('views/application');
+  require('views/common/breadcrumbs_view');
+  require('views/common/clock_view');
+  require('views/common/checkbox_view');
+  require('views/common/log_search_ui_link_view');
+  require('views/common/log_file_search_view');
+  require('views/common/log_tail_view');
+  require('views/common/global/spinner');
+  require('views/common/ajax_default_error_popup_body');
+  require('views/common/buttons/button_progress_view');
+  require('views/common/buttons/wizard_buttons');
+  require('views/common/chart');
+  require('views/common/chart/pie');
+  require('views/common/chart/linear');
+  require('views/common/chart/linear_time');
+  require('views/common/modal_popup');
+  require('views/common/search_box_view');
+  require('views/common/modal_popups/alert_popup');
+  require('views/common/modal_popups/edit_dashboard_widget_popup');
+  require('views/common/modal_popups/manage_kdc_credentials_popup');
+  require('views/common/modal_popups/confirmation_feedback_popup');
+  require('views/common/modal_popups/confirmation_popup');
+  require('views/common/modal_popups/hosts_table_list_popup');
+  require('views/common/modal_popups/cluster_check_popup');
+  require('views/common/modal_popups/invalid_KDC_popup');
+  require('views/common/modal_popups/dependent_configs_list_popup');
+  require('views/common/modal_popups/select_groups_popup');
+  require('views/common/modal_popups/logs_popup');
+  require('views/common/modal_popups/log_file_search_popup');
+  require('views/common/modal_popups/log_tail_popup');
+  require('views/common/modal_popups/config_validation/config_validation_failed_popup');
+  require('views/common/modal_popups/config_validation/config_validation_popup');
+  require('views/common/editable_list');
+  require('views/common/not-scrollable-textarea');
+  require('views/common/host_progress_popup_body_view');
+  require('views/common/radio_button_view');
+  require('views/common/rolling_restart_view');
+  require('views/common/select_custom_date_view');
+  require('views/common/metric');
+  require('views/common/time_range');
+  require('views/common/time_range_list');
+  require('views/common/form/field');
+  require('views/common/form/datepicker_view');
+  require('views/common/form/spinner_input_view');
+  require('views/common/form/manage_credentials_form_view');
+  require('views/common/form/dropdown');
+  require('views/common/quick_view_link_view');
+  require('views/common/configs/services_config');
+  require('views/common/configs/service_config_container_view');
+  require('views/common/configs/service_configs_by_category_view');
+  require('views/common/configs/service_config_view');
+  require('views/common/configs/service_config_tab_view');
+  require('views/common/configs/config_category_container_view');
+  require('views/common/configs/overriddenPropertyRow_view');
+  require('views/common/configs/overriddenProperty_view');
+  require('views/common/configs/config_versions_control_view');
+  require('views/common/configs/config_versions_dropdown_view');
+  require('views/common/configs/selectable_popup_body_view');
+  require('views/common/configs/custom_category_views/notification_configs_view');
+  require('views/common/configs/config_diff_view');
+  require('views/common/configs/widgets/config_text_field');
+  require('views/common/configs/widgets/plain_config_text_field');
+  require('views/common/configs/widgets/config_widget_view');
+  require('views/common/configs/widgets/checkbox_config_widget_view');
+  require('views/common/configs/widgets/directory_config_widget_view');
+  require('views/common/configs/widgets/combo_config_widget_view');
+  require('views/common/configs/widgets/number_config_widget_view');
+  require('views/common/configs/widgets/password_config_widget_view');
+  require('views/common/configs/widgets/list_config_widget_view');
+  require('views/common/configs/widgets/radio_button_config_widget_view');
+  require('views/common/configs/widgets/slider_config_widget_view');
+  require('views/common/configs/widgets/string_config_widget_view');
+  require('views/common/configs/widgets/textfield_config_widget_view');
+  require('views/common/configs/widgets/time_interval_spinner_view');
+  require('views/common/configs/widgets/toggle_config_widget_view');
+  require('views/common/configs/widgets/label_config_widget_view');
+  require('views/common/configs/widgets/test_db_connection_widget_view');
+  require('views/common/configs/widgets/overrides/config_widget_override_view');
+  require('views/common/configs/service_config_layout_tab_view');
+  require('views/common/configs/service_config_layout_tab_compare_view');
+  require('views/common/filter_combobox');
+  require('views/common/filter_combo_cleanable');
+  require('views/common/pagination_view');
+  require('views/common/table_view');
+  require('views/common/progress_bar_view');
+  require('views/common/controls_view');
+  require('views/common/configs/controls_view');
+  require('views/common/widget/graph_widget_view');
+  require('views/common/widget/template_widget_view');
+  require('views/common/widget/gauge_widget_view');
+  require('views/common/widget/number_widget_view');
+  require('views/common/widget/heatmap_widget_view');
+  require('views/common/assign_master_components_view');
+  require('views/common/helpers/format_word_break_view');
+  require('views/common/helpers/format_null_view');
+  require('views/common/helpers/format_role_view');
+  require('views/common/helpers/pluralize_view');
+  require('views/common/helpers/status_icon_view');
+  require('views/common/chosen_plugin');
+  require('views/common/export_metrics_menu_view');
+  require('views/login');
+  require('views/main');
+  require('views/main/menu');
+  require('views/main/alert_definitions_view');
+  require('views/main/alerts/alert_definition/alert_definition_summary');
+  require('views/main/alerts/alert_definition/alert_definition_state');
+  require('views/main/alerts/definition_details_view');
+  require('views/main/alerts/alert_search_box');
+  require('views/main/alerts/alert_definitions_actions_view');
+  require('views/main/alerts/definition_configs_view');
+  require('views/main/alerts/manage_alert_groups/select_definitions_popup_body_view');
+  require('views/main/alerts/add_alert_definition/add_alert_definition_view');
+  require('views/main/alerts/add_alert_definition/step1_view');
+  require('views/main/alerts/add_alert_definition/step2_view');
+  require('views/main/alerts/add_alert_definition/step3_view');
+  require('views/main/alerts');
+  require('views/main/alerts/manage_alert_groups_view');
+  require('views/main/alerts/alert_instances_popup_view');
+  require('views/main/alerts/manage_alert_notifications_view');
+  require('views/main/charts');
+  require('views/main/views/details');
+  require('views/main/host');
+  require('views/main/host/combo_search_box');
+  require('views/main/host/hosts_table_menu_view');
+  require('views/main/host/details');
+  require('views/main/host/details/host_component_view');
+  require('views/main/host/details/host_component_views/datanode_view');
+  require('views/main/host/details/host_component_views/nodemanager_view');
+  require('views/main/host/details/host_component_views/regionserver_view');
+  require('views/main/host/details/host_component_views/tasktracker_view');
+  require('views/main/host/logs_view');
+  require('views/main/host/menu');
+  require('views/main/host/summary');
+  require('views/main/host/configs');
+  require('views/main/host/configs_service');
+  require('views/main/host/configs_service_menu');
+  require('views/main/host/log_metrics');
+  require('views/main/host/metrics');
+  require('views/main/host/stack_versions_view');
+  require('views/main/host/add_view');
+  require('views/main/host/host_alerts_view');
+  require('views/main/host/metrics/cpu');
+  require('views/main/host/metrics/disk');
+  require('views/main/host/metrics/load');
+  require('views/main/host/metrics/memory');
+  require('views/main/host/metrics/network');
+  require('views/main/host/metrics/processes');
+  require('views/main/host/addHost/step4_view');
+  require('views/main/admin');
+  require('views/main/admin/service_auto_start');
+  require('views/main/admin/highAvailability/nameNode/wizard_view');
+  require('views/main/admin/highAvailability/progress_view');
+  require('views/main/admin/highAvailability/nameNode/rollback_view');
+  require('views/main/admin/highAvailability/nameNode/step1_view');
+  require('views/main/admin/highAvailability/nameNode/step2_view');
+  require('views/main/admin/highAvailability/nameNode/step3_view');
+  require('views/main/admin/highAvailability/nameNode/step4_view');
+  require('views/main/admin/highAvailability/nameNode/step5_view');
+  require('views/main/admin/highAvailability/nameNode/step6_view');
+  require('views/main/admin/highAvailability/nameNode/step7_view');
+  require('views/main/admin/highAvailability/nameNode/step8_view');
+  require('views/main/admin/highAvailability/nameNode/step9_view');
+  require('views/main/admin/highAvailability/nameNode/rollbackHA/step1_view');
+  require('views/main/admin/highAvailability/nameNode/rollbackHA/step2_view');
+  require('views/main/admin/highAvailability/nameNode/rollbackHA/step3_view');
+  require('views/main/admin/highAvailability/nameNode/rollbackHA/rollback_wizard_view');
+  require('views/main/admin/highAvailability/journalNode/wizard_view');
+  require('views/main/admin/highAvailability/journalNode/progress_view');
+  require('views/main/admin/highAvailability/journalNode/step1_view');
+  require('views/main/admin/highAvailability/journalNode/step2_view');
+  require('views/main/admin/highAvailability/journalNode/step3_view');
+  require('views/main/admin/highAvailability/journalNode/step4_view');
+  require('views/main/admin/highAvailability/journalNode/step5_view');
+  require('views/main/admin/highAvailability/journalNode/step6_view');
+  require('views/main/admin/highAvailability/journalNode/step7_view');
+  require('views/main/admin/highAvailability/resourceManager/wizard_view');
+  require('views/main/admin/highAvailability/resourceManager/step1_view');
+  require('views/main/admin/highAvailability/resourceManager/step2_view');
+  require('views/main/admin/highAvailability/resourceManager/step3_view');
+  require('views/main/admin/highAvailability/resourceManager/step4_view');
+  require('views/main/admin/highAvailability/hawq/addStandby/wizard_view');
+  require('views/main/admin/highAvailability/hawq/addStandby/step1_view');
+  require('views/main/admin/highAvailability/hawq/addStandby/step2_view');
+  require('views/main/admin/highAvailability/hawq/addStandby/step3_view');
+  require('views/main/admin/highAvailability/hawq/addStandby/step4_view');
+  require('views/main/admin/highAvailability/hawq/removeStandby/wizard_view');
+  require('views/main/admin/highAvailability/hawq/removeStandby/step1_view');
+  require('views/main/admin/highAvailability/hawq/removeStandby/step2_view');
+  require('views/main/admin/highAvailability/hawq/removeStandby/step3_view');
+  require('views/main/admin/highAvailability/hawq/activateStandby/wizard_view');
+  require('views/main/admin/highAvailability/hawq/activateStandby/step1_view');
+  require('views/main/admin/highAvailability/hawq/activateStandby/step2_view');
+  require('views/main/admin/highAvailability/hawq/activateStandby/step3_view');
+  require('views/main/admin/highAvailability/rangerAdmin/wizard_view');
+  require('views/main/admin/highAvailability/rangerAdmin/step1_view');
+  require('views/main/admin/highAvailability/rangerAdmin/step2_view');
+  require('views/main/admin/highAvailability/rangerAdmin/step3_view');
+  require('views/main/admin/highAvailability/rangerAdmin/step4_view');
+  require('views/main/admin/federation/wizard_view');
+  require('views/main/admin/federation/step1_view');
+  require('views/main/admin/federation/step2_view');
+  require('views/main/admin/federation/step3_view');
+  require('views/main/admin/federation/step4_view');
+  require('views/main/admin/serviceAccounts_view');
+  require('views/main/admin/stack_upgrade/upgrade_wizard_view');
+  require('views/main/admin/stack_upgrade/upgrade_version_box_view');
+  require('views/main/admin/stack_upgrade/upgrade_version_column_view');
+  require('views/main/admin/stack_upgrade/upgrade_group_view');
+  require('views/main/admin/stack_upgrade/upgrade_task_view');
+  require('views/main/admin/stack_upgrade/upgrade_history_view');
+  require('views/main/admin/stack_upgrade/upgrade_history_details_view');
+  require('views/main/admin/stack_upgrade/services_view');
+  require('views/main/admin/stack_upgrade/versions_view');
+  require('views/main/admin/stack_upgrade/menu_view');
+  require('views/main/admin/stack_upgrade/failed_hosts_modal_view');
+  require('views/main/admin/stack_and_upgrade_view');
+&nbsp;
+  require('views/main/admin/kerberos');
+  require('views/main/admin/kerberos/disable_view');
+  require('views/main/admin/kerberos/wizard_view');
+  require('views/main/admin/kerberos/progress_view');
+  require('views/main/admin/kerberos/step1_view');
+  require('views/main/admin/kerberos/step2_view');
+  require('views/main/admin/kerberos/step3_view');
+  require('views/main/admin/kerberos/step4_view');
+  require('views/main/admin/kerberos/step5_view');
+  require('views/main/admin/kerberos/step6_view');
+  require('views/main/admin/kerberos/step7_view');
+  require('views/main/admin/kerberos/step8_view');
+&nbsp;
+  require('views/main/dashboard');
+  require('views/main/dashboard/cluster_metrics/cpu');
+  require('views/main/dashboard/cluster_metrics/load');
+  require('views/main/dashboard/cluster_metrics/memory');
+  require('views/main/dashboard/cluster_metrics/network');
+&nbsp;
+  require('views/main/dashboard/widget');
+  require('views/main/dashboard/widgets');
+  require('views/main/dashboard/widgets/text_widget');
+  require('views/main/dashboard/widgets/text_widget_single_threshold');
+  require('views/main/dashboard/widgets/uptime_text_widget');
+  require('views/main/dashboard/widgets/links_widget');
+  require('views/main/dashboard/widgets/pie_chart_widget');
+  require('views/main/dashboard/widgets/cluster_metrics_widget');
+  require('views/main/dashboard/widgets/namenode_heap');
+  require('views/main/dashboard/widgets/namenode_cpu');
+  require('views/main/dashboard/widgets/hdfs_capacity');
+  require('views/main/dashboard/widgets/datanode_live');
+  require('views/main/dashboard/widgets/hawqsegment_live');
+  require('views/main/dashboard/widgets/pxf_live');
+  require('views/main/dashboard/widgets/namenode_rpc');
+  require('views/main/dashboard/widgets/metrics_memory');
+  require('views/main/dashboard/widgets/metrics_network');
+  require('views/main/dashboard/widgets/metrics_cpu');
+  require('views/main/dashboard/widgets/metrics_load');
+  require('views/main/dashboard/widgets/namenode_uptime');
+  require('views/main/dashboard/widgets/hdfs_links');
+  require('views/main/dashboard/widgets/yarn_links');
+  require('views/main/dashboard/widgets/hbase_links');
+  require('views/main/dashboard/widgets/hbase_master_heap');
+  require('views/main/dashboard/widgets/hbase_average_load');
+  require('views/main/dashboard/widgets/hbase_regions_in_transition');
+  require('views/main/dashboard/widgets/hbase_master_uptime');
+  require('views/main/dashboard/widgets/resource_manager_heap');
+  require('views/main/dashboard/widgets/resource_manager_uptime');
+  require('views/main/dashboard/widgets/node_managers_live');
+  require('views/main/dashboard/widgets/yarn_memory');
+  require('views/main/dashboard/widgets/yarn_containers');
+  require('views/main/dashboard/widgets/supervisor_live');
+  require('views/main/dashboard/widgets/flume_agent_live');
+  require('views/main/dashboard/config_history_view');
+  require('views/main/dashboard/config_history_search_box');
+&nbsp;
+  require('views/main/service');
+  require('views/main/service/service');
+  require('views/main/service/services/hdfs');
+  require('views/main/service/services/onefs');
+  require('views/main/service/services/yarn');
+  require('views/main/service/services/mapreduce2');
+  require('views/main/service/services/hbase');
+  require('views/main/service/services/hive');
+  require('views/main/service/services/zookeeper');
+  require('views/main/service/services/flume');
+  require('views/main/service/services/storm');
+  require('views/main/service/services/ranger');
+  require('views/main/service/all_services_actions');
+  require('views/main/service/menu');
+  require('views/main/service/item');
+  require('views/main/service/reconfigure');
+  require('views/main/service/info/components_list_view');
+  require('views/main/service/info/menu');
+  require('views/main/service/info/summary');
+  require('views/main/service/info/summary/hdfs/common_widgets');
+  require('views/main/service/info/summary/hdfs/slaves');
+  require('views/main/service/info/summary/hdfs/widgets');
+  require('views/main/service/info/configs');
+  require('views/main/service/info/metric_graphs_view');
+  require('views/main/service/info/metrics/ambari_metrics/master_average_load');
+  require('views/main/service/info/metrics/ambari_metrics/regionserver_base');
+  require('views/main/service/info/metrics/ambari_metrics/regionserver_store_files');
+  require('views/main/service/info/metrics/ambari_metrics/regionserver_regions');
+  require('views/main/service/info/metrics/ambari_metrics/regionserver_requests');
+  require('views/main/service/info/metrics/ambari_metrics/regionserver_block_cache_hit_percent');
+  require('views/main/service/info/metrics/ambari_metrics/regionserver_compaction_queue_size');
+  require('views/main/service/info/metrics/flume/channel_sum');
+  require('views/main/service/info/metrics/flume/channel_size_mma');
+  require('views/main/service/info/metrics/flume/flume_agent_metrics_section');
+  require('views/main/service/info/metrics/flume/flume_incoming_sum');
+  require('views/main/service/info/metrics/flume/flume_incoming_mma');
+  require('views/main/service/info/metrics/flume/flume_outgoing_sum');
+  require('views/main/service/info/metrics/flume/flume_outgoing_mma');
+  require('views/main/service/info/metrics/flume/channel_fill_pct');
+  require('views/main/service/info/metrics/flume/channel_size');
+  require('views/main/service/info/metrics/flume/sink_connection_failed');
+  require('views/main/service/info/metrics/flume/sink_drain_success');
+  require('views/main/service/info/metrics/flume/source_accepted');
+  require('views/main/service/info/metrics/flume/gc');
+  require('views/main/service/info/metrics/flume/jvm_heap');
+  require('views/main/service/info/metrics/flume/jvm_threads_runnable');
+  require('views/main/service/info/metrics/flume/cpu_user');
+  require('views/main/service/info/metrics/flume/flume_metric_graph');
+  require('views/main/service/info/metrics/flume/flume_metric_graphs');
+&nbsp;
+  require('views/main/service/add_view');
+  require('views/main/service/reassign_view');
+  require('views/main/service/reassign/step1_view');
+  require('views/main/service/reassign/step2_view');
+  require('views/main/service/reassign/step3_view');
+  require('views/main/service/reassign/step4_view');
+  require('views/main/service/reassign/step5_view');
+  require('views/main/service/reassign/step6_view');
+  require('views/main/service/manage_config_groups_view');
+  require('views/main/charts/menu');
+  require('views/main/charts/heatmap');
+  require('views/main/charts/heatmap/heatmap_rack');
+  require('views/main/charts/heatmap/heatmap_host');
+  require('views/main/charts/heatmap/heatmap_host_detail');
+  require('views/main/service/info/heatmap_view');
+  require('views/main/service/info/metrics_view');
+&nbsp;
+  require('views/main/service/widgets/create/wizard_view');
+  require('views/main/service/widgets/create/step1_view');
+  require('views/main/service/widgets/create/step2_view');
+  require('views/main/service/widgets/create/step3_view');
+  require('views/main/service/widgets/edit_view');
+  require('views/main/service/widgets/create/expression_view');
+&nbsp;
+  require('views/main/views_view');
+&nbsp;
+  require('views/installer');
+  require('views/wizard/step0_view');
+  require('views/wizard/step1_view');
+  require('views/wizard/step2_view');
+  require('views/wizard/step3_view');
+  require('views/wizard/step3/hostLogPopupBody_view');
+  require('views/wizard/step3/hostWarningPopupBody_view');
+  require('views/wizard/step3/hostWarningPopupFooter_view');
+  require('views/wizard/step4_view');
+  require('views/wizard/step5_view');
+  require('views/wizard/step6_view');
+  require('views/wizard/step7_view');
+  require('views/wizard/step7/assign_master_view');
+  require('views/wizard/step7/credentials_tab_view');
+  require('views/wizard/step7/databases_tab_view');
+  require('views/wizard/step7/accounts_tab_view');
+  require('views/wizard/step7/directories_tab_view');
+  require('views/main/service/reassign/step7_view');
+  require('views/wizard/step8_view');
+  require('views/wizard/step9_view');
+  require('views/wizard/step9/hostLogPopupBody_view');
+  require('views/wizard/step10_view');
+  require('views/loading');
+&nbsp;
+  require('views/experimental');
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/mappers/service_mapper.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/mappers/service_mapper.js</span></h1>
+    <h2>
+        Statements: <span class="metric">10.81% <small>(4 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">14.29% <small>(1 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">10.81% <small>(4 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/mappers/</a> &#187; service_mapper.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("mappers/service_mapper", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one or more
+   * contributor license agreements. See the NOTICE file distributed with this
+   * work for additional information regarding copyright ownership. The ASF
+   * licenses this file to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   * http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+   * License for the specific language governing permissions and limitations under
+   * the License.
+   */
+&nbsp;
+  var App = require('app');
+  var misc = require('utils/misc');
+&nbsp;
+  App.serviceMapper = App.QuickDataMapper.create({
+    model: App.Service,
+    config: {
+      id: 'ServiceInfo.service_name',
+      service_name: 'ServiceInfo.service_name',
+      work_status: 'ServiceInfo.state',
+      desired_repository_version_id: 'ServiceInfo.desired_repository_version_id'
+    },
+    initialAppLoad: false,
+    passiveStateMap: {},
+    map: <span class="fstat-no" title="function not covered" >function map(json) {</span>
+<span class="cstat-no" title="statement not covered" >      console.time("App.serviceMapper execution time");</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      var passiveStateMap = this.get('passiveStateMap');</span>
+<span class="cstat-no" title="statement not covered" >      json.items.forEach(<span class="fstat-no" title="function not covered" >function (service) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var cachedService = App.cache['services'].findProperty('ServiceInfo.service_name', service.ServiceInfo.service_name);</span>
+<span class="cstat-no" title="statement not covered" >        if (cachedService) {</span>
+          // restore service workStatus
+<span class="cstat-no" title="statement not covered" >          App.Service.find(cachedService.ServiceInfo.service_name).set('workStatus', service.ServiceInfo.state);</span>
+<span class="cstat-no" title="statement not covered" >          cachedService.ServiceInfo.state = service.ServiceInfo.state;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          var serviceData = {</span>
+            ServiceInfo: {
+              service_name: service.ServiceInfo.service_name,
+              state: service.ServiceInfo.state,
+              desired_repository_version_id: service.ServiceInfo.desired_repository_version_id
+            },
+            host_components: [],
+            components: []
+          };
+<span class="cstat-no" title="statement not covered" >          App.cache['services'].push(serviceData);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        passiveStateMap[service.ServiceInfo.service_name] = service.ServiceInfo.maintenance_state;</span>
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!this.get('initialAppLoad')) {</span>
+<span class="cstat-no" title="statement not covered" >        var parsedCacheServices = App.cache['services'].map(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >          App.serviceMetricsMapper.mapExtendedModel(item);</span>
+<span class="cstat-no" title="statement not covered" >          return self.parseIt(item, self.get('config'));</span>
+        });
+<span class="cstat-no" title="statement not covered" >        parsedCacheServices = misc.sortByOrder(App.StackService.find().mapProperty('serviceName'), parsedCacheServices);</span>
+<span class="cstat-no" title="statement not covered" >        App.store.safeLoadMany(this.get('model'), parsedCacheServices);</span>
+<span class="cstat-no" title="statement not covered" >        this.set('initialAppLoad', true);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.servicesLoading().done(<span class="fstat-no" title="function not covered" >function setMaintenanceState() {</span></span>
+<span class="cstat-no" title="statement not covered" >        for (var service in passiveStateMap) {</span>
+<span class="cstat-no" title="statement not covered" >          if (passiveStateMap.hasOwnProperty(service)) {</span>
+<span class="cstat-no" title="statement not covered" >            App.Service.find(service).set('passiveState', passiveStateMap[service]);</span>
+          }
+        }
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      console.timeEnd("App.serviceMapper execution time");</span>
+    },
+&nbsp;
+    servicesLoading: <span class="fstat-no" title="function not covered" >function servicesLoading() {</span>
+<span class="cstat-no" title="statement not covered" >      var dfd = $.Deferred();</span>
+<span class="cstat-no" title="statement not covered" >      var isAllServicesLoaded = App.store.findAll(App.Service).everyProperty('isLoaded', true);</span>
+<span class="cstat-no" title="statement not covered" >      if (isAllServicesLoaded) {</span>
+<span class="cstat-no" title="statement not covered" >        dfd.resolve();</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        var interval = setInterval(<span class="fstat-no" title="function not covered" >function checkIfServicesLoaded() {</span></span>
+<span class="cstat-no" title="statement not covered" >          var isAllServicesLoaded = App.store.findAll(App.Service).everyProperty('isLoaded', true);</span>
+<span class="cstat-no" title="statement not covered" >          if (isAllServicesLoaded) {</span>
+<span class="cstat-no" title="statement not covered" >            dfd.resolve();</span>
+<span class="cstat-no" title="statement not covered" >            clearInterval(interval);</span>
+          }
+        }, 5);
+      }
+<span class="cstat-no" title="statement not covered" >      return dfd.promise();</span>
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

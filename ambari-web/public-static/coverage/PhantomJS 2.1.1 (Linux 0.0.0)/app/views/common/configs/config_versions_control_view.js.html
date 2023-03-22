@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/configs/config_versions_control_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/common/configs/config_versions_control_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">34.72% <small>(25 / 72)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">15.79% <small>(3 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">29.03% <small>(9 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">34.72% <small>(25 / 72)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/configs/</a> &#187; config_versions_control_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/common/configs/config_versions_control_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.ConfigVersionsControlView = Em.View.extend({
+    templateName: require('templates/common/configs/config_versions_control'),
+&nbsp;
+    serviceName: Em.computed.alias('controller.content.serviceName'),
+&nbsp;
+    displayedServiceVersion: Em.computed.findBy('serviceVersions', 'isDisplayed', true),
+&nbsp;
+    isCompareMode: Em.computed.notEqual('controller.compareServiceVersion', null),
+&nbsp;
+    allServiceVersions: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return App.ServiceConfigVersion.find().filterProperty('serviceName', this.get('serviceName'));</span>
+    }.property('serviceName'),
+&nbsp;
+    serviceVersions: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var _this = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var isDefaultGroupSelected = this.get('controller.selectedConfigGroup.isDefault');</span>
+<span class="cstat-no" title="statement not covered" >      var groupId = this.get('controller.selectedConfigGroup.id');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var serviceVersions = this.get('allServiceVersions').filter(<span class="fstat-no" title="function not covered" >function (s) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return s.get('groupId') === groupId || isDefaultGroupSelected &amp;&amp; s.get('groupName') === App.ServiceConfigGroup.defaultGroupName;</span>
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!serviceVersions.findProperty('isDisplayed')) {</span>
+        //recompute serviceVersions if displayed version absent
+<span class="cstat-no" title="statement not covered" >        Em.run.next(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          return _this.propertyDidChange('controller.selectedConfigGroup.name');</span>
+        });
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return serviceVersions.sort(<span class="fstat-no" title="function not covered" >function (a, b) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return Em.get(b, 'createTime') - Em.get(a, 'createTime');</span>
+      });
+    }.property('controller.selectedConfigGroup.name'),
+&nbsp;
+    primaryServiceVersionsInCompare: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var _this2 = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return this.get('serviceVersions').filter(<span class="fstat-no" title="function not covered" >function (sv) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return sv.get('version') !== _this2.get('controller.compareServiceVersion.version');</span>
+      });
+    }.property('serviceVersions', 'controller.compareServiceVersion'),
+&nbsp;
+    secondaryServiceVersionsInCompare: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var _this3 = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.get('controller.compareServiceVersion')) {</span>
+<span class="cstat-no" title="statement not covered" >        return this.get('serviceVersions').filter(<span class="fstat-no" title="function not covered" >function (serviceVersion) {</span></span>
+<span class="cstat-no" title="statement not covered" >          return !serviceVersion.get('isDisplayed');</span>
+        }).map(<span class="fstat-no" title="function not covered" >function (serviceVersion) {</span>
+<span class="cstat-no" title="statement not covered" >          var copy = Em.Object.create({</span>
+            version: serviceVersion.get('version'),
+            stackVersion: serviceVersion.get('stackVersion'),
+            authorFormatted: serviceVersion.get('authorFormatted'),
+            createdDate: serviceVersion.get('createdDate'),
+            fullNotes: serviceVersion.get('fullNotes'),
+            isCurrent: serviceVersion.get('isCurrent')
+          });
+<span class="cstat-no" title="statement not covered" >          copy.set('isDisplayed', serviceVersion.get('version') === _this3.get('controller.compareServiceVersion.version'));</span>
+<span class="cstat-no" title="statement not covered" >          return copy;</span>
+        });
+      } else {
+<span class="cstat-no" title="statement not covered" >        return [];</span>
+      }
+    }.property('serviceVersions', 'controller.compareServiceVersion'),
+&nbsp;
+    willInsertElement: <span class="fstat-no" title="function not covered" >function willInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >      this.setDisplayVersion();</span>
+    },
+&nbsp;
+    setDisplayVersion: <span class="fstat-no" title="function not covered" >function setDisplayVersion() {</span>
+<span class="cstat-no" title="statement not covered" >      var serviceVersions = this.get('serviceVersions');</span>
+<span class="cstat-no" title="statement not covered" >      var selectedVersion = this.get('controller.selectedVersion');</span>
+<span class="cstat-no" title="statement not covered" >      serviceVersions.forEach(<span class="fstat-no" title="function not covered" >function (serviceVersion) {</span></span>
+<span class="cstat-no" title="statement not covered" >        serviceVersion.set('isDisplayed', selectedVersion === serviceVersion.get('version'));</span>
+      });
+    },
+&nbsp;
+    onChangeConfigGroup: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var serviceVersions = this.get('serviceVersions');</span>
+<span class="cstat-no" title="statement not covered" >      var selectedGroupName = this.get('controller.selectedConfigGroup.name');</span>
+<span class="cstat-no" title="statement not covered" >      var preselectedVersion = this.get('controller.selectedVersion');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      serviceVersions.forEach(<span class="fstat-no" title="function not covered" >function (serviceVersion) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var isSelected = serviceVersion.get('version') === preselectedVersion &amp;&amp; serviceVersion.get('groupName') === selectedGroupName;</span>
+<span class="cstat-no" title="statement not covered" >        serviceVersion.set('isDisplayed', isSelected);</span>
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!serviceVersions.someProperty('isDisplayed')) {</span>
+<span class="cstat-no" title="statement not covered" >        serviceVersions.forEach(<span class="fstat-no" title="function not covered" >function (serviceVersion) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (serviceVersion.get('isCurrent') &amp;&amp; serviceVersion.get('groupName') === selectedGroupName) {</span>
+<span class="cstat-no" title="statement not covered" >            serviceVersion.set('isDisplayed', true);</span>
+          }
+        });
+      }
+    }.observes('controller.selectedConfigGroup'),
+&nbsp;
+    /**
+     * switch configs view version to chosen
+     */
+    switchVersion: function switchVersion(event, stayInCompare) {
+      var version = event.contexts[0];
+      if (this.get('serviceVersions').filterProperty('isDisplayed').someProperty('version', version)) {
+        return;
+      }
+&nbsp;
+      this.get('serviceVersions').forEach(function (serviceVersion) {
+        serviceVersion.set('isDisplayed', serviceVersion.get('version') === version);
+      });
+      this.get('controller').loadSelectedVersion(version, null, true);
+    },
+&nbsp;
+    switchPrimaryInCompare: <span class="fstat-no" title="function not covered" >function switchPrimaryInCompare(event) {</span>
+<span class="cstat-no" title="statement not covered" >      this.switchVersion({ contexts: [event.contexts[0].get('version')] }, true);</span>
+    },
+&nbsp;
+    /**
+     * add config values of chosen version to view for comparison
+     * add a second version-info-bar for the chosen version
+     */
+    compare: function compare(event) {
+      var serviceConfigVersion = event.contexts[0];
+      this.set('controller.compareServiceVersion', serviceConfigVersion);
+&nbsp;
+      var controller = this.get('controller');
+      controller.get('stepConfigs').clear();
+      controller.loadCompareVersionConfigs(controller.get('allConfigs')).done(function () {
+        controller.onLoadOverrides(controller.get('allConfigs'));
+      });
+      <span class="missing-if-branch" title="if path not taken" >I</span>if ($(event.currentTarget).hasClass('compare-button')) {
+        // after entering Compare mode compare button should be destroyed before "focusOut" event, otherwise JS error will be thrown
+<span class="cstat-no" title="statement not covered" >        event.view.destroy();</span>
+      }
+    },
+&nbsp;
+    removeCompareVersionBar: <span class="fstat-no" title="function not covered" >function removeCompareVersionBar() {</span>
+<span class="cstat-no" title="statement not covered" >      var displayedVersion = this.get('displayedServiceVersion.version');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.get('serviceVersions').forEach(<span class="fstat-no" title="function not covered" >function (serviceVersion) {</span></span>
+<span class="cstat-no" title="statement not covered" >        serviceVersion.set('isDisplayed', serviceVersion.get('version') === displayedVersion);</span>
+      });
+<span class="cstat-no" title="statement not covered" >      this.get('controller').loadSelectedVersion(displayedVersion);</span>
+    },
+&nbsp;
+    /**
+     * revert config values to chosen version and apply reverted configs to server
+     */
+    makeCurrent: function makeCurrent() {
+      var self = this;
+      var serviceConfigVersion = this.get('displayedServiceVersion');
+      var versionText = serviceConfigVersion.get('versionText');
+      return App.ModalPopup.show({
+        header: Em.I18n.t('dashboard.configHistory.info-bar.makeCurrent.popup.title'),
+        serviceConfigNote: Em.I18n.t('services.service.config.configHistory.makeCurrent.message').format(versionText),
+        bodyClass: Em.View.extend({
+          templateName: require('templates/common/configs/save_configuration'),
+          classNames: ['col-md-12'],
+          notesArea: Em.TextArea.extend({
+            classNames: ['full-width'],
+            value: Em.I18n.t('services.service.config.configHistory.makeCurrent.message').format(versionText),
+            onChangeValue: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >              this.get('parentView.parentView').set('serviceConfigNote', this.get('value'));</span>
+            }.observes('value')
+          })
+        }),
+        primary: Em.I18n.t('dashboard.configHistory.info-bar.revert.button'),
+        secondary: Em.I18n.t('common.discard'),
+        third: Em.I18n.t('common.cancel'),
+        onPrimary: function onPrimary() {
+          serviceConfigVersion.set('serviceConfigNote', this.get('serviceConfigNote'));
+          self.sendRevertCall(serviceConfigVersion);
+          this.hide();
+        },
+        onSecondary: <span class="fstat-no" title="function not covered" >function onSecondary() {</span>
+          // force &lt;code&gt;serviceVersions&lt;/code&gt; recalculating
+<span class="cstat-no" title="statement not covered" >          self.propertyDidChange('controller.selectedConfigGroup.name');</span>
+<span class="cstat-no" title="statement not covered" >          this._super();</span>
+        },
+        onThird: <span class="fstat-no" title="function not covered" >function onThird() {</span>
+<span class="cstat-no" title="statement not covered" >          this.onSecondary();</span>
+        }
+      });
+    },
+&nbsp;
+    /**
+     * send PUT call to revert config to selected version
+     * @param serviceConfigVersion
+     */
+    sendRevertCall: function sendRevertCall(serviceConfigVersion) {
+      App.ajax.send({
+        name: 'service.serviceConfigVersion.revert',
+        sender: this,
+        data: {
+          data: {
+            "Clusters": {
+              "desired_service_config_versions": {
+                "service_config_version": serviceConfigVersion.get('version'),
+                "service_name": serviceConfigVersion.get('serviceName'),
+                "service_config_version_note": serviceConfigVersion.get('serviceConfigNote')
+              }
+            }
+          }
+        },
+        success: 'sendRevertCallSuccess'
+      });
+    },
+&nbsp;
+    sendRevertCallSuccess: function sendRevertCallSuccess(data, opt, params) {
+      // revert to an old version would generate a new version with latest version number,
+      // so, need to loadStep to update
+      this.get('controller').loadStep();
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

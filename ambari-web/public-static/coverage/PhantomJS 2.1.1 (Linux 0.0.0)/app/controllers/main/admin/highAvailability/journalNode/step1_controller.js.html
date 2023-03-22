@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/main/admin/highAvailability/journalNode/step1_controller.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/controllers/main/admin/highAvailability/journalNode/step1_controller.js</span></h1>
+    <h2>
+        Statements: <span class="metric">95.12% <small>(39 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">50% <small>(2 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">91.67% <small>(11 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">95.12% <small>(39 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../../index.html">All files</a> &#187; <a href="index.html">app/controllers/main/admin/highAvailability/journalNode/</a> &#187; step1_controller.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("controllers/main/admin/highAvailability/journalNode/step1_controller", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  require('controllers/wizard/step5_controller');
+&nbsp;
+  App.ManageJournalNodeWizardStep1Controller = Em.Controller.extend(App.BlueprintMixin, App.AssignMasterComponents, {
+&nbsp;
+    name: "manageJournalNodeWizardStep1Controller",
+&nbsp;
+    useServerValidation: false,
+&nbsp;
+    mastersToShow: ['JOURNALNODE'],
+&nbsp;
+    showInstalledMastersFirst: true,
+&nbsp;
+    JOURNALNODES_COUNT_MINIMUM: 3, // TODO get this from stack
+&nbsp;
+    nextButtonCheckTrigger: true,
+&nbsp;
+    /**
+     * On initial rendering, load equivalent number of existing JournalNodes to masterToShow
+     * @param masterComponents
+     */
+    renderComponents: function renderComponents(masterComponents) {
+      //check if we are restoring components assignment by checking existing of JOURNALNODE component in array
+      var restoringComponents = masterComponents.someProperty('component_name', 'JOURNALNODE');
+      masterComponents = restoringComponents ? <span class="branch-0 cbranch-no" title="branch not covered" >masterComponents </span>: masterComponents.concat(this.generateJournalNodeComponents());
+      this._super(masterComponents);
+      this.updateJournalNodeInfo();
+      this.showHideJournalNodesAddRemoveControl();
+      this.toggleProperty('nextButtonCheckTrigger');
+    },
+&nbsp;
+    /**
+     * Create JOURNALNODE components to add them to masters array
+     */
+    generateJournalNodeComponents: function generateJournalNodeComponents() {
+      var journalNodes = [];
+      App.HostComponent.find().filterProperty('componentName', 'JOURNALNODE').forEach(function (jn) {
+        var jnComponent = this.createComponentInstallationObject(Em.Object.create({
+          serviceName: jn.get('service.serviceName'),
+          componentName: jn.get('componentName')
+        }), jn.get('hostName'));
+        jnComponent.isInstalled = true;
+        journalNodes.push(jnComponent);
+      }, this);
+      return journalNodes;
+    },
+&nbsp;
+    /**
+     * Override of method from &lt;code&gt;App.AssignMasterComponents&lt;/code&gt;
+     * Added to satisfy the requirement that maximum number of new JournalNodes to be added
+     * should be 1 less that total of the existing JournalNodes
+     * @returns {number}
+     */
+    getMaxNumberOfMasters: <span class="fstat-no" title="function not covered" >function getMaxNumberOfMasters() {</span>
+<span class="cstat-no" title="statement not covered" >      var defaultLimitation = this._super('JOURNALNODE'),</span>
+          installedJournalNodesCount = App.HostComponent.find().filterProperty('componentName', 'JOURNALNODE').length;
+<span class="cstat-no" title="statement not covered" >      return Math.min(defaultLimitation, installedJournalNodesCount * 2 - 1);</span>
+    },
+&nbsp;
+    /**
+     * Enable/Disable show/hide operation for each JournalNode
+     */
+    showHideJournalNodesAddRemoveControl: function () {
+      var masterComponents = this.get('selectedServicesMasters');
+      var jns = masterComponents.filterProperty('component_name', 'JOURNALNODE');
+      var maxNumMasters = this.getMaxNumberOfMasters('JOURNALNODE');
+      var showRemoveControl = jns.get('length') &gt; this.get('JOURNALNODES_COUNT_MINIMUM');
+      var showAddControl = jns.get('length') &lt; maxNumMasters;
+      jns.forEach(function (item) {
+        item.set('showAddControl', false);
+        item.set('showRemoveControl', showRemoveControl);
+      });
+      jns.set('lastObject.showAddControl', showAddControl);
+    }.observes('hostNameCheckTrigger'),
+&nbsp;
+    /**
+     * Mark existing JournalNodes 'isInstalled' and 'showCurrentPrefix'
+     */
+    updateJournalNodeInfo: function () {
+      var jns = this.get('selectedServicesMasters').filterProperty('component_name', 'JOURNALNODE');
+      var hosts = App.HostComponent.find().filterProperty('componentName', 'JOURNALNODE').mapProperty('hostName');
+      hosts.forEach(function (host) {
+        var jn = jns.findProperty('selectedHost', host);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (jn) {
+          jn.set('isInstalled', true);
+          jn.set('showCurrentPrefix', true);
+        }
+      });
+    }.observes('hostNameCheckTrigger'),
+&nbsp;
+    /**
+     * Callback after load controller data (hosts, host components etc)
+     * @method loadStepCallback
+     */
+    loadStepCallback: function loadStepCallback(components, self) {
+      self.renderComponents(components);
+&nbsp;
+      self.get('addableComponents').forEach(function (componentName) {
+        self.updateComponent(componentName);
+      }, self);
+      self.set('isRecommendationsLoaded', true);
+    },
+&nbsp;
+    /**
+     * Next button is disabled when there is any change to the original JournalNode hosts
+     */
+    nextButtonDisabled: function () {
+      var currentHosts = this.get('selectedServicesMasters').filterProperty('component_name', 'JOURNALNODE').mapProperty('selectedHost');
+      var originalHosts = App.HostComponent.find().filterProperty('componentName', 'JOURNALNODE').mapProperty('hostName');
+      return currentHosts.sort().join() === originalHosts.sort().join();
+    }.property('hostNameCheckTrigger', 'nextButtonCheckTrigger')
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

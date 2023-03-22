@@ -1,0 +1,2166 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/main/alerts/definition_configs_controller.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/controllers/main/alerts/definition_configs_controller.js</span></h1>
+    <h2>
+        Statements: <span class="metric">63.39% <small>(116 / 183)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">50.6% <small>(126 / 249)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">68.42% <small>(26 / 38)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">63.39% <small>(116 / 183)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/controllers/main/alerts/</a> &#187; definition_configs_controller.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("controllers/main/alerts/definition_configs_controller", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var numericUtils = require('utils/number_utils');
+&nbsp;
+  App.MainAlertDefinitionConfigsController = Em.Controller.extend({
+&nbsp;
+    name: 'mainAlertDefinitionConfigsController',
+&nbsp;
+    /**
+     * All configurable properties of alert definition
+     * @type {Array}
+     */
+    configs: [],
+&nbsp;
+    /**
+     * Define whether configs are editable
+     * binds to property populated in template
+     * @type {Boolean}
+     */
+    canEdit: true,
+&nbsp;
+    /**
+     * Define configs view mode (Wizard or Definition Details page)
+     * @type {Boolean}
+     */
+    isWizard: false,
+&nbsp;
+    /**
+     * Alert Definition type
+     * binding is set in template
+     * @type {String}
+     */
+    alertDefinitionType: '',
+&nbsp;
+    /**
+     * Array of displayNames of all services
+     * is used for "Service" config options
+     * @type {Array}
+     */
+    allServices: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return App.Service.find().mapProperty('displayName').concat('CUSTOM');</span>
+    }.property(),
+&nbsp;
+    /**
+     * All possible values for scope propery
+     * @type {Array}
+     */
+    allScopes: ['Any', 'Host', 'Service'],
+&nbsp;
+    /**
+     * Array of all aggregate-alerts names
+     * @type {Array}
+     */
+    aggregateAlertNames: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return App.AggregateAlertDefinition.find().mapProperty('name');</span>
+    }.property(),
+&nbsp;
+    /**
+     * If any service selected, show related components, hide PORT and HOST field
+     * If CUSTOM was selected, show no component, and show PORT and HOST field
+     * @method onServiceSelect
+     */
+    onServiceSelect: function () {
+      var serviceProperty = this.get('configs').findProperty('name', 'service');
+      var componentsProperty = this.get('configs').findProperty('name', 'component');
+      var defaultPortProperty = this.get('configs').findProperty('name', 'default_port');
+      var uriProperty = this.get('configs').findProperty('name', 'uri');
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (serviceProperty &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >serviceProperty.get('value') == 'CUSTOM')</span> {
+<span class="cstat-no" title="statement not covered" >        componentsProperty.set('options', ['No component']);</span>
+<span class="cstat-no" title="statement not covered" >        componentsProperty.set('canEdit', false);</span>
+<span class="cstat-no" title="statement not covered" >        var results = this.get('configs');</span>
+<span class="cstat-no" title="statement not covered" >        if (defaultPortProperty &amp;&amp; uriProperty) {</span>
+<span class="cstat-no" title="statement not covered" >          results = results.filter(<span class="fstat-no" title="function not covered" >function (config) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return config.name != 'default_port' &amp;&amp; config.name != 'uri';</span>
+          });
+        }
+<span class="cstat-no" title="statement not covered" >        if (!defaultPortProperty) {</span>
+<span class="cstat-no" title="statement not covered" >          results = results.concat([App.AlertConfigProperties.DefaultPort.create({</span>
+            value: '8050'
+          }), App.AlertConfigProperties.URI.create({
+            value: ''
+          })]);
+<span class="cstat-no" title="statement not covered" >          this.set('configs', results);</span>
+        }
+      } else <span class="missing-if-branch" title="if path not taken" >I</span>if (serviceProperty &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >serviceProperty.get('value') !== 'CUSTOM' </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >componentsProperty.get('value') </span>&amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >componentsProperty.get('value') != 'No component')</span> {
+<span class="cstat-no" title="statement not covered" >        componentsProperty.set('options', ['No component'].concat(App.HostComponent.find().filterProperty('service.displayName', serviceProperty.get('value')).mapProperty('displayName').uniq()));</span>
+<span class="cstat-no" title="statement not covered" >        if (!defaultPortProperty) {</span>
+<span class="cstat-no" title="statement not covered" >          var results = this.get('configs').concat([App.AlertConfigProperties.DefaultPort.create({</span>
+            value: '8060'
+          }), App.AlertConfigProperties.URI.create({
+            value: ''
+          })]);
+<span class="cstat-no" title="statement not covered" >          this.set('configs', results);</span>
+        }
+      } else <span class="missing-if-branch" title="if path not taken" >I</span>if (serviceProperty &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >serviceProperty.get('value') !== 'CUSTOM')</span> {
+<span class="cstat-no" title="statement not covered" >        componentsProperty.set('options', ['No component'].concat(App.HostComponent.find().filterProperty('service.displayName', serviceProperty.get('value')).mapProperty('displayName').uniq()));</span>
+<span class="cstat-no" title="statement not covered" >        if (defaultPortProperty &amp;&amp; uriProperty) {</span>
+<span class="cstat-no" title="statement not covered" >          var results = this.get('configs').filter(<span class="fstat-no" title="function not covered" >function (config) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return config.name != 'default_port' &amp;&amp; config.name != 'uri';</span>
+          });
+<span class="cstat-no" title="statement not covered" >          this.set('configs', results);</span>
+        }
+      }
+    }.observes('configs.@each.value'),
+&nbsp;
+    /**
+     * @return {string|Null}
+     * @method getThresholdsProperty
+     */
+    getThresholdsProperty: function getThresholdsProperty(type, property) {
+      var warning = this.get('content.reporting').findProperty('type', type);
+      return warning &amp;&amp; !Ember.isNone(warning.get(property)) ? warning.get(property) : null;
+    },
+&nbsp;
+    /**
+     * Render array of configs for appropriate alert definition type
+     * @method renderConfigs
+     */
+    renderConfigs: function renderConfigs() {
+      var self = this;
+      var alertDefinitionType = this.get('alertDefinitionType');
+      var configs = [];
+      switch (alertDefinitionType) {
+        case 'PORT':
+          configs = this.renderPortConfigs();
+          break;
+        case 'METRIC':
+          configs = this.renderMetricConfigs();
+          break;
+        case 'WEB':
+          configs = this.renderWebConfigs();
+          break;
+        case 'SCRIPT':
+          configs = this.renderScriptConfigs();
+          break;
+        case 'AGGREGATE':
+          configs = this.renderAggregateConfigs();
+          break;
+<span class="branch-5 cbranch-no" title="branch not covered" >        case 'SERVER':</span>
+<span class="cstat-no" title="statement not covered" >          configs = this.renderServerConfigs();</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
+<span class="branch-6 cbranch-no" title="branch not covered" >        case 'RECOVERY':</span>
+<span class="cstat-no" title="statement not covered" >          configs = this.renderRecoveryConfigs();</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
+<span class="branch-7 cbranch-no" title="branch not covered" >        case 'AMS':</span>
+<span class="cstat-no" title="statement not covered" >          configs = this.renderAmsConfigs();</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
+        default:
+      }
+&nbsp;
+      configs.forEach(<span class="fstat-no" title="function not covered" >function (config) {</span>
+<span class="cstat-no" title="statement not covered" >        config.set('isDisabled', !self.get('canEdit') || config.get('readonly'));</span>
+      });
+&nbsp;
+      this.set('configs', configs);
+    },
+&nbsp;
+    /**
+     * Render config properties for port-type alert definition
+     * @method renderPortConfigs
+     * @returns {App.AlertConfigProperty[]}
+     */
+    renderPortConfigs: function renderPortConfigs() {
+      var result = [];
+      var alertDefinition = this.get('content');
+      var isWizard = this.get('isWizard');
+&nbsp;
+      if (this.get('isWizard')) {
+        result = result.concat([App.AlertConfigProperties.AlertName.create({
+          value: ''
+        }), App.AlertConfigProperties.Service.create({
+          options: this.get('allServices'),
+          value: this.get('allServices')[0],
+          isShifted: true
+        }), App.AlertConfigProperties.Component.create({
+          options: this.get('allComponents'),
+          value: 'No component',
+          isShifted: true
+        }),
+&nbsp;
+        //should be on next step
+        App.AlertConfigProperties.Interval.create({
+          value: isWizard ? '' : <span class="branch-1 cbranch-no" title="branch not covered" >alertDefinition.get('interval')</span>
+        }), App.AlertConfigProperties.Thresholds.OkThreshold.create({
+          label: 'Thresholds',
+          showInputForValue: false,
+          text: isWizard ? '' : <span class="branch-1 cbranch-no" title="branch not covered" >this.getThresholdsProperty('ok', 'text'),</span>
+          value: isWizard ? '' : <span class="branch-1 cbranch-no" title="branch not covered" >this.getThresholdsProperty('ok', 'value')</span>
+        }), App.AlertConfigProperties.Thresholds.WarningThreshold.create(App.AlertConfigProperties.Thresholds.PositiveMixin, {
+          valueMetric: 'Seconds',
+          text: isWizard ? '' : <span class="branch-1 cbranch-no" title="branch not covered" >this.getThresholdsProperty('warning', 'text'),</span>
+          value: isWizard ? '' : <span class="branch-1 cbranch-no" title="branch not covered" >this.getThresholdsProperty('warning', 'value')</span>
+        }), App.AlertConfigProperties.Thresholds.CriticalThreshold.create(App.AlertConfigProperties.Thresholds.PositiveMixin, {
+          valueMetric: 'Seconds',
+          text: isWizard ? '' : <span class="branch-1 cbranch-no" title="branch not covered" >this.getThresholdsProperty('critical', 'text'),</span>
+          value: isWizard ? '' : <span class="branch-1 cbranch-no" title="branch not covered" >this.getThresholdsProperty('critical', 'value')</span>
+        })]);
+      } else {
+        result = result.concat([App.AlertConfigProperties.Description.create({
+          value: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: alertDefinition.get('description')
+        }), App.AlertConfigProperties.Interval.create({
+          value: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: alertDefinition.get('interval')
+        }), App.AlertConfigProperties.Thresholds.OkThreshold.create({
+          label: 'Thresholds',
+          showInputForValue: false,
+          text: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('ok', 'text'),
+          value: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('ok', 'value')
+        }), App.AlertConfigProperties.Thresholds.WarningThreshold.create(App.AlertConfigProperties.Thresholds.PositiveMixin, {
+          valueMetric: 'Seconds',
+          text: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('warning', 'text'),
+          value: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('warning', 'value')
+        }), App.AlertConfigProperties.Thresholds.CriticalThreshold.create(App.AlertConfigProperties.Thresholds.PositiveMixin, {
+          valueMetric: 'Seconds',
+          text: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('critical', 'text'),
+          value: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('critical', 'value')
+        })]);
+      }
+&nbsp;
+      return result;
+    },
+&nbsp;
+    /**
+     * Render config properties for metric-type alert definition
+     * @method renderMetricConfigs
+     * @returns {App.AlertConfigProperty[]}
+     */
+    renderMetricConfigs: function renderMetricConfigs() {
+      var result = [];
+      var alertDefinition = this.get('content');
+      var isWizard = this.get('isWizard');
+      var units = this.get('content.reporting') &amp;&amp; this.get('content.reporting').findProperty('type', 'units') ? <span class="branch-0 cbranch-no" title="branch not covered" >this.get('content.reporting').findProperty('type', 'units').get('text') </span>: null;
+&nbsp;
+      if (this.get('isWizard')) {
+        result = result.concat(this.renderCommonWizardConfigs());
+      }
+&nbsp;
+      result = result.concat([App.AlertConfigProperties.Description.create({
+        value: isWizard ? '' : alertDefinition.get('description')
+      }), App.AlertConfigProperties.Interval.create({
+        value: isWizard ? '' : alertDefinition.get('interval')
+      }), App.AlertConfigProperties.Thresholds.OkThreshold.create({
+        label: 'Thresholds',
+        showInputForValue: false,
+        text: isWizard ? '' : this.getThresholdsProperty('ok', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('ok', 'value')
+      }), App.AlertConfigProperties.Thresholds.WarningThreshold.create({
+        valueMetric: units,
+        text: isWizard ? '' : this.getThresholdsProperty('warning', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('warning', 'value')
+      }), App.AlertConfigProperties.Thresholds.CriticalThreshold.create({
+        valueMetric: units,
+        text: isWizard ? '' : this.getThresholdsProperty('critical', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('critical', 'value')
+      }), App.AlertConfigProperties.Parameter.create({
+        value: isWizard ? '' : alertDefinition.get('uri.connectionTimeout'),
+        threshold: "CRITICAL",
+        name: 'connection_timeout',
+        label: 'Connection Timeout',
+        displayType: 'parameter',
+        apiProperty: 'source.uri.connection_timeout',
+        units: 'Seconds',
+        isValid: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >          var value = this.get('value');</span>
+<span class="cstat-no" title="statement not covered" >          return numericUtils.isPositiveNumber(value);</span>
+        }.property('value')
+      })]);
+&nbsp;
+      return result;
+    },
+&nbsp;
+    /**
+     * Render config properties for web-type alert definition
+     * @method renderWebConfigs
+     * @returns {App.AlertConfigProperty[]}
+     */
+    renderWebConfigs: function renderWebConfigs() {
+      var result = [];
+      var alertDefinition = this.get('content');
+      var isWizard = this.get('isWizard');
+&nbsp;
+      if (this.get('isWizard')) {
+        result = result.concat(this.renderCommonWizardConfigs());
+      }
+&nbsp;
+      result = result.concat([App.AlertConfigProperties.Description.create({
+        value: isWizard ? '' : alertDefinition.get('description')
+      }), App.AlertConfigProperties.Interval.create({
+        value: isWizard ? '' : alertDefinition.get('interval')
+      }), App.AlertConfigProperties.Thresholds.OkThreshold.create({
+        label: 'Thresholds',
+        showInputForValue: false,
+        text: isWizard ? '' : this.getThresholdsProperty('ok', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('ok', 'value')
+      }), App.AlertConfigProperties.Thresholds.WarningThreshold.create({
+        showInputForValue: false,
+        text: isWizard ? '' : this.getThresholdsProperty('warning', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('warning', 'value')
+      }), App.AlertConfigProperties.Thresholds.CriticalThreshold.create({
+        showInputForValue: false,
+        text: isWizard ? '' : this.getThresholdsProperty('critical', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('critical', 'value')
+      }), App.AlertConfigProperties.Parameter.create({
+        value: isWizard ? '' : alertDefinition.get('uri.connectionTimeout'),
+        threshold: "CRITICAL",
+        name: 'connection_timeout',
+        label: 'Connection Timeout',
+        displayType: 'parameter',
+        apiProperty: 'source.uri.connection_timeout',
+        units: 'Seconds',
+        isValid: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >          var value = this.get('value');</span>
+<span class="cstat-no" title="statement not covered" >          return numericUtils.isPositiveNumber(value);</span>
+        }.property('value')
+      })]);
+&nbsp;
+      return result;
+    },
+&nbsp;
+    /**
+     * Render config properties for recovery-type alert definition
+     * @method renderRecoveryConfigs
+     * @returns {App.AlertConfigProperty[]}
+     */
+    renderRecoveryConfigs: <span class="fstat-no" title="function not covered" >function renderRecoveryConfigs() {</span>
+<span class="cstat-no" title="statement not covered" >      var result = [];</span>
+<span class="cstat-no" title="statement not covered" >      var alertDefinition = this.get('content');</span>
+<span class="cstat-no" title="statement not covered" >      var isWizard = this.get('isWizard');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.get('isWizard')) {</span>
+<span class="cstat-no" title="statement not covered" >        result = result.concat(this.renderCommonWizardConfigs());</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      result = result.concat([App.AlertConfigProperties.Description.create({</span>
+        value: isWizard ? '' : alertDefinition.get('description')
+      }), App.AlertConfigProperties.Interval.create({
+        value: isWizard ? '' : alertDefinition.get('interval')
+      }), App.AlertConfigProperties.Thresholds.OkThreshold.create({
+        label: 'Thresholds',
+        showInputForValue: false,
+        text: isWizard ? '' : this.getThresholdsProperty('ok', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('ok', 'value')
+      }), App.AlertConfigProperties.Thresholds.WarningThreshold.create({
+        showInputForValue: false,
+        text: isWizard ? '' : this.getThresholdsProperty('warning', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('warning', 'value')
+      }), App.AlertConfigProperties.Thresholds.CriticalThreshold.create({
+        showInputForValue: false,
+        text: isWizard ? '' : this.getThresholdsProperty('critical', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('critical', 'value')
+      })]);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return result;</span>
+    },
+&nbsp;
+    renderAmsConfigs: <span class="fstat-no" title="function not covered" >function renderAmsConfigs() {</span>
+<span class="cstat-no" title="statement not covered" >      var result = [];</span>
+<span class="cstat-no" title="statement not covered" >      var alertDefinition = this.get('content');</span>
+<span class="cstat-no" title="statement not covered" >      var isWizard = this.get('isWizard');</span>
+<span class="cstat-no" title="statement not covered" >      var units = this.get('content.reporting').findProperty('type', 'units') ? this.get('content.reporting').findProperty('type', 'units').get('text') : null;</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('isWizard')) {</span>
+<span class="cstat-no" title="statement not covered" >        result = result.concat(this.renderCommonWizardConfigs());</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      result = result.concat([App.AlertConfigProperties.Description.create({</span>
+        value: isWizard ? '' : alertDefinition.get('description')
+      }), App.AlertConfigProperties.Interval.create({
+        value: isWizard ? '' : alertDefinition.get('interval')
+      }), App.AlertConfigProperties.Thresholds.OkThreshold.create({
+        label: 'Thresholds',
+        showInputForValue: false,
+        text: isWizard ? '' : this.getThresholdsProperty('ok', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('ok', 'value')
+      }), App.AlertConfigProperties.Thresholds.WarningThreshold.create(App.AlertConfigProperties.Thresholds.PercentageMixin, {
+        text: isWizard ? '' : this.getThresholdsProperty('warning', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('warning', 'value'),
+        valueMetric: units
+      }), App.AlertConfigProperties.Thresholds.CriticalThreshold.create(App.AlertConfigProperties.Thresholds.PercentageMixin, {
+        text: isWizard ? '' : this.getThresholdsProperty('critical', 'text'),
+        value: isWizard ? '' : this.getThresholdsProperty('critical', 'value'),
+        valueMetric: units
+      }), App.AlertConfigProperties.Parameter.create({
+        value: isWizard ? '' : alertDefinition.get('uri.connectionTimeout'),
+        name: 'connection_timeout',
+        label: 'Connection Timeout',
+        displayType: 'parameter',
+        apiProperty: 'source.uri.connection_timeout',
+        units: 'Seconds',
+        isValid: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >          var value = this.get('value');</span>
+<span class="cstat-no" title="statement not covered" >          return numericUtils.isPositiveNumber(value);</span>
+        }.property('value')
+      })]);
+<span class="cstat-no" title="statement not covered" >      return result;</span>
+    },
+&nbsp;
+    /**
+     * Render config properties for script-type alert definition
+     * @method renderScriptConfigs
+     * @returns {App.AlertConfigProperty[]}
+     */
+    renderScriptConfigs: function renderScriptConfigs() {
+      var result = [];
+      var alertDefinition = this.get('content');
+      var isWizard = this.get('isWizard');
+&nbsp;
+      if (this.get('isWizard')) {
+        result = result.concat(this.renderCommonWizardConfigs());
+      }
+&nbsp;
+      result = result.concat([App.AlertConfigProperties.Description.create({
+        value: isWizard ? '' : alertDefinition.get('description')
+      }), App.AlertConfigProperties.Interval.create({
+        value: isWizard ? '' : alertDefinition.get('interval')
+      })]);
+&nbsp;
+      var mixins = {
+        STRING: App.AlertConfigProperties.Parameters.StringMixin,
+        NUMERIC: App.AlertConfigProperties.Parameters.NumericMixin,
+        PERCENT: App.AlertConfigProperties.Parameters.PercentageMixin
+      };
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (alertDefinition) {
+        alertDefinition.get('parameters').forEach(function (parameter) {
+          var mixin = mixins[parameter.get('type')] || {}; // validation depends on parameter-type
+          result.push(App.AlertConfigProperties.Parameter.create(mixin, {
+            value: isWizard ? '' : parameter.get('value'),
+            apiProperty: parameter.get('name'),
+            description: parameter.get('description'),
+            label: isWizard ? '' : parameter.get('displayName'),
+            threshold: isWizard ? '' : parameter.get('threshold'),
+            units: isWizard ? '' : parameter.get('units'),
+            type: isWizard ? '' : parameter.get('type'),
+            hidden: parameter.get('visibility') === "HIDDEN",
+            readonly: parameter.get('visibility') === "READ_ONLY"
+          }));
+        });
+      }
+&nbsp;
+      return result;
+    },
+&nbsp;
+    /**
+     * Render config properties for aggregate-type alert definition
+     * @method renderAggregateConfigs
+     * @returns {App.AlertConfigProperty[]}
+     */
+    renderAggregateConfigs: function renderAggregateConfigs() {
+      var isWizard = this.get('isWizard');
+      var alertDefinition = this.get('content');
+      var units = this.get('content.reporting') &amp;&amp; this.get('content.reporting').findProperty('type', 'units') ? <span class="branch-0 cbranch-no" title="branch not covered" >this.get('content.reporting').findProperty('type', 'units').get('text') </span>: null;
+      return [App.AlertConfigProperties.Description.create({
+        value: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: alertDefinition.get('description')
+      }), App.AlertConfigProperties.Interval.create({
+        value: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: alertDefinition.get('interval')
+      }), App.AlertConfigProperties.Thresholds.OkThreshold.create({
+        label: 'Thresholds',
+        showInputForValue: false,
+        text: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('ok', 'text'),
+        value: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('ok', 'value')
+      }), App.AlertConfigProperties.Thresholds.WarningThreshold.create(App.AlertConfigProperties.Thresholds.PercentageMixin, {
+        text: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('warning', 'text'),
+        value: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('warning', 'value'),
+        valueMetric: units
+      }), App.AlertConfigProperties.Thresholds.CriticalThreshold.create(App.AlertConfigProperties.Thresholds.PercentageMixin, {
+        text: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('critical', 'text'),
+        value: isWizard ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: this.getThresholdsProperty('critical', 'value'),
+        valueMetric: units
+      })];
+    },
+&nbsp;
+    /**
+     * Render config properties for server-type alert definition
+     * @method renderScriptConfigs
+     * @returns {App.AlertConfigProperty[]}
+     */
+    renderServerConfigs: <span class="fstat-no" title="function not covered" >function renderServerConfigs() {</span>
+<span class="cstat-no" title="statement not covered" >      var result = [];</span>
+<span class="cstat-no" title="statement not covered" >      var alertDefinition = this.get('content');</span>
+<span class="cstat-no" title="statement not covered" >      var isWizard = this.get('isWizard');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.get('isWizard')) {</span>
+<span class="cstat-no" title="statement not covered" >        result = result.concat(this.renderCommonWizardConfigs());</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      result = result.concat([App.AlertConfigProperties.Description.create({</span>
+        value: isWizard ? '' : alertDefinition.get('description')
+      }), App.AlertConfigProperties.Interval.create({
+        value: isWizard ? '' : alertDefinition.get('interval')
+      })]);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var mixins = {</span>
+        STRING: App.AlertConfigProperties.Parameters.StringMixin,
+        NUMERIC: App.AlertConfigProperties.Parameters.NumericMixin,
+        PERCENT: App.AlertConfigProperties.Parameters.PercentageMixin
+      };
+<span class="cstat-no" title="statement not covered" >      alertDefinition.get('parameters').forEach(<span class="fstat-no" title="function not covered" >function (parameter) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var mixin = mixins[parameter.get('type')] || {}; </span>// validation depends on parameter-type
+<span class="cstat-no" title="statement not covered" >        result.push(App.AlertConfigProperties.Parameter.create(mixin, {</span>
+          value: isWizard ? '' : parameter.get('value'),
+          apiProperty: parameter.get('name'),
+          description: parameter.get('description'),
+          label: isWizard ? '' : parameter.get('displayName'),
+          threshold: isWizard ? '' : parameter.get('threshold'),
+          units: isWizard ? '' : parameter.get('units'),
+          type: isWizard ? '' : parameter.get('type'),
+          hidden: parameter.get('visibility') === "HIDDEN",
+          readonly: parameter.get('visibility') === "READ_ONLY"
+        }));
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return result;</span>
+    },
+&nbsp;
+    /**
+     * Render common list of configs used in almost all alert types in wizard
+     * @returns {App.AlertConfigProperty[]}
+     */
+    renderCommonWizardConfigs: function renderCommonWizardConfigs() {
+      return [App.AlertConfigProperties.AlertName.create({
+        value: ''
+      }), App.AlertConfigProperties.Service.create({
+        options: this.get('allServices'),
+        value: this.get('allServices')[0],
+        isShifted: true
+      }), App.AlertConfigProperties.Component.create({
+        options: this.get('allComponents'),
+        value: 'No component',
+        isShifted: true
+      }), App.AlertConfigProperties.Scope.create({
+        options: this.get('allScopes'),
+        isShifted: true
+      })];
+    },
+&nbsp;
+    /**
+     * Edit configs button handler
+     * @method editConfigs
+     */
+    editConfigs: function editConfigs() {
+      this.get('configs').forEach(function (property) {
+        property.set('previousValue', property.get('value'));
+        property.set('previousText', property.get('text'));
+      });
+      this.get('configs').forEach(function (config) {
+        config.set('isDisabled', config.get('readonly'));
+      });
+      this.set('canEdit', true);
+    },
+&nbsp;
+    /**
+     * Cancel edit configs button handler
+     * @method cancelEditConfigs
+     */
+    cancelEditConfigs: function cancelEditConfigs() {
+      this.get('configs').forEach(function (property) {
+        property.set('value', property.get('previousValue'));
+        property.set('text', property.get('previousText'));
+      });
+      this.get('configs').setEach('isDisabled', true);
+      this.set('canEdit', false);
+    },
+&nbsp;
+    /**
+     * Save edit configs button handler
+     * @method saveConfigs
+     * @return {$.ajax}
+     */
+    saveConfigs: function saveConfigs() {
+      this.get('configs').setEach('isDisabled', true);
+      this.set('canEdit', false);
+&nbsp;
+      return App.ajax.send({
+        name: 'alerts.update_alert_definition',
+        sender: this,
+        data: {
+          id: this.get('content.id'),
+          data: this.getPropertiesToUpdate(true)
+        }
+      });
+    },
+&nbsp;
+    /**
+     * Create object with new values to put it on server
+     * @param {boolean} onlyChanged
+     * @method getPropertiesToUpdate
+     * @returns {Object}
+     */
+    getPropertiesToUpdate: function getPropertiesToUpdate(onlyChanged) {
+      var propertiesToUpdate = {};
+      var configs = onlyChanged ? this.get('configs').filterProperty('wasChanged') : this.get('configs');
+      configs = configs.filter(function (c) {
+        return c.get('name') !== 'parameter';
+      });
+      configs.forEach(function (property) {
+        var apiProperties = Em.makeArray(property.get('apiProperty'));
+        var apiFormattedValues = Em.makeArray(property.get('apiFormattedValue'));
+        apiProperties.forEach(function (apiProperty, i) {
+          if (apiProperty.contains('source.')) {
+            if (!propertiesToUpdate['AlertDefinition/source']) {
+              <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('content.rawSourceData')) {
+                propertiesToUpdate['AlertDefinition/source'] = this.get('content.rawSourceData');
+              }
+            }
+&nbsp;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('content.rawSourceData')) {
+              // use rawSourceData to populate propertiesToUpdate
+              var sourcePath = propertiesToUpdate['AlertDefinition/source'];
+              apiProperty.replace('source.', '').split('.').forEach(function (path, index, array) {
+                // check if it is last path
+                if (array.length - index === 1) {
+                  sourcePath[path] = apiFormattedValues[i];
+                } else {
+                  sourcePath = sourcePath[path];
+                }
+              });
+            } else {
+<span class="cstat-no" title="statement not covered" >              if (!propertiesToUpdate['AlertDefinition/source']) {</span>
+<span class="cstat-no" title="statement not covered" >                propertiesToUpdate['AlertDefinition/source'] = {};</span>
+              }
+<span class="cstat-no" title="statement not covered" >              Ember.setFullPath(propertiesToUpdate['AlertDefinition/source'], apiProperty.replace('source.', ''), apiFormattedValues[i]);</span>
+            }
+          } else {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (apiProperty) {
+              propertiesToUpdate['AlertDefinition/' + apiProperty] = apiFormattedValues[i];
+            }
+          }
+        }, this);
+      }, this);
+&nbsp;
+      if (Em.get(propertiesToUpdate, 'AlertDefinition/source.uri.id')) {
+        delete propertiesToUpdate['AlertDefinition/source'].uri.id;
+      }
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (Em.get(propertiesToUpdate, 'AlertDefinition/source.ams.id')) {
+<span class="cstat-no" title="statement not covered" >        delete propertiesToUpdate['AlertDefinition/source'].ams.id;</span>
+      }
+&nbsp;
+      // `source.parameters` is an array and should be updated separately from other configs
+      if (this.get('content.parameters.length')) {
+        propertiesToUpdate['AlertDefinition/source'] = this.get('content.rawSourceData');
+        var parameterConfigs = this.get('configs').filterProperty('name', 'parameter');
+        parameterConfigs.forEach(function (parameter) {
+          propertiesToUpdate['AlertDefinition/source'].parameters.findProperty('name', parameter.get('apiProperty')).value = parameter.get('apiFormattedValue');
+        });
+      }
+&nbsp;
+      return propertiesToUpdate;
+    },
+&nbsp;
+    /**
+     * Return array of all config values
+     * used to save configs to local db in wizard
+     * @method getConfigsValues
+     * @returns {Array}
+     */
+    getConfigsValues: function getConfigsValues() {
+      return this.get('configs').map(function (property) {
+        return {
+          name: property.get('name'),
+          value: property.get('value')
+        };
+      });
+    },
+&nbsp;
+    /**
+     * Define whether critical threshold &gt;= critical threshold
+     * @type {Boolean}
+     */
+    hasThresholdsError: function () {
+      var smallValue, smallValid, largeValue, largeValid;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('configs').findProperty('name', 'warning_threshold')) {
+<span class="cstat-no" title="statement not covered" >        smallValue = Em.get(this.get('configs').findProperty('name', 'warning_threshold'), 'value');</span>
+<span class="cstat-no" title="statement not covered" >        smallValid = Em.get(this.get('configs').findProperty('name', 'warning_threshold'), 'isValid');</span>
+      }
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('configs').findProperty('name', 'critical_threshold')) {
+<span class="cstat-no" title="statement not covered" >        largeValue = Em.get(this.get('configs').findProperty('name', 'critical_threshold'), 'value');</span>
+<span class="cstat-no" title="statement not covered" >        largeValid = Em.get(this.get('configs').findProperty('name', 'critical_threshold'), 'isValid');</span>
+      }
+      return smallValid &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >largeValid </span>? <span class="branch-0 cbranch-no" title="branch not covered" >Number(smallValue) &gt; Number(largeValue) </span>: false;
+    }.property('configs.@each.value'),
+&nbsp;
+    someConfigIsInvalid: Em.computed.someBy('configs', 'isValid', false),
+&nbsp;
+    /**
+     * Define whether all configs are valid
+     * @type {Boolean}
+     */
+    hasErrors: Em.computed.or('someConfigIsInvalid', 'hasThresholdsError')
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

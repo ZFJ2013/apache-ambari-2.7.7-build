@@ -1,0 +1,1242 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/mappers/configs/themes_mapper.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/mappers/configs/themes_mapper.js</span></h1>
+    <h2>
+        Statements: <span class="metric">94.67% <small>(160 / 169)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">74.42% <small>(64 / 86)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">96.3% <small>(26 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">94.67% <small>(160 / 169)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/mappers/configs/</a> &#187; themes_mapper.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+&nbsp;
+;require.register("mappers/configs/themes_mapper", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require("app");
+&nbsp;
+  App.themesMapper = App.QuickDataMapper.create({
+    tabModel: App.Tab,
+    sectionModel: App.Section,
+    subSectionModel: App.SubSection,
+    subSectionTabModel: App.SubSectionTab,
+    themeConditionModel: App.ThemeCondition,
+&nbsp;
+    tabConfig: {
+      "id": "name",
+      "name": "name",
+      "display_name": "display-name",
+      "columns": "layout.tab-columns",
+      "rows": "layout.tab-rows",
+      "service_name": "service_name",
+      "sections_key": "sections"
+    },
+&nbsp;
+    sectionConfig: {
+      "name": "name",
+      "display_name": "display-name",
+      "row_index": "row-index",
+      "column_index": "column-index",
+      "row_span": "row-span",
+      "column_span": "column-span",
+      "section_columns": "section-columns",
+      "section_rows": "section-rows",
+      "tab_id": "tab_id"
+    },
+&nbsp;
+    subSectionConfig: {
+      "name": "name",
+      "display_name": "display-name",
+      "border": "border",
+      "row_index": "row-index",
+      "column_index": "column-index",
+      "column_span": "column-span",
+      "row_span": "row-span",
+      "configProperties": "config_properties",
+      "section_id": "section_id",
+      "depends_on": "depends-on",
+      "left_vertical_splitter": "left-vertical-splitter"
+    },
+&nbsp;
+    subSectionTabConfig: {
+      "id": "name",
+      "name": "name",
+      "display_name": "display-name",
+      "depends_on": "depends-on",
+      "sub_section_id": "sub_section_id"
+    },
+&nbsp;
+    resetModels: <span class="fstat-no" title="function not covered" >function resetModels() {</span>
+<span class="cstat-no" title="statement not covered" >      this.get('tabModel').find().clear();</span>
+<span class="cstat-no" title="statement not covered" >      this.get('sectionModel').find().clear();</span>
+<span class="cstat-no" title="statement not covered" >      this.get('subSectionModel').find().clear();</span>
+<span class="cstat-no" title="statement not covered" >      this.get('subSectionTabModel').find().clear();</span>
+<span class="cstat-no" title="statement not covered" >      this.get('themeConditionModel').find().clear();</span>
+<span class="cstat-no" title="statement not covered" >      App.clearModels([this.get('tabModel')]);</span>
+<span class="cstat-no" title="statement not covered" >      App.resetDsStoreTypeMap(this.get('tabModel'));</span>
+    },
+&nbsp;
+    /**
+     * Mapper function for tabs
+     *
+     * @param json
+     * @param [serviceNames]
+     */
+    map: function map(json, serviceNames) {
+      console.time('App.themesMapper execution time');
+      var tabs = [];
+      json.items.forEach(function (item) {
+        this.mapThemeLayouts(item, tabs);
+        this.mapThemeConfigs(item);
+        this.mapThemeWidgets(item);
+      }, this);
+&nbsp;
+      App.store.safeLoadMany(this.get("tabModel"), tabs);
+      this.generateAdvancedTabs(serviceNames);
+      console.timeEnd('App.themesMapper execution time');
+    },
+&nbsp;
+    /**
+     * Bootstrap tab objects and link sections with subsections.
+     *
+     * @param {Object} json - json to parse
+     * @param {Object[]} tabs - tabs list
+     */
+    mapThemeLayouts: function mapThemeLayouts(json, tabs) {
+      var serviceName = Em.get(json, "ThemeInfo.service_name");
+      var themeName = Em.get(json, "ThemeInfo.theme_data.Theme.name");
+      Em.getWithDefault(json, "ThemeInfo.theme_data.Theme.configuration.layouts", []).forEach(function (layout) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (layout.tabs) {
+          layout.tabs.forEach(function (tab) {
+            var parsedTab = this.parseIt(tab, this.get("tabConfig"));
+            parsedTab.id = serviceName + "_" + tab.name;
+            parsedTab.service_name = serviceName;
+            parsedTab.theme_name = themeName;
+&nbsp;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (Em.get(tab, "layout.sections")) {
+              var sections = [];
+              Em.get(tab, "layout.sections").forEach(function (section) {
+                var parsedSection = this.parseIt(section, this.get("sectionConfig"));
+                parsedSection.id = section.name + '_' + parsedTab.id;
+                parsedSection.tab_id = parsedTab.id;
+                this.loadSubSections(section, parsedSection, serviceName, themeName);
+                sections.push(parsedSection);
+              }, this);
+&nbsp;
+              App.store.safeLoadMany(this.get("sectionModel"), sections);
+              parsedTab.sections = sections.mapProperty("id");
+            }
+&nbsp;
+            tabs.push(parsedTab);
+          }, this);
+        }
+      }, this);
+    },
+&nbsp;
+    loadSubSections: function loadSubSections(section, parsedSection, serviceName, themeName) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (section.subsections) {
+        var subSections = [];
+        var subSectionConditions = [];
+        section.subsections.forEach(function (subSection) {
+          var parsedSubSection = this.parseIt(subSection, this.get("subSectionConfig"));
+          parsedSubSection.section_id = parsedSection.id;
+          parsedSubSection.id = parsedSubSection.name + '_' + serviceName + '_' + themeName;
+          parsedSubSection.theme_name = themeName;
+&nbsp;
+          this.loadSubSectionTabs(subSection, parsedSubSection, themeName);
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (parsedSubSection['depends_on']) {
+            subSectionConditions.push(parsedSubSection);
+          }
+          subSections.push(parsedSubSection);
+        }, this);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (subSectionConditions.length) {
+          var type = 'subsection';
+          this.mapThemeConditions(subSectionConditions, type, themeName);
+        }
+        App.store.safeLoadMany(this.get("subSectionModel"), subSections);
+        parsedSection.sub_sections = subSections.mapProperty("id");
+      }
+    },
+&nbsp;
+    loadSubSectionTabs: function loadSubSectionTabs(subSection, parsedSubSection, themeName) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (subSection['subsection-tabs']) {
+        var subSectionTabs = [];
+        var subSectionTabConditions = [];
+&nbsp;
+        subSection['subsection-tabs'].forEach(function (subSectionTab) {
+          var parsedSubSectionTab = this.parseIt(subSectionTab, this.get("subSectionTabConfig"));
+          parsedSubSectionTab.sub_section_id = parsedSubSection.id;
+          parsedSubSectionTab.theme_name = themeName;
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (parsedSubSectionTab['depends_on']) {
+            subSectionTabConditions.push(parsedSubSectionTab);
+          }
+          subSectionTabs.push(parsedSubSectionTab);
+        }, this);
+        subSectionTabs[0].is_active = true;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (subSectionTabConditions.length) {
+          var type = 'subsectionTab';
+          this.mapThemeConditions(subSectionTabConditions, type, themeName);
+        }
+        App.store.safeLoadMany(this.get("subSectionTabModel"), subSectionTabs);
+        parsedSubSection.sub_section_tabs = subSectionTabs.mapProperty("id");
+      }
+    },
+&nbsp;
+    /**
+     * create tie between &lt;code&gt;stackConfigProperty&lt;code&gt; and &lt;code&gt;subSection&lt;code&gt;
+     *
+     * @param {Object} json - json to parse
+     */
+    mapThemeConfigs: function mapThemeConfigs(json) {
+      var serviceName = Em.get(json, "ThemeInfo.service_name");
+      var themeName = Em.get(json, "ThemeInfo.theme_data.Theme.name");
+      Em.getWithDefault(json, "ThemeInfo.theme_data.Theme.configuration.placement.configs", []).forEach(function (configLink) {
+        var configId = this.getConfigId(configLink);
+        var subSectionId = configLink["subsection-name"] ? configLink["subsection-name"] + '_' + serviceName + '_' + themeName : false;
+        var subSectionTabId = configLink["subsection-tab-name"];
+        var configProperty = App.configsCollection.getConfig(configId);
+        var dependsOnConfigs = configLink["depends-on"] || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
+&nbsp;
+        if (subSectionTabId) {
+          var subSectionTab = App.SubSectionTab.find(subSectionTabId);
+        } else if (subSectionId) {
+          var subSection = App.SubSection.find(subSectionId);
+        }
+&nbsp;
+        if (configProperty &amp;&amp; subSection &amp;&amp; subSection.get('isLoaded')) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (!subSection.get('configProperties').contains(configProperty.id)) {
+            subSection.set('configProperties', subSection.get('configProperties').concat(configProperty.id));
+          }
+        } else if (configProperty &amp;&amp; subSectionTab &amp;&amp; subSectionTab.get('isLoaded')) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (!subSectionTab.get('configProperties').contains(configProperty.id)) {
+            subSectionTab.set('configProperties', subSectionTab.get('configProperties').concat(configProperty.id));
+          }
+        } else {
+          configProperty = this.getConfigByAttributes(configProperty, configLink, subSection, subSectionTab, serviceName);
+        }
+&nbsp;
+        // map all the configs which conditionally affect the value attributes of a config
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (dependsOnConfigs &amp;&amp; dependsOnConfigs.length &amp;&amp; configProperty) {
+          this.mapThemeConfigConditions(dependsOnConfigs, configProperty);
+        }
+      }, this);
+    },
+&nbsp;
+    getConfigByAttributes: function getConfigByAttributes(configProperty, configLink, subSection, subSectionTab, serviceName) {
+      var valueAttributes = configLink["property_value_attributes"];
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (valueAttributes) {
+        var isUiOnlyProperty = valueAttributes["ui_only_property"];
+        var isCopy = valueAttributes["copy"] || '';
+        // UI only configs are mentioned in the themes for supporting widgets that is not intended for setting a value
+        // And thus is affiliated with fake config property termed as ui only config property
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (isUiOnlyProperty &amp;&amp; subSection) {
+          var split = configLink.config.split("/");
+          var fileName = split[0] + '.xml',
+              configName = split[1],
+              id = App.config.configId(configName, fileName);
+          var uiOnlyConfig = App.configsCollection.getConfig(id);
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (!uiOnlyConfig) {
+            configProperty = {
+              id: id,
+              isRequiredByAgent: false,
+              showLabel: false,
+              isOverridable: false,
+              recommendedValue: true,
+              name: JSON.parse('"' + configName + '"'),
+              isUserProperty: false,
+              filename: fileName,
+              fileName: fileName,
+              isNotSaved: false,
+              serviceName: serviceName,
+              copy: isCopy,
+              stackName: App.get('currentStackName'),
+              stackVersion: App.get('currentStackVersionNumber')
+            };
+            App.configsCollection.add(configProperty);
+&nbsp;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (!subSection.get('configProperties').contains(configProperty.id)) {
+              subSection.set('configProperties', subSection.get('configProperties').concat(configProperty.id));
+            }
+          }
+        }
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     *
+     * @param configConditions: Array
+     * @param configProperty: DS.Model Object (App.StackConfigProperty)
+     */
+    mapThemeConfigConditions: function mapThemeConfigConditions(configConditions, configProperty) {
+      var configConditionsCopy = [];
+      configConditions.forEach(function (_configCondition, index) {
+        var configCondition = $.extend({}, _configCondition);
+        configCondition.id = configProperty.id + '_' + index;
+        configCondition.config_name = configProperty.name;
+        configCondition.file_name = configProperty.filename;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (_configCondition.configs &amp;&amp; _configCondition.configs.length) {
+          configCondition.configs = _configCondition.configs.map(function (item) {
+            var result = {};
+            result.fileName = item.split('/')[0] + '.xml';
+            result.configName = item.split('/')[1];
+            return result;
+          });
+        }
+&nbsp;
+        configCondition.resource = _configCondition.resource || 'config';
+        configCondition.type = _configCondition.type || 'config';
+&nbsp;
+        configConditionsCopy.pushObject(configCondition);
+      }, this);
+&nbsp;
+      App.store.safeLoadMany(this.get("themeConditionModel"), configConditionsCopy);
+    },
+&nbsp;
+    /**
+     *
+     * @param subSections: Array
+     * @param type: {String} possible values: `subsection` or `subsectionTab`
+     */
+    mapThemeConditions: function mapThemeConditions(subSections, type, themeName) {
+      var subSectionConditionsCopy = [];
+      subSections.forEach(function (_subSection) {
+        var subSectionConditions = _subSection['depends_on'];
+        subSectionConditions.forEach(function (_subSectionCondition, index) {
+          var subSectionCondition = $.extend({}, _subSectionCondition);
+          subSectionCondition.id = _subSection.id + '_' + index;
+          subSectionCondition.name = _subSection.name;
+          subSectionCondition.theme_name = themeName;
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (_subSectionCondition.configs &amp;&amp; _subSectionCondition.configs.length) {
+            subSectionCondition.configs = _subSectionCondition.configs.map(function (item) {
+              var result = {};
+              result.fileName = item.split('/')[0] + '.xml';
+              result.configName = item.split('/')[1];
+              return result;
+            });
+          }
+&nbsp;
+          subSectionCondition.resource = _subSectionCondition.resource || 'config';
+          subSectionCondition.type = _subSectionCondition.type || type;
+          subSectionConditionsCopy.pushObject(subSectionCondition);
+        }, this);
+      }, this);
+      App.store.safeLoadMany(this.get("themeConditionModel"), subSectionConditionsCopy);
+    },
+&nbsp;
+    /**
+     * add widget object to &lt;code&gt;stackConfigProperty&lt;code&gt;
+     *
+     * @param {Object} json - json to parse
+     */
+    mapThemeWidgets: function mapThemeWidgets(json) {
+      var themeName = Em.get(json, 'ThemeInfo.theme_data.Theme.name');
+      Em.getWithDefault(json, "ThemeInfo.theme_data.Theme.configuration.widgets", []).forEach(function (widget) {
+        var configId = this.getConfigId(widget);
+        var configProperty = App.configsCollection.getConfig(configId);
+&nbsp;
+        if (configProperty) {
+          Em.set(configProperty, 'widget', widget.widget);
+          Em.set(configProperty, 'widgetType', Em.get(widget, 'widget.type'));
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (themeName === 'default') {
+<span class="cstat-no" title="statement not covered" >            Em.set(configProperty, 'isInDefaultTheme', true);</span>
+          }
+        } else {
+          var split = widget.config.split("/");
+          var fileName = split[0] + '.xml';
+          var configName = split[1];
+          var uiOnlyProperty = App.configsCollection.getConfigByName(configName, fileName);
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (uiOnlyProperty) {
+            uiOnlyProperty.set('widget', widget.widget);
+            uiOnlyProperty.set('widgetType', Em.get(widget, 'widget.type'));
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (themeName === 'default') {
+<span class="cstat-no" title="statement not covered" >              Em.set(uiOnlyProperty, 'isInDefaultTheme', true);</span>
+            }
+          }
+        }
+      }, this);
+    },
+&nbsp;
+    /**
+     * transform info from json to config id
+     * @param {Object} json
+     * @returns {string|null}
+     */
+    getConfigId: function getConfigId(json) {
+      if (json &amp;&amp; json.config &amp;&amp; typeof json.config === "string") {
+        // symbols until first slash is file-name and the rest is config-name
+        var fileName = json.config.substr(0, json.config.indexOf('/'));
+        var configName = json.config.substr(json.config.indexOf('/') + 1);
+        return App.config.configId(configName, fileName);
+      } else {
+        return null;
+      }
+    },
+&nbsp;
+    /**
+     * generates Advanced tabs for selected or all services
+     * @param {[string]} [serviceNames=null]
+     */
+    generateAdvancedTabs: function generateAdvancedTabs(serviceNames) {
+      serviceNames = Em.isArray(serviceNames) ? serviceNames : <span class="branch-1 cbranch-no" title="branch not covered" >App.StackService.find().mapProperty('serviceName');</span>
+      var advancedTabs = [];
+      serviceNames.forEach(function (serviceName) {
+        advancedTabs.pushObject({
+          id: serviceName + '_advanced',
+          name: 'advanced',
+          display_name: 'Advanced',
+          is_advanced: true,
+          service_name: serviceName
+        });
+      });
+      App.store.safeLoadMany(this.get("tabModel"), advancedTabs);
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

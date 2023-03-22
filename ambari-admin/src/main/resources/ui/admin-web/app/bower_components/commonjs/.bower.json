@@ -1,0 +1,20 @@
+{
+  "name": "commonjs",
+  "version": "0.2.0",
+  "main": "./common.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chrisabrams/commonjs.git"
+  },
+  "dependencies": {},
+  "homepage": "https://github.com/chrisabrams/commonjs",
+  "_release": "0.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.2.0",
+    "commit": "b01909683d1af67b970f284885981a6a4566183c"
+  },
+  "_source": "https://github.com/chrisabrams/commonjs.git",
+  "_target": "0.2.0",
+  "_originalSource": "commonjs"
+}

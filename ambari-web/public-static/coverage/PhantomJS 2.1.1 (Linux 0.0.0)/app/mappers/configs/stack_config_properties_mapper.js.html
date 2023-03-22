@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/mappers/configs/stack_config_properties_mapper.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/mappers/configs/stack_config_properties_mapper.js</span></h1>
+    <h2>
+        Statements: <span class="metric">3.45% <small>(3 / 87)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 84)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">7.69% <small>(1 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">3.49% <small>(3 / 86)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/mappers/configs/</a> &#187; stack_config_properties_mapper.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("mappers/configs/stack_config_properties_mapper", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one or more
+   * contributor license agreements. See the NOTICE file distributed with this
+   * work for additional information regarding copyright ownership. The ASF
+   * licenses this file to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   * http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+   * License for the specific language governing permissions and limitations under
+   * the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.stackConfigPropertiesMapper = App.QuickDataMapper.create({
+    /**
+     * this is map for configs that will be stored as plan objects
+     */
+    configToPlain: {
+      id: 'id',
+      name: 'StackConfigurations.property_name',
+      displayName: 'StackConfigurations.property_display_name',
+      fileName: 'StackConfigurations.type',
+      filename: 'StackConfigurations.type',
+      description: 'StackConfigurations.property_description',
+      value: 'StackConfigurations.property_value',
+      recommendedValue: 'StackConfigurations.property_value',
+      serviceName: 'StackConfigurations.service_name',
+      stackName: 'StackConfigurations.stack_name',
+      stackVersion: 'StackConfigurations.stack_version',
+      isOverridable: 'StackConfigurations.property_value_attributes.overridable',
+      isVisible: 'StackConfigurations.property_value_attributes.visible',
+      showLabel: 'StackConfigurations.property_value_attributes.show_property_name',
+      displayType: 'StackConfigurations.property_value_attributes.type',
+      unit: 'StackConfigurations.property_value_attributes.unit',
+&nbsp;
+      isRequired: 'is_required',
+      isReconfigurable: 'is_reconfigurable',
+      isEditable: 'is_editable',
+      isRequiredByAgent: 'is_required_by_agent',
+&nbsp;
+      isFinal: 'recommended_is_final',
+      recommendedIsFinal: 'recommended_is_final',
+      supportsFinal: 'supports_final',
+&nbsp;
+      propertyDependedBy: 'StackConfigurations.property_depended_by',
+      propertyDependsOn: 'StackConfigurations.property_depends_on',
+      valueAttributes: 'StackConfigurations.property_value_attributes',
+&nbsp;
+      /**** ui properties, ib future should be moved to BE ***/
+      category: 'category',
+      index: 'index',
+      /*** temp properties until all radio buttons type will be moved to BE **/
+      radioName: 'radioName',
+      options: 'options',
+      /*** temp property until visibility dependencies will be retrieved from stack **/
+      dependentConfigPattern: 'dependentConfigPattern'
+    },
+&nbsp;
+    map: <span class="fstat-no" title="function not covered" >function map(json) {</span>
+<span class="cstat-no" title="statement not covered" >      console.time('App.stackConfigPropertiesMapper execution time');</span>
+<span class="cstat-no" title="statement not covered" >      if (json &amp;&amp; json.Versions) {</span>
+        //hack for cluster versions
+<span class="cstat-no" title="statement not covered" >        json = { items: [json] };</span>
+<span class="cstat-no" title="statement not covered" >        var clusterConfigs = true;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (json &amp;&amp; json.items) {</span>
+<span class="cstat-no" title="statement not covered" >        var configs = [];</span>
+<span class="cstat-no" title="statement not covered" >        json.items.forEach(<span class="fstat-no" title="function not covered" >function (stackItem) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var configTypeInfo = clusterConfigs ? Em.get(stackItem, 'Versions.config_types') : Em.get(stackItem, 'StackServices.config_types');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          stackItem.configurations.forEach(<span class="fstat-no" title="function not covered" >function (config) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (clusterConfigs) {</span>
+<span class="cstat-no" title="statement not covered" >              config.StackConfigurations = config.StackLevelConfigurations;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            var configType = App.config.getConfigTagFromFileName(config.StackConfigurations.type);</span>
+<span class="cstat-no" title="statement not covered" >            config.id = App.config.configId(config.StackConfigurations.property_name, configType);</span>
+<span class="cstat-no" title="statement not covered" >            config.recommended_is_final = config.StackConfigurations.final === "true";</span>
+<span class="cstat-no" title="statement not covered" >            config.supports_final = !!configTypeInfo[configType] &amp;&amp; configTypeInfo[configType].supports.final === "true";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var attributes = config.StackConfigurations.property_value_attributes;</span>
+<span class="cstat-no" title="statement not covered" >            if (attributes) {</span>
+<span class="cstat-no" title="statement not covered" >              config.is_required = this._isRequired(attributes.empty_value_valid, config.StackConfigurations.property_value);</span>
+<span class="cstat-no" title="statement not covered" >              config.is_reconfigurable = !(attributes.editable_only_at_install || config.StackConfigurations.type === 'cluster-env.xml');</span>
+<span class="cstat-no" title="statement not covered" >              config.is_editable = !attributes.read_only;</span>
+<span class="cstat-no" title="statement not covered" >              config.is_required_by_agent = !attributes.ui_only_property;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!config.StackConfigurations.property_display_name) {</span>
+<span class="cstat-no" title="statement not covered" >              config.StackConfigurations.property_display_name = config.StackConfigurations.property_name;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!config.StackConfigurations.service_name) {</span>
+<span class="cstat-no" title="statement not covered" >              config.StackConfigurations.service_name = 'MISC';</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!attributes || !attributes.type) {</span>
+<span class="cstat-no" title="statement not covered" >              if (!attributes) {</span>
+<span class="cstat-no" title="statement not covered" >                config.StackConfigurations.property_value_attributes = {};</span>
+              }
+<span class="cstat-no" title="statement not covered" >              config.StackConfigurations.property_value_attributes.type = App.config.getDefaultDisplayType(config.StackConfigurations.property_value);</span>
+            }
+            // Map from /dependencies to property_depended_by
+<span class="cstat-no" title="statement not covered" >            config.StackConfigurations.property_depended_by = [];</span>
+<span class="cstat-no" title="statement not covered" >            if (config.dependencies &amp;&amp; config.dependencies.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >              config.dependencies.forEach(<span class="fstat-no" title="function not covered" >function (dep) {</span></span>
+<span class="cstat-no" title="statement not covered" >                config.StackConfigurations.property_depended_by.push({</span>
+                  type: dep.StackConfigurationDependency.dependency_type,
+                  name: dep.StackConfigurationDependency.dependency_name
+                });
+<span class="cstat-no" title="statement not covered" >                var service = App.StackService.find(config.StackConfigurations.service_name);</span>
+<span class="cstat-no" title="statement not covered" >                var dependentService = App.config.get('serviceByConfigTypeMap')[dep.StackConfigurationDependency.dependency_type];</span>
+<span class="cstat-no" title="statement not covered" >                if (dependentService &amp;&amp; service &amp;&amp; dependentService.get('serviceName') != service.get('serviceName') &amp;&amp; !service.get('dependentServiceNames').contains(dependentService.get('serviceName'))) {</span>
+<span class="cstat-no" title="statement not covered" >                  service.set('dependentServiceNames', service.get('dependentServiceNames').concat(dependentService.get('serviceName')));</span>
+                }
+              });
+            }
+<span class="cstat-no" title="statement not covered" >            if (Em.get(config, 'StackConfigurations.property_depends_on.length') &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >              config.StackConfigurations.property_depends_on.forEach(<span class="fstat-no" title="function not covered" >function (dep) {</span></span>
+<span class="cstat-no" title="statement not covered" >                var service = App.StackService.find(config.StackConfigurations.service_name);</span>
+<span class="cstat-no" title="statement not covered" >                var dependentService = App.config.get('serviceByConfigTypeMap')[dep.type];</span>
+<span class="cstat-no" title="statement not covered" >                if (dependentService &amp;&amp; service &amp;&amp; dependentService.get('serviceName') != service.get('serviceName') &amp;&amp; !service.get('dependentServiceNames').contains(dependentService.get('serviceName'))) {</span>
+<span class="cstat-no" title="statement not covered" >                  service.set('dependentServiceNames', service.get('dependentServiceNames').concat(dependentService.get('serviceName')));</span>
+                }
+              });
+            }
+            /**
+             * merging stack info with that is stored on UI
+             * for now is not used; uncomment in will be needed
+             * this.mergeWithUI(config);
+             */
+<span class="cstat-no" title="statement not covered" >            if (this.isMiscService(config.StackConfigurations.property_type)) {</span>
+<span class="cstat-no" title="statement not covered" >              this.handleSpecialProperties(config);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              this.mergeWithUI(config);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var staticConfigInfo = this.parseIt(config, this.get('configToPlain'));</span>
+<span class="cstat-no" title="statement not covered" >            var v = Em.isNone(staticConfigInfo.recommendedValue) ? staticConfigInfo.recommendedValue : staticConfigInfo.value;</span>
+<span class="cstat-no" title="statement not covered" >            staticConfigInfo.value = staticConfigInfo.recommendedValue = App.config.formatPropertyValue(staticConfigInfo, v);</span>
+<span class="cstat-no" title="statement not covered" >            staticConfigInfo.isSecureConfig = App.config.getIsSecure(staticConfigInfo.name);</span>
+<span class="cstat-no" title="statement not covered" >            staticConfigInfo.description = App.config.getDescription(staticConfigInfo.description, staticConfigInfo.displayType);</span>
+<span class="cstat-no" title="statement not covered" >            staticConfigInfo.name = JSON.parse('"' + staticConfigInfo.name + '"');</span>
+<span class="cstat-no" title="statement not covered" >            staticConfigInfo.isUserProperty = false;</span>
+<span class="cstat-no" title="statement not covered" >            if (Em.isNone(staticConfigInfo.index)) {</span>
+<span class="cstat-no" title="statement not covered" >              staticConfigInfo.index = Infinity;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            App.configsCollection.add(staticConfigInfo);</span>
+          }, this);
+        }, this);
+<span class="cstat-no" title="statement not covered" >        this.addUIOnlyProperties(configs);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      console.timeEnd('App.stackConfigPropertiesMapper execution time');</span>
+    },
+&nbsp;
+    /******************* METHODS TO MERGE STACK PROPERTIES WITH STORED ON UI *********************************/
+&nbsp;
+    /**
+     * Config should not be required if value from stack is null
+     *
+     * @param allowEmpty
+     * @param propertyValue
+     * @returns {*|boolean}
+     * @private
+     */
+    _isRequired: <span class="fstat-no" title="function not covered" >function _isRequired(allowEmpty, propertyValue) {</span>
+<span class="cstat-no" title="statement not covered" >      return !allowEmpty &amp;&amp; !Em.isNone(propertyValue);</span>
+    },
+&nbsp;
+    /**
+     * find UI config with current name and fileName
+     * if there is such property - adds some info to config object
+     * @param {Object} config
+     * @method mergeWithUI
+     */
+    mergeWithUI: <span class="fstat-no" title="function not covered" >function mergeWithUI(config) {</span>
+<span class="cstat-no" title="statement not covered" >      var c = config.StackConfigurations;</span>
+<span class="cstat-no" title="statement not covered" >      var uiConfigProperty = this.getUIConfig(c.property_name, c.type);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      config.category = uiConfigProperty &amp;&amp; uiConfigProperty.category ? uiConfigProperty.category : App.config.getDefaultCategory(true, c.type);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (uiConfigProperty) {</span>
+<span class="cstat-no" title="statement not covered" >        config.index = uiConfigProperty.index !== undefined ? uiConfigProperty.index : Infinity;</span>
+<span class="cstat-no" title="statement not covered" >        if (uiConfigProperty.displayType) {</span>
+<span class="cstat-no" title="statement not covered" >          c.property_value_attributes.type = uiConfigProperty.displayType;</span>
+<span class="cstat-no" title="statement not covered" >          config.radioName = uiConfigProperty.radioName;</span>
+<span class="cstat-no" title="statement not covered" >          config.options = uiConfigProperty.options;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        config.dependentConfigPattern = uiConfigProperty.dependentConfigPattern;</span>
+      }
+    },
+&nbsp;
+    /**
+     *
+     * @param config
+     */
+    handleSpecialProperties: <span class="fstat-no" title="function not covered" >function handleSpecialProperties(config) {</span>
+<span class="cstat-no" title="statement not covered" >      var types = config.StackConfigurations.property_type;</span>
+<span class="cstat-no" title="statement not covered" >      if (!types.contains('ADDITIONAL_USER_PROPERTY')) {</span>
+<span class="cstat-no" title="statement not covered" >        config.index = App.StackService.displayOrder.indexOf(config.StackConfigurations.service_name) + 1 || 30;</span>
+      }
+      // displayType from stack ignored, cause UID and GID should be shown along with service's user config
+<span class="cstat-no" title="statement not covered" >      if (types.contains('UID') || types.contains('GID')) {</span>
+<span class="cstat-no" title="statement not covered" >        config.StackConfigurations.property_value_attributes.type = 'uid_gid';</span>
+      }
+<span class="cstat-no" title="statement not covered" >      config.StackConfigurations.service_name = 'MISC';</span>
+<span class="cstat-no" title="statement not covered" >      config.category = 'Users and Groups';</span>
+    },
+&nbsp;
+    /**
+     * defines if property should refer to MISC tab
+     * @param type
+     * @returns {Boolean}
+     */
+    isMiscService: <span class="fstat-no" title="function not covered" >function isMiscService(type) {</span>
+<span class="cstat-no" title="statement not covered" >      return type.length &amp;&amp; (type.contains('USER') || type.contains('GROUP') || type.contains('ADDITIONAL_USER_PROPERTY') || type.contains('UID') || type.contains('GID'));</span>
+    },
+&nbsp;
+    /**
+     * add properties that doesn't have any info on stack definition
+     * @param configs
+     */
+    addUIOnlyProperties: <span class="fstat-no" title="function not covered" >function addUIOnlyProperties(configs) {</span>
+<span class="cstat-no" title="statement not covered" >      require('data/configs/ui_properties').concat(require('data/configs/alert_notification')).forEach(<span class="fstat-no" title="function not covered" >function (p) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (p.name == "dfs.ha.fencing.methods" &amp;&amp; !App.get('isHaEnabled')) <span class="cstat-no" title="statement not covered" >return;</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        configs.push({</span>
+          id: App.config.configId(p.name, p.filename),
+          name: p.name,
+          display_name: p.displayName,
+          file_name: p.filename,
+          description: p.description || '',
+          is_required_by_agent: p.isRequiredByAgent !== false, // by default is_required_by_agent should be true
+          service_name: p.serviceName,
+          supports_final: false,
+          category: p.category,
+          index: p.index,
+          stack_name: App.get('currentStackName'),
+          stack_version: App.get('currentStackVersionNumber')
+        });
+<span class="cstat-no" title="statement not covered" >        p.id = App.config.configId(p.name, p.filename);</span>
+<span class="cstat-no" title="statement not covered" >        App.configsCollection.add(p);</span>
+      });
+    },
+    /**
+     * returns config with such name and fileName if there is such on UI
+     * otherwise returns null
+     * @param propertyName
+     * @param siteName
+     * @returns {Object|null}
+     * @method getUIConfig
+     */
+    getUIConfig: <span class="fstat-no" title="function not covered" >function getUIConfig(propertyName, siteName) {</span>
+<span class="cstat-no" title="statement not covered" >      return App.config.get('preDefinedSitePropertiesMap')[App.config.configId(propertyName, siteName)];</span>
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

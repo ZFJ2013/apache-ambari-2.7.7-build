@@ -1,0 +1,1128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/wizard/step1_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/wizard/step1_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">29.27% <small>(24 / 82)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">35% <small>(14 / 40)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">30.77% <small>(8 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">29.27% <small>(24 / 82)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/views/wizard/</a> &#187; step1_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/wizard/step1_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one or more
+   * contributor license agreements. See the NOTICE file distributed with this
+   * work for additional information regarding copyright ownership. The ASF
+   * licenses this file to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   * http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+   * License for the specific language governing permissions and limitations under
+   * the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  require('models/repository');
+&nbsp;
+  App.WizardStep1View = Em.View.extend({
+&nbsp;
+    templateName: require('templates/wizard/step1'),
+&nbsp;
+    didInsertElement: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var _this = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.get('controller.isLoadingComplete') &amp;&amp; this.get('state') === 'inDOM') {</span>
+<span class="cstat-no" title="statement not covered" >        Em.run.next(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          $("[rel=skip-validation-tooltip]").tooltip({ placement: 'right' });</span>
+<span class="cstat-no" title="statement not covered" >          $("[rel=use-redhat-tooltip]").tooltip({ placement: 'right' });</span>
+<span class="cstat-no" title="statement not covered" >          $('.add-os-button,.redhat-label').tooltip();</span>
+<span class="cstat-no" title="statement not covered" >          _this.$().on('mouseover', '.version-contents-body .table-hover &gt; tbody &gt; tr', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            App.tooltip($(this).find('.action .icon'), { placement: 'bottom' });</span>
+<span class="cstat-no" title="statement not covered" >            App.tooltip($(this).find('.icon-undo'), { placement: 'bottom' });</span>
+          });
+<span class="cstat-no" title="statement not covered" >          if (_this.get('controller.selectedStack.showAvailable')) {</span>
+            // first time load
+<span class="cstat-no" title="statement not covered" >            if (_this.get('controller.selectedStack.useRedhatSatellite')) {</span>
+              // restore `use local repo` on page refresh
+<span class="cstat-no" title="statement not covered" >              _this.get('controller').useLocalRepo();</span>
+            }
+          } else {
+<span class="cstat-no" title="statement not covered" >            var selected = _this.get('controller.content.stacks') &amp;&amp; _this.get('controller.content.stacks').findProperty('showAvailable');</span>
+<span class="cstat-no" title="statement not covered" >            if (!selected) {</span>
+              // network disconnection
+<span class="cstat-no" title="statement not covered" >              Em.trySet(_this, 'controller.selectedStack.useLocalRepo', true);</span>
+<span class="cstat-no" title="statement not covered" >              Em.trySet(_this, 'controller.selectedStack.usePublicRepo', false);</span>
+            }
+          }
+        });
+      }
+    }.observes('controller.isLoadingComplete'),
+&nbsp;
+    willDestroyElement: <span class="fstat-no" title="function not covered" >function willDestroyElement() {</span>
+<span class="cstat-no" title="statement not covered" >      $("[rel=skip-validation-tooltip]").tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      $("[rel=use-redhat-tooltip]").tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      $('.add-os-button,.redhat-label').tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      $('.icon-undo').tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      $('.action .icon').tooltip('destroy');</span>
+    },
+&nbsp;
+    /**
+     * Show possible reasons why Public Repo is disabled
+     *
+     * @returns {App.ModalPopup}
+     */
+    openPublicOptionDisabledWindow: <span class="fstat-no" title="function not covered" >function openPublicOptionDisabledWindow() {</span>
+<span class="cstat-no" title="statement not covered" >      return App.ModalPopup.show({</span>
+        header: Em.I18n.t('installer.step1.selectUseRepoOptions.public.networkLost.popup.title'),
+        bodyClass: Ember.View.extend({
+          templateName: require('templates/wizard/step1/public_option_disabled_window_body')
+        }),
+        secondary: false
+      });
+    },
+&nbsp;
+    removeOS: <span class="fstat-no" title="function not covered" >function removeOS() {</span>
+<span class="cstat-no" title="statement not covered" >      var _get;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      $('.action .icon').tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      return (_get = this.get('controller')).removeOS.apply(_get, arguments);</span>
+    },
+&nbsp;
+&nbsp;
+    editableRepoView: Em.View.extend({
+      templateName: require('templates/wizard/step1/editable_repo'),
+      classNames: ['editable-repo'],
+      /**
+       * @type {boolean}
+       */
+      isEditing: false,
+&nbsp;
+      /**
+       * @type {?App.Repository}
+       */
+      repository: null,
+&nbsp;
+      /**
+       * @type {boolean}
+       */
+      showEditIcon: Em.computed.and('controller.selectedStack.useRedhatSatellite', '!isEditing'),
+&nbsp;
+      /**
+       * @type {boolean}
+       */
+      showRevertIcon: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        return this.get('isEditing') &amp;&amp; this.get('repository.repoId') !== this.get('repository.originalRepoId');</span>
+      }.property('isEditing', 'repository.repoId'),
+&nbsp;
+      didInsertElement: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('isEditing', false);</span>
+      }.observes('controller.selectedStack.useRedhatSatellite'),
+&nbsp;
+      revertToOriginal: <span class="fstat-no" title="function not covered" >function revertToOriginal() {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('repository.repoId', this.get('repository.originalRepoId'));</span>
+      },
+&nbsp;
+      editRepoId: <span class="fstat-no" title="function not covered" >function editRepoId() {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('isEditing', true);</span>
+      }
+    }),
+&nbsp;
+    /**
+     * Disable submit button flag
+     *
+     * @type {bool}
+     */
+    isSubmitDisabled: Em.computed.or('invalidFormatUrlExist', 'isNoOsChecked', 'isNoOsFilled', 'controller.content.isCheckInProgress', 'App.router.btnClickInProgress', '!controller.isLoadingComplete'),
+&nbsp;
+    /**
+     * Show warning message flag
+     *
+     * @type {bool}
+     */
+    warningExist: Em.computed.or('invalidFormatUrlExist', 'isNoOsChecked', 'isNoOsFilled'),
+&nbsp;
+    skipVerifyBaseUrl: Em.computed.or('controller.selectedStack.skipValidationChecked', 'controller.selectedStack.useRedhatSatellite'),
+&nbsp;
+    verifyBaseUrl: Em.computed.not('skipVerifyBaseUrl'),
+&nbsp;
+    showWarning: Em.computed.and('warningExist', 'verifyBaseUrl'),
+&nbsp;
+    /**
+     * Onclick handler for recheck repos urls. Used in Advanced Repository Options.
+     */
+    retryRepoUrls: <span class="fstat-no" title="function not covered" >function retryRepoUrls() {</span>
+<span class="cstat-no" title="statement not covered" >      App.router.get('installerController').checkRepoURL(this.get('controller'));</span>
+    },
+&nbsp;
+    /**
+     * Radio button for use Public repo
+     *
+     * @type {App.RadioButtonView}
+     */
+    usePublicRepoRadioButton: App.RadioButtonView.extend({
+      labelTranslate: 'installer.step1.selectUseRepoOptions.public',
+      checked: Em.computed.alias('controller.selectedStack.usePublicRepo'),
+&nbsp;
+      change: <span class="fstat-no" title="function not covered" >function change() {</span>
+<span class="cstat-no" title="statement not covered" >        this.get('controller').usePublicRepo();</span>
+      }
+    }),
+&nbsp;
+    /**
+     * Checkbox for use Public repo
+     *
+     * @type {App.RadioButtonView}
+     */
+    useLocalRepoRadioButton: App.RadioButtonView.extend({
+      labelTranslate: 'installer.step1.selectUseRepoOptions.local',
+      checked: Em.computed.alias('controller.selectedStack.useLocalRepo'),
+&nbsp;
+      change: <span class="fstat-no" title="function not covered" >function change() {</span>
+<span class="cstat-no" title="statement not covered" >        this.get('controller').useLocalRepo();</span>
+      }
+    }),
+&nbsp;
+    /**
+     * User already selected all OSes
+     *
+     * @type {boolean}
+     */
+    allOsesSelected: Em.computed.everyBy('controller.selectedStack.operatingSystems', 'isSelected', true),
+&nbsp;
+    /**
+     * Disallow adding OS if all OSes are already added or user select &lt;code&gt;useRedhatSatellite&lt;/code&gt;
+     *
+     * @type {boolean}
+     */
+    isAddOsButtonDisabled: Em.computed.or('allOsesSelected', 'controller.selectedStack.useRedhatSatellite'),
+&nbsp;
+    /**
+     * Tooltip for Add OS Button
+     * Empty if this button is enabled
+     *
+     * @type {string}
+     */
+    addOsButtonTooltip: Em.computed.ifThenElse('allOsesSelected', Em.I18n.t('installer.step1.addOs.disabled.tooltip'), ''),
+&nbsp;
+    /**
+     * Tooltip for useRedhatSatellite block
+     * Empty if usage Redhat is enabled
+     *
+     * @type {string}
+     */
+    redhatDisabledTooltip: Em.computed.ifThenElse('controller.selectedStack.usePublicRepo', Em.I18n.t('installer.step1.advancedRepo.useRedhatSatellite.disabled.tooltip'), ''),
+    /**
+     * List of all repositories under selected stack operatingSystems
+     *
+     * @type {App.Repository[]}
+     */
+    allRepositories: function () {
+      return this.getWithDefault('controller.selectedStack.repositories', []);
+    }.property('controller.selectedStack.repositories.[]'),
+&nbsp;
+    /**
+     * Verify if some repo has invalid base-url
+     * Ignore if &lt;code&gt;useRedhatSatellite&lt;/code&gt; is true for selected stack
+     *
+     * @type {bool}
+     */
+    invalidFormatUrlExist: function () {
+      var allRepositories = this.get('allRepositories');
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!allRepositories) {
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      }
+      if (this.get('controller.selectedStack.useRedhatSatellite')) {
+        allRepositories = allRepositories.filter(this.isRedhat);
+      }
+      return allRepositories.someProperty('invalidFormatError', true);
+    }.property('controller.selectedStack.useRedhatSatellite', 'allRepositories.@each.invalidFormatError'),
+&nbsp;
+    /**
+     * Verify if some invalid repo-urls exist
+     * @type {bool}
+     */
+    invalidUrlExist: Em.computed.someBy('allRepositories', 'validation', 'INVALID'),
+&nbsp;
+    /**
+     * If all repo links are unchecked
+     * @type {bool}
+     */
+    isNoOsChecked: Em.computed.everyBy('controller.selectedStack.operatingSystems', 'isSelected', false),
+&nbsp;
+    /**
+     *
+     * @param {App.Repository} item
+     * @returns {boolean}
+     */
+    isRedhat: function isRedhat(item) {
+      return Boolean(item.get('osType') &amp;&amp; item.get('osType').contains('redhat'));
+    },
+&nbsp;
+    /**
+     * If all OSes are empty
+     * @type {bool}
+     */
+    isNoOsFilled: function () {
+      var operatingSystems = this.get('controller.selectedStack.operatingSystems');
+      if (this.get('controller.selectedStack.useRedhatSatellite') || Em.isNone(operatingSystems)) {
+        return false;
+      }
+      var selectedOS = operatingSystems.filterProperty('isSelected', true);
+      return selectedOS.everyProperty('isNotFilled', true);
+    }.property('controller.selectedStack.operatingSystems.@each.isSelected', 'controller.selectedStack.operatingSystems.@each.isNotFilled', 'controller.selectedStack.useRedhatSatellite'),
+&nbsp;
+    popoverView: Em.View.extend({
+      tagName: 'i',
+      classNameBindings: ['repository.validationClassName'],
+      attributeBindings: ['repository.errorTitle:data-original-title', 'repository.errorContent:data-content'],
+      didInsertElement: <span class="fstat-no" title="function not covered" >function didInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >        App.popover($(this.get('element')), {</span>
+          template: '&lt;div class="popover"&gt;&lt;div class="arrow"&gt;&lt;/div&gt;&lt;div class="popover-inner"&gt;&lt;h3 class="popover-title"&gt;&lt;/h3&gt;&lt;div class="popover-content"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;',
+          trigger: 'hover'
+        });
+      }
+    }),
+&nbsp;
+    /**
+     * @type {App.CheckboxView}
+     */
+    redhatCheckBoxView: App.CheckboxView.extend({
+      checkedBinding: 'controller.selectedStack.useRedhatSatellite',
+      disabledBinding: 'controller.selectedStack.usePublicRepo',
+      click: <span class="fstat-no" title="function not covered" >function click() {</span>
+<span class="cstat-no" title="statement not covered" >        var _this2 = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!this.get('disabled')) {</span>
+<span class="cstat-no" title="statement not covered" >          if (this.get('controller.selectedStack.useRedhatSatellite')) {</span>
+<span class="cstat-no" title="statement not covered" >            this.toggleProperty('controller.selectedStack.useRedhatSatellite');</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            App.showConfirmationPopup(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >              return _this2.toggleProperty('controller.selectedStack.useRedhatSatellite');</span>
+            }, Em.I18n.t('installer.step1.advancedRepo.useRedhatSatellite.warning'), Em.K, Em.I18n.t('installer.step1.advancedRepo.useRedhatSatellite.message'));
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      }
+    }),
+&nbsp;
+    repositoryTextField: Ember.TextField.extend({
+      repository: null,
+      placeholderBinding: "repository.placeholder",
+      valueBinding: "repository.baseUrl"
+    }),
+&nbsp;
+    /**
+     * Handler when editing any repo BaseUrl
+     *
+     * @method editLocalRepository
+     */
+    editLocalRepository: function () {
+      //upload to content
+      var repositories = this.get('allRepositories');
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!repositories) {
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+      var changedRepo = repositories.find(function (repository) {
+        return repository.get('lastBaseUrl') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >repository.get('lastBaseUrl') !== repository.get('baseUrl');</span>
+      });
+      repositories.forEach(function (repository) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (repository.get('lastBaseUrl') !== repository.get('baseUrl')) {
+          repository.setProperties({
+            lastBaseUrl: repository.get('baseUrl'),
+            validation: 'PENDING'
+          });
+        }
+      }, this);
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (changedRepo &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!App.supports.disableCredentialsAutocompleteForRepoUrls)</span> {
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" >          var urlObject = new URL(changedRepo.get('baseUrl'));</span>
+        } catch (e) {
+<span class="cstat-no" title="statement not covered" >          return;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        var username = urlObject.username;</span>
+<span class="cstat-no" title="statement not covered" >        var password = urlObject.password;</span>
+<span class="cstat-no" title="statement not covered" >        repositories.forEach(<span class="fstat-no" title="function not covered" >function (repository) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var currentUrl = repository.get('baseUrl');</span>
+<span class="cstat-no" title="statement not covered" >          try {</span>
+<span class="cstat-no" title="statement not covered" >            var currentUrlObject = new URL(currentUrl);</span>
+          } catch (e) {
+<span class="cstat-no" title="statement not covered" >            return;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          currentUrlObject.username = username;</span>
+<span class="cstat-no" title="statement not covered" >          currentUrlObject.password = password;</span>
+<span class="cstat-no" title="statement not covered" >          var newUrl = currentUrlObject.toString();</span>
+<span class="cstat-no" title="statement not covered" >          if (newUrl !== currentUrl) {</span>
+<span class="cstat-no" title="statement not covered" >            setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >              repository.set('baseUrl', newUrl);</span>
+            }, 0);
+          }
+        }, this);
+      }
+    }.observes('allRepositories.@each.baseUrl')
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

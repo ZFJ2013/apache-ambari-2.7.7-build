@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/mixins/common/serverValidator.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/mixins/common/serverValidator.js</span></h1>
+    <h2>
+        Statements: <span class="metric">43.3% <small>(42 / 97)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">47.62% <small>(30 / 63)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">33.33% <small>(10 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">43.75% <small>(42 / 96)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/mixins/common/</a> &#187; serverValidator.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41</span>
+<span class="cline-any cline-yes">41</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("mixins/common/serverValidator", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var blueprintUtils = require('utils/blueprint');
+&nbsp;
+  /**
+   * @typedef {object} ConfigsValidationRequestData
+   * @property {string} stackVersionUrl stack version url
+   * @property {string[]} hosts host names
+   * @property {string[]} services service names
+   * @property {string} validate validation type e.g. 'configurations'
+   * @property {object} recommendations blueprint object
+   */
+&nbsp;
+  /**
+   * @typedef {object} ConfigsValidationOptions
+   * @property {string[]} hosts host names
+   * @property {string[]} services service names
+   * @property {object} blueprint service configurations blueprint
+   */
+  App.ServerValidatorMixin = Em.Mixin.create({
+&nbsp;
+    /**
+     * defines if we use validation and recommendation on wizards
+     * depend on this flag some properties will be taken from different places
+     * @type {boolean}
+     */
+    isWizard: function () {
+      return this.get('wizardController') &amp;&amp; ['addServiceController', 'installerController'].contains(this.get('wizardController.name'));
+    }.property('wizardController.name'),
+&nbsp;
+    /**
+     * recommendation configs loaded from server
+     * (used only during install)
+     * @type {Object}
+     */
+    recommendationsConfigs: null,
+&nbsp;
+    /**
+     * Collection of all config validation errors
+     *
+     * @type {Object[]}
+     */
+    configErrorList: Em.Object.create({
+      issues: [],
+      criticalIssues: []
+    }),
+&nbsp;
+    /**
+     * Ajax request object to validation API
+     * @type {$.ajax}
+     */
+    validationRequest: null,
+&nbsp;
+    /**
+     * Timer id returned by setTimeout for calling function to send validation request
+     */
+    requestTime: 0,
+&nbsp;
+    /**
+     * Map with allowed error types
+     *
+     * @type {Object}
+     */
+    errorTypes: {
+      CRITICAL_ERROR: 'NOT_APPLICABLE',
+      ERROR: 'ERROR',
+      WARN: 'WARN',
+      GENERAL: 'GENERAL'
+    },
+&nbsp;
+    /**
+     * by default loads data from model otherwise must be overridden as computed property
+     * refer to \assets\data\stacks\HDP-2.1\recommendations_configs.json to learn structure
+     * (shouldn't contain configurations filed)
+     * @type {Object}
+     */
+    hostNames: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('isWizard') ? Object.keys(this.get('content.hosts')) : App.get('allHostNames');</span>
+    }.property('isWizard', 'content.hosts', 'App.allHostNames'),
+&nbsp;
+    /**
+     * by default loads data from model otherwise must be overridden as computed property
+     * @type {Array} - of strings (serviceNames)
+     */
+    serviceNames: function () {
+      // When editing a service we validate only that service's configs.
+      // However, we should pass the IDs of services installed, or else,
+      // default value calculations will alter.
+      return this.get('isWizard') ? <span class="branch-0 cbranch-no" title="branch not covered" >this.get('allSelectedServiceNames') </span>: App.Service.find().mapProperty('serviceName');
+    }.property('isWizard', 'allSelectedServiceNames'),
+&nbsp;
+    /**
+     * by default loads data from model otherwise must be overridden as computed property
+     * can be used for service|host configs pages
+     * @type {Array} of strings (hostNames)
+     */
+    hostGroups: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('content.recommendationsHostGroups') || blueprintUtils.generateHostGroups(App.get('allHostNames'));</span>
+    }.property('content.recommendationsHostGroups', 'App.allHostNames', 'App.componentToBeAdded', 'App.componentToBeDeleted'),
+&nbsp;
+    /**
+     * controller that is child of this mixin has to contain stepConfigs
+     * @type {Array}
+     */
+    stepConfigs: null,
+&nbsp;
+    serverSideValidation: <span class="fstat-no" title="function not covered" >function serverSideValidation() {</span>
+<span class="cstat-no" title="statement not covered" >      var deferred = $.Deferred(),</span>
+          self = this,
+          primary = <span class="fstat-no" title="function not covered" >function primary() {</span>
+<span class="cstat-no" title="statement not covered" >        deferred.resolve();</span>
+      },
+          secondary = <span class="fstat-no" title="function not covered" >function secondary() {</span>
+<span class="cstat-no" title="statement not covered" >        deferred.reject('invalid_configs');</span>
+      };
+<span class="cstat-no" title="statement not covered" >      this.set('configErrorList', Em.Object.create({</span>
+        issues: [],
+        criticalIssues: []
+      }));
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.runServerSideValidation().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (self.get('configErrorList.issues.length') || self.get('configErrorList.criticalIssues.length')) {</span>
+<span class="cstat-no" title="statement not covered" >          App.showConfigValidationPopup(self.get('configErrorList'), primary, secondary, self);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          deferred.resolve();</span>
+        }
+      }).fail(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        App.showConfigValidationFailedPopup(primary, secondary);</span>
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return deferred.promise();</span>
+    },
+&nbsp;
+    /**
+     * @method serverSideValidation
+     * send request to validate configs
+     * @returns {*}
+     */
+    runServerSideValidation: <span class="fstat-no" title="function not covered" >function runServerSideValidation() {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      var recommendations = this.get('hostGroups');</span>
+<span class="cstat-no" title="statement not covered" >      var stepConfigs = this.get('stepConfigs');</span>
+<span class="cstat-no" title="statement not covered" >      var dfd = $.Deferred();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.getBlueprintConfigurations(this.get('stepConfigs')).done(<span class="fstat-no" title="function not covered" >function (blueprintConfigurations) {</span></span>
+<span class="cstat-no" title="statement not covered" >        recommendations.blueprint.configurations = blueprintConfigurations;</span>
+<span class="cstat-no" title="statement not covered" >        var request = self.validateSelectedConfigs({</span>
+          hosts: self.get('hostNames'),
+          services: self.get('serviceNames'),
+          blueprint: recommendations
+        });
+<span class="cstat-no" title="statement not covered" >        self.set('validationRequest', request);</span>
+<span class="cstat-no" title="statement not covered" >        request.done(dfd.resolve).fail(dfd.reject);</span>
+      });
+<span class="cstat-no" title="statement not covered" >      return dfd.promise();</span>
+    },
+&nbsp;
+    /**
+     * Perform service config validation
+     * @param validateSelectedConfigs
+     * @param {ConfigsValidationOptions} options
+     * @returns {$.Deferred}
+     */
+    validateSelectedConfigs: <span class="fstat-no" title="function not covered" >function validateSelectedConfigs(options) {</span>
+<span class="cstat-no" title="statement not covered" >      var opts = $.extend({</span>
+        services: [],
+        hosts: [],
+        blueprint: null
+      }, options || {});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return this.getServiceConfigsValidationRequest(this.getServiceConfigsValidationParams(opts));</span>
+    },
+&nbsp;
+    /**
+     * @method getServiceConfigsValidationRequest
+     * @param {ConfigsValidationRequestData} validationData
+     * @returns {$.Deferred}
+     */
+    getServiceConfigsValidationRequest: <span class="fstat-no" title="function not covered" >function getServiceConfigsValidationRequest(validationData) {</span>
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'config.validations',
+        sender: this,
+        data: validationData,
+        success: 'validationSuccess'
+      });
+    },
+&nbsp;
+    /**
+     * @method getServiceConfigsValidationParams
+     * @param {ConfigsValidationOptions} options
+     * @returns {ConfigsValidationRequestData}
+     */
+    getServiceConfigsValidationParams: <span class="fstat-no" title="function not covered" >function getServiceConfigsValidationParams(options) {</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        stackVersionUrl: App.get('stackVersionURL'),
+        hosts: options.hosts,
+        services: options.services,
+        validate: 'configurations',
+        recommendations: options.blueprint
+      };
+    },
+&nbsp;
+    /**
+     * Return JSON for blueprint configurations
+     * @param {App.ServiceConfigs[]} serviceConfigs
+     * @returns {*}
+     */
+    getBlueprintConfigurations: <span class="fstat-no" title="function not covered" >function getBlueprintConfigurations(serviceConfigs) {</span>
+<span class="cstat-no" title="statement not covered" >      var dfd = $.Deferred();</span>
+      // check if we have configs from 'cluster-env', if not, then load them, as they are mandatory for validation request
+<span class="cstat-no" title="statement not covered" >      if (!serviceConfigs.findProperty('serviceName', 'MISC')) {</span>
+<span class="cstat-no" title="statement not covered" >        App.config.getConfigsByTypes([{ site: 'cluster-env', serviceName: 'MISC' }]).done(<span class="fstat-no" title="function not covered" >function (configs) {</span></span>
+<span class="cstat-no" title="statement not covered" >          dfd.resolve(blueprintUtils.buildConfigsJSON(serviceConfigs.concat(configs)));</span>
+        });
+      } else {
+<span class="cstat-no" title="statement not covered" >        dfd.resolve(blueprintUtils.buildConfigsJSON(serviceConfigs));</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return dfd.promise();</span>
+    },
+&nbsp;
+    /**
+     * Creates config validation error object
+     *
+     * @param type - error type, see &lt;code&gt;errorTypes&lt;code&gt;
+     * @param property - config property object
+     * @param messages - array of messages
+     * @returns {{type: String, isError: boolean, isWarn: boolean, isGeneral: boolean, messages: Array}}
+     */
+    createErrorMessage: function createErrorMessage(type, property, messages) {
+      var errorTypes = this.get('errorTypes');
+      var error = {
+        type: type,
+        isCriticalError: type === errorTypes.CRITICAL_ERROR,
+        isError: type === errorTypes.ERROR,
+        isWarn: type === errorTypes.WARN,
+        isGeneral: type === errorTypes.GENERAL,
+        cssClass: this.get('isInstallWizard') ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: type === errorTypes.ERROR ? 'error' : 'warning',
+        messages: Em.makeArray(messages)
+      };
+&nbsp;
+      Em.assert('Unknown config error type ' + type, error.isError || error.isWarn || error.isGeneral || error.isCriticalError);
+      if (property) {
+        var value = Em.get(property, 'value');
+        error.id = Em.get(property, 'id');
+        error.serviceName = Em.get(property, 'serviceDisplayName') || App.StackService.find(Em.get(property, 'serviceName')).get('displayName');
+        error.propertyName = Em.get(property, 'name');
+        error.filename = Em.get(property, 'filename');
+        error.value = value &amp;&amp; Em.get(property, 'displayType') === 'password' ? new Array(value.length + 1).join('*') : value;
+        error.description = Em.get(property, 'description');
+      }
+      return error;
+    },
+&nbsp;
+    /**
+     * Parse data from server to
+     *  &lt;code&gt;configErrorsMap&lt;code&gt; and
+     *  &lt;code&gt;generalErrors&lt;code&gt;
+     *
+     * @param data
+     * @returns {{configErrorsMap: {}, generalErrors: Array}}
+     */
+    parseValidation: <span class="fstat-no" title="function not covered" >function parseValidation(data) {</span>
+<span class="cstat-no" title="statement not covered" >      var configErrorsMap = {},</span>
+          generalErrors = [];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      data.resources.forEach(<span class="fstat-no" title="function not covered" >function (r) {</span></span>
+<span class="cstat-no" title="statement not covered" >        r.items.forEach(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (item.type == "configuration") {</span>
+<span class="cstat-no" title="statement not covered" >            var configId = item['config-name'] &amp;&amp; item['config-type'] &amp;&amp; App.config.configId(item['config-name'], item['config-type']);</span>
+<span class="cstat-no" title="statement not covered" >            if (configId) {</span>
+<span class="cstat-no" title="statement not covered" >              if (configErrorsMap[configId]) {</span>
+<span class="cstat-no" title="statement not covered" >                configErrorsMap[configId].messages.push(item.message);</span>
+              } else {
+<span class="cstat-no" title="statement not covered" >                configErrorsMap[configId] = {</span>
+                  type: item.level,
+                  messages: [item.message],
+                  name: item['config-name'],
+                  filename: item['config-type']
+                };
+              }
+            } else {
+<span class="cstat-no" title="statement not covered" >              generalErrors.push({</span>
+                type: this.get('errorTypes').GENERAL,
+                messages: [item.message]
+              });
+            }
+          }
+        }, this);
+      }, this);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        configErrorsMap: configErrorsMap,
+        generalErrors: generalErrors
+      };
+    },
+&nbsp;
+    /**
+     * Generates list of all config errors that should be displayed in popup
+     *
+     * @param configErrorsMap
+     * @param generalErrors
+     * @returns {Array}
+     */
+    collectAllIssues: function collectAllIssues(configErrorsMap, generalErrors) {
+      var errorTypes = this.get('errorTypes');
+      var configErrorList = {};
+      configErrorList[errorTypes.WARN] = [];
+      configErrorList[errorTypes.ERROR] = [];
+      configErrorList[errorTypes.CRITICAL_ERROR] = [];
+      configErrorList[errorTypes.GENERAL] = [];
+&nbsp;
+      this.get('stepConfigs').forEach(function (service) {
+        service.get('configs').forEach(function (property) {
+          if (property.get('isVisible') &amp;&amp; !property.get('hiddenBySection')) {
+            var serverIssue = configErrorsMap[property.get('id')];
+            if (serverIssue) {
+              configErrorList[serverIssue.type].push(this.createErrorMessage(serverIssue.type, property, serverIssue.messages));
+            } else <span class="missing-if-branch" title="else path not taken" >E</span>if (property.get('warnMessage')) {
+              configErrorList[errorTypes.WARN].push(this.createErrorMessage(errorTypes.WARN, property, [property.get('warnMessage')]));
+            }
+          }
+        }, this);
+      }, this);
+&nbsp;
+      generalErrors.forEach(function (serverIssue) {
+        configErrorList[errorTypes.GENERAL].push(this.createErrorMessage(errorTypes.GENERAL, null, serverIssue.messages));
+      }, this);
+&nbsp;
+      Em.keys(configErrorsMap).forEach(function (id) {
+        var serverIssue = configErrorsMap[id];
+        if (!configErrorList[serverIssue.type].someProperty('id', id)) {
+          var filename = Em.get(serverIssue, 'filename'),
+              service = App.config.get('serviceByConfigTypeMap')[filename],
+              property = {
+            id: id,
+            name: Em.get(serverIssue, 'name'),
+            filename: App.config.getOriginalFileName(filename),
+            serviceDisplayName: service &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >Em.get(service, 'displayName')</span>
+          };
+          configErrorList[serverIssue.type].push(this.createErrorMessage(serverIssue.type, property, serverIssue.messages));
+        }
+      }, this);
+&nbsp;
+      return Em.Object.create({
+        criticalIssues: configErrorList[errorTypes.CRITICAL_ERROR],
+        issues: configErrorList[errorTypes.ERROR].concat(configErrorList[errorTypes.WARN], configErrorList[errorTypes.GENERAL])
+      });
+    },
+&nbsp;
+    /**
+     * @method validationSuccess
+     * success callback after getting response from server
+     * go through the step configs and set warn and error messages
+     * @param data
+     */
+    validationSuccess: <span class="fstat-no" title="function not covered" >function validationSuccess(data) {</span>
+<span class="cstat-no" title="statement not covered" >      var parsed = this.parseValidation(data);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('configErrorList', this.collectAllIssues(parsed.configErrorsMap, parsed.generalErrors));</span>
+    },
+&nbsp;
+    valueObserver: function () {
+      var self = this;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('isInstallWizard') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.get('currentTabName') === 'all-configurations')</span> {
+<span class="cstat-no" title="statement not covered" >        if (this.get('requestTimer')) <span class="cstat-no" title="statement not covered" >clearTimeout(this.get('requestTimer'));</span></span>
+<span class="cstat-no" title="statement not covered" >        self.set('requestTimer', setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (self.get('validationRequest')) {</span>
+<span class="cstat-no" title="statement not covered" >            self.get('validationRequest').abort();</span>
+          }
+<span class="cstat-no" title="statement not covered" >          if (self.get('recommendationsInProgress')) {</span>
+<span class="cstat-no" title="statement not covered" >            self.valueObserver();</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            self.runServerSideValidation().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >              self.set('validationRequest', null);</span>
+<span class="cstat-no" title="statement not covered" >              self.set('requestTimer', 0);</span>
+            });
+          }
+        }, 500));
+      }
+    }.observes('selectedService.configs.@each.value')
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

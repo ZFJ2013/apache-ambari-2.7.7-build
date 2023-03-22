@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/application.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/controllers/application.js</span></h1>
+    <h2>
+        Statements: <span class="metric">27.78% <small>(10 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">14.81% <small>(4 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">60% <small>(6 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">27.78% <small>(10 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/controllers/</a> &#187; application.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("controllers/application", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.ApplicationController = Em.Controller.extend(App.Persist, {
+&nbsp;
+    name: 'applicationController',
+&nbsp;
+    isPollerRunning: false,
+&nbsp;
+    clusterName: Em.computed.alias('App.router.clusterController.clusterName'),
+&nbsp;
+    /**
+     * set ambari server version from installerController or mainController, making sure version shown up all the time
+     */
+    ambariVersion: function () {
+      return App.router.get('installerController.ambariServerVersion') || App.router.get('mainController.ambariServerVersion') || Em.I18n.t('common.notAvailable');
+    }.property('App.router.installerController.ambariServerVersion', 'App.router.mainController.ambariServerVersion'),
+&nbsp;
+    clusterDisplayName: Em.computed.truncate('clusterName', 13, 10),
+&nbsp;
+    isClusterDataLoaded: Em.computed.and('App.router.clusterController.isLoaded', 'App.router.loggedIn'),
+&nbsp;
+    isExistingClusterDataLoaded: Em.computed.and('App.router.clusterInstallCompleted', 'isClusterDataLoaded'),
+&nbsp;
+    enableLinks: Em.computed.and('isExistingClusterDataLoaded', '!App.isOnlyViewUser'),
+&nbsp;
+    /**
+     * Determines if "Exit" menu-item should be shown
+     * It should if cluster isn't installed
+     * If cluster is installer, &lt;code&gt;isClusterDataLoaded&lt;/code&gt; is checked
+     * @type {boolean}
+     */
+    showExitLink: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      if (App.router.get('clusterInstallCompleted')) {</span>
+<span class="cstat-no" title="statement not covered" >        return this.get('isClusterDataLoaded');</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return true;</span>
+    }.property('App.router.clusterInstallCompleted', 'isClusterDataLoaded'),
+&nbsp;
+    /**
+     * Determines if "Manage Ambari" menu-item should be shown
+     *
+     * @type {boolean}
+     */
+    showManageAmbari: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      if (App.router.get('clusterInstallCompleted')) {</span>
+<span class="cstat-no" title="statement not covered" >        return this.get('isClusterDataLoaded');</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return App.get('isPermissionDataLoaded');</span>
+    }.property('App.router.clusterInstallCompleted', 'isClusterDataLoaded', 'App.isPermissionDataLoaded'),
+&nbsp;
+    /**
+     * Determines if upgrade label should be shown
+     *
+     * @type {boolean}
+     */
+    showUpgradeLabel: Em.computed.or('App.upgradeInProgress', 'App.upgradeHolding', 'App.upgradeSuspended'),
+&nbsp;
+    /**
+     * @return {{msg: string, cls: string, icon: string}}
+     */
+    upgradeMap: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var upgradeInProgress = App.get('upgradeInProgress');</span>
+<span class="cstat-no" title="statement not covered" >      var upgradeHolding = App.get('upgradeHolding');</span>
+<span class="cstat-no" title="statement not covered" >      var upgradeSuspended = App.get('upgradeSuspended');</span>
+<span class="cstat-no" title="statement not covered" >      var isDowngrade = App.router.get('mainAdminStackAndUpgradeController.isDowngrade');</span>
+<span class="cstat-no" title="statement not covered" >      var typeSuffix = isDowngrade ? 'downgrade' : 'upgrade';</span>
+<span class="cstat-no" title="statement not covered" >      var hasUpgradePrivilege = App.isAuthorized('CLUSTER.UPGRADE_DOWNGRADE_STACK');</span>
+<span class="cstat-no" title="statement not covered" >      var wizardWatcherController = App.router.get('wizardWatcherController');</span>
+<span class="cstat-no" title="statement not covered" >      var isNotWizardUser;</span>
+<span class="cstat-no" title="statement not covered" >      var wizardUserName;</span>
+<span class="cstat-no" title="statement not covered" >      if (upgradeInProgress) {</span>
+<span class="cstat-no" title="statement not covered" >        isNotWizardUser = wizardWatcherController.get('isNonWizardUser');</span>
+<span class="cstat-no" title="statement not covered" >        wizardUserName = wizardWatcherController.get('wizardUser');</span>
+<span class="cstat-no" title="statement not covered" >        return {</span>
+          cls: hasUpgradePrivilege ? 'upgrade-in-progress' : 'upgrade-in-progress not-allowed-cursor',
+          icon: 'glyphicon-cog',
+          msg: isNotWizardUser ? Em.I18n.t('admin.stackVersions.version.' + typeSuffix + '.running.nonWizard').format(wizardUserName) : Em.I18n.t('admin.stackVersions.version.' + typeSuffix + '.running')
+        };
+      }
+<span class="cstat-no" title="statement not covered" >      if (upgradeHolding) {</span>
+<span class="cstat-no" title="statement not covered" >        return {</span>
+          cls: hasUpgradePrivilege ? 'upgrade-holding' : 'upgrade-holding not-allowed-cursor',
+          icon: 'glyphicon-pause',
+          msg: Em.I18n.t('admin.stackVersions.version.' + typeSuffix + '.pause')
+        };
+      }
+<span class="cstat-no" title="statement not covered" >      if (upgradeSuspended) {</span>
+<span class="cstat-no" title="statement not covered" >        return {</span>
+          cls: hasUpgradePrivilege ? 'upgrade-aborted' : 'upgrade-aborted not-allowed-cursor',
+          icon: 'glyphicon-pause',
+          msg: Em.I18n.t('admin.stackVersions.version.' + typeSuffix + '.suspended')
+        };
+      }
+<span class="cstat-no" title="statement not covered" >      return {};</span>
+    }.property('App.upgradeInProgress', 'App.upgradeHolding', 'App.upgradeSuspended', 'App.router.mainAdminStackAndUpgradeController.isDowngrade'),
+&nbsp;
+    startKeepAlivePoller: function startKeepAlivePoller() {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.get('isPollerRunning')) {
+        this.set('isPollerRunning', true);
+        App.updater.run(this, 'getStack', 'isPollerRunning', App.sessionKeepAliveInterval);
+      }
+    },
+&nbsp;
+    getStack: function getStack(callback) {
+      App.ajax.send({
+        name: 'router.login.clusters',
+        sender: this,
+        callback: callback
+      });
+    },
+&nbsp;
+    goToAdminView: function goToAdminView() {
+      App.router.route("adminView");
+    },
+&nbsp;
+    goToDashboard: <span class="fstat-no" title="function not covered" >function goToDashboard() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('enableLinks')) {</span>
+<span class="cstat-no" title="statement not covered" >        App.router.route("main/dashboard");</span>
+      }
+    },
+&nbsp;
+    showAboutPopup: function showAboutPopup() {
+      App.ModalPopup.show({
+        header: Em.I18n.t('common.aboutAmbari'),
+        secondary: false,
+        bodyClass: Em.View.extend({
+          templateName: require('templates/common/about'),
+          ambariVersion: this.get('ambariVersion')
+        })
+      });
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

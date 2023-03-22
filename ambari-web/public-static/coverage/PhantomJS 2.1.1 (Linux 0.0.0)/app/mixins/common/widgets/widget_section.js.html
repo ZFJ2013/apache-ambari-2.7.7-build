@@ -1,0 +1,1488 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/mixins/common/widgets/widget_section.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/mixins/common/widgets/widget_section.js</span></h1>
+    <h2>
+        Statements: <span class="metric">27.49% <small>(47 / 171)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">34.48% <small>(20 / 58)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">25.93% <small>(14 / 54)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">27.49% <small>(47 / 171)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/mixins/common/widgets/</a> &#187; widget_section.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("mixins/common/widgets/widget_section", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.WidgetSectionMixin = Ember.Mixin.create({
+    /**
+     * UI default layout name
+     */
+    defaultLayoutName: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var heatmapType;</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('content.serviceName')) {</span>
+<span class="cstat-no" title="statement not covered" >        heatmapType = this.get('content.serviceName').toLowerCase();</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        heatmapType = "system";</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return "default_" + heatmapType + this.layoutNameSuffix;</span>
+    }.property('content.serviceName'),
+&nbsp;
+    /**
+     * UI user default layout name
+     */
+    userLayoutName: function () {
+      var heatmapType;
+      var loginName = App.router.get('loginName');
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('content.serviceName')) {
+        heatmapType = this.get('content.serviceName').toLowerCase();
+      } else {
+<span class="cstat-no" title="statement not covered" >        heatmapType = "system";</span>
+      }
+      return loginName + "_" + heatmapType + this.layoutNameSuffix;
+    }.property('content.serviceName'),
+&nbsp;
+    /**
+     * UI section name
+     */
+    sectionName: function () {
+      if (this.get('content.serviceName')) {
+        return this.get('content.serviceName') + this.sectionNameSuffix;
+      } else {
+        return "SYSTEM" + this.sectionNameSuffix;
+      }
+    }.property('content.serviceName'),
+&nbsp;
+    /**
+     * @type {Em.A}
+     */
+    widgetLayouts: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return App.WidgetLayout.find();</span>
+    }.property('isWidgetLayoutsLoaded'),
+&nbsp;
+    /**
+     * Does Service has widget descriptor defined in the stack
+     * @type {boolean}
+     */
+    isServiceWithEnhancedWidgets: function () {
+      var isServiceWithWidgetdescriptor;
+      var serviceName = this.get('content.serviceName');
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (serviceName) {
+<span class="cstat-no" title="statement not covered" >        isServiceWithWidgetdescriptor = App.StackService.find().findProperty('serviceName', serviceName).get('isServiceWithWidgets');</span>
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('sectionName') === 'SYSTEM_HEATMAPS') {
+        isServiceWithWidgetdescriptor = true;
+      }
+      return isServiceWithWidgetdescriptor;
+    }.property('content.serviceName'),
+&nbsp;
+    isHDFSFederatedSummary: function () {
+      return this.get('content.serviceName') === 'HDFS' &amp;&amp; this.get('sectionNameSuffix') === '_SUMMARY' &amp;&amp; App.get('hasNameNodeFederation');
+    }.property('content.serviceName', 'sectionNameSuffix', 'App.hasNameNodeFederation'),
+&nbsp;
+    /**
+     *  @Type {App.WidgetLayout}
+     */
+    activeWidgetLayout: {},
+&nbsp;
+    /**
+     * @type {Em.A}
+     */
+    widgets: function () {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('isWidgetsLoaded') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.get('activeWidgetLayout.widgets'))</span> {
+<span class="cstat-no" title="statement not covered" >        return this.get('activeWidgetLayout.widgets').toArray();</span>
+      }
+      return [];
+    }.property('isWidgetsLoaded', 'activeWidgetLayout.widgets'),
+&nbsp;
+    activeNSWidgetLayouts: [],
+&nbsp;
+    selectedNSWidgetLayout: {},
+&nbsp;
+    isAmbariMetricsInstalled: function () {
+      return App.Service.find().someProperty('serviceName', 'AMBARI_METRICS');
+    }.property('App.router.mainServiceController.content.length'),
+&nbsp;
+    switchNameServiceLayout: <span class="fstat-no" title="function not covered" >function switchNameServiceLayout(data) {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('selectedNSWidgetLayout', data.context);</span>
+    },
+&nbsp;
+    /**
+     * load widgets defined by user
+     * @returns {$.ajax}
+     */
+    getActiveWidgetLayout: function getActiveWidgetLayout() {
+      var sectionName = this.get('sectionName');
+      var urlParams = 'WidgetLayoutInfo/section_name=' + sectionName;
+      this.set('activeWidgetLayout', {});
+      this.set('activeNSWidgetLayouts', []);
+      this.set('isWidgetsLoaded', false);
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('isServiceWithEnhancedWidgets')) {
+        return App.ajax.send({
+          name: 'widgets.layouts.active.get',
+          sender: this,
+          data: {
+            userName: App.router.get('loginName'),
+            sectionName: sectionName,
+            urlParams: urlParams
+          },
+          success: 'getActiveWidgetLayoutSuccessCallback'
+        });
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.set('isWidgetsLoaded', true);</span>
+      }
+    },
+&nbsp;
+    /**
+     * success callback of &lt;code&gt;getActiveWidgetLayout()&lt;/code&gt;
+     * @param {object|null} data
+     */
+    getActiveWidgetLayoutSuccessCallback: function getActiveWidgetLayoutSuccessCallback(data) {
+      var self = this;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('isHDFSFederatedSummary')) {
+<span class="cstat-no" title="statement not covered" >        this.getNameNodeWidgets().done(<span class="fstat-no" title="function not covered" >function (widgets) {</span></span>
+<span class="cstat-no" title="statement not covered" >          widgets = widgets.items;</span>
+<span class="cstat-no" title="statement not covered" >          var widgetsNamespaces = widgets.mapProperty('WidgetInfo.tag').uniq().without(null);</span>
+<span class="cstat-no" title="statement not covered" >          var namespaces = App.HDFSService.find().objectAt(0).get('masterComponentGroups').mapProperty('name');</span>
+<span class="cstat-no" title="statement not covered" >          var defaultNNWidgets = widgets.filterProperty('WidgetInfo.tag', null);</span>
+<span class="cstat-no" title="statement not covered" >          var widgetsToCreateCount;</span>
+<span class="cstat-no" title="statement not covered" >          if (namespaces.length &gt; widgetsNamespaces.length) {</span>
+<span class="cstat-no" title="statement not covered" >            widgetsToCreateCount = (namespaces.length - widgetsNamespaces.length) * defaultNNWidgets.length;</span>
+<span class="cstat-no" title="statement not covered" >            namespaces.forEach(<span class="fstat-no" title="function not covered" >function (namespace) {</span></span>
+<span class="cstat-no" title="statement not covered" >              if (!widgetsNamespaces.contains(namespace)) {</span>
+<span class="cstat-no" title="statement not covered" >                defaultNNWidgets.forEach(<span class="fstat-no" title="function not covered" >function (widget) {</span></span>
+<span class="cstat-no" title="statement not covered" >                  if (widget.href) {</span>
+<span class="cstat-no" title="statement not covered" >                    delete widget.href;</span>
+<span class="cstat-no" title="statement not covered" >                    delete widget.WidgetInfo.id;</span>
+<span class="cstat-no" title="statement not covered" >                    delete widget.WidgetInfo.cluster_name;</span>
+<span class="cstat-no" title="statement not covered" >                    delete widget.WidgetInfo.author;</span>
+<span class="cstat-no" title="statement not covered" >                    widget.WidgetInfo.metrics = JSON.parse(widget.WidgetInfo.metrics);</span>
+<span class="cstat-no" title="statement not covered" >                    widget.WidgetInfo.values = JSON.parse(widget.WidgetInfo.values);</span>
+                  }
+<span class="cstat-no" title="statement not covered" >                  widget.WidgetInfo.tag = namespace;</span>
+<span class="cstat-no" title="statement not covered" >                  self.postWidget(widget).done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (! --widgetsToCreateCount) {</span>
+<span class="cstat-no" title="statement not covered" >                      self.createLayouts(data);</span>
+                    }
+                  });
+                });
+              }
+            });
+          } else {
+<span class="cstat-no" title="statement not covered" >            self.createLayouts(data);</span>
+          }
+        });
+      } else {
+        this.createLayouts(data);
+      }
+    },
+&nbsp;
+    getNameNodeWidgets: <span class="fstat-no" title="function not covered" >function getNameNodeWidgets() {</span>
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'widgets.get',
+        sender: this,
+        data: {
+          urlParams: 'WidgetInfo/widget_type.in(GRAPH,NUMBER,GAUGE)&amp;WidgetInfo/scope=CLUSTER&amp;WidgetInfo/metrics.matches(.*\"component_name\":\"NAMENODE\".*)&amp;fields=*'
+        }
+      });
+    },
+&nbsp;
+    postWidget: <span class="fstat-no" title="function not covered" >function postWidget(data) {</span>
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'widgets.wizard.add',
+        sender: this,
+        data: {
+          data: data
+        }
+      });
+    },
+&nbsp;
+    createLayouts: function createLayouts(data) {
+      var self = this;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (data.items[0]) {
+        var hdfs = App.HDFSService.find().objectAt(0);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (hdfs &amp;&amp; this.get('isHDFSFederatedSummary') &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >hdfs.get('masterComponentGroups').length + 2 !== data.items.length)</span> {
+<span class="cstat-no" title="statement not covered" >          this.createFederationWidgetLayouts(data);</span>
+        } else {
+          self.getWidgetLayoutSuccessCallback(data);
+        }
+      } else {
+<span class="cstat-no" title="statement not covered" >        self.getAllActiveWidgetLayouts().done(<span class="fstat-no" title="function not covered" >function (activeWidgetLayoutsData) {</span></span>
+<span class="cstat-no" title="statement not covered" >          self.getDefaultWidgetLayoutByName(self.get('defaultLayoutName')).done(<span class="fstat-no" title="function not covered" >function (defaultWidgetLayoutData) {</span></span>
+<span class="cstat-no" title="statement not covered" >            defaultWidgetLayoutData = defaultWidgetLayoutData.items[0].WidgetLayoutInfo;</span>
+<span class="cstat-no" title="statement not covered" >            defaultWidgetLayoutData.layout_name = self.get('userLayoutName');</span>
+<span class="cstat-no" title="statement not covered" >            self.createUserWidgetLayout(defaultWidgetLayoutData).done(<span class="fstat-no" title="function not covered" >function (userLayoutIdData) {</span></span>
+<span class="cstat-no" title="statement not covered" >              var activeWidgetLayouts;</span>
+<span class="cstat-no" title="statement not covered" >              var widgetLayouts = [];</span>
+<span class="cstat-no" title="statement not covered" >              if (!!activeWidgetLayoutsData.items.length) {</span>
+<span class="cstat-no" title="statement not covered" >                widgetLayouts = activeWidgetLayoutsData.items.map(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >                  return {</span>
+                    "id": item.WidgetLayoutInfo.id
+                  };
+                });
+              }
+<span class="cstat-no" title="statement not covered" >              widgetLayouts.push({ id: userLayoutIdData.resources[0].WidgetLayoutInfo.id });</span>
+<span class="cstat-no" title="statement not covered" >              activeWidgetLayouts = {</span>
+                "WidgetLayouts": widgetLayouts
+              };
+<span class="cstat-no" title="statement not covered" >              self.saveActiveWidgetLayouts(activeWidgetLayouts).done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                self.getActiveWidgetLayout();</span>
+              });
+            });
+          });
+        });
+      }
+    },
+&nbsp;
+    getAllActiveWidgetLayouts: <span class="fstat-no" title="function not covered" >function getAllActiveWidgetLayouts() {</span>
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'widgets.layouts.all.active.get',
+        sender: this,
+        data: {
+          userName: App.router.get('loginName')
+        }
+      });
+    },
+&nbsp;
+    /**
+     * success callback of &lt;code&gt;getWidgetLayout()&lt;/code&gt;
+     * @param {object|null} data
+     */
+    getWidgetLayoutSuccessCallback: function getWidgetLayoutSuccessCallback(data) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (data) {
+        data.items.forEach(function (item) {
+          App.widgetMapper.map(item.WidgetLayoutInfo);
+        });
+        App.widgetLayoutMapper.map(data);
+        this.set('activeWidgetLayout', App.WidgetLayout.find().findProperty('layoutName', this.get('userLayoutName')));
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('isHDFSFederatedSummary')) {
+<span class="cstat-no" title="statement not covered" >          this.set('activeNSWidgetLayouts', App.WidgetLayout.find().filterProperty('sectionName', this.get('sectionName')).rejectProperty('layoutName', this.get('userLayoutName')));</span>
+<span class="cstat-no" title="statement not covered" >          this.set('selectedNSWidgetLayout', this.get('activeNSWidgetLayouts')[0]);</span>
+        }
+        this.set('isWidgetsLoaded', true);
+      }
+    },
+&nbsp;
+    getDefaultWidgetLayoutByName: <span class="fstat-no" title="function not covered" >function getDefaultWidgetLayoutByName(layoutName) {</span>
+<span class="cstat-no" title="statement not covered" >      var urlParams = 'WidgetLayoutInfo/layout_name=' + layoutName;</span>
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'widget.layout.get',
+        sender: this,
+        data: {
+          urlParams: urlParams
+        }
+      });
+    },
+&nbsp;
+    createUserWidgetLayout: <span class="fstat-no" title="function not covered" >function createUserWidgetLayout(widgetLayoutData) {</span>
+<span class="cstat-no" title="statement not covered" >      var layout = widgetLayoutData;</span>
+<span class="cstat-no" title="statement not covered" >      var data = {</span>
+        "WidgetLayoutInfo": {
+          "display_name": layout.display_name,
+          "layout_name": layout.layout_name,
+          "scope": "USER",
+          "section_name": layout.section_name,
+          "user_name": App.router.get('loginName'),
+          "widgets": layout.widgets.map(<span class="fstat-no" title="function not covered" >function (widget) {</span>
+<span class="cstat-no" title="statement not covered" >            return {</span>
+              "id": widget.WidgetInfo.id
+            };
+          })
+        }
+      };
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'widget.layout.create',
+        sender: this,
+        data: {
+          data: data
+        }
+      });
+    },
+&nbsp;
+    updateUserWidgetLayout: <span class="fstat-no" title="function not covered" >function updateUserWidgetLayout(widgetLayoutData) {</span>
+<span class="cstat-no" title="statement not covered" >      var layout = widgetLayoutData;</span>
+<span class="cstat-no" title="statement not covered" >      var data = {</span>
+        "WidgetLayoutInfo": {
+          "display_name": layout.display_name,
+          "layout_name": layout.layout_name,
+          "id": layout.id,
+          "scope": "USER",
+          "section_name": layout.section_name,
+          "user_name": App.router.get('loginName'),
+          "widgets": layout.widgets.map(<span class="fstat-no" title="function not covered" >function (widget) {</span>
+<span class="cstat-no" title="statement not covered" >            return {</span>
+              "id": widget.WidgetInfo.id
+            };
+          })
+        }
+      };
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'widget.layout.edit',
+        sender: this,
+        data: {
+          layoutId: layout.id,
+          data: data
+        }
+      });
+    },
+&nbsp;
+    saveActiveWidgetLayouts: <span class="fstat-no" title="function not covered" >function saveActiveWidgetLayouts(activeWidgetLayouts) {</span>
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'widget.activelayouts.edit',
+        sender: this,
+        data: {
+          data: activeWidgetLayouts,
+          userName: App.router.get('loginName')
+        }
+      });
+    },
+&nbsp;
+    /**
+     * save layout after re-order widgets
+     * @param {Array} widgets
+     * @param {Object} widgetLayout:  Optional. by default active widget layout is honored.
+     * return {$.ajax}
+     */
+    saveWidgetLayout: function saveWidgetLayout(widgets, widgetLayout) {
+      var activeLayout = widgetLayout || this.get('activeWidgetLayout');
+      var data = {
+        "WidgetLayoutInfo": {
+          "display_name": activeLayout.get("displayName"),
+          "id": activeLayout.get("id"),
+          "layout_name": activeLayout.get("layoutName"),
+          "scope": activeLayout.get("scope"),
+          "section_name": activeLayout.get("sectionName"),
+          "widgets": widgets.map(function (widget) {
+            return {
+              "id": widget.get('id')
+            };
+          })
+        }
+      };
+      return App.ajax.send({
+        name: 'widget.layout.edit',
+        sender: this,
+        data: {
+          layoutId: activeLayout.get("id"),
+          data: data
+        }
+      });
+    },
+&nbsp;
+    /**
+     * After closing widget section, layout should be reset
+     */
+    clearActiveWidgetLayout: <span class="fstat-no" title="function not covered" >function clearActiveWidgetLayout() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('activeWidgetLayout', {});</span>
+<span class="cstat-no" title="statement not covered" >      this.set('activeNSWidgetLayouts', []);</span>
+    },
+&nbsp;
+    createFederationWidgetLayouts: <span class="fstat-no" title="function not covered" >function createFederationWidgetLayouts(data) {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      var currentLayouts = data.items;</span>
+<span class="cstat-no" title="statement not covered" >      self.getDefaultWidgetLayoutByName(self.get('defaultLayoutName')).done(<span class="fstat-no" title="function not covered" >function (defaultWidgetLayoutData) {</span></span>
+<span class="cstat-no" title="statement not covered" >        self.getNameNodeWidgets().done(<span class="fstat-no" title="function not covered" >function (widgets) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var newNameServices = [];</span>
+<span class="cstat-no" title="statement not covered" >          var newWidgets = [];</span>
+<span class="cstat-no" title="statement not covered" >          var currentLayoutsNames = [];</span>
+<span class="cstat-no" title="statement not covered" >          var newLayout = defaultWidgetLayoutData.items[0].WidgetLayoutInfo;</span>
+<span class="cstat-no" title="statement not covered" >          var newLayoutsIds = [];</span>
+<span class="cstat-no" title="statement not covered" >          var nameServiceToWidgetMap = { all: [] };</span>
+<span class="cstat-no" title="statement not covered" >          var namespaces = App.HDFSService.find().objectAt(0).get('masterComponentGroups').mapProperty('name');</span>
+<span class="cstat-no" title="statement not covered" >          var nonNameServiceSpecific = newLayout.widgets.slice();</span>
+<span class="cstat-no" title="statement not covered" >          var userLayoutName = self.get('userLayoutName');</span>
+<span class="cstat-no" title="statement not covered" >          widgets.items.forEach(<span class="fstat-no" title="function not covered" >function (widget) {</span></span>
+<span class="cstat-no" title="statement not covered" >            var tag = widget.WidgetInfo.tag;</span>
+<span class="cstat-no" title="statement not covered" >            nonNameServiceSpecific = nonNameServiceSpecific.without(nonNameServiceSpecific.findProperty('WidgetInfo.id', widget.WidgetInfo.id));</span>
+<span class="cstat-no" title="statement not covered" >            if (tag) {</span>
+<span class="cstat-no" title="statement not covered" >              if (!nameServiceToWidgetMap[tag]) {</span>
+<span class="cstat-no" title="statement not covered" >                nameServiceToWidgetMap[tag] = [];</span>
+              }
+<span class="cstat-no" title="statement not covered" >              nameServiceToWidgetMap[tag].push(widget);</span>
+<span class="cstat-no" title="statement not covered" >              nameServiceToWidgetMap.all.push(widget);</span>
+            }
+          });
+<span class="cstat-no" title="statement not covered" >          if (currentLayouts.length === 1) {</span>
+<span class="cstat-no" title="statement not covered" >            self.removeWidgetLayout(currentLayouts[0].WidgetLayoutInfo.id).done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >              newLayout.layout_name = userLayoutName;</span>
+<span class="cstat-no" title="statement not covered" >              newLayout.widgets = nonNameServiceSpecific;</span>
+<span class="cstat-no" title="statement not covered" >              self.createUserWidgetLayout(newLayout).done(<span class="fstat-no" title="function not covered" >function (data) {</span></span>
+<span class="cstat-no" title="statement not covered" >                newLayoutsIds.push(data.resources[0].WidgetLayoutInfo.id);</span>
+<span class="cstat-no" title="statement not covered" >                Em.keys(nameServiceToWidgetMap).forEach(<span class="fstat-no" title="function not covered" >function (nameService) {</span></span>
+<span class="cstat-no" title="statement not covered" >                  newLayout.layout_name = userLayoutName + '_nameservice_' + nameService;</span>
+<span class="cstat-no" title="statement not covered" >                  newLayout.display_name = nameService === 'all' ? 'All' : nameService;</span>
+<span class="cstat-no" title="statement not covered" >                  newLayout.widgets = nameServiceToWidgetMap[nameService];</span>
+<span class="cstat-no" title="statement not covered" >                  self.createUserWidgetLayout(newLayout).done(<span class="fstat-no" title="function not covered" >function (data) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    newLayoutsIds.push(data.resources[0].WidgetLayoutInfo.id);</span>
+<span class="cstat-no" title="statement not covered" >                    if (newLayoutsIds.length &gt;= Em.keys(nameServiceToWidgetMap).length + 1) {</span>
+<span class="cstat-no" title="statement not covered" >                      self.saveActiveWidgetLayouts({</span>
+                        "WidgetLayouts": newLayoutsIds.map(<span class="fstat-no" title="function not covered" >function (layout) {</span>
+<span class="cstat-no" title="statement not covered" >                          return { id: layout };</span>
+                        })
+                      }).done(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                        self.getActiveWidgetLayout();</span>
+                      });
+                    }
+                  });
+                });
+              });
+            });
+          } else {
+<span class="cstat-no" title="statement not covered" >            currentLayoutsNames = currentLayouts.map(<span class="fstat-no" title="function not covered" >function (l) {</span></span>
+<span class="cstat-no" title="statement not covered" >              return l.WidgetLayoutInfo.layout_name.split('_nameservice_')[1];</span>
+            }).without(undefined).without('all');
+<span class="cstat-no" title="statement not covered" >            namespaces.forEach(<span class="fstat-no" title="function not covered" >function (n) {</span></span>
+<span class="cstat-no" title="statement not covered" >              if (!currentLayoutsNames.contains(n)) {</span>
+<span class="cstat-no" title="statement not covered" >                newNameServices.push(n);</span>
+              }
+            });
+<span class="cstat-no" title="statement not covered" >            newNameServices.forEach(<span class="fstat-no" title="function not covered" >function (nameService) {</span></span>
+<span class="cstat-no" title="statement not covered" >              newLayout.layout_name = userLayoutName + '_nameservice_' + nameService;</span>
+<span class="cstat-no" title="statement not covered" >              newLayout.display_name = nameService;</span>
+<span class="cstat-no" title="statement not covered" >              newLayout.widgets = nameServiceToWidgetMap[nameService];</span>
+<span class="cstat-no" title="statement not covered" >              newWidgets = newWidgets.concat(nameServiceToWidgetMap[nameService]);</span>
+<span class="cstat-no" title="statement not covered" >              self.createUserWidgetLayout(newLayout).done(<span class="fstat-no" title="function not covered" >function (data) {</span></span>
+<span class="cstat-no" title="statement not covered" >                newLayoutsIds.push(data.resources[0].WidgetLayoutInfo.id);</span>
+<span class="cstat-no" title="statement not covered" >                if (newLayoutsIds.length &gt;= newNameServices.length) {</span>
+<span class="cstat-no" title="statement not covered" >                  self.saveActiveWidgetLayouts({</span>
+                    "WidgetLayouts": newLayoutsIds.concat(currentLayouts.mapProperty('WidgetLayoutInfo.id')).map(<span class="fstat-no" title="function not covered" >function (layout) {</span>
+<span class="cstat-no" title="statement not covered" >                      return { id: layout };</span>
+                    })
+                  }).done(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    var allNSLayout = currentLayouts.findProperty('WidgetLayoutInfo.display_name', 'All').WidgetLayoutInfo;</span>
+<span class="cstat-no" title="statement not covered" >                    allNSLayout.widgets = allNSLayout.widgets.concat(newWidgets);</span>
+<span class="cstat-no" title="statement not covered" >                    self.updateUserWidgetLayout(allNSLayout).done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                      self.getActiveWidgetLayout();</span>
+                    });
+                  });
+                }
+              });
+            });
+          }
+        });
+      });
+    },
+&nbsp;
+    removeWidgetLayout: <span class="fstat-no" title="function not covered" >function removeWidgetLayout(id) {</span>
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'widget.layout.delete',
+        sender: this,
+        data: {
+          layoutId: id
+        }
+      });
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

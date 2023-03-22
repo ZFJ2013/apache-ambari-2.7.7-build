@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/main/service/services/onefs.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/views/main/service/services/onefs.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(59 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(37 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(17 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(59 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">app/views/main/service/services/</a> &#187; onefs.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/main/service/services/onefs", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one or more
+   * contributor license agreements. See the NOTICE file distributed with this
+   * work for additional information regarding copyright ownership. The ASF
+   * licenses this file to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   * http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+   * License for the specific language governing permissions and limitations under
+   * the License.
+   */
+&nbsp;
+  var App = require('app');
+  var date = require('utils/date/date');
+  var numberUtils = require('utils/number_utils');
+&nbsp;
+  function diskPart(i18nKey, totalKey, usedKey) {
+    return Em.computed(totalKey, usedKey, function () {
+      var text = Em.I18n.t(i18nKey);
+      var total = this.get(totalKey);
+      var used = this.get(usedKey);
+      var percent = total &gt; 0 ? (used * 100 / total).toFixed(2) : 0;
+      if (percent == "NaN" || percent &lt; 0) {
+        percent = Em.I18n.t('services.service.summary.notAvailable') + " ";
+      }
+      return text.format(numberUtils.bytesToSize(used, 1, 'parseFloat'), numberUtils.bytesToSize(total, 1, 'parseFloat'));
+    });
+  }
+&nbsp;
+  function diskPartPercent(i18nKey, totalKey, usedKey) {
+    return Em.computed(totalKey, usedKey, function () {
+      var text = Em.I18n.t(i18nKey);
+      var total = this.get(totalKey);
+      var used = this.get(usedKey);
+      var percent = total &gt; 0 ? (used * 100 / total).toFixed(2) : 0;
+      if (percent == "NaN" || percent &lt; 0) {
+        percent = Em.I18n.t('services.service.summary.notAvailable') + " ";
+      }
+      return text.format(percent);
+    });
+  }
+&nbsp;
+  App.MainDashboardServiceOnefsView = App.MainDashboardServiceView.extend({
+    templateName: require('templates/main/service/services/onefs'),
+    serviceName: 'ONEFS',
+    Chart: App.ChartPieView.extend({
+      service: null,
+      color: '#0066B3',
+      stroke: '#0066B3',
+      palette: new Rickshaw.Color.Palette({
+        scheme: ['rgba(0,102,179,1)', 'rgba(0,102,179,0)']
+      }),
+      data: function () {
+        var remaining = Number(this.get('service.capacityRemaining'));
+        var used = Number(this.get('service.capacityTotal')) - remaining;
+        return [used, remaining];
+      }.property('service.capacityUsed', 'service.capacityTotal')
+    }),
+&nbsp;
+    metricsNotAvailableObserver: function () {
+      if (!this.get("service.metricsNotAvailable")) {
+        App.tooltip($("[rel='tooltip']"));
+      }
+    }.observes("service.metricsNotAvailable"),
+&nbsp;
+    willDestroyElement: function willDestroyElement() {
+      $("[rel='tooltip']").tooltip('destroy');
+    },
+&nbsp;
+    dataNodesDead: Em.computed.alias('service.dataNodesInstalled'),
+&nbsp;
+    journalNodesLive: function () {
+      return this.get('service.journalNodes').filterProperty("workStatus", "STARTED").get("length");
+    }.property("service.journalNodes.@each.workStatus"),
+&nbsp;
+    journalNodesTotal: Em.computed.alias('service.journalNodes.length'),
+&nbsp;
+    dfsTotalBlocks: Em.computed.formatUnavailable('service.dfsTotalBlocks'),
+&nbsp;
+    dfsTotalFiles: Em.computed.formatUnavailable('service.dfsTotalFiles'),
+&nbsp;
+    dfsCorruptBlocks: Em.computed.formatUnavailable('service.dfsCorruptBlocks'),
+&nbsp;
+    dfsMissingBlocks: Em.computed.formatUnavailable('service.dfsMissingBlocks'),
+&nbsp;
+    dfsUnderReplicatedBlocks: Em.computed.formatUnavailable('service.dfsUnderReplicatedBlocks'),
+&nbsp;
+    nodeUptime: function () {
+      var uptime = this.get('service.nameNodeStartTime');
+      if (uptime &amp;&amp; uptime &gt; 0) {
+        var diff = App.dateTime() - uptime;
+        if (diff &lt; 0) {
+          diff = 0;
+        }
+        var formatted = date.timingFormat(diff);
+        return this.t('dashboard.services.uptime').format(formatted);
+      }
+      return this.t('services.service.summary.notRunning');
+    }.property("service.nameNodeStartTime"),
+&nbsp;
+    nodeHeapPercent: App.MainDashboardServiceView.formattedHeapPercent('dashboard.services.hdfs.nodes.heapUsedPercent', 'service.jvmMemoryHeapUsed', 'service.jvmMemoryHeapMax'),
+    nodeHeap: App.MainDashboardServiceView.formattedHeap('dashboard.services.hdfs.nodes.heapUsed', 'service.jvmMemoryHeapUsed', 'service.jvmMemoryHeapMax'),
+&nbsp;
+    dfsUsedDisk: diskPart('dashboard.services.hdfs.capacityUsed', 'service.capacityTotal', 'service.capacityUsed'),
+    dfsUsedDiskPercent: diskPartPercent('dashboard.services.hdfs.capacityUsedPercent', 'service.capacityTotal', 'service.capacityUsed'),
+&nbsp;
+    nonDfsUsed: function () {
+      var total = this.get('service.capacityTotal');
+      var remaining = this.get('service.capacityRemaining');
+      var dfsUsed = this.get('service.capacityUsed');
+      return Em.isNone(total) || Em.isNone(remaining) || Em.isNone(dfsUsed) ? null : total - remaining - dfsUsed;
+    }.property('service.capacityTotal', 'service.capacityRemaining', 'service.capacityUsed'),
+&nbsp;
+    nonDfsUsedDisk: diskPart('dashboard.services.hdfs.capacityUsed', 'service.capacityTotal', 'nonDfsUsed'),
+    nonDfsUsedDiskPercent: diskPartPercent('dashboard.services.hdfs.capacityUsedPercent', 'service.capacityTotal', 'nonDfsUsed'),
+&nbsp;
+    remainingDisk: diskPart('dashboard.services.hdfs.capacityUsed', 'service.capacityTotal', 'service.capacityRemaining'),
+    remainingDiskPercent: diskPartPercent('dashboard.services.hdfs.capacityUsedPercent', 'service.capacityTotal', 'service.capacityRemaining'),
+&nbsp;
+    dataNodeComponent: Em.Object.create({
+      componentName: 'DATANODE'
+    }),
+&nbsp;
+    nfsGatewayComponent: Em.Object.create({
+      componentName: 'NFS_GATEWAY'
+    }),
+&nbsp;
+    /**
+     * Define if NFS_GATEWAY is present in the installed stack
+     * @type {Boolean}
+     */
+    isNfsInStack: function () {
+      return App.StackServiceComponent.find().someProperty('componentName', 'NFS_GATEWAY');
+    }.property(),
+&nbsp;
+    journalNodeComponent: Em.Object.create({
+      componentName: 'JOURNALNODE'
+    }),
+&nbsp;
+    /**
+     * @type {string}
+     */
+    safeModeStatus: function () {
+      var safeMode = this.get('service.safeModeStatus');
+      if (Em.isNone(safeMode)) {
+        return Em.I18n.t("services.service.summary.notAvailable");
+      } else if (safeMode.length === 0) {
+        return Em.I18n.t("services.service.summary.safeModeStatus.notInSafeMode");
+      } else {
+        return Em.I18n.t("services.service.summary.safeModeStatus.inSafeMode");
+      }
+    }.property('service.safeModeStatus'),
+&nbsp;
+    /**
+     * @type {string}
+     */
+    upgradeStatus: function () {
+      var upgradeStatus = this.get('service.upgradeStatus');
+      var healthStatus = this.get('service.healthStatus');
+      if (upgradeStatus == 'true') {
+        return Em.I18n.t('services.service.summary.pendingUpgradeStatus.notPending');
+      } else if (upgradeStatus == 'false' &amp;&amp; healthStatus == 'green') {
+        return Em.I18n.t('services.service.summary.pendingUpgradeStatus.notFinalized');
+      } else {
+        // upgrade status == null
+        return Em.I18n.t("services.service.summary.notAvailable");
+      }
+    }.property('service.upgradeStatus', 'service.healthStatus'),
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    isUpgradeStatusWarning: function () {
+      return this.get('service.upgradeStatus') == 'false' &amp;&amp; this.get('service.healthStatus') == 'green';
+    }.property('service.upgradeStatus', 'service.healthStatus'),
+&nbsp;
+    isDataNodeCreated: function () {
+      return this.isServiceComponentCreated('DATANODE');
+    }.property('App.router.clusterController.isComponentsStateLoaded'),
+&nbsp;
+    isJournalNodeCreated: function () {
+      return this.isServiceComponentCreated('JOURNALNODE');
+    }.property('App.router.clusterController.isComponentsStateLoaded')
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

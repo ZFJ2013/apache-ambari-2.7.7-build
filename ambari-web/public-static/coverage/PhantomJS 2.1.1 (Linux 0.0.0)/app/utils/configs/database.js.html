@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/utils/configs/database.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/utils/configs/database.js</span></h1>
+    <h2>
+        Statements: <span class="metric">56.1% <small>(46 / 82)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">46.15% <small>(24 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">55.56% <small>(10 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">58.23% <small>(46 / 79)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/utils/configs/</a> &#187; database.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">49</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("utils/configs/database", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var validators = require('utils/validator');
+  var stringUtils = require('utils/string_utils');
+&nbsp;
+  /**
+   * @typedef {parsedJDBCUrl}
+   * @type {object}
+   * @property {string} dbType alias name by type of database @see utils/configs/database.DB_UI_TYPE_ALIAS
+   * @property {string} location parsed host name
+   */
+&nbsp;
+  /**
+   * Helper methods to process database values and properties
+   * @module utils/configs/database
+   */
+  module.exports = {
+    /**
+     * Database type properties with &lt;code&gt;options&lt;/code&gt; attribute usually displayed as radio-button.
+     * &lt;code&gt;options&lt;/code&gt; attribute contains mapping of database type to special properties name such as
+     * database host and database name.
+     * @type {object}
+     */
+    dbServicePropertyMap: {
+      HIVE: {
+        dbType: 'hive_database',
+        databaseName: 'ambari.hive.db.schema.name',
+        connectionUrl: 'javax.jdo.option.ConnectionURL'
+      },
+      OOZIE: {
+        dbType: 'oozie_database',
+        connectionUrl: 'oozie.service.JPAService.jdbc.url',
+        databaseName: 'oozie.db.schema.name'
+      },
+      RANGER: {
+        dbType: 'DB_FLAVOR',
+        connectionUrl: 'ranger.jpa.jdbc.url',
+        databaseName: 'db_name',
+        fallbackHostName: 'db_host'
+      }
+    },
+&nbsp;
+    /**
+     * Map of jdbc url patterns related to supported database types.
+     *
+     * @type {object}
+     */
+    DB_JDBC_PATTERNS: {
+      mysql: 'jdbc:mysql://{0}/{1}',
+      mssql: 'jdbc:sqlserver://{0};databaseName={1}',
+      postgres: 'jdbc:postgresql://{0}:5432/{1}',
+      derby: 'jdbc:derby:{0}/{1}',
+      oracle: 'jdbc:oracle:thin:@(?:\/?\/?){0}:1521(\:|\/){1}',
+      sqla: 'jdbc:sqlanywhere:host={0};database={1}'
+    },
+&nbsp;
+    DB_UI_TYPE_ALIAS: {
+      mysql: 'mysql',
+      sqlserver: 'mssql',
+      postgresql: 'postgres',
+      derby: 'derby',
+      oracle: 'oracle',
+      sqlanywhere: 'sqla'
+    },
+&nbsp;
+    /**
+     * Setup database related properties.
+     *
+     * @method bootstrapDatabaseProperties
+     * @param {App.ServiceConfigProperty[]} serviceConfigs
+     * @param {string} [serviceName=false]
+     */
+    bootstrapDatabaseProperties: <span class="fstat-no" title="function not covered" >function bootstrapDatabaseProperties(serviceConfigs, serviceName) {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      var supportedServices = Em.keys(this.dbServicePropertyMap);</span>
+<span class="cstat-no" title="statement not covered" >      if (serviceName &amp;&amp; !supportedServices.contains(serviceName)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >      var serviceNames = serviceName ? [serviceName] : serviceConfigs.mapProperty('serviceName').uniq();</span>
+<span class="cstat-no" title="statement not covered" >      serviceNames.forEach(<span class="fstat-no" title="function not covered" >function (serviceName) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (!supportedServices.contains(serviceName)) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        var configs = serviceConfigs.filterProperty('serviceName', serviceName) || [];</span>
+<span class="cstat-no" title="statement not covered" >        var connectionConfigs = self.dbServicePropertyMap[serviceName];</span>
+<span class="cstat-no" title="statement not covered" >        var databaseTypeProperty = configs.findProperty('name', connectionConfigs.dbType);</span>
+<span class="cstat-no" title="statement not covered" >        if (!databaseTypeProperty) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        var databaseTypePropertyIndex = configs.indexOf(databaseTypeProperty);</span>
+<span class="cstat-no" title="statement not covered" >        var generatedProperties = self.getPropsByOptions(databaseTypeProperty, configs);</span>
+<span class="cstat-no" title="statement not covered" >        var jdbcObject = self.parseJdbcUrl(Em.get(configs.findProperty('name', connectionConfigs.connectionUrl), 'value'));</span>
+<span class="cstat-no" title="statement not covered" >        generatedProperties.forEach(<span class="fstat-no" title="function not covered" >function (property) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (Em.get(property, 'name').endsWith('_host')) {</span>
+            // set UI host names for each database type with value parsed from jdbc connection url
+            // if value is not ip or hostname (in case of New Derby Database) for Oozie set &lt;code&gt;fallbackUrl&lt;/code&gt;
+            // from &lt;code&gt;dbServicePropertyMap&lt;/code&gt;
+<span class="cstat-no" title="statement not covered" >            Em.setProperties(property, {</span>
+              value: jdbcObject.location || ''
+            });
+<span class="cstat-no" title="statement not covered" >            self.addPropertyToServiceConfigs(property, serviceConfigs, databaseTypePropertyIndex);</span>
+          }
+        });
+      });
+    },
+&nbsp;
+    /**
+     * Add UI specific property to serviceConfigObject if it does not exist, and update value for existed property.
+     * This code affects properties related to `_host` and `_database` which are hardcoded on UI.
+     *
+     * @param {object} property - property to append/update
+     * @param {App.ServiceConfigProperty[]} configs - loaded and processed service configs
+     * @param {integer} index of first occurrence of database type in config
+     */
+    addPropertyToServiceConfigs: <span class="fstat-no" title="function not covered" >function addPropertyToServiceConfigs(property, configs, index) {</span>
+<span class="cstat-no" title="statement not covered" >      var configProperty = configs.findProperty('name', Em.get(property, 'name'));</span>
+<span class="cstat-no" title="statement not covered" >      if (configProperty) {</span>
+<span class="cstat-no" title="statement not covered" >        Em.set(configProperty, 'value', Em.get(property, 'value'));</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        if (index) {</span>
+<span class="cstat-no" title="statement not covered" >          configs.insertAt(index, App.ServiceConfigProperty.create(property));</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          configs.pushObject(App.ServiceConfigProperty.create(property));</span>
+        }
+      }
+    },
+&nbsp;
+    /**
+     * Get hardcoded properties from site_properties.js which UI use to display host name and database name.
+     *
+     * @method getPropsByOptions
+     * @param {object} databaseTypeProperty - hardcoded property from site_properties.js usualy used as radiobutton
+     * @param {App.ServiceConfigProperty[]} configs - loaded and processed configs
+     * @returns {object[]} - hardcoded properties from site_properties.js related to database name and location
+     */
+    getPropsByOptions: <span class="fstat-no" title="function not covered" >function getPropsByOptions(databaseTypeProperty) {</span>
+<span class="cstat-no" title="statement not covered" >      Em.assert('Property related to database type should contains `options` attribute', databaseTypeProperty.get('options'));</span>
+<span class="cstat-no" title="statement not covered" >      return databaseTypeProperty.options.mapProperty('foreignKeys').reduce(<span class="fstat-no" title="function not covered" >function (p, c) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return p.concat(c);</span>
+      }).uniq().map(<span class="fstat-no" title="function not covered" >function (name) {</span>
+<span class="cstat-no" title="statement not covered" >        return App.config.get('preDefinedSiteProperties').findProperty('name', name) || null;</span>
+      }).compact();
+    },
+&nbsp;
+    /**
+     * Get database location from jdbc url value
+     *
+     * @method getDBLocationFromJDBC
+     * @param {string} jdbcUrl - url to parse
+     * @returns {string|null}
+     */
+    getDBLocationFromJDBC: function getDBLocationFromJDBC(jdbcUrl) {
+      var dbProvider = this.getJDBCProviderName(jdbcUrl),
+          protocol = this._makeProtocol(dbProvider),
+          pattern = /^\/\//,
+          url;
+      if (!this.isSupportedProvider(dbProvider)) {
+        return '';
+      }
+      if (dbProvider === 'derby') {
+        return this.getDerbyPath(jdbcUrl);
+      }
+      url = "http://" + jdbcUrl.replace(protocol, '').replace(pattern, '');
+      if (dbProvider === 'sqlserver') {
+        url = url.split(';')[0];
+      }
+      if (dbProvider === 'oracle') {
+        var matches = jdbcUrl.replace(protocol, '').match(/@(?:\/?\/?)(.+)/);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (matches.length) {
+          var result = Em.getWithDefault(matches, '1', '').split(':')[0];
+          return result === '{0}' ? '' : result;
+        }
+<span class="cstat-no" title="statement not covered" >        return '';</span>
+      }
+      if (dbProvider === 'sqlanywhere') {
+        url = url.split(';').map(function (i) {
+          return (/host=/.test(i) ? i.replace('host=', '').replace('http://', '') : null
+          );
+        }).compact()[0];
+        return this.getHostNameByUrl('http://' + url);
+      }
+      url = url.split(':').slice(0, 2).join(':');
+      return this.getHostNameByUrl(url);
+    },
+&nbsp;
+    /**
+     * Return derby database path by jdbcUrl
+     *
+     * @param {string} jdbcUrl
+     * @return {string} database path
+     */
+    getDerbyPath: function getDerbyPath(jdbcUrl) {
+      var matches = jdbcUrl.match(new RegExp(this.DB_JDBC_PATTERNS['derby'].format('(.*)', '(.*)')));
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (matches.length) {
+        var dbLocation = Em.getWithDefault(matches, '1', '');
+        if (dbLocation.startsWith('${')) {
+          return Em.getWithDefault(matches, '0', '').match(/\${[^}]+}/)[0];
+        }
+        return dbLocation != '{0}' ? dbLocation : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+      }
+    },
+&nbsp;
+    /**
+     * Returns host name by url input
+     *
+     * @param {string} url
+     * @returns {string} host name
+     */
+    getHostNameByUrl: function getHostNameByUrl(url) {
+      var link = document.createElement('a');
+      link.href = url;
+      var hostName = link.hostname;
+      link = null;
+      return hostName;
+    },
+&nbsp;
+    _makeProtocol: function _makeProtocol(dbProvider) {
+      var protocol = 'jdbc:' + dbProvider + ':';
+      if (dbProvider === 'oracle') {
+        return protocol + 'thin:';
+      }
+      return protocol;
+    },
+&nbsp;
+    /**
+     * Returns provider name from jdbcUrl
+     *
+     * @param {string} jdbcUrl
+     * @returns {string} provider name e.g. `jdbc:some_provider:another-opt//additional` -&gt; `some_provider`
+     */
+    getJDBCProviderName: function getJDBCProviderName(jdbcUrl) {
+      return jdbcUrl.split(':')[1];
+    },
+&nbsp;
+    /**
+     * Returns true when provider supported by UI.
+     *
+     * @returns {boolean}
+     */
+    isSupportedProvider: function isSupportedProvider(dbProvider) {
+      return !!this.DB_UI_TYPE_ALIAS[dbProvider];
+    },
+&nbsp;
+    /**
+     * Determines alias value (DB_UI_TYPE_ALIAS attribute value) by provider name
+     *
+     * @param {string} dbProvider provider name parsed from jdbcUrl e,g. from `jdbc:mysql://` -&gt; `mysql`
+     * @returns {string} alias value used on UI.
+     */
+    getJDBCAlias: function getJDBCAlias(dbProvider) {
+      return this.DB_UI_TYPE_ALIAS[dbProvider];
+    },
+&nbsp;
+    /**
+     * Returns parsed info from jdbcUrl connection string
+     *
+     * @param {string} jdbcUrl
+     * @returns {parsedJDBCUrl}
+     */
+    parseJdbcUrl: function parseJdbcUrl(jdbcUrl) {
+      var result = {
+        dbType: null,
+        location: null
+      };
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (jdbcUrl === '') {
+<span class="cstat-no" title="statement not covered" >        return result;</span>
+      }
+      result.dbType = this.getJDBCAlias(this.getJDBCProviderName(jdbcUrl)) || null;
+      result.location = this.getDBLocationFromJDBC(jdbcUrl);
+      return result;
+    },
+&nbsp;
+    /**
+     * Convert db config value to db type string
+     * @param displayName
+     * @returns {String|null}
+     */
+    getDBType: <span class="fstat-no" title="function not covered" >function getDBType(displayName) {</span>
+<span class="cstat-no" title="statement not covered" >      var type = displayName.toUpperCase().match(/DERBY|POSTGRES|ORACLE|MYSQL|MSSQL|ANYWHERE/);</span>
+<span class="cstat-no" title="statement not covered" >      type = type &amp;&amp; type[0];</span>
+<span class="cstat-no" title="statement not covered" >      return type;</span>
+    }
+&nbsp;
+  };
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

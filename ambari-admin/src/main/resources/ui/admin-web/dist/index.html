@@ -1,0 +1,86 @@
+<!--
+* Licensed to the Apache Software Foundation (ASF) under one
+* or more contributor license agreements.  See the NOTICE file
+* distributed with this work for additional information
+* regarding copyright ownership.  The ASF licenses this file
+* to you under the Apache License, Version 2.0 (the
+* "License"); you may not use this file except in compliance
+* with the License.  You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+-->
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>Ambari</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <link rel="stylesheet" href="styles/vendor.css"/>
+
+  <link rel="stylesheet" href="styles/main.css"/>
+
+</head>
+<body ng-app="ambariAdminConsole">
+<!--[if lt IE 9]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="wrapper" ng-controller="AppCtrl">
+
+  <div ng-include="'views/sideNav.html'" ng-controller="SideNavCtrl"></div>
+
+  <div id="main">
+    <div id="top-nav">
+     <nav class="navbar navbar-default navbar-static-top">
+       <div class="container">
+         <div class="navbar-header navbar-nav">
+           <ol class="breadcrumb">
+             <li ng-repeat="breadcrumb in breadcrumbs" ng-class="$last && 'active'" ng-cloak>{{breadcrumb}}</li>
+           </ol>
+         </div>
+         <ul class="nav navbar-nav navbar-right">
+           <li>
+             <p class="navbar-text" ng-cloak>{{cluster.Clusters.cluster_name}}</p>
+           </li>
+           <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ng-disabled="disabled" ng-cloak>
+               <i class="fa fa-user"></i>&nbsp;{{currentUser}}&nbsp;<span class="caret"></span>
+             </a>
+             <ul class="dropdown-menu">
+               <li><a href ng-click="about()">{{'common.about' | translate}}</a></li>
+               <li role="separator" class="divider"></li>
+               <li><a href ng-click="signOut()">{{'common.signOut' | translate}}</a></li>
+             </ul>
+           </li>
+         </ul>
+       </div>
+     </nav>
+    </div>
+    <div class="container main-container">
+      <div class="row">
+        <div class="col-sm-12">
+          <ng-view></ng-view>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="scripts/vendor.js"></script>
+
+<script src="scripts/plugins.js"></script>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>

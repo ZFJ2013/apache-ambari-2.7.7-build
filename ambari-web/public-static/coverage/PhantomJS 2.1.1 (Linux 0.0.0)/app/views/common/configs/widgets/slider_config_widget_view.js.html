@@ -1,0 +1,2130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/configs/widgets/slider_config_widget_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/views/common/configs/widgets/slider_config_widget_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">68.49% <small>(150 / 219)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">65.13% <small>(99 / 152)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">65.12% <small>(28 / 43)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">68.81% <small>(150 / 218)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/configs/widgets/</a> &#187; slider_config_widget_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">899</span>
+<span class="cline-any cline-yes">899</span>
+<span class="cline-any cline-yes">899</span>
+<span class="cline-any cline-yes">899</span>
+<span class="cline-any cline-yes">899</span>
+<span class="cline-any cline-yes">899</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">899</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">899</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">895</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">254</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">229</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">230</span>
+<span class="cline-any cline-yes">230</span>
+<span class="cline-any cline-yes">230</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-yes">888</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">252</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">252</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">252</span>
+<span class="cline-any cline-yes">252</span>
+<span class="cline-any cline-yes">252</span>
+<span class="cline-any cline-yes">38</span>
+<span class="cline-any cline-yes">38</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">214</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">213</span>
+<span class="cline-any cline-yes">213</span>
+<span class="cline-any cline-yes">213</span>
+<span class="cline-any cline-yes">213</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">252</span>
+<span class="cline-any cline-yes">185</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">252</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-yes">74</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">102</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">82</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-yes">42</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">166</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">58</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">230</span>
+<span class="cline-any cline-yes">229</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">226</span>
+<span class="cline-any cline-yes">226</span>
+<span class="cline-any cline-yes">226</span>
+<span class="cline-any cline-yes">226</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">225</span>
+<span class="cline-any cline-yes">225</span>
+<span class="cline-any cline-yes">225</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">224</span>
+<span class="cline-any cline-yes">224</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/common/configs/widgets/slider_config_widget_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var validator = require('utils/validator');
+&nbsp;
+  /**
+   * Slider-view for configs
+   * Used to numeric values
+   * Config value attributes should contain minimum and maximum limits for value
+   * @type {App.ConfigWidgetView}
+   */
+  App.SliderConfigWidgetView = App.ConfigWidgetView.extend({
+&nbsp;
+    classNames: ['widget-config'],
+&nbsp;
+    templateName: require('templates/common/configs/widgets/slider_config_widget'),
+&nbsp;
+    supportSwitchToTextBox: true,
+&nbsp;
+    /**
+     * Slider-object created on the &lt;code&gt;initSlider&lt;/code&gt;
+     * @type {Object}
+     */
+    slider: null,
+&nbsp;
+    /**
+     * Mirror of the config-value shown in the input on the left of the slider
+     * @type {number}
+     */
+    mirrorValue: 0,
+&nbsp;
+    /**
+     * Previous mirrorValue
+     * @type {number}
+     */
+    prevMirrorValue: 0,
+&nbsp;
+    /**
+     * Determines if used-input &lt;code&gt;mirrorValue&lt;/code&gt; is valid
+     * Calculated on the &lt;code&gt;mirrorValueObs&lt;/code&gt;
+     * @type {boolean}
+     */
+    isMirrorValueValid: true,
+&nbsp;
+    /**
+     * Unit label to display.
+     * @type {String}
+     */
+    unitLabel: '',
+&nbsp;
+    /**
+     * List of widget's properties which &lt;code&gt;changeBoundaries&lt;/code&gt;-method should observe
+     * @type {string[]}
+     */
+    changeBoundariesProperties: ['maxMirrorValue', 'widgetRecommendedValue', 'minMirrorValue', 'mirrorStep'],
+&nbsp;
+    /**
+     * Flag to check if value should be changed to recommended or saved.
+     * @type {boolean}
+     */
+    isRestoring: false,
+&nbsp;
+    /**
+     * max allowed value transformed form config unit to widget unit
+     * @type {Number}
+     */
+    maxMirrorValue: function () {
+      var parseFunction = this.get('mirrorValueParseFunction');
+      var maximum = this.getValueAttributeByGroup('maximum');
+      var max = this.widgetValueByConfigAttributes(maximum);
+      return parseFunction(max);
+    }.property('config.stackConfigProperty.valueAttributes.maximum', 'controller.forceUpdateBoundaries'),
+&nbsp;
+    /**
+     * min allowed value transformed form config unit to widget unit
+     * @type {Number}
+     */
+    minMirrorValue: function () {
+      var parseFunction = this.get('mirrorValueParseFunction');
+      var minimum = this.getValueAttributeByGroup('minimum');
+      var min = this.widgetValueByConfigAttributes(minimum);
+      return parseFunction(min);
+    }.property('config.stackConfigProperty.valueAttributes.minimum', 'controller.forceUpdateBoundaries'),
+&nbsp;
+    /**
+     *
+     * if group is default look into (ex. for maximum)
+     * &lt;code&gt;config.stackConfigProperty.valueAttributes.maximum&lt;code&gt;
+     * if group is not default look into
+     * &lt;code&gt;config.stackConfigProperty.valueAttributes.{group.name}.maximum&lt;code&gt;
+     * @param {String} attribute - name of attribute, for current moment
+     * can be ["maximum","minimum","increment_step"] but allows to use other it there will be available
+     * @returns {string}
+     */
+    getValueAttributeByGroup: function getValueAttributeByGroup(attribute) {
+      var parseFunction = this.get('parseFunction');
+      var configValue = this.get('config.value');
+      var defaultGroupAttr = this.get('config.stackConfigProperty.valueAttributes');
+      var groupAttr = this.get('configGroup') &amp;&amp; defaultGroupAttr[this.get('configGroup.name')];
+      var usedGroupAttr = groupAttr &amp;&amp; !Em.isNone(groupAttr[attribute]) ? groupAttr : defaultGroupAttr;
+      var boundary = usedGroupAttr[attribute];
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.get('referToSelectedGroup')) {
+<span class="cstat-no" title="statement not covered" >        if (attribute === 'minimum') {</span>
+<span class="cstat-no" title="statement not covered" >          if (parseFunction(configValue) &lt; parseFunction(boundary)) {</span>
+<span class="cstat-no" title="statement not covered" >            return configValue;</span>
+          }
+        } else <span class="cstat-no" title="statement not covered" >if (attribute === 'maximum') {</span>
+<span class="cstat-no" title="statement not covered" >          if (parseFunction(configValue) &gt; parseFunction(boundary)) {</span>
+<span class="cstat-no" title="statement not covered" >            return configValue;</span>
+          }
+        }
+      }
+      if (isNaN(boundary) &amp;&amp; !isNaN(configValue)) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (attribute === 'minimum') {
+          return isNaN(usedGroupAttr['maximum']) ? <span class="branch-0 cbranch-no" title="branch not covered" >configValue </span>: Math.min(usedGroupAttr['maximum'], configValue).toString();
+        }
+<span class="cstat-no" title="statement not covered" >        if (attribute === 'maximum') {</span>
+<span class="cstat-no" title="statement not covered" >          return isNaN(usedGroupAttr['minimum']) ? configValue : Math.max(usedGroupAttr['minimum'], configValue).toString();</span>
+        }
+      }
+      return boundary;
+    },
+    /**
+     * step transformed form config units to widget units
+     * @type {Number}
+     */
+    mirrorStep: function () {
+      var parseFunction = this.get('mirrorValueParseFunction');
+      var step = this.widgetValueByConfigAttributes(this.get('config.stackConfigProperty.valueAttributes.increment_step'));
+      return step ? parseFunction(step) : this.get('unitType') === 'int' ? 1 : 0.1;
+    }.property('config.stackConfigProperty.valueAttributes.increment_step'),
+&nbsp;
+    /**
+     * Default value of config property transformed according widget format
+     * @returns {Number}
+     */
+    widgetDefaultValue: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var parseFunction = this.get('mirrorValueParseFunction');</span>
+<span class="cstat-no" title="statement not covered" >      return parseFunction(this.widgetValueByConfigAttributes(this.get('config.savedValue')));</span>
+    }.property('config.savedValue'),
+&nbsp;
+    /**
+     * Default value of config property transformed according widget format
+     * @returns {Number}
+     */
+    widgetRecommendedValue: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var parseFunction = this.get('mirrorValueParseFunction');</span>
+<span class="cstat-no" title="statement not covered" >      return parseFunction(this.widgetValueByConfigAttributes(this.get('config.recommendedValue')));</span>
+    }.property('config.recommendedValue'),
+&nbsp;
+    /**
+     * unit type of widget
+     * @type {String}
+     */
+    unitType: function () {
+      var widgetUnit = this.get('config.stackConfigProperty.widget.units.length') &amp;&amp; this.get('config.stackConfigProperty.widget.units')[0]['unit-name'].toLowerCase();
+      var configUnit = this.get('config.stackConfigProperty.valueAttributes.type').toLowerCase();
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (widgetUnit) {
+        return this.get('units').indexOf(widgetUnit) &gt; this.get('units').indexOf(configUnit) ? 'float' : this.get('config.stackConfigProperty.valueAttributes.type');
+      } else {
+<span class="cstat-no" title="statement not covered" >        return 'float';</span>
+      }
+    }.property('config.stackConfigProperty.widget.units.@each.unit-name'),
+    /**
+     * Function used to parse widget mirror value
+     * For integer - parseInt, for float - parseFloat
+     * @type {Function}
+     */
+    mirrorValueParseFunction: function () {
+      return this.get('unitType') === 'int' ? parseInt : parseFloat;
+    }.property('unitType'),
+&nbsp;
+    /**
+     * Function used to validate widget mirror value
+     * For integer - validator.isValidInt, for float - validator.isValidFloat
+     * @type {Function}
+     */
+    mirrorValueValidateFunction: function () {
+      return this.get('unitType') === 'int' ? validator.isValidInt : validator.isValidFloat;
+    }.property('unitType'),
+&nbsp;
+    /**
+     * Function used to parse config value (based on &lt;code&gt;config.stackConfigProperty.valueAttributes.type&lt;/code&gt;)
+     * For integer - parseInt, for float - parseFloat
+     * @type {Function}
+     */
+    parseFunction: function () {
+      return this.get('config.stackConfigProperty.valueAttributes.type') === 'int' ? parseInt : parseFloat;
+    }.property('config.stackConfigProperty.valueAttributes.type'),
+&nbsp;
+    /**
+     * Function used to validate config value (based on &lt;code&gt;config.stackConfigProperty.valueAttributes.type&lt;/code&gt;)
+     * For integer - validator.isValidInt, for float - validator.isValidFloat
+     * @type {Function}
+     */
+    validateFunction: function () {
+      return this.get('config.stackConfigProperty.valueAttributes.type') === 'int' ? validator.isValidInt : validator.isValidFloat;
+    }.property('config.stackConfigProperty.valueAttributes.type'),
+&nbsp;
+    /**
+     * Enable/disable slider state
+     * @method toggleWidgetState
+     */
+    toggleWidgetState: function () {
+      var slider = this.get('slider');
+      this.get('config.isEditable') ? slider.enable() : <span class="branch-1 cbranch-no" title="branch not covered" >slider.disable();</span>
+      this._super();
+    }.observes('config.isEditable'),
+&nbsp;
+    willInsertElement: function willInsertElement() {
+      this._super();
+      this.prepareValueConverter();
+      this.addObserver('mirrorValue', this, this.mirrorValueObs);
+    },
+&nbsp;
+    didInsertElement: function didInsertElement() {
+      this._super();
+      this.setValue();
+      this.initSlider();
+      this.toggleWidgetState();
+      this.initPopover();
+      var self = this;
+      this.get('changeBoundariesProperties').forEach(function (property) {
+        self.addObserver(property, self, self.changeBoundaries);
+      });
+    },
+&nbsp;
+    willDestroyElement: <span class="fstat-no" title="function not covered" >function willDestroyElement() {</span>
+<span class="cstat-no" title="statement not covered" >      this.$('[data-toggle=tooltip]').tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      this.get('changeBoundariesProperties').forEach(<span class="fstat-no" title="function not covered" >function (property) {</span></span>
+<span class="cstat-no" title="statement not covered" >        self.removeObserver(property, self, self.changeBoundaries);</span>
+      });
+<span class="cstat-no" title="statement not covered" >      this.removeObserver('mirrorValue', this, this.mirrorValueObs);</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('slider')) {</span>
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" >          if (self.get('slider')) {</span>
+<span class="cstat-no" title="statement not covered" >            self.get('slider').destroy();</span>
+          }
+        } catch (e) {
+<span class="cstat-no" title="statement not covered" >          console.error('error while clearing slider for config: ' + self.get('config.name'));</span>
+        }
+      }
+    },
+&nbsp;
+    mirrorValueObs: function mirrorValueObs() {
+      Em.run.once(this, 'mirrorValueObsOnce');
+    },
+&nbsp;
+    /**
+     * Check if &lt;code&gt;mirrorValue&lt;/code&gt; was updated by user
+     * Validate it. If value is correct, set it to slider and config.value
+     * @method mirrorValueObs
+     */
+    mirrorValueObsOnce: function mirrorValueObsOnce() {
+      var mirrorValue = this.get('mirrorValue'),
+          slider = this.get('slider'),
+          min = this.get('minMirrorValue'),
+          max = this.get('maxMirrorValue'),
+          validationFunction = this.get('mirrorValueValidateFunction'),
+          parseFunction = this.get('mirrorValueParseFunction');
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (validationFunction(mirrorValue)) {
+        var parsed = parseFunction(mirrorValue);
+        if (parsed &gt; max) {
+          this.set('isMirrorValueValid', false);
+          this.get('config').setProperties({
+            warnMessage: Em.I18n.t('config.warnMessage.outOfBoundaries.greater').format(max + this.get('unitLabel')),
+            warn: true
+          });
+        } else if (parsed &lt; min) {
+          this.set('isMirrorValueValid', false);
+          this.get('config').setProperties({
+            warnMessage: Em.I18n.t('config.warnMessage.outOfBoundaries.less').format(min + this.get('unitLabel')),
+            warn: true
+          });
+        } else {
+          this.set('isMirrorValueValid', !this.get('config.error'));
+          this.set('config.value', '' + this.configValueByWidget(parsed));
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (slider) {
+            slider.setValue(parsed);
+          }
+        }
+        // avoid precision during restore value
+        if (!Em.isNone(this.get('config.savedValue')) &amp;&amp; parsed == parseFunction(this.widgetValueByConfigAttributes(this.get('config.savedValue')))) {
+          this.set('config.value', this.get('config.savedValue'));
+        }
+        // ignore precision during set recommended value
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!Em.isNone(this.get('config.recommendedValue')) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >parsed == parseFunction(this.widgetValueByConfigAttributes(this.get('config.recommendedValue'))))</span> {
+<span class="cstat-no" title="statement not covered" >          this.set('config.value', this.get('config.recommendedValue'));</span>
+        }
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.set('isMirrorValueValid', false);</span>
+<span class="cstat-no" title="statement not covered" >        this.set('config.errorMessage', 'Invalid value');</span>
+      }
+    },
+&nbsp;
+    /**
+     * set widget value same as config value
+     * @override
+     * @method setValue
+     */
+    setValue: function setValue(value) {
+      var parseFunction = this.get('parseFunction');
+      value = value || parseFunction(this.get('config.value'));
+      this.set('mirrorValue', this.widgetValueByConfigAttributes(value));
+      this.set('prevMirrorValue', this.get('mirrorValue'));
+    },
+&nbsp;
+    /**
+     * Setup convert table according to widget unit-name and property type.
+     * Set label for unit to display.
+     * @method prepareValueConverter
+     */
+    prepareValueConverter: function prepareValueConverter() {
+      var widgetUnit = this._converterGetWidgetUnits();
+      if (['int', 'float'].contains(this._converterGetPropertyAttributes()) &amp;&amp; widgetUnit == 'percent') {
+        this.set('currentDimensionType', 'percent.percent_' + this._converterGetPropertyAttributes());
+      }
+      this.set('unitLabel', Em.getWithDefault(this.get('unitLabelMap'), widgetUnit, widgetUnit));
+    },
+&nbsp;
+    /**
+     * Draw slider for current config
+     * @method initSlider
+     */
+    initSlider: function initSlider() {
+      var self = this,
+          config = this.get('config'),
+          valueAttributes = config.get('stackConfigProperty.valueAttributes'),
+          parseFunction = this.get('parseFunction'),
+          ticks = [this.valueForTick(this.get('minMirrorValue'))],
+          ticksLabels = [],
+          maxMirrorValue = this.get('maxMirrorValue'),
+          minMirrorValue = this.get('minMirrorValue'),
+          mirrorStep = this.get('mirrorStep'),
+          recommendedValue = this.valueForTick(+this.get('widgetRecommendedValue')),
+          range = Math.floor((maxMirrorValue - minMirrorValue) / mirrorStep) * mirrorStep,
+          isOriginalSCP = config.get('isOriginalSCP'),
+&nbsp;
+      // for little odd numbers in range 4..23 and widget type 'int' use always 4 ticks
+      isSmallInt = this.get('unitType') == 'int' &amp;&amp; range &gt; 4 &amp;&amp; range &lt; 23 &amp;&amp; range % 2 == 1,
+          recommendedValueMirroredId,
+          recommendedValueId;
+&nbsp;
+      // ticks and labels
+      for (var i = 1; i &lt;= 3; i++) {
+        var val = minMirrorValue + this.valueForTickProportionalToStep(range * (i / (isSmallInt ? 3 : 4)));
+        // if value's type is float, ticks may be float too
+        ticks.push(this._extraRound(val));
+      }
+&nbsp;
+      ticks.push(this.valueForTick(maxMirrorValue));
+      ticks = ticks.uniq();
+      ticks.forEach(function (tick, index, items) {
+        var label = '';
+        if (items.length &lt; 5 || index % 2 === 0 || items.length - 1 == index) {
+          label = this.formatTickLabel(tick, ' ');
+        }
+        ticksLabels.push(label);
+      }, this);
+&nbsp;
+      ticks = ticks.uniq();
+&nbsp;
+      if (!(this.get('controller.isCompareMode') &amp;&amp; !isOriginalSCP)) {
+        // default marker should be added only if recommendedValue is in range [min, max]
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (recommendedValue &lt;= maxMirrorValue &amp;&amp; recommendedValue &gt;= minMirrorValue &amp;&amp; recommendedValue != '') {
+          // process additional tick for default value if it not defined in previous computation
+          if (!ticks.contains(recommendedValue)) {
+            // push default value
+            ticks.push(recommendedValue);
+            // and resort array
+            ticks = ticks.sort(function (a, b) {
+              return a - b;
+            });
+            recommendedValueId = ticks.indexOf(recommendedValue);
+            // to save nice tick labels layout we should add new tick value which is mirrored by index to default value
+            recommendedValueMirroredId = ticks.length - recommendedValueId;
+            // push mirrored default value behind default
+            if (recommendedValueId == recommendedValueMirroredId) {
+              recommendedValueMirroredId--;
+            }
+            // push empty label for default value tick
+            ticksLabels.insertAt(recommendedValueId, '');
+            // push empty to mirrored position
+            ticksLabels.insertAt(recommendedValueMirroredId, '');
+            // for saving correct sliding need to add value to mirrored position which is average between previous
+            // and next value
+            ticks.insertAt(recommendedValueMirroredId, this.valueForTick((ticks[recommendedValueMirroredId] + ticks[recommendedValueMirroredId - 1]) / 2));
+            // get new index for default value
+            recommendedValueId = ticks.indexOf(recommendedValue);
+          } else {
+            recommendedValueId = ticks.indexOf(recommendedValue);
+          }
+        }
+      }
+&nbsp;
+      /**
+       * Slider some times change config value while being created,
+       * this may happens when slider recreating couple times during small period.
+       * To cover this situation need to reset config value after slider initializing
+       * @type {String}
+       */
+      var correctConfigValue = this.get('config.value');
+&nbsp;
+      var slider = new Slider(this.$('input.slider-input')[0], {
+        value: this.get('mirrorValue'),
+        ticks: ticks,
+        tooltip: 'always',
+        ticks_labels: ticksLabels,
+        step: mirrorStep,
+        formatter: <span class="fstat-no" title="function not covered" >function formatter(val) {</span>
+<span class="cstat-no" title="statement not covered" >          var labelValue = Em.isArray(val) ? val[0] : val;</span>
+<span class="cstat-no" title="statement not covered" >          return self.formatTickLabel(labelValue);</span>
+        }
+      });
+&nbsp;
+      /**
+       * Resetting config value, look for &lt;code&gt;correctConfigValue&lt;code&gt;
+       * for more info
+       */
+      this.set('config.value', correctConfigValue);
+&nbsp;
+      slider.on('change', this.onSliderChange.bind(this)).on('slideStop', <span class="fstat-no" title="function not covered" >function () {</span>
+        /**
+         * action to run sendRequestRorDependentConfigs when
+         * we have changed config value within slider
+         */
+<span class="cstat-no" title="statement not covered" >        if (self.get('prevMirrorValue') != self.get('mirrorValue')) {</span>
+<span class="cstat-no" title="statement not covered" >          self.sendRequestRorDependentConfigs(self.get('config'));</span>
+        }
+      });
+      this.set('slider', slider);
+      var sliderTicks = this.$('.ui-slider-wrapper:eq(0) .slider-tick');
+&nbsp;
+      if (recommendedValueId) {
+        sliderTicks.eq(recommendedValueId).addClass('slider-tick-default').on('mousedown', <span class="fstat-no" title="function not covered" >function (e) {</span>
+<span class="cstat-no" title="statement not covered" >          if (self.get('disabled')) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered" >          self.setRecommendedValue();</span>
+<span class="cstat-no" title="statement not covered" >          e.stopPropagation();</span>
+<span class="cstat-no" title="statement not covered" >          return false;</span>
+        });
+        // create label for default value and align it
+        // defaultSliderTick.append('&lt;span&gt;{0}&lt;/span&gt;'.format(recommendedValue + this.get('unitLabel')));
+        // defaultSliderTick.find('span').css('marginLeft', -defaultSliderTick.find('span').width()/2 + 'px');
+        // if mirrored value was added need to hide the tick for it
+        if (recommendedValueMirroredId) {
+          sliderTicks.eq(recommendedValueMirroredId).hide();
+        }
+      }
+      // mark last tick to fix it style
+      sliderTicks.last().addClass('last');
+    },
+&nbsp;
+    /**
+     * Callback function triggered on slider change event.
+     * Set config property and widget value with new one, or ignore changes in case value restoration executed by
+     * &lt;code&gt;restoreValue&lt;/code&gt;, &lt;code&gt;setRecommendedValue&lt;/code&gt;.
+     *
+     * @param {Object} e - object that contains &lt;code&gt;oldValue&lt;/code&gt; and &lt;code&gt;newValue&lt;/code&gt; attributes.
+     * @method onSliderChange
+     */
+    onSliderChange: <span class="fstat-no" title="function not covered" >function onSliderChange(e) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('isRestoring')) {</span>
+<span class="cstat-no" title="statement not covered" >        var val = this.get('mirrorValueParseFunction')(e.newValue);</span>
+<span class="cstat-no" title="statement not covered" >        this.set('config.value', '' + this.configValueByWidget(val));</span>
+<span class="cstat-no" title="statement not covered" >        this.set('mirrorValue', val);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.set('isRestoring', false);</span>
+      }
+    },
+    /**
+     * Convert value according to property attribute unit.
+     *
+     * @method valueForTick
+     * @param {Number} val
+     * @private
+     * @returns {Number}
+     */
+    valueForTick: function valueForTick(val) {
+      return this.get('unitType') === 'int' ? Math.round(val) : this._extraRound(val);
+    },
+&nbsp;
+    /**
+     * Convert value according to property attribute unit
+     * Also returned value is proportional to the &lt;code&gt;mirrorStep&lt;/code&gt;
+     *
+     * @param {Number} val
+     * @private
+     * @returns {Number}
+     */
+    valueForTickProportionalToStep: function valueForTickProportionalToStep(val) {
+      if (this.get('unitType') === 'int') {
+        return Math.round(val);
+      }
+      var mirrorStep = this.get('mirrorStep');
+      var r = Math.round(val / mirrorStep);
+      return this._extraRound(r * mirrorStep);
+    },
+&nbsp;
+    /**
+     * Round number to 3 digits after "."
+     * Used for all slider's ticks
+     * @param {Number} v
+     * @returns {Number} number with 3 digits after "."
+     * @private
+     * @method _extraRound
+     */
+    _extraRound: function _extraRound(v) {
+      return parseFloat(v.toFixed(3));
+    },
+&nbsp;
+    /**
+     * Restore &lt;code&gt;savedValue&lt;/code&gt; for config
+     * Restore &lt;code&gt;mirrorValue&lt;/code&gt; too
+     * @method restoreValue
+     */
+    restoreValue: <span class="fstat-no" title="function not covered" >function restoreValue() {</span>
+<span class="cstat-no" title="statement not covered" >      this._super();</span>
+<span class="cstat-no" title="statement not covered" >      this.set('isRestoring', true);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('slider').setValue(this.get('widgetDefaultValue'));</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('config.value') === this.get('config.savedValue')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('isRestoring', false);</span>
+      }
+    },
+&nbsp;
+    /**
+     * @method setRecommendedValue
+     */
+    setRecommendedValue: <span class="fstat-no" title="function not covered" >function setRecommendedValue() {</span>
+<span class="cstat-no" title="statement not covered" >      this._super();</span>
+<span class="cstat-no" title="statement not covered" >      this.set('isRestoring', true);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('slider').setValue(this.get('widgetRecommendedValue'));</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('config.value') === this.get('config.recommendedValue')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('isRestoring', false);</span>
+      }
+    },
+&nbsp;
+    /**
+     * Determines if config-value was changed
+     * @type {boolean}
+     */
+    valueIsChanged: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return !Em.isNone(this.get('config.savedValue')) &amp;&amp; this.get('parseFunction')(this.get('config.value')) != this.get('parseFunction')(this.get('config.savedValue'));</span>
+    }.property('config.value', 'config.savedValue'),
+&nbsp;
+    /**
+     * Run changeBoundariesOnce only once
+     * @method changeBoundaries
+     */
+    changeBoundaries: function changeBoundaries() {
+      if (this.get('config.stackConfigProperty.widget')) {
+        Em.run.once(this, 'changeBoundariesOnce');
+      }
+    },
+&nbsp;
+    /**
+     * Recreate widget in case max or min values were changed
+     *
+     * @method changeBoundariesOnce
+     */
+    changeBoundariesOnce: function changeBoundariesOnce() {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if ($.mocho) {
+        //temp fix as it can broke test that doesn't have any connection with this method
+        return;
+      }
+<span class="cstat-no" title="statement not covered" >      if (this.get('config')) {</span>
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" >          if (this.get('slider')) {</span>
+<span class="cstat-no" title="statement not covered" >            this.get('slider').destroy();</span>
+          }
+<span class="cstat-no" title="statement not covered" >          this.initIncompatibleWidgetAsTextBox();</span>
+<span class="cstat-no" title="statement not covered" >          this.initSlider();</span>
+<span class="cstat-no" title="statement not covered" >          this.toggleWidgetState();</span>
+          // arguments exists - means method is called as observer and not directly from other method
+          // so, no need to call &lt;code&gt;refreshSliderObserver&lt;/code&gt; and this prevent recursive calls
+          // like changeBoundariesOnce -&gt; refreshSliderObserver -&gt; changeBoundariesOnce -&gt; ...
+<span class="cstat-no" title="statement not covered" >          if (arguments.length) {</span>
+<span class="cstat-no" title="statement not covered" >            this.refreshSliderObserver();</span>
+          }
+        } catch (e) {
+<span class="cstat-no" title="statement not covered" >          console.error('error while rebuilding slider for config: ' + this.get('config.name'));</span>
+        }
+      }
+    },
+&nbsp;
+    /**
+     * Method used for initializing sliders in the next Ember run-loop
+     * It's useful for overrides, because they are redrawn a little bit later than origin config
+     *
+     * If this method is called without arguments, it will call itself recursively using &lt;code&gt;changeBoundariesOnce&lt;/code&gt;
+     * and &lt;code&gt;refreshSliderObserver&lt;/code&gt;
+     * If not - it will just call &lt;code&gt;changeBoundariesOnce&lt;/code&gt; in the next run-loop
+     * @method changeBoundariesOnceLater
+     */
+    _changeBoundariesOnceLater: <span class="fstat-no" title="function not covered" >function _changeBoundariesOnceLater() {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      Em.run.later('sync', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        self.changeBoundariesOnce();</span>
+      }, 10);
+    },
+&nbsp;
+    /**
+     * Workaround for bootstrap-slider widget that was initiated inside hidden container.
+     * @method refreshSliderObserver
+     */
+    refreshSliderObserver: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      var sliderTickLabel = this.$('.ui-slider-wrapper:eq(0) .slider-tick-label:first');</span>
+<span class="cstat-no" title="statement not covered" >      if (sliderTickLabel.width() == 0 &amp;&amp; this.isValueCompatibleWithWidget()) {</span>
+<span class="cstat-no" title="statement not covered" >        Em.run.next(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          self._changeBoundariesOnceLater();</span>
+        });
+      }
+    }.observes('parentView.content.isActive', 'parentView.parentView.tab.isActive'),
+&nbsp;
+    /**
+     * Check if value provided by user in the textbox may be used in the slider
+     * @returns {boolean}
+     * @method isValueCompatibleWithWidget
+     */
+    isValueCompatibleWithWidget: function isValueCompatibleWithWidget() {
+      if (this._super()) {
+        if (!this.get('validateFunction')(this.get('config.value'))) {
+          return false;
+        }
+        var configValue = this.get('parseFunction')(this.get('config.value'));
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('config.stackConfigProperty.valueAttributes.minimum')) {
+          var min = this.get('parseFunction')(this.getValueAttributeByGroup('minimum'));
+          if (configValue &lt; min) {
+            min = this.widgetValueByConfigAttributes(min);
+            this.updateWarningsForCompatibilityWithWidget(Em.I18n.t('config.warnMessage.outOfBoundaries.less').format(min + this.get('unitLabel')));
+            return false;
+          }
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('config.stackConfigProperty.valueAttributes.maximum')) {
+          var max = this.get('parseFunction')(this.getValueAttributeByGroup('maximum'));
+          if (configValue &gt; max) {
+            max = this.widgetValueByConfigAttributes(max);
+            this.updateWarningsForCompatibilityWithWidget(Em.I18n.t('config.warnMessage.outOfBoundaries.greater').format(max + this.get('unitLabel')));
+            return false;
+          }
+        }
+&nbsp;
+        this.updateWarningsForCompatibilityWithWidget('');
+        return true;
+      }
+      return false;
+    },
+&nbsp;
+    /**
+     * Returns formatted value of slider label
+     * @param tick - starting value
+     * @param separator - will be inserted between value and unit
+     * @returns {string}
+     */
+    formatTickLabel: function formatTickLabel(tick, separator) {
+      var label,
+          separator = separator || '',
+          valueLabel = tick,
+          units = ['B', 'KB', 'MB', 'GB', 'TB'],
+          unitLabel = this.get('unitLabel'),
+          unitLabelIndex = units.indexOf(unitLabel);
+      if (unitLabelIndex &gt; -1) {
+        while (tick &gt; 9999 &amp;&amp; unitLabelIndex &lt; units.length - 1) {
+          tick /= 1024;
+          unitLabelIndex++;
+        }
+        unitLabel = units[unitLabelIndex];
+        valueLabel = this._extraRound(tick);
+      }
+      label = valueLabel + separator + unitLabel;
+      return label;
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

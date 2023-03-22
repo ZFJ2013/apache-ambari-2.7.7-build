@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/main/service/reassign_controller.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/controllers/main/service/reassign_controller.js</span></h1>
+    <h2>
+        Statements: <span class="metric">12.73% <small>(14 / 110)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">8.33% <small>(2 / 24)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">12.2% <small>(5 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">12.73% <small>(14 / 110)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/controllers/main/service/</a> &#187; reassign_controller.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60</span>
+<span class="cline-any cline-yes">60</span>
+<span class="cline-any cline-yes">60</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("controllers/main/service/reassign_controller", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.ReassignMasterController = App.WizardController.extend({
+&nbsp;
+    name: 'reassignMasterController',
+&nbsp;
+    totalSteps: 6,
+&nbsp;
+    /**
+     * @type {string}
+     */
+    displayName: Em.I18n.t('services.reassign.header'),
+&nbsp;
+    /**
+     * Used for hiding back button in wizard
+     */
+    hideBackButton: true,
+&nbsp;
+    /**
+     * All wizards data will be stored in this variable
+     *
+     * cluster - cluster name
+     * installOptions - ssh key, repo info, etc.
+     * services - services list
+     * hosts - list of selected hosts
+     * slaveComponentHosts, - info about slave hosts
+     * masterComponentHosts - info about master hosts
+     * config??? - to be described later
+     */
+    content: Em.Object.create({
+      cluster: null,
+      hosts: null,
+      installOptions: null,
+      services: null,
+      slaveComponentHosts: null,
+      masterComponentHosts: null,
+      serviceConfigProperties: null,
+      advancedServiceConfig: null,
+      controllerName: 'reassignMasterController',
+      serviceName: 'MISC',
+      hdfsUser: "hdfs",
+      group: "hadoop",
+      reassign: null,
+      componentsWithManualCommands: ['NAMENODE', 'SECONDARY_NAMENODE', 'OOZIE_SERVER', 'MYSQL_SERVER', 'APP_TIMELINE_SERVER'],
+      hasManualSteps: false,
+      hasCheckDBStep: false,
+      componentsWithCheckDBStep: ['HIVE_METASTORE', 'HIVE_SERVER', 'OOZIE_SERVER'],
+      componentsWithoutSecurityConfigs: ['MYSQL_SERVER'],
+      componentsToStopAllServices: ['NAMENODE', 'SECONDARY_NAMENODE'],
+      reassignComponentsInMM: [],
+      configs: null,
+      configsAttributes: null
+    }),
+&nbsp;
+    /**
+     * Wizard properties in local storage, which should be cleaned right after wizard has been finished
+     */
+    dbPropertiesToClean: ['cluster', 'hosts', 'installOptions', 'masterComponentHosts', 'serviceComponents', 'masterComponent', 'currentStep', 'reassignHosts', 'tasksStatuses', 'tasksRequestIds', 'requestIds'],
+&nbsp;
+    /**
+     * Load data for all steps until &lt;code&gt;current step&lt;/code&gt;
+     */
+    loadMap: {
+      '1': [{
+        type: 'sync',
+        callback: <span class="fstat-no" title="function not covered" >function callback() {</span>
+<span class="cstat-no" title="statement not covered" >          this.loadComponentToReassign();</span>
+<span class="cstat-no" title="statement not covered" >          this.loadDatabaseType();</span>
+<span class="cstat-no" title="statement not covered" >          this.loadServiceProperties();</span>
+<span class="cstat-no" title="statement not covered" >          this.load('cluster');</span>
+        }
+      }],
+      '2': [{
+        type: 'async',
+        callback: <span class="fstat-no" title="function not covered" >function callback() {</span>
+<span class="cstat-no" title="statement not covered" >          var self = this,</span>
+              dfd = $.Deferred();
+<span class="cstat-no" title="statement not covered" >          this.loadServicesFromServer();</span>
+<span class="cstat-no" title="statement not covered" >          this.loadMasterComponentHosts().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            self.loadConfirmedHosts();</span>
+<span class="cstat-no" title="statement not covered" >            dfd.resolve();</span>
+          });
+<span class="cstat-no" title="statement not covered" >          return dfd.promise();</span>
+        }
+      }],
+      '3': [{
+        type: 'sync',
+        callback: <span class="fstat-no" title="function not covered" >function callback() {</span>
+<span class="cstat-no" title="statement not covered" >          this.loadReassignHosts();</span>
+        }
+      }],
+      '4': [{
+        type: 'sync',
+        callback: <span class="fstat-no" title="function not covered" >function callback() {</span>
+<span class="cstat-no" title="statement not covered" >          this.loadTasksStatuses();</span>
+<span class="cstat-no" title="statement not covered" >          this.loadTasksRequestIds();</span>
+<span class="cstat-no" title="statement not covered" >          this.loadRequestIds();</span>
+<span class="cstat-no" title="statement not covered" >          this.loadReassignComponentsInMM();</span>
+<span class="cstat-no" title="statement not covered" >          this.loadConfigs();</span>
+<span class="cstat-no" title="statement not covered" >          this.loadSecureConfigs();</span>
+        }
+      }],
+      '5': [{
+        type: 'sync',
+        callback: <span class="fstat-no" title="function not covered" >function callback() {</span>
+<span class="cstat-no" title="statement not covered" >          this.loadComponentDir();</span>
+        }
+      }]
+    },
+&nbsp;
+    serviceToConfigSiteMap: {
+      'NAMENODE': ['hdfs-site', 'core-site'],
+      'SECONDARY_NAMENODE': ['hdfs-site', 'core-site'],
+      'JOBTRACKER': ['mapred-site'],
+      'RESOURCEMANAGER': ['yarn-site'],
+      'WEBHCAT_SERVER': ['hive-env', 'webhcat-site', 'core-site'],
+      'APP_TIMELINE_SERVER': ['yarn-site', 'yarn-env'],
+      'OOZIE_SERVER': ['oozie-site', 'core-site', 'oozie-env'],
+      'HIVE_SERVER': ['hive-site', 'webhcat-site', 'hive-env', 'core-site'],
+      'HIVE_METASTORE': ['hive-site', 'webhcat-site', 'hive-env', 'core-site', 'hive-interactive-site'],
+      'MYSQL_SERVER': ['hive-site'],
+      'HISTORYSERVER': ['mapred-site'],
+      'TIMELINE_READER': ['yarn-site']
+    },
+&nbsp;
+    /**
+     * Map with lists of related services.
+     * Used to define list of services to stop/start.
+     */
+    relatedServicesMap: {
+      'RESOURCEMANAGER': ['YARN', 'MAPREDUCE2', 'TEZ', 'HIVE', 'PIG', 'OOZIE', 'SLIDER', 'SPARK'],
+      'APP_TIMELINE_SERVER': ['YARN', 'MAPREDUCE2', 'TEZ', 'HIVE', 'OOZIE', 'SLIDER', 'SPARK'],
+      'HISTORYSERVER': ['MAPREDUCE2', 'HIVE', 'PIG', 'OOZIE'],
+      'HIVE_SERVER': ['HIVE', 'FALCON', 'ATLAS', 'OOZIE'],
+      'HIVE_METASTORE': ['HIVE', 'PIG', 'FALCON', 'ATLAS', 'OOZIE'],
+      'WEBHCAT_SERVER': ['HIVE'],
+      'OOZIE_SERVER': ['OOZIE', 'FALCON', 'KNOX'],
+      'MYSQL_SERVER': ['HIVE', 'OOZIE', 'RANGER', 'RANGER_KMS'],
+      'METRICS_COLLECTOR': ['AMBARI_METRICS']
+    },
+&nbsp;
+    isComponentWithReconfiguration: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('serviceToConfigSiteMap').hasOwnProperty(this.get('content.reassign.component_name'));</span>
+    }.property('content.reassign.component_name'),
+&nbsp;
+    addManualSteps: function () {
+      var hasManualSteps = this.get('content.componentsWithManualCommands').contains(this.get('content.reassign.component_name'));
+      this.set('content.hasManualSteps', hasManualSteps);
+      this.set('totalSteps', hasManualSteps ? 6 : 4);
+    }.observes('content.reassign.component_name'),
+&nbsp;
+    addCheckDBStep: function () {
+      this.set('content.hasCheckDBStep', this.get('content.componentsWithCheckDBStep').contains(this.get('content.reassign.component_name')));
+    }.observes('content.reassign.component_name'),
+&nbsp;
+    /**
+     * Load tasks statuses for step5 of Reassign Master Wizard to restore installation
+     */
+    loadTasksStatuses: <span class="fstat-no" title="function not covered" >function loadTasksStatuses() {</span>
+<span class="cstat-no" title="statement not covered" >      var statuses = App.db.getReassignTasksStatuses();</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.tasksStatuses', statuses);</span>
+    },
+&nbsp;
+    /**
+     * save status of the cluster.
+     * @param clusterStatus object with status,requestId fields.
+     */
+    saveClusterStatus: <span class="fstat-no" title="function not covered" >function saveClusterStatus(clusterStatus) {</span>
+<span class="cstat-no" title="statement not covered" >      var oldStatus = this.toObject(this.get('content.cluster'));</span>
+<span class="cstat-no" title="statement not covered" >      clusterStatus = jQuery.extend(oldStatus, clusterStatus);</span>
+<span class="cstat-no" title="statement not covered" >      if (clusterStatus.requestId) {</span>
+<span class="cstat-no" title="statement not covered" >        clusterStatus.requestId.forEach(<span class="fstat-no" title="function not covered" >function (requestId) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (clusterStatus.oldRequestsId.indexOf(requestId) === -1) {</span>
+<span class="cstat-no" title="statement not covered" >            clusterStatus.oldRequestsId.push(requestId);</span>
+          }
+        }, this);
+      }
+<span class="cstat-no" title="statement not covered" >      this.set('content.cluster', clusterStatus);</span>
+<span class="cstat-no" title="statement not covered" >      this.save('cluster');</span>
+    },
+&nbsp;
+    /**
+     * Save Master Component Hosts data to Main Controller
+     * @param stepController App.WizardStep5Controller
+     */
+    saveMasterComponentHosts: function saveMasterComponentHosts(stepController) {
+      var obj = stepController.get('selectedServicesMasters');
+&nbsp;
+      var masterComponentHosts = [];
+      obj.forEach(function (_component) {
+        masterComponentHosts.push({
+          display_name: _component.get('display_name'),
+          component: _component.get('component_name'),
+          hostName: _component.get('selectedHost'),
+          serviceId: _component.get('serviceId'),
+          isInstalled: true
+        });
+      });
+      App.db.setMasterComponentHosts(masterComponentHosts);
+      this.set('content.masterComponentHosts', masterComponentHosts);
+      this.setDBProperty('masterComponentHosts', masterComponentHosts);
+    },
+&nbsp;
+    loadComponentToReassign: <span class="fstat-no" title="function not covered" >function loadComponentToReassign() {</span>
+<span class="cstat-no" title="statement not covered" >      var masterComponent = App.db.getMasterToReassign();</span>
+<span class="cstat-no" title="statement not covered" >      if (masterComponent) {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('content.reassign', masterComponent);</span>
+      }
+    },
+&nbsp;
+    saveComponentToReassign: <span class="fstat-no" title="function not covered" >function saveComponentToReassign(masterComponent) {</span>
+<span class="cstat-no" title="statement not covered" >      var component = {</span>
+        component_name: masterComponent.get('componentName'),
+        display_name: masterComponent.get('displayName'),
+        service_id: masterComponent.get('service.serviceName'),
+        host_id: masterComponent.get('hostName')
+      };
+<span class="cstat-no" title="statement not covered" >      App.db.setMasterToReassign(component);</span>
+    },
+&nbsp;
+    saveTasksStatuses: <span class="fstat-no" title="function not covered" >function saveTasksStatuses(statuses) {</span>
+<span class="cstat-no" title="statement not covered" >      App.db.setReassignTasksStatuses(statuses);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.tasksStatuses', statuses);</span>
+    },
+&nbsp;
+    loadTasksRequestIds: <span class="fstat-no" title="function not covered" >function loadTasksRequestIds() {</span>
+<span class="cstat-no" title="statement not covered" >      var requestIds = App.db.getReassignTasksRequestIds();</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.tasksRequestIds', requestIds);</span>
+    },
+&nbsp;
+    saveTasksRequestIds: <span class="fstat-no" title="function not covered" >function saveTasksRequestIds(requestIds) {</span>
+<span class="cstat-no" title="statement not covered" >      App.db.setReassignTasksRequestIds(requestIds);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.tasksRequestIds', requestIds);</span>
+    },
+&nbsp;
+    loadRequestIds: <span class="fstat-no" title="function not covered" >function loadRequestIds() {</span>
+<span class="cstat-no" title="statement not covered" >      var requestIds = App.db.getReassignMasterWizardRequestIds();</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.requestIds', requestIds);</span>
+    },
+&nbsp;
+    saveRequestIds: <span class="fstat-no" title="function not covered" >function saveRequestIds(requestIds) {</span>
+<span class="cstat-no" title="statement not covered" >      App.db.setReassignMasterWizardRequestIds(requestIds);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.requestIds', requestIds);</span>
+    },
+&nbsp;
+    saveComponentDir: <span class="fstat-no" title="function not covered" >function saveComponentDir(componentDir) {</span>
+<span class="cstat-no" title="statement not covered" >      App.db.setReassignMasterWizardComponentDir(componentDir);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.componentDir', componentDir);</span>
+    },
+&nbsp;
+    loadComponentDir: <span class="fstat-no" title="function not covered" >function loadComponentDir() {</span>
+<span class="cstat-no" title="statement not covered" >      var componentDir = App.db.getReassignMasterWizardComponentDir();</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.componentDir', componentDir);</span>
+    },
+&nbsp;
+    saveReassignHosts: <span class="fstat-no" title="function not covered" >function saveReassignHosts(reassignHosts) {</span>
+<span class="cstat-no" title="statement not covered" >      App.db.setReassignMasterWizardReassignHosts(reassignHosts);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.reassignHosts', reassignHosts);</span>
+    },
+&nbsp;
+    loadReassignHosts: <span class="fstat-no" title="function not covered" >function loadReassignHosts() {</span>
+<span class="cstat-no" title="statement not covered" >      var reassignHosts = App.db.getReassignMasterWizardReassignHosts();</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.reassignHosts', reassignHosts);</span>
+    },
+&nbsp;
+    saveSecureConfigs: <span class="fstat-no" title="function not covered" >function saveSecureConfigs(secureConfigs) {</span>
+<span class="cstat-no" title="statement not covered" >      this.setDBProperty('secureConfigs', secureConfigs);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.secureConfigs', secureConfigs);</span>
+    },
+&nbsp;
+    loadSecureConfigs: <span class="fstat-no" title="function not covered" >function loadSecureConfigs() {</span>
+<span class="cstat-no" title="statement not covered" >      var secureConfigs = this.getDBProperty('secureConfigs');</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.secureConfigs', secureConfigs);</span>
+    },
+&nbsp;
+    saveServiceProperties: <span class="fstat-no" title="function not covered" >function saveServiceProperties(properties) {</span>
+<span class="cstat-no" title="statement not covered" >      this.setDBProperty('serviceProperties', properties);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.serviceProperties', properties);</span>
+    },
+&nbsp;
+    loadServiceProperties: <span class="fstat-no" title="function not covered" >function loadServiceProperties() {</span>
+<span class="cstat-no" title="statement not covered" >      var serviceProperties = this.getDBProperty('serviceProperties');</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.serviceProperties', serviceProperties);</span>
+    },
+&nbsp;
+    saveConfigs: <span class="fstat-no" title="function not covered" >function saveConfigs(configs, attributes) {</span>
+<span class="cstat-no" title="statement not covered" >      var configsObject = {</span>
+        configs: configs,
+        configsAttributes: attributes
+      };
+<span class="cstat-no" title="statement not covered" >      this.setDBProperties(configsObject);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('content').setProperties(configsObject);</span>
+    },
+&nbsp;
+    loadConfigs: <span class="fstat-no" title="function not covered" >function loadConfigs() {</span>
+<span class="cstat-no" title="statement not covered" >      var configsObject = this.getDBProperties(['configs', 'configsAttributes']);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('content').setProperties(configsObject);</span>
+    },
+&nbsp;
+    saveDatabaseType: <span class="fstat-no" title="function not covered" >function saveDatabaseType(type) {</span>
+<span class="cstat-no" title="statement not covered" >      this.setDBProperty('databaseType', type);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.databaseType', type);</span>
+    },
+&nbsp;
+    loadDatabaseType: <span class="fstat-no" title="function not covered" >function loadDatabaseType() {</span>
+<span class="cstat-no" title="statement not covered" >      var databaseType = this.getDBProperty('databaseType');</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.databaseType', databaseType);</span>
+<span class="cstat-no" title="statement not covered" >      var component = this.get('content.reassign.component_name');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (component === 'OOZIE_SERVER') {</span>
+<span class="cstat-no" title="statement not covered" >        if (this.get('content.hasCheckDBStep') &amp;&amp; databaseType &amp;&amp; databaseType !== 'derby') {</span>
+          // components with manual commands
+<span class="cstat-no" title="statement not covered" >          var manual = App.router.reassignMasterController.get('content.componentsWithManualCommands').without('OOZIE_SERVER');</span>
+<span class="cstat-no" title="statement not covered" >          App.router.reassignMasterController.set('content.hasManualSteps', false);</span>
+<span class="cstat-no" title="statement not covered" >          App.router.reassignMasterController.set('content.componentsWithManualCommands', manual);</span>
+<span class="cstat-no" title="statement not covered" >          this.set('totalSteps', 4);</span>
+        }
+      }
+    },
+&nbsp;
+    loadReassignComponentsInMM: <span class="fstat-no" title="function not covered" >function loadReassignComponentsInMM() {</span>
+<span class="cstat-no" title="statement not covered" >      var reassignComponentsInMM = this.getDBProperty('reassignComponentsInMM');</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.reassignComponentsInMM', reassignComponentsInMM);</span>
+    },
+&nbsp;
+    saveReassignComponentsInMM: <span class="fstat-no" title="function not covered" >function saveReassignComponentsInMM(reassignComponentsInMM) {</span>
+<span class="cstat-no" title="statement not covered" >      this.setDBProperty('reassignComponentsInMM', reassignComponentsInMM);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('content.reassignComponentsInMM', reassignComponentsInMM);</span>
+    },
+&nbsp;
+    /**
+     * Remove all loaded data.
+     * Created as copy for App.router.clearAllSteps
+     */
+    clearAllSteps: <span class="fstat-no" title="function not covered" >function clearAllSteps() {</span>
+<span class="cstat-no" title="statement not covered" >      this.clearInstallOptions();</span>
+      // clear temporary information stored during the install
+<span class="cstat-no" title="statement not covered" >      this.set('content.cluster', this.getCluster());</span>
+    },
+&nbsp;
+    setCurrentStep: <span class="fstat-no" title="function not covered" >function setCurrentStep(currentStep, completed) {</span>
+<span class="cstat-no" title="statement not covered" >      this._super(currentStep, completed);</span>
+<span class="cstat-no" title="statement not covered" >      App.clusterStatus.setClusterStatus({</span>
+        clusterName: this.get('content.cluster.name'),
+        wizardControllerName: 'reassignMasterController',
+        localdb: App.db.data
+      });
+    },
+&nbsp;
+    getReassignComponentsInMM: <span class="fstat-no" title="function not covered" >function getReassignComponentsInMM() {</span>
+<span class="cstat-no" title="statement not covered" >      var hostComponentsInMM = [];</span>
+<span class="cstat-no" title="statement not covered" >      var sourceHostComponents = App.HostComponent.find().filterProperty('hostName', this.get('content.reassignHosts.source'));</span>
+<span class="cstat-no" title="statement not covered" >      var reassignComponents = this.get('content.reassign.component_name') === 'NAMENODE' &amp;&amp; App.get('isHaEnabled') ? ['NAMENODE', 'ZKFC'] : [this.get('content.reassign.component_name')];</span>
+<span class="cstat-no" title="statement not covered" >      reassignComponents.forEach(<span class="fstat-no" title="function not covered" >function (hostComponent) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var componentToReassign = sourceHostComponents.findProperty('componentName', hostComponent);</span>
+<span class="cstat-no" title="statement not covered" >        if (componentToReassign &amp;&amp; !componentToReassign.get('isActive') &amp;&amp; componentToReassign.get('workStatus') === 'STARTED') {</span>
+<span class="cstat-no" title="statement not covered" >          hostComponentsInMM.push(hostComponent);</span>
+        }
+      });
+<span class="cstat-no" title="statement not covered" >      return hostComponentsInMM;</span>
+    },
+&nbsp;
+    /**
+     * Clear all temporary data
+     */
+    finish: <span class="fstat-no" title="function not covered" >function finish() {</span>
+<span class="cstat-no" title="statement not covered" >      this.clearAllSteps();</span>
+<span class="cstat-no" title="statement not covered" >      this.clearStorageData();</span>
+<span class="cstat-no" title="statement not covered" >      this.resetDbNamespace();</span>
+<span class="cstat-no" title="statement not covered" >      App.router.get('updateController').updateAll();</span>
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

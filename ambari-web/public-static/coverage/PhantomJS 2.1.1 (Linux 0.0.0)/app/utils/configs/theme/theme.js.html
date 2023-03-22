@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/utils/configs/theme/theme.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/utils/configs/theme/theme.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(73 / 73)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">94% <small>(47 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(14 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(72 / 72)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/utils/configs/theme/</a> &#187; theme.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">29</span>
+<span class="cline-any cline-yes">29</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("utils/configs/theme/theme", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.configTheme = Em.Object.create({
+&nbsp;
+    /**
+     * Resolve config theme conditions
+     * in order to correctly calculate config errors number of service
+     * @param {Array} configs
+     */
+    resolveConfigThemeConditions: function resolveConfigThemeConditions(configs) {
+      App.ThemeCondition.find().forEach(function (configCondition) {
+        var _configs = Em.A(configCondition.get('configs'));
+        if (configCondition.get("resource") === 'config' &amp;&amp; _configs.length &gt; 0) {
+          var isConditionTrue = this.calculateConfigCondition(configCondition.get("if"), configs);
+          var action = isConditionTrue ? configCondition.get("then") : <span class="branch-1 cbranch-no" title="branch not covered" >configCondition.get("else");</span>
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (configCondition.get('id')) {
+            var valueAttributes = action.property_value_attributes;
+            if (valueAttributes &amp;&amp; !Em.none(valueAttributes.visible)) {
+              var themeResource = this.getThemeResource(configCondition);
+              <span class="missing-if-branch" title="else path not taken" >E</span>if (themeResource) {
+                themeResource.get('configProperties').forEach(function (_configId) {
+                  configs.forEach(function (item) {
+                    if (App.config.configId(item.get('name'), item.get('filename')) === _configId) {
+                      // if config has already been hidden by condition with "subsection" or "subsectionTab" type
+                      // then ignore condition of "config" type
+                      if (configCondition.get('type') === 'config' &amp;&amp; item.get('hiddenBySection')) return false;
+                      item.set('hiddenBySection', !valueAttributes.visible);
+                    }
+                  }, this);
+                }, this);
+              }
+            }
+          }
+        }
+      }, this);
+    },
+&nbsp;
+    /**
+     *
+     * @param {App.ThemeCondition} configCondition
+     * @returns {?Em.Object}
+     */
+    getThemeResource: function getThemeResource(configCondition) {
+      var themeResource = null;
+&nbsp;
+      if (configCondition.get('type') === 'subsection') {
+        themeResource = App.SubSection.find().findProperty('name', configCondition.get('name'));
+      } else if (configCondition.get('type') === 'subsectionTab') {
+        themeResource = App.SubSectionTab.find().findProperty('name', configCondition.get('name'));
+      } else if (configCondition.get('type') === 'config') {
+        //simulate section wrapper for condition type "config"
+        themeResource = Em.Object.create({
+          configProperties: [App.config.configId(configCondition.get('configName'), configCondition.get('fileName'))]
+        });
+      }
+      return themeResource;
+    },
+&nbsp;
+    /**
+     *
+     * @param {Array} configs
+     * @param {?Array} storedConfigs
+     * @returns {{add: Array, delete: Array}}
+     */
+    getConfigThemeActions: function getConfigThemeActions(configs, storedConfigs) {
+      //config actions for changed configs should be only effective
+      var configActions = this.getConfigActions(configs, storedConfigs);
+&nbsp;
+      var componentsToAdd = [];
+      var componentsToDelete = [];
+      configActions.forEach(function (_action) {
+        var isConditionTrue = this.calculateConfigCondition(_action.get('if'), configs);
+        var action = isConditionTrue ? _action.get("then") : _action.get("else");
+        switch (action) {
+          case 'add':
+            componentsToAdd.push(_action.get('hostComponent'));
+            break;
+          case 'delete':
+            componentsToDelete.push(_action.get('hostComponent'));
+            break;
+        }
+      }, this);
+&nbsp;
+      return {
+        add: componentsToAdd,
+        delete: componentsToDelete
+      };
+    },
+&nbsp;
+    /**
+     *
+     * @param {Array} configs
+     * @param {Array} storedConfigs
+     * @returns {Array}
+     */
+    getConfigActions: function getConfigActions(configs, storedConfigs) {
+      return App.ConfigAction.find().filter(function (item) {
+        var isAnyConfigAbsent = false;
+        var configChanged = false;
+        item.get("configs").forEach(function (_config) {
+          var config = configs.filterProperty('filename', _config.fileName).findProperty('name', _config.configName);
+          if (!config) {
+            isAnyConfigAbsent = true;
+          } else {
+            configChanged = configChanged || config.get('value') !== (config.get('savedValue') || config.get('recommendedValue'));
+            var storedConfig = storedConfigs.filterProperty('filename', _config.fileName).findProperty('name', _config.configName);
+            if (storedConfig) {
+              configChanged = configChanged || config.get('value') !== storedConfig.value;
+            }
+          }
+        }, this);
+        return !isAnyConfigAbsent &amp;&amp; configChanged;
+      }, this);
+    },
+&nbsp;
+    /**
+     * ifStatement format: ${site-name/config-name}
+     * @param {string} ifStatement
+     * @param {Array} serviceConfigs
+     * @returns {boolean}
+     */
+    calculateConfigCondition: function calculateConfigCondition(ifStatement, serviceConfigs) {
+      // Split `if` statement if it has logical operators
+      var ifStatementRegex = /(&amp;&amp;|\|\|)/;
+      var IfConditions = ifStatement.split(ifStatementRegex);
+      var allConditionResult = [];
+      IfConditions.forEach(function (_condition) {
+        var condition = _condition.trim();
+        if (condition === '&amp;&amp;' || condition === '||') {
+          allConditionResult.push(_condition);
+        } else {
+          var splitIfCondition = condition.split('===');
+          var ifCondition = splitIfCondition[0];
+          var result = splitIfCondition[1] || "true";
+          var parseIfConditionVal = ifCondition;
+          var regex = /\$\{.*?\}/g;
+          var configStrings = ifCondition.match(regex);
+          configStrings.forEach(function (_configString) {
+            var configObject = _configString.substring(2, _configString.length - 1).split("/");
+            var config = serviceConfigs.filterProperty('filename', configObject[0] + '.xml').findProperty('name', configObject[1]);
+            if (config) {
+              var configValue = Em.get(config, 'value');
+              parseIfConditionVal = parseIfConditionVal.replace(_configString, configValue);
+            }
+          }, this);
+          var conditionResult = window.eval(JSON.stringify(parseIfConditionVal.trim())) === result.trim();
+          allConditionResult.push(conditionResult);
+        }
+      }, this);
+      return Boolean(window.eval(allConditionResult.join('')));
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

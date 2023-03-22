@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/configs/custom_category_views/notification_configs_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/views/common/configs/custom_category_views/notification_configs_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">96.3% <small>(26 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">87.5% <small>(7 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">88.89% <small>(8 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">96.15% <small>(25 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/configs/custom_category_views/</a> &#187; notification_configs_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/common/configs/custom_category_views/notification_configs_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  /**
+   * Custom view for Notification section for MISC tab
+   * Used only in the Install Wizard
+   * Show configs for creating Init Notification (@see 'data/site_properties' for list of the configs used here)
+   *
+   * @type {App.NotificationsConfigsView}
+   */
+  App.NotificationsConfigsView = App.ServiceConfigsByCategoryView.extend({
+&nbsp;
+    templateName: require('templates/common/configs/notifications_configs'),
+&nbsp;
+    /**
+     * @type {string} "yes|no"
+     */
+    createNotification: 'no',
+&nbsp;
+    categoryConfigsAll: Em.computed.filterBy('serviceConfigs', 'filename', 'alert_notification'),
+&nbsp;
+    /**
+     * @type {string} "tls|ssl"
+     */
+    tlsOrSsl: 'tls',
+&nbsp;
+    /**
+     * Determines if notification configs should be disabled
+     * @type {boolean}
+     */
+    configsAreDisabled: Em.computed.equal('createNotification', 'no'),
+&nbsp;
+    /**
+     * Config with flag for user auth in the notification
+     * @type {App.ServiceConfigProperty}
+     */
+    useAuthConfig: Em.computed.findBy('categoryConfigs', 'name', 'smtp_use_auth'),
+&nbsp;
+    /**
+     * Empty categoryConfigsAll means that user isn't at Installer, so manage notification view shouldn't be processed
+     * @method didInsertElement
+     */
+    didInsertElement: function didInsertElement() {
+      this._super();
+      if (!this.get('categoryConfigsAll.length')) return;
+      this.set('createNotification', this.get('categoryConfigsAll').findProperty('name', 'create_notification').get('value'));
+      this.set('tlsOrSsl', this.get('categoryConfigsAll').findProperty('name', 'mail.smtp.starttls.enable').get('value') ? <span class="branch-0 cbranch-no" title="branch not covered" >'tls' </span>: 'ssl');
+      var smtpUseAuth = this.get('categoryConfigsAll').findProperty('name', 'smtp_use_auth');
+      smtpUseAuth.set('value', Boolean(smtpUseAuth.get('value') === 'true'));
+      this.updateCategoryConfigs();
+    },
+&nbsp;
+    /**
+     * If &lt;code&gt;tlsOrSsl&lt;/code&gt; was changed two configs should be updated
+     * TLS and SSL can't be enabled in the same time
+     * @method onTlsOrSslChanged
+     */
+    onTlsOrSslChanged: function () {
+      var tlsOrSsl = this.get('tlsOrSsl');
+      this.get('categoryConfigsAll').findProperty('name', 'mail.smtp.starttls.enable').set('value', tlsOrSsl === 'tls');
+      this.get('categoryConfigsAll').findProperty('name', 'mail.smtp.startssl.enable').set('value', tlsOrSsl === 'ssl');
+    }.observes('tlsOrSsl'),
+&nbsp;
+    /**
+     * Update username and password fields state according to &lt;code&gt;useAuthConfig.value&lt;/code&gt;
+     * @method onUseAuthConfigChange
+     */
+    onUseAuthConfigChange: function () {
+      var configsToUpdate = ['ambari.dispatch.credential.username', 'ambari.dispatch.credential.password'],
+          useAuthConfigValue = this.get('useAuthConfig.value'),
+          useAuthConfigIsEditable = this.get('useAuthConfig.isEditable');
+&nbsp;
+      this.getWithDefault('categoryConfigs', []).forEach(function (config) {
+        if (configsToUpdate.contains(config.get('name'))) {
+          var flag = useAuthConfigIsEditable ? useAuthConfigValue : false;
+          this.updateConfig(config, flag);
+        }
+      }, this);
+    }.observes('useAuthConfig.value'),
+&nbsp;
+    /**
+     * Update all notification fields state according to &lt;code&gt;createNotification&lt;/code&gt;
+     * If user select to create notification, all fields become editable and required (also run validation for each)
+     * If user select don't create notification, all fields become disabled, not required and valid
+     * @method updateCategoryConfigs
+     */
+    updateCategoryConfigs: function () {
+      var createNotification = this.get('createNotification');
+&nbsp;
+      this.getWithDefault('categoryConfigs', []).forEach(function (config) {
+        this.updateConfig(config, Boolean(createNotification === 'yes'));
+      }, this);
+      this.onUseAuthConfigChange();
+      this.get('categoryConfigsAll').findProperty('name', 'create_notification').set('value', createNotification);
+    }.observes('createNotification'),
+&nbsp;
+    /**
+     * According to &lt;code&gt;flag&lt;/code&gt;, enable/disable &lt;code&gt;config&lt;/code&gt;
+     * If &lt;code&gt;flag&lt;/code&gt; is true - validate &lt;code&gt;config&lt;/code&gt; value
+     * If &lt;code&gt;flag&lt;/code&gt; is false - mark &lt;code&gt;config&lt;/code&gt; as valid
+     * @param {App.ServiceConfigProperty} config
+     * @param {boolean} flag
+     * @method updateConfig
+     */
+    updateConfig: function updateConfig(config, flag) {
+      config.set('isRequired', flag);
+      config.set('isEditable', flag);
+    },
+&nbsp;
+    /**
+     * No sense to store config to &lt;code&gt;serviceConfigs&lt;/code&gt; and &lt;code&gt;categoryConfigsAll&lt;/code&gt; because
+     * &lt;code&gt;categoryConfigsAll&lt;/code&gt; is a subset of &lt;code&gt;serviceConfigs&lt;/code&gt;
+     *
+     * @override
+     */
+    _appendConfigToCollection: <span class="fstat-no" title="function not covered" >function _appendConfigToCollection(serviceConfigProperty) {</span>
+<span class="cstat-no" title="statement not covered" >      this.get('serviceConfigs').pushObject(serviceConfigProperty);</span>
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

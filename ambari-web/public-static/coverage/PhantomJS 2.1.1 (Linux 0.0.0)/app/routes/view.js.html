@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/routes/view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/routes/view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">9.68% <small>(3 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">11.11% <small>(1 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">10.34% <small>(3 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/routes/</a> &#187; view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("routes/view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  module.exports = Em.Route.extend({
+&nbsp;
+    breadcrumbs: {
+      labelBindingPath: 'App.router.mainViewsDetailsController.content.label'
+    },
+&nbsp;
+    route: '/view',
+    enter: <span class="fstat-no" title="function not covered" >function enter(router) {</span>
+<span class="cstat-no" title="statement not covered" >      Em.$('body').addClass('contribview');</span>
+<span class="cstat-no" title="statement not covered" >      router.get('mainViewsController').loadAmbariViews();</span>
+    },
+&nbsp;
+    exit: <span class="fstat-no" title="function not covered" >function exit(router) {</span>
+<span class="cstat-no" title="statement not covered" >      this._super();</span>
+<span class="cstat-no" title="statement not covered" >      Em.$('body').removeClass('contribview');</span>
+    },
+&nbsp;
+    index: Em.Route.extend({
+      route: '/',
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router) {</span>
+<span class="cstat-no" title="statement not covered" >        router.get('mainViewsController').dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('mainController').connectOutlet('mainViews');</span>
+        });
+      }
+    }),
+&nbsp;
+    shortViewDetails: Em.Route.extend({
+      route: '/:viewName/:shortName',
+      breadcrumbs: null,
+      connectOutlets: <span class="fstat-no" title="function not covered" >function connectOutlets(router, params) {</span>
+<span class="cstat-no" title="statement not covered" >        var viewPath = this.parseViewPath(window.location.href.slice(window.location.href.indexOf('?')));</span>
+<span class="cstat-no" title="statement not covered" >        var slicedShortName = params.shortName;</span>
+<span class="cstat-no" title="statement not covered" >        if (viewPath) {</span>
+<span class="cstat-no" title="statement not covered" >          slicedShortName = this._getSlicedShortName(params.shortName);</span>
+<span class="cstat-no" title="statement not covered" >          if (slicedShortName === params.shortName) {</span>
+<span class="cstat-no" title="statement not covered" >            viewPath = '';</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (viewPath.charAt(0) === '/') <span class="cstat-no" title="statement not covered" >viewPath = viewPath.slice(1);</span></span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        router.get('mainViewsController').dataLoading().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          var content = App.router.get('mainViewsController.ambariViews').filterProperty('viewName', params.viewName).findProperty('shortUrl', slicedShortName);</span>
+<span class="cstat-no" title="statement not covered" >          if (content) <span class="cstat-no" title="statement not covered" >content.set('viewPath', viewPath);</span></span>
+<span class="cstat-no" title="statement not covered" >          router.get('mainController').connectOutlet('mainViewsDetails', content);</span>
+        });
+      },
+&nbsp;
+      /**
+       * parse the short name and slice if needed
+       *
+       * @param {string}
+       * @returns {string}
+       * @private
+       */
+      _getSlicedShortName: <span class="fstat-no" title="function not covered" >function _getSlicedShortName(instanceName) {</span>
+<span class="cstat-no" title="statement not covered" >        if (instanceName.lastIndexOf('?') &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >          return instanceName.slice(0, instanceName.lastIndexOf('?'));</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return instanceName;</span>
+      },
+&nbsp;
+      /**
+       * parse internal view path
+       * "viewPath" - used as a key of additional path
+       * Example:
+       *   origin URL: viewName?viewPath=%2Fuser%2Fadmin%2Faddress&amp;foo=bar&amp;count=1
+       * should be translated to
+       *   view path: /user/admin/address?foo=bar&amp;count=1
+       *
+       * @param {string} instanceName
+       * @returns {string}
+       */
+      parseViewPath: <span class="fstat-no" title="function not covered" >function parseViewPath(instanceName) {</span>
+<span class="cstat-no" title="statement not covered" >        var path = '';</span>
+<span class="cstat-no" title="statement not covered" >        if (instanceName.contains('?')) {</span>
+<span class="cstat-no" title="statement not covered" >          path = instanceName.slice(instanceName.indexOf('?'));</span>
+<span class="cstat-no" title="statement not covered" >          if (path.contains('viewPath')) {</span>
+<span class="cstat-no" title="statement not covered" >            path = decodeURIComponent(path.slice(path.lastIndexOf('?viewPath=') + 10)).replace('&amp;', '?');</span>
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        return path;</span>
+      }
+&nbsp;
+    })
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

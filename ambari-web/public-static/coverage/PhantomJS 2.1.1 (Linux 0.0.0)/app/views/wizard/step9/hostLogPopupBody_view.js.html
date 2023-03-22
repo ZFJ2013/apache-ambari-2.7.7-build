@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/wizard/step9/hostLogPopupBody_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/views/wizard/step9/hostLogPopupBody_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">85.11% <small>(80 / 94)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">85% <small>(34 / 40)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">64.29% <small>(9 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">85.11% <small>(80 / 94)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/views/wizard/step9/</a> &#187; hostLogPopupBody_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/wizard/step9/hostLogPopupBody_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var date = require('utils/date/date');
+&nbsp;
+  App.WizardStep9HostLogPopupBodyView = Em.View.extend({
+&nbsp;
+    classNames: ['col-sm-12'],
+&nbsp;
+    templateName: require('templates/wizard/step9/step9HostTasksLogPopup'),
+&nbsp;
+    /**
+     * Does host lost heartbeat
+     * @type {bool}
+     */
+    isHeartbeatLost: Em.computed.equal('parentView.host.status', 'heartbeat_lost'),
+&nbsp;
+    /**
+     * Does host doesn't have scheduled tasks for install
+     * @type {bool}
+     */
+    isNoTasksScheduled: Em.computed.alias('parentView.host.isNoTasksForInstall'),
+&nbsp;
+    /**
+     * Is log-box hidden
+     * @type {bool}
+     */
+    isLogWrapHidden: true,
+&nbsp;
+    /**
+     * Is log-textarea visible
+     * @type {bool}
+     */
+    showTextArea: false,
+&nbsp;
+    /**
+     * No tasks shown
+     * @type {bool}
+     */
+    isEmptyList: true,
+&nbsp;
+    /**
+     * Is task logs loaded
+     * @type {Boolean}
+     */
+    isTaskLoaded: true,
+&nbsp;
+    /**
+     * Checks if no visible tasks are in popup
+     * @method visibleTasks
+     */
+    visibleTasks: function () {
+      this.set("isEmptyList", true);
+      if (this.get('category.value')) {
+        var filter = this.get('category.value');
+        var tasks = this.get('tasks');
+        tasks.setEach("isVisible", false);
+&nbsp;
+        if (filter == "all") {
+          tasks.setEach("isVisible", true);
+        } else if (filter == "pending") {
+          tasks.filterProperty("status", "pending").setEach("isVisible", true);
+          tasks.filterProperty("status", "queued").setEach("isVisible", true);
+        } else if (filter == "in_progress") {
+          tasks.filterProperty("status", "in_progress").setEach("isVisible", true);
+        } else if (filter == "failed") {
+          tasks.filterProperty("status", "failed").setEach("isVisible", true);
+        } else if (filter == "completed") {
+          tasks.filterProperty("status", "completed").setEach("isVisible", true);
+        } else if (filter == "aborted") {
+          tasks.filterProperty("status", "aborted").setEach("isVisible", true);
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (filter == "timedout") {
+          tasks.filterProperty("status", "timedout").setEach("isVisible", true);
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (tasks.filterProperty("isVisible", true).length &gt; 0) {
+          this.set("isEmptyList", false);
+        }
+      }
+    }.observes('category', 'tasks'),
+&nbsp;
+    /**
+     * List categories (implements possible values for task status)
+     * @type {Em.Object[]}
+     */
+    categories: [Em.Object.create({ value: 'all', label: Em.I18n.t('installer.step9.hostLog.popup.categories.all') }), Em.Object.create({ value: 'pending', label: Em.I18n.t('installer.step9.hostLog.popup.categories.pending') }), Em.Object.create({ value: 'in_progress', label: Em.I18n.t('installer.step9.hostLog.popup.categories.in_progress') }), Em.Object.create({ value: 'failed', label: Em.I18n.t('installer.step9.hostLog.popup.categories.failed') }), Em.Object.create({ value: 'completed', label: Em.I18n.t('installer.step9.hostLog.popup.categories.completed') }), Em.Object.create({ value: 'aborted', label: Em.I18n.t('installer.step9.hostLog.popup.categories.aborted') }), Em.Object.create({ value: 'timedout', label: Em.I18n.t('installer.step9.hostLog.popup.categories.timedout') })],
+&nbsp;
+    /**
+     * Current category
+     * @type {Em.Object}
+     */
+    category: null,
+&nbsp;
+    /**
+     * List of tasks
+     * @type {Em.Object[]}
+     */
+    tasks: function () {
+      var tasksArr = [];
+      var host = this.get('parentView.host');
+      var tasks = this.getStartedTasks(host);
+      tasks = tasks.sortProperty('Tasks.id');
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (tasks.length) {
+        tasks.forEach(function (_task) {
+          var taskInfo = Em.Object.create({});
+          taskInfo.set('id', _task.Tasks.id);
+          taskInfo.set('requestId', _task.Tasks.request_id);
+          taskInfo.set('command', _task.Tasks.command.toLowerCase() === 'service_check' ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: _task.Tasks.command.toLowerCase());
+          taskInfo.set('commandDetail', App.format.commandDetail(_task.Tasks.command_detail, _task.Tasks.request_inputs, _task.Tasks.ops_display_name));
+          taskInfo.set('status', App.format.taskStatus(_task.Tasks.status));
+          taskInfo.set('role', App.format.role(_task.Tasks.role, false));
+          taskInfo.set('stderr', _task.Tasks.stderr);
+          taskInfo.set('stdout', _task.Tasks.stdout);
+          taskInfo.set('outputLog', _task.Tasks.output_log);
+          taskInfo.set('errorLog', _task.Tasks.error_log);
+          taskInfo.set('startTime', date.startTime(_task.Tasks.start_time));
+          taskInfo.set('duration', date.durationSummary(_task.Tasks.start_time, _task.Tasks.end_time));
+          taskInfo.set('isVisible', true);
+          taskInfo.set('icon', '');
+          taskInfo.set('hostName', _task.Tasks.host_name);
+          if (taskInfo.get('status') == 'pending' || taskInfo.get('status') == 'queued') {
+            taskInfo.set('icon', 'glyphicon glyphicon-cog');
+          } else if (taskInfo.get('status') == 'in_progress') {
+            taskInfo.set('icon', 'icon-cogs');
+          } else if (taskInfo.get('status') == 'completed') {
+            taskInfo.set('icon', 'glyphicon glyphicon-ok');
+          } else if (taskInfo.get('status') == 'failed') {
+            taskInfo.set('icon', 'glyphicon glyphicon-exclamation-sign');
+          } else if (taskInfo.get('status') == 'aborted') {
+            taskInfo.set('icon', 'glyphicon glyphicon-minus');
+          } else if (taskInfo.get('status') == 'timedout') {
+            taskInfo.set('icon', 'glyphicon glyphicon-time');
+          }
+          tasksArr.push(taskInfo);
+        }, this);
+      }
+      this.set('isTaskLoaded', true);
+      return tasksArr;
+    }.property('parentView.c.logTasksChangesCounter'),
+&nbsp;
+    /**
+     * Navigate to task list from task view
+     * @method backToTaskList
+     */
+    backToTaskList: function backToTaskList() {
+      this.destroyClipBoard();
+      this.set("isLogWrapHidden", true);
+    },
+&nbsp;
+    /**
+     * Get list of host's started tasks
+     * @param {object} host
+     * @returns {object[]}
+     * @method getStartedTasks
+     */
+    getStartedTasks: function getStartedTasks(host) {
+      return host.logTasks.filter(function (task) {
+        return task.Tasks.status;
+      });
+    },
+&nbsp;
+    /**
+     * Open new window with task's log
+     * @method openTaskLogInDialog
+     */
+    openTaskLogInDialog: <span class="fstat-no" title="function not covered" >function openTaskLogInDialog() {</span>
+<span class="cstat-no" title="statement not covered" >      var newWindow = window.open();</span>
+<span class="cstat-no" title="statement not covered" >      var newDocument = newWindow.document;</span>
+<span class="cstat-no" title="statement not covered" >      newDocument.write('&lt;pre&gt;' + this.get('formattedLogsForOpenedTask') + '&lt;pre&gt;');</span>
+<span class="cstat-no" title="statement not covered" >      newDocument.close();</span>
+    },
+&nbsp;
+    /**
+     * Currently open task
+     * @type {Em.Object}
+     */
+    openedTask: function () {
+      return this.get('tasks').findProperty('id', this.get('parentView.c.currentOpenTaskId'));
+    }.property('parentView.c.currentOpenTaskId', 'tasks.[]'),
+&nbsp;
+    /**
+     * @type {string}
+     */
+    formattedLogsForOpenedTask: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var stderr = this.get('openedTask.stderr');</span>
+<span class="cstat-no" title="statement not covered" >      var stdout = this.get('openedTask.stdout');</span>
+<span class="cstat-no" title="statement not covered" >      return 'stderr: \n' + stderr + '\n stdout:\n' + stdout;</span>
+    }.property('openedTask.stderr', 'openedTask.stdout'),
+&nbsp;
+    /**
+     * Click-handler for toggle task's log view (textarea to box and back)
+     * @param {object} event
+     * @method toggleTaskLog
+     */
+    toggleTaskLog: function toggleTaskLog(event) {
+      if (this.get('isLogWrapHidden')) {
+        var taskInfo = event.context;
+        this.set("isLogWrapHidden", false);
+        this.set('parentView.c.currentOpenTaskId', taskInfo.id);
+        this.set('parentView.c.currentOpenTaskRequestId', taskInfo.requestId);
+        this.set('isTaskLoaded', false);
+        this.get('parentView.c').loadCurrentTaskLog();
+        $(".modal").scrollTop(0);
+        $(".modal-body").scrollTop(0);
+      } else {
+        this.set("isLogWrapHidden", true);
+        this.set('parentView.c.currentOpenTaskId', 0);
+        this.set('parentView.c.currentOpenTaskRequestId', 0);
+      }
+    },
+&nbsp;
+    /**
+     * Create (if doesn't exist) or destroy (if exists) clipboard textarea
+     * @method textTrigger
+     */
+    textTrigger: <span class="fstat-no" title="function not covered" >function textTrigger() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('showClipBoard')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.destroyClipBoard();</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.createClipBoard();</span>
+      }
+    },
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    showClipBoard: false,
+&nbsp;
+    /**
+     * Create clipboard with task's log
+     * @method createClipBoard
+     */
+    createClipBoard: <span class="fstat-no" title="function not covered" >function createClipBoard() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('showClipBoard', true);</span>
+<span class="cstat-no" title="statement not covered" >      $('.task-detail-log-maintext').css('display', 'none');</span>
+    },
+&nbsp;
+    /**
+     * Destroy clipboard with task's log
+     * @method destroyClipBoard
+     */
+    destroyClipBoard: <span class="fstat-no" title="function not covered" >function destroyClipBoard() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('showClipBoard', false);</span>
+<span class="cstat-no" title="statement not covered" >      $('.task-detail-log-maintext').css('display', 'block');</span>
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

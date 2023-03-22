@@ -1,0 +1,1920 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/main/admin/stack_upgrade/upgrade_version_box_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/views/main/admin/stack_upgrade/upgrade_version_box_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">74.61% <small>(144 / 193)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">71.43% <small>(115 / 161)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">63.04% <small>(29 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">74.74% <small>(142 / 190)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">app/views/main/admin/stack_upgrade/</a> &#187; upgrade_version_box_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/main/admin/stack_upgrade/upgrade_version_box_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var stringUtils = require('utils/string_utils');
+&nbsp;
+  App.UpgradeVersionBoxView = Em.View.extend({
+    templateName: require('templates/main/admin/stack_upgrade/upgrade_version_box'),
+    classNames: ['version-box'],
+    classNameBindings: ['versionClass'],
+&nbsp;
+    /**
+     * @type {string}
+     * @constant
+     */
+    PROGRESS_STATUS: 'IN_PROGRESS',
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    upgradeCheckInProgress: false,
+&nbsp;
+    /**
+     * progress of version installation
+     * @type {number}
+     */
+    installProgress: function () {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (App.get('testMode')) <span class="cstat-no" title="statement not covered" >return 100;</span>
+&nbsp;
+      var installRequest,
+          requestIds = this.get('controller').getRepoVersionInstallId();
+      if (requestIds) {
+        installRequest = App.router.get('backgroundOperationsController.services').findProperty('id', requestIds[0]);
+      }
+      return installRequest ? installRequest.get('progress') : 0;
+    }.property('App.router.backgroundOperationsController.serviceTimestamp'),
+&nbsp;
+    /**
+     * version is upgrading or downgrading
+     * @type {boolean}
+     */
+    isUpgrading: function () {
+      return (this.get('controller.upgradeVersion') === this.get('content.displayName') || this.get('controller.fromVersion') === this.get('content.repositoryVersion')) &amp;&amp; App.get('upgradeState') !== 'NOT_REQUIRED';
+    }.property('App.upgradeState', 'content.displayName', 'controller.upgradeVersion'),
+&nbsp;
+    isRepoUrlsEditDisabled: function () {
+      return ['INSTALLING', 'UPGRADING'].contains(this.get('content.status')) || this.get('isUpgrading') || !App.isAuthorized('AMBARI.MANAGE_STACK_VERSIONS');
+    }.property('content.status', 'isUpgrading'),
+&nbsp;
+    /**
+     * @type {string}
+     */
+    versionClass: function () {
+      return this.get('content.status') === 'CURRENT' ? 'current-version-box' : '';
+    }.property('content.status'),
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    isOutOfSync: Em.computed.equal('content.status', 'OUT_OF_SYNC'),
+&nbsp;
+    /**
+     * map containing version (id, label)
+     * this is used as param for &lt;code&gt;showHosts&lt;code&gt; method
+     * @type {Object}
+     */
+    versionStateMap: {
+      'current': {
+        'type': 'CURRENT',
+        'value': ['CURRENT'],
+        'property': 'currentHosts',
+        'label': Em.I18n.t('admin.stackVersions.hosts.popup.header.current')
+      },
+      'installed': {
+        'type': 'INSTALLED',
+        'value': ['INSTALLED'],
+        'property': 'installedHosts',
+        'label': Em.I18n.t('admin.stackVersions.hosts.popup.header.installed')
+      },
+      'not_installed': {
+        'type': 'NOT_INSTALLED',
+        'value': ['INSTALLING', 'INSTALL_FAILED', 'OUT_OF_SYNC'],
+        'property': 'notInstalledHosts',
+        'label': Em.I18n.t('admin.stackVersions.hosts.popup.header.not_installed')
+      }
+    },
+&nbsp;
+    /**
+     * @type {object}
+     * @default null
+     */
+    content: null,
+&nbsp;
+    currentLabelClass: 'label label-success',
+&nbsp;
+    /**
+     * map of properties which correspond to particular state of Upgrade version
+     * @type {object}
+     */
+    statePropertiesMap: function () {
+      return {
+        'CURRENT': {
+          isLabel: true,
+          text: Em.I18n.t('common.current'),
+          class: this.get('currentLabelClass')
+        },
+        'NOT_REQUIRED': {
+          isButton: true,
+          text: Em.I18n.t('admin.stackVersions.version.installNow'),
+          action: 'installRepoVersionPopup'
+        },
+        'LOADING': {
+          isSpinner: true,
+          class: 'spinner'
+        },
+        'INSTALLING': {
+          iconClass: 'glyphicon glyphicon-cog',
+          isLink: true,
+          text: Em.I18n.t('hosts.host.stackVersions.status.installing'),
+          action: 'showProgressPopup'
+        },
+        'INSTALLED': {
+          iconClass: 'glyphicon glyphicon-ok',
+          isButtonGroup: true,
+          text: Em.I18n.t('common.installed'),
+          action: null
+        },
+        'SUSPENDED': {
+          isButton: true,
+          text: Em.I18n.t('admin.stackUpgrade.dialog.resume'),
+          action: 'resumeUpgrade'
+        },
+        'CURRENT_PATCH': {
+          isLabel: true,
+          text: Em.I18n.t('common.current'),
+          class: this.get('currentLabelClass')
+        },
+        'CURRENT_PATCH_REVERTABLE': {
+          isButtonGroup: true,
+          text: Em.I18n.t('common.current'),
+          action: null,
+          buttons: [{
+            text: Em.I18n.t('common.revert'),
+            action: 'confirmRevertPatchUpgrade'
+          }]
+        }
+      };
+    }.property(),
+&nbsp;
+    /**
+     * object that describes how content should be displayed
+     * @type {Em.Object}
+     * TODO remove &lt;code&gt;isUpgrading&lt;/code&gt; condition when transition of version states in API fixed
+     */
+    stateElement: function () {
+      var statePropertiesMap = this.get('statePropertiesMap');
+      var status = this.get('content.status');
+      var element = Em.Object.create({
+        status: status,
+        isInstalling: Em.computed.equal('status', 'INSTALLING'),
+        buttons: [],
+        isDisabled: false
+      });
+      var isSuspended = App.get('upgradeSuspended');
+&nbsp;
+      if (status === 'CURRENT' &amp;&amp; this.get('content.isPatch') &amp;&amp; !this.get('isUpgrading')) {
+        if (this.get('content.stackVersion.supportsRevert')) {
+          element.setProperties(statePropertiesMap['CURRENT_PATCH_REVERTABLE']);
+        } else {
+          element.setProperties(statePropertiesMap['CURRENT_PATCH']);
+        }
+      } else if (['INSTALLING', 'CURRENT'].contains(status)) {
+        element.setProperties(statePropertiesMap[status]);
+      } else if (status === 'NOT_REQUIRED') {
+        this.processNotRequiredState(element);
+      } else if (status === 'INSTALLED' &amp;&amp; !this.get('isUpgrading') || ['INSTALL_FAILED', 'OUT_OF_SYNC'].contains(status)) {
+        this.processPreUpgradeState(element);
+      } else if (this.get('isUpgrading') &amp;&amp; !isSuspended) {
+        this.processUpgradingState(element);
+      } else if (isSuspended) {
+        this.processSuspendedState(element);
+      }
+      //For restricted upgrade wizard should be disabled in any state
+      if (this.get('controller.isWizardRestricted') || !App.isAuthorized('CLUSTER.UPGRADE_DOWNGRADE_STACK')) {
+        element.set('isDisabled', true);
+      }
+      return element;
+    }.property('content.status', 'controller.isDowngrade', 'isUpgrading', 'controller.requestInProgress', 'controller.requestInProgressRepoId', 'parentView.repoVersions.@each.status', 'isCurrentStackPresent'),
+&nbsp;
+    /**
+     * check if actions of NOT_REQUIRED stack version disabled
+     * @returns {boolean}
+     */
+    isDisabledOnInit: function isDisabledOnInit() {
+      return this.get('controller.requestInProgress') || !this.get('isCurrentStackPresent') || !this.get('content.isCompatible') || App.get('upgradeIsRunning') &amp;&amp; !App.get('upgradeSuspended') || this.get('parentView.repoVersions').someProperty('status', 'INSTALLING');
+    },
+&nbsp;
+    /**
+     * @param {Em.Object} element
+     */
+    processSuspendedState: function processSuspendedState(element) {
+      element.setProperties(this.get('statePropertiesMap')['SUSPENDED']);
+      var text = this.get('controller.isDowngrade') ? Em.I18n.t('admin.stackUpgrade.dialog.resume.downgrade') : Em.I18n.t('admin.stackUpgrade.dialog.resume');
+      element.set('text', this.get('isVersionColumnView') ? <span class="branch-0 cbranch-no" title="branch not covered" >Em.I18n.t('common.resume') </span>: text);
+      element.set('isDisabled', this.get('controller.requestInProgress'));
+    },
+&nbsp;
+    /**
+     * @param {Em.Object} element
+     */
+    processUpgradingState: function processUpgradingState(element) {
+      element.set('isLink', true);
+      element.set('action', 'openUpgradeDialog');
+      if (['HOLDING', 'HOLDING_FAILED', 'HOLDING_TIMEDOUT', 'ABORTED'].contains(App.get('upgradeState'))) {
+        element.set('iconClass', 'glyphicon glyphicon-pause');
+        if (this.get('controller.isDowngrade')) {
+          element.set('text', Em.I18n.t('admin.stackVersions.version.downgrade.pause'));
+        } else {
+          element.set('text', Em.I18n.t('admin.stackVersions.version.upgrade.pause'));
+        }
+      } else {
+        element.set('iconClass', 'glyphicon glyphicon-cog');
+        if (this.get('controller.isDowngrade')) {
+          element.set('text', Em.I18n.t('admin.stackVersions.version.downgrade.running'));
+        } else {
+          element.set('text', Em.I18n.t('admin.stackVersions.version.upgrade.running'));
+        }
+      }
+    },
+&nbsp;
+    /**
+     * @param {Em.Object} element
+     */
+    processPreUpgradeState: function processPreUpgradeState(element) {
+      var currentVersion = this.get('controller.currentVersion');
+      var status = this.get('content.status');
+      var isVersionHigherThanCurrent = stringUtils.compareVersions(this.get('content.repositoryVersion'), Em.get(currentVersion, 'repository_version')) === 1;
+      var isDisabled = this.isDisabledOnInstalled();
+      if (Em.get(currentVersion, 'stack_name') !== this.get('content.stackVersionType') || isVersionHigherThanCurrent) {
+        switch (status) {
+          case 'OUT_OF_SYNC':
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (Em.isNone(currentVersion)) {
+<span class="cstat-no" title="statement not covered" >              element.set('text', Em.I18n.t('admin.stackVersions.version.installError'));</span>
+<span class="cstat-no" title="statement not covered" >              element.set('iconClass', 'glyphicon glyphicon-warning-sign');</span>
+<span class="cstat-no" title="statement not covered" >              element.set('isLabel', true);</span>
+            } else {
+              element.set('isButton', true);
+              element.set('text', this.get('isVersionColumnView') ? <span class="branch-0 cbranch-no" title="branch not covered" >Em.I18n.t('common.reinstall') </span>: Em.I18n.t('admin.stackVersions.version.reinstall'));
+              element.set('action', 'installRepoVersionPopup');
+            }
+            break;
+          case 'INSTALL_FAILED':
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (Em.isNone(currentVersion)) {
+<span class="cstat-no" title="statement not covered" >              element.set('text', Em.I18n.t('admin.stackVersions.version.installError'));</span>
+<span class="cstat-no" title="statement not covered" >              element.set('iconClass', 'glyphicon glyphicon-warning-sign');</span>
+<span class="cstat-no" title="statement not covered" >              element.set('isLabel', true);</span>
+            } else {
+              element.set('isButton', true);
+              element.set('text', this.get('isVersionColumnView') ? <span class="branch-0 cbranch-no" title="branch not covered" >Em.I18n.t('common.reinstall') </span>: Em.I18n.t('admin.stackVersions.version.reinstall'));
+              element.set('action', 'installRepoVersionPopup');
+            }
+            break;
+          default:
+            var isVersionColumnView = this.get('isVersionColumnView');
+            var stackServices = this.get('content.stackServices');
+            var isUpgradable = stackServices &amp;&amp; (this.get('content.isStandard') || stackServices.some(function (stackService) {
+              return stackService.get('isUpgradable');
+            }));
+            var isPatch = this.get('content.isPatch');
+            var isMaint = this.get('content.isMaint');
+&nbsp;
+            element.set('isButtonGroup', true);
+            if (isUpgradable) {
+              element.set('text', isVersionColumnView ? <span class="branch-0 cbranch-no" title="branch not covered" >Em.I18n.t('common.upgrade') </span>: Em.I18n.t('admin.stackVersions.version.performUpgrade'));
+              element.set('action', 'confirmUpgrade');
+              element.get('buttons').pushObject({
+                text: isVersionColumnView ? <span class="branch-0 cbranch-no" title="branch not covered" >Em.I18n.t('common.reinstall') </span>: Em.I18n.t('admin.stackVersions.version.reinstall'),
+                action: 'installRepoVersionPopup',
+                isDisabled: isDisabled
+              });
+&nbsp;
+              element.get('buttons').pushObject({
+                text: Em.I18n.t('admin.stackVersions.version.preUpgradeCheck'),
+                action: 'showUpgradeOptions',
+                isDisabled: isDisabled
+              });
+            } else {
+              element.set('iconClass', 'icon-ok');
+              element.set('text', Em.I18n.t('common.installed'));
+            }
+&nbsp;
+            if (isPatch || isMaint) {
+              element.get('buttons').pushObject({
+                text: Em.I18n.t('common.hide'),
+                action: 'confirmDiscardRepoVersion',
+                isDisabled: isDisabled
+              });
+            }
+&nbsp;
+        }
+        element.set('isDisabled', isDisabled);
+      } else {
+        element.setProperties(this.get('statePropertiesMap')['INSTALLED']);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('content.isPatch') || this.get('content.isMaint')) {
+<span class="cstat-no" title="statement not covered" >          element.get('buttons').pushObject({</span>
+            text: Em.I18n.t('common.hide'),
+            action: 'confirmDiscardRepoVersion',
+            isDisabled: isDisabled
+          });
+        }
+      }
+    },
+&nbsp;
+    /**
+     * @param {Em.Object} element
+     */
+    processNotRequiredState: function processNotRequiredState(element) {
+      var isDisabledOnInit = this.isDisabledOnInit();
+      var requestInProgressRepoId = this.get('controller.requestInProgressRepoId');
+      var status = this.get('content.status');
+&nbsp;
+      if (requestInProgressRepoId &amp;&amp; requestInProgressRepoId === this.get('content.id')) {
+        element.setProperties(this.get('statePropertiesMap')['LOADING']);
+      } else {
+        element.setProperties(this.get('statePropertiesMap')[status]);
+      }
+      element.set('isDisabled', isDisabledOnInit);
+      element.set('isButtonGroup', true);
+      element.set('isButton', false);
+      element.get('buttons').pushObject({
+        text: Em.I18n.t('common.hide'),
+        action: 'confirmDiscardRepoVersion',
+        isDisabled: isDisabledOnInit
+      });
+    },
+&nbsp;
+    /**
+     * check if actions of INSTALLED stack version disabled
+     * @returns {boolean}
+     */
+    isDisabledOnInstalled: function isDisabledOnInstalled() {
+      return !this.get('isCurrentStackPresent') || !App.isAuthorized('CLUSTER.UPGRADE_DOWNGRADE_STACK') || this.get('controller.requestInProgress') || this.get('parentView.repoVersions').someProperty('status', 'INSTALLING') || this.get('controller.isDowngrade') &amp;&amp; this.get('controller.currentVersion.repository_name') === this.get('controller.upgradeVersion');
+    },
+&nbsp;
+    didInsertElement: function didInsertElement() {
+      App.tooltip($('.link-tooltip'), { title: Em.I18n.t('admin.stackVersions.version.linkTooltip') });
+      App.tooltip($('.hosts-tooltip'));
+      App.tooltip($('.out-of-sync-badge'), { title: Em.I18n.t('hosts.host.stackVersions.status.out_of_sync') });
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.get('content.isCompatible')) {
+        App.tooltip(this.$(".repo-version-tooltip"), {
+          title: Em.I18n.t('admin.stackVersions.version.noCompatible.tooltip')
+        });
+      }
+      Em.run.later(this, function () {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('state') !== 'inDOM') {
+          return;
+        }
+<span class="cstat-no" title="statement not covered" >        if (this.get('maintenanceHosts').length + this.get('notRequiredHosts').length) {</span>
+<span class="cstat-no" title="statement not covered" >          App.tooltip(this.$('.hosts-section'), { placement: 'bottom', title: Em.I18n.t('admin.stackVersions.version.hostsInfoTooltip').format(this.get('maintenanceHosts').length + this.get('notRequiredHosts').length, this.get('maintenanceHosts').length, this.get('notRequiredHosts').length) });</span>
+        }
+      }, 1000);
+    },
+&nbsp;
+    willDestroyElement: <span class="fstat-no" title="function not covered" >function willDestroyElement() {</span>
+<span class="cstat-no" title="statement not covered" >      $('.link-tooltip').tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      $('.hosts-tooltip').tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      $('.out-of-sync-badge').tooltip('destroy');</span>
+    },
+&nbsp;
+    isCurrentStackPresent: Ember.computed('parentView.repoVersions.@each.stackVersion.state', <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('parentView.repoVersions').someProperty('stackVersion.state', 'CURRENT');</span>
+    }),
+&nbsp;
+    /**
+     * run custom action of controller
+     */
+    runAction: function runAction(event) {
+      var target = event &amp;&amp; event.target,
+          action = event &amp;&amp; event.context || this.get('stateElement.action');
+      if (target &amp;&amp; ($(target).hasClass('disabled') || <span class="branch-2 cbranch-no" title="branch not covered" >$(target).parent().hasClass('disabled'))</span>) {
+        return;
+      }
+      if (action) {
+        this.get('controller')[action](this.get('content'));
+      }
+    },
+&nbsp;
+    /**
+     * @param App.RepositoryVersion
+     * */
+    getStackVersionNumber: function getStackVersionNumber(repository) {
+      var stackVersion = null;
+      var systems = repository.get('operatingSystems');
+&nbsp;
+      systems.forEach(function (os) {
+        os.get('repositories').forEach(function (repo) {
+          stackVersion = repo.get('stackVersion');
+          if (null != stackVersion) return stackVersion;
+        });
+      });
+&nbsp;
+      return stackVersion;
+    },
+&nbsp;
+    /**
+     * show popup with repositories to edit
+     * @return {App.ModalPopup}
+     */
+    editRepositories: function editRepositories() {
+      var self = this;
+      var repoRecord = App.RepositoryVersion.find(this.get('content.id'));
+      //make deep copy of repoRecord
+      var repo = Em.Object.create({
+        repoVersionId: repoRecord.get('id'),
+        displayName: repoRecord.get('displayName'),
+        repositoryVersion: repoRecord.get('displayName'),
+        stackVersion: self.getStackVersionNumber(repoRecord),
+        useRedhatSatellite: repoRecord.get('useRedhatSatellite'),
+        operatingSystems: repoRecord.get('operatingSystems').map(function (os) {
+          return Em.Object.create({
+            osType: os.get('osType'),
+            isSelected: true,
+            repositories: os.get('repositories').map(function (repository) {
+              return Em.Object.create({
+                repoName: repository.get('repoName'),
+                repoId: repository.get('repoId'),
+                baseUrl: repository.get('baseUrl'),
+                hasError: false,
+                showRepo: repository.get('showRepo')
+              });
+            })
+          });
+        })
+      });
+&nbsp;
+      return this.get('isRepoUrlsEditDisabled') ? null : App.ModalPopup.show({
+        classNames: ['repository-list', 'common-modal-wrapper'],
+        modalDialogClasses: ['modal-lg'],
+        skipValidation: false,
+        autoHeight: false,
+        /**
+         * @type {boolean}
+         */
+        serverValidationFailed: false,
+        bodyClass: Ember.View.extend({
+          content: repo,
+          skipCheckBox: App.CheckboxView.extend({
+            repoBinding: 'parentView.content',
+            checkboxClassNames: ["align-checkbox"],
+            change: function change() {
+              this.get('repo.operatingSystems').forEach(function (os) {
+                os.get('repositories').forEach(function (repo) {
+                  repo.set('skipValidation', this.get('checked'));
+                }, this);
+              }, this);
+            }
+          }),
+&nbsp;
+          /**
+           * set &lt;code&gt;disablePrimary&lt;/code&gt; of popup depending on base URL validation
+           */
+          uiValidation: <span class="fstat-no" title="function not covered" >function uiValidation() {</span>
+<span class="cstat-no" title="statement not covered" >            var disablePrimary = !(App.get('isAdmin') &amp;&amp; !App.get('isOperator'));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            this.get('content.operatingSystems').forEach(<span class="fstat-no" title="function not covered" >function (os) {</span></span>
+<span class="cstat-no" title="statement not covered" >              os.get('repositories').forEach(<span class="fstat-no" title="function not covered" >function (repo) {</span></span>
+<span class="cstat-no" title="statement not covered" >                disablePrimary = !disablePrimary ? repo.get('hasError') : disablePrimary;</span>
+              }, this);
+            }, this);
+<span class="cstat-no" title="statement not covered" >            this.set('parentView.disablePrimary', disablePrimary);</span>
+          },
+          templateName: require('templates/main/admin/stack_upgrade/edit_repositories'),
+          didInsertElement: <span class="fstat-no" title="function not covered" >function didInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >            App.tooltip($("[rel=skip-validation-tooltip], [rel=use-redhat-tooltip]"), { placement: 'right' });</span>
+          },
+          willDestroyElement: <span class="fstat-no" title="function not covered" >function willDestroyElement() {</span>
+<span class="cstat-no" title="statement not covered" >            $("[rel=skip-validation-tooltip], [rel=use-redhat-tooltip]").tooltip('destroy');</span>
+          }
+        }),
+        header: Em.I18n.t('common.repositories'),
+        primary: Em.I18n.t('common.save'),
+        disablePrimary: false,
+        onPrimary: <span class="fstat-no" title="function not covered" >function onPrimary() {</span>
+<span class="cstat-no" title="statement not covered" >          var self = this;</span>
+<span class="cstat-no" title="statement not covered" >          App.get('router.mainAdminStackAndUpgradeController').saveRepoOS(repo, this.get('skipValidation')).done(<span class="fstat-no" title="function not covered" >function (data) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (data.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >              self.set('serverValidationFailed', true);</span>
+<span class="cstat-no" title="statement not covered" >              self.set('disablePrimary', true);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              self.hide();</span>
+            }
+          });
+        }
+      });
+    },
+&nbsp;
+    /**
+     * shows popup with listed hosts wich has current state of hostStackVersion
+     * @param {object} event
+     * @returns {App.ModalPopup}
+     * @method showHostsListPopup
+     */
+    showHosts: function showHosts(event) {
+      var status = event.contexts[0];
+      var displayName = this.get('content.displayName');
+      var hosts = this.get(status['property']);
+      var self = this;
+      var title = status.type === 'CURRENT' ? <span class="branch-0 cbranch-no" title="branch not covered" >Em.I18n.t('admin.stackVersions.hosts.popup.current.title').format(displayName, hosts.length) </span>: Em.I18n.t('admin.stackVersions.hosts.popup.title').format(displayName, status.label, hosts.length);
+      hosts.sort();
+      if (hosts.length) {
+        return App.ModalPopup.show({
+          bodyClass: Ember.View.extend({
+            title: title,
+            hosts: hosts,
+            template: Em.Handlebars.compile('&lt;h4&gt;{{view.title}}&lt;/h4&gt;&lt;div class="limited-height-2"&gt;{{#each view.hosts}}&lt;div&gt;{{this}}&lt;/div&gt;{{/each}}&lt;/div&gt;')
+          }),
+          header: Em.I18n.t('admin.stackVersions.hosts.popup.header').format(status.label),
+          primary: Em.I18n.t('admin.stackVersions.hosts.popup.primary'),
+          secondary: Em.I18n.t('common.close'),
+          onPrimary: function onPrimary() {
+            this.hide();
+            <span class="missing-if-branch" title="else path not taken" >E</span>if ($('.version-box-popup .modal')) {
+              $('.version-box-popup .modal .modal-footer .btn-success').click();
+            }
+            self.filterHostsByStack(displayName, status.value);
+          }
+        });
+      }
+    },
+&nbsp;
+    /**
+     * goes to the hosts page with content filtered by repo_version_name and repo_version_state
+     * @param {string} displayName
+     * @param {Array} states
+     * @method filterHostsByStack
+     */
+    filterHostsByStack: function filterHostsByStack(displayName, states) {
+      if (Em.isNone(displayName) || Em.isNone(states) || !states.length) return;
+      App.router.get('mainHostController').filterByStack(displayName, states);
+      App.router.get('mainHostController').set('showFilterConditionsFirstLoad', true);
+      App.router.get('mainHostController').set('filterChangeHappened', true);
+      App.router.transitionTo('hosts.index');
+    },
+&nbsp;
+    /**
+     * Not installed hosts should exclude 1.not required hosts 2. Maintenance Mode hosts,
+     * or it maybe confusing to users
+     * @type {Array}
+     */
+    notInstalledHosts: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var notInstalledHosts = this.get('content.notInstalledHosts') || App.get('allHostNames');</span>
+<span class="cstat-no" title="statement not covered" >      var notRequiredHosts = this.get('notRequiredHosts');</span>
+<span class="cstat-no" title="statement not covered" >      var maintenanceHosts = this.get('maintenanceHosts');</span>
+<span class="cstat-no" title="statement not covered" >      if (notInstalledHosts.length &amp;&amp; notRequiredHosts.length) {</span>
+<span class="cstat-no" title="statement not covered" >        notRequiredHosts.forEach(<span class="fstat-no" title="function not covered" >function (not_required) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var index = notInstalledHosts.indexOf(not_required);</span>
+<span class="cstat-no" title="statement not covered" >          if (index &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >            notInstalledHosts.splice(index, 1);</span>
+          }
+        });
+      }
+<span class="cstat-no" title="statement not covered" >      if (notInstalledHosts.length &amp;&amp; maintenanceHosts.length) {</span>
+<span class="cstat-no" title="statement not covered" >        maintenanceHosts.forEach(<span class="fstat-no" title="function not covered" >function (mm_host) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var index = notInstalledHosts.indexOf(mm_host);</span>
+<span class="cstat-no" title="statement not covered" >          if (index &gt; -1) {</span>
+<span class="cstat-no" title="statement not covered" >            notInstalledHosts.splice(index, 1);</span>
+          }
+        });
+      }
+<span class="cstat-no" title="statement not covered" >      return notInstalledHosts;</span>
+    }.property('content.notInstalledHosts', 'notRequiredHosts', 'maintenanceHosts'),
+&nbsp;
+    /**
+     * @type {Array}
+     */
+    maintenanceHosts: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return App.Host.find().filterProperty('passiveState', 'ON').mapProperty('hostName') || [];</span>
+    }.property(''),
+&nbsp;
+    /**
+     * Host with no HDP component is not required to install new version
+     * @type {Array}
+     */
+    notRequiredHosts: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var notRequiredHosts = [];</span>
+<span class="cstat-no" title="statement not covered" >      App.Host.find().forEach(<span class="fstat-no" title="function not covered" >function (host) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (!host.get('hostComponents').someProperty('isHDPComponent')) {</span>
+<span class="cstat-no" title="statement not covered" >          notRequiredHosts.push(host.get('hostName'));</span>
+        }
+      });
+<span class="cstat-no" title="statement not covered" >      return notRequiredHosts.uniq() || [];</span>
+    }.property(''),
+&nbsp;
+    /**
+     * @type {Array}
+     */
+    installedHosts: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('content.installedHosts') || [];</span>
+    }.property('content.installedHosts'),
+&nbsp;
+    /**
+     * @type {Array}
+     */
+    currentHosts: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('content.currentHosts') || [];</span>
+    }.property('content.currentHosts')
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

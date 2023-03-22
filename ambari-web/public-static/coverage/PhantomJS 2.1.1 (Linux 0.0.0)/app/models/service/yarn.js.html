@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/models/service/yarn.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/models/service/yarn.js</span></h1>
+    <h2>
+        Statements: <span class="metric">96.97% <small>(32 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">91.67% <small>(11 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">85.71% <small>(6 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">96.97% <small>(32 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/models/service/</a> &#187; yarn.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("models/service/yarn", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one or more
+   * contributor license agreements. See the NOTICE file distributed with this
+   * work for additional information regarding copyright ownership. The ASF
+   * licenses this file to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   * 
+   * http://www.apache.org/licenses/LICENSE-2.0
+   * 
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+   * License for the specific language governing permissions and limitations under
+   * the License.
+   */
+&nbsp;
+  var App = require('app');
+  var objectUtils = require('utils/object_utils');
+&nbsp;
+  App.YARNService = App.Service.extend({
+    resourceManager: DS.belongsTo('App.HostComponent'),
+    isRMHaEnabled: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('hostComponents').filterProperty('componentName', 'RESOURCEMANAGER').length &gt; 1;</span>
+    }.property('hostComponents'),
+    activeResourceManager: DS.belongsTo('App.HostComponent'),
+    appTimelineServer: DS.belongsTo('App.HostComponent'),
+    nodeManagersStarted: DS.attr('number'),
+    nodeManagersInstalled: DS.attr('number'),
+    nodeManagersTotal: DS.attr('number'),
+    nodeManagersCountActive: DS.attr('number'),
+    nodeManagersCountLost: DS.attr('number'),
+    nodeManagersCountUnhealthy: DS.attr('number'),
+    nodeManagersCountRebooted: DS.attr('number'),
+    nodeManagersCountDecommissioned: DS.attr('number'),
+    containersAllocated: DS.attr('number'),
+    containersPending: DS.attr('number'),
+    containersReserved: DS.attr('number'),
+    appsSubmitted: DS.attr('number'),
+    appsRunning: DS.attr('number'),
+    appsPending: DS.attr('number'),
+    appsCompleted: DS.attr('number'),
+    appsKilled: DS.attr('number'),
+    appsFailed: DS.attr('number'),
+    ahsWebPort: function () {
+      var yarnConf = App.db.getConfigs().findProperty('type', 'yarn-site');
+      if (yarnConf) {
+        return yarnConf.properties['yarn.timeline-service.webapp.address'].match(/:(\d+)/)[1];
+      }
+      return "8188";
+    }.property(),
+    resourceManagerStartTime: DS.attr('number'),
+    jvmMemoryHeapUsed: DS.attr('number'),
+    jvmMemoryHeapMax: DS.attr('number'),
+    allocatedMemory: DS.attr('number'),
+    reservedMemory: DS.attr('number'),
+    availableMemory: DS.attr('number'),
+    queue: DS.attr('string'),
+    queueFormatted: function () {
+      var queue = JSON.parse(this.get('queue'));
+      return objectUtils.recursiveTree(queue);
+    }.property('queue'),
+    queuesCount: function () {
+      var queue = JSON.parse(this.get('queue'));
+      return objectUtils.recursiveKeysCount(queue);
+    }.property('queue'),
+    allQueueNames: [],
+    childQueueNames: [],
+&nbsp;
+    maxMemory: Em.computed.sumProperties('allocatedMemory', 'availableMemory'),
+&nbsp;
+    /**
+     * Provides a flat array of queue names.
+     * Example: root, root/default
+     */
+    queueNames: function () {
+      var queueString = this.get('queue');
+      var allQueueNames = [];
+      var childQueueNames = [];
+      if (queueString != null) {
+        var queues = JSON.parse(queueString);
+        var addQueues = function addQueues(queuesObj, path) {
+          var names = [];
+          for (var subQueue in queuesObj) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (queuesObj[subQueue] instanceof Object) {
+              var qFN = path == '' ? subQueue : path + '/' + subQueue;
+              names.push(qFN);
+              var subNames = addQueues(queuesObj[subQueue], qFN);
+              names = names.concat(subNames);
+              if (!subNames || subNames.length &lt; 1) {
+                childQueueNames.push(qFN);
+              }
+            }
+          }
+          return names;
+        };
+        allQueueNames = addQueues(queues, '');
+      }
+      this.set('allQueueNames', allQueueNames);
+      this.set('childQueueNames', childQueueNames);
+    }.observes('queue')
+    /**
+     * ResourceManager's lost count is not accurate once RM is rebooted. Since
+     * Ambari knows the total number of nodes and the counts of nodes in other
+     * states, we calculate the lost count.
+     *
+    nodeManagersCountLost: function () {
+      var totalCount = this.get('nodeManagersTotal');
+      var activeCount = this.get('nodeManagersCountActive');
+      var rebootedCount = this.get('nodeManagersCountRebooted');
+      var unhealthyCount = this.get('nodeManagersCountUnhealthy');
+      var decomCount = this.get('nodeManagersCountDecommissioned');
+      var nonLostHostsCount = activeCount + rebootedCount + decomCount + unhealthyCount;
+      return totalCount &gt;= nonLostHostsCount ? totalCount - nonLostHostsCount : 0;
+    }.property('nodeManagersTotal', 'nodeManagersCountActive', 'nodeManagersCountRebooted', 'nodeManagersCountUnhealthy', 'nodeManagersCountDecommissioned')*/
+  });
+&nbsp;
+  App.YARNService.FIXTURES = [];
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

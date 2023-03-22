@@ -1,0 +1,2595 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/wizard/step6_controller.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/controllers/wizard/step6_controller.js</span></h1>
+    <h2>
+        Statements: <span class="metric">87.34% <small>(276 / 316)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">68.18% <small>(120 / 176)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">89.61% <small>(69 / 77)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">87.38% <small>(270 / 309)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/controllers/wizard/</a> &#187; step6_controller.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">64</span>
+<span class="cline-any cline-yes">128</span>
+<span class="cline-any cline-yes">128</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">45</span>
+<span class="cline-any cline-yes">45</span>
+<span class="cline-any cline-yes">45</span>
+<span class="cline-any cline-yes">172</span>
+<span class="cline-any cline-yes">172</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">168</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">180</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("controllers/wizard/step6_controller", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var blueprintUtils = require('utils/blueprint');
+  var validationUtils = require('utils/validator');
+&nbsp;
+  /**
+   * By Step 6, we have the following information stored in App.db and set on this
+   * controller by the router:
+   *
+   *   hosts: App.db.hosts (list of all hosts the user selected in Step 3)
+   *   selectedServiceNames: App.db.selectedServiceNames (the services that the user selected in Step 4)
+   *   masterComponentHosts: App.db.masterComponentHosts (master-components-to-hosts mapping the user selected in Step 5)
+   *
+   * Step 6 will set the following information in App.db:
+   *   slaveComponentHosts: App.db.slaveComponentHosts (slave-components-to-hosts mapping the user selected in Step 6)
+   *
+   */
+  App.WizardStep6Controller = Em.Controller.extend(App.HostComponentValidationMixin, App.HostComponentRecommendationMixin, {
+&nbsp;
+    name: 'wizardStep6Controller',
+&nbsp;
+    /**
+     * List of hosts
+     * @type {object[]}
+     */
+    hosts: [],
+&nbsp;
+    /**
+     * List of components info about selecting/deselecting status for components.
+     *
+     * @type {Array}
+     *  @item {Em.Object}
+     *    @property name {String} - component name
+     *    @property label {String} - component display name
+     *    @property allChecked {bool} - all checkboxes are checked
+     *    @property noChecked {bool} - no checkboxes checked
+     */
+    headers: [],
+&nbsp;
+    /**
+     * @type {bool}
+     */
+    isLoaded: false,
+&nbsp;
+    /**
+     * Indication if user has chosen hosts to install clients
+     * @type {bool}
+     */
+    isClientsSet: false,
+&nbsp;
+    /**
+     * Define state for submit button
+     * @type {bool}
+     */
+    submitDisabled: Em.computed.or('validationInProgress', 'App.router.btnClickInProgress'),
+&nbsp;
+    /**
+     * timer for validation request
+     */
+    timer: null,
+&nbsp;
+    /**
+     * true if request for validation is in progress
+     *
+     * @type {bool}
+     */
+    validationInProgress: false,
+&nbsp;
+    /**
+     * Check if &lt;code&gt;addHostWizard&lt;/code&gt; used
+     * @type {bool}
+     */
+    isAddHostWizard: Em.computed.equal('content.controllerName', 'addHostController'),
+&nbsp;
+    /**
+     * Check if &lt;code&gt;installerWizard&lt;/code&gt; used
+     * @type {bool}
+     */
+    isInstallerWizard: Em.computed.equal('content.controllerName', 'installerController'),
+&nbsp;
+    isAllCheckboxesEmpty: function isAllCheckboxesEmpty() {
+      var hosts = this.get('hosts');
+      for (var i = 0; i &lt; hosts.length; i++) {
+        var checkboxes = hosts[i].checkboxes;
+        for (var j = 0; j &lt; checkboxes.length; j++) {
+          if (checkboxes[j].checked) {
+            return false;
+          }
+        }
+      }
+      return true;
+    },
+&nbsp;
+    /**
+     * Check if &lt;code&gt;addServiceWizard&lt;/code&gt; used
+     * @type {bool}
+     */
+    isAddServiceWizard: Em.computed.equal('content.controllerName', 'addServiceController'),
+&nbsp;
+    installedServiceNames: function () {
+      return this.get('content.services').filterProperty('isInstalled').mapProperty('serviceName');
+    }.property('content.services').cacheable(),
+&nbsp;
+    /**
+     * Validation error messages which don't related with any master
+     */
+    generalErrorMessages: [],
+&nbsp;
+    /**
+     * Validation warning messages which don't related with any master
+     */
+    generalWarningMessages: [],
+&nbsp;
+    /**
+     * true if validation has any general (which is not related with concrete host) error message
+     */
+    anyGeneralErrors: Em.computed.or('errorMessage', 'generalErrorMessages.length'),
+&nbsp;
+    /**
+     * true if validation has any general (which is not related with concrete host) warning message
+     */
+    anyGeneralWarnings: Em.computed.gt('generalWarningMessages.length', 0),
+&nbsp;
+    /**
+     * true if validation has any general (which is not related with concrete host) error or warning message
+     */
+    anyGeneralIssues: Em.computed.or('anyGeneralErrors', 'anyGeneralWarnings'),
+&nbsp;
+    anyHostErrors: function () {
+      return this.get('hosts').some(function (h) {
+        return h.errorMessages ? h.errorMessages.length &gt; 0 : false;
+      });
+    }.property('hosts.@each.errorMessages'),
+&nbsp;
+    /**
+     * true if validation has any error message (general or host specific)
+     */
+    anyErrors: Em.computed.or('anyGeneralErrors', 'anyHostErrors'),
+&nbsp;
+    anyHostWarnings: function () {
+      return this.get('hosts').some(function (h) {
+        return h.warnMessages ? h.warnMessages.length &gt; 0 : false;
+      });
+    }.property('hosts.@each.warnMessages'),
+&nbsp;
+    /**
+     * true if validation has any warning message (general or host specific)
+     */
+    anyWarnings: Em.computed.or('anyGeneralWarnings', 'anyHostWarnings'),
+&nbsp;
+    /**
+     * Verify condition that at least one checkbox of each component was checked
+     * @method clearError
+     */
+    clearError: function clearError() {
+      var self = this;
+      var isError = false;
+      var err = false;
+      var hosts = this.get('hosts');
+      var headers = this.get('headers');
+      var headersMap = headers.toWickMapByProperty('name');
+&nbsp;
+      hosts.forEach(function (host) {
+        host.checkboxes.forEach(function (checkbox) {
+          if (headersMap[checkbox.component]) {
+            headersMap[checkbox.component] = !checkbox.checked;
+          }
+        });
+      });
+      for (var i in headersMap) {
+        err |= headersMap[i];
+      }
+&nbsp;
+      if (!err) {
+        this.set('errorMessage', '');
+      }
+&nbsp;
+      if (this.get('isAddHostWizard')) {
+        hosts.forEach(<span class="fstat-no" title="function not covered" >function (host) {</span>
+<span class="cstat-no" title="statement not covered" >          isError = false;</span>
+<span class="cstat-no" title="statement not covered" >          headers.forEach(<span class="fstat-no" title="function not covered" >function (header) {</span></span>
+<span class="cstat-no" title="statement not covered" >            isError |= host.checkboxes.findProperty('title', header.get('label')).checked;</span>
+          });
+<span class="cstat-no" title="statement not covered" >          isError = !isError;</span>
+<span class="cstat-no" title="statement not covered" >          if (!isError) {</span>
+<span class="cstat-no" title="statement not covered" >            self.set('errorMessage', '');</span>
+          }
+        });
+      }
+    },
+&nbsp;
+    /**
+     * Clear Step6 data like &lt;code&gt;hosts&lt;/code&gt;, &lt;code&gt;headers&lt;/code&gt; etc
+     * @method clearStep
+     */
+    clearStep: function clearStep() {
+      this.set('hosts', []);
+      this.set('headers', []);
+      this.clearError();
+      this.set('isLoaded', false);
+      this.set('validationInProgress', false);
+    },
+&nbsp;
+    /**
+     * Enable some service for all hosts
+     * @param {object} event
+     * @method selectAllNodes
+     */
+    selectAllNodes: function selectAllNodes(event) {
+      var name = Em.get(event, 'context.name');
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (name) {
+        this.setAllNodes(name, true);
+        this.callValidation();
+      }
+    },
+&nbsp;
+    /**
+     * Disable some services for all hosts
+     * @param {object} event
+     * @method deselectAllNodes
+     */
+    deselectAllNodes: function deselectAllNodes(event) {
+      var name = Em.get(event, 'context.name');
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (name) {
+        this.setAllNodes(name, false);
+        this.callValidation();
+      }
+    },
+&nbsp;
+    /**
+     * Enable/disable some service for all hosts
+     * @param {String} component - component name
+     * @param {bool} checked - true - enable, false - disable
+     * @method setAllNodes
+     */
+    setAllNodes: function setAllNodes(component, checked) {
+      this.get('hosts').forEach(function (host) {
+        host.checkboxes.filterProperty('isInstalled', false).forEach(function (checkbox) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (checkbox.component === component) {
+            Em.set(checkbox, 'checked', checked);
+          }
+        });
+      });
+      this.checkCallback(component);
+    },
+&nbsp;
+    /**
+     * Checkbox check callback
+     * Verify if all/none checkboxes for current component are checked
+     * @param {String} component
+     * @method checkCallback
+     */
+    checkCallback: function checkCallback(component) {
+      var header = this.get('headers').findProperty('name', component);
+      if (header) {
+        var hosts = this.get('hosts');
+        var allTrue = true;
+        var allFalse = true;
+        hosts.forEach(function (host) {
+          host.checkboxes.forEach(function (checkbox) {
+            if (checkbox.component === component &amp;&amp; !checkbox.isInstalled) {
+              allTrue = allTrue &amp;&amp; checkbox.checked;
+              allFalse = allFalse &amp;&amp; !checkbox.checked;
+            }
+          });
+        });
+        header.set('allChecked', allTrue);
+        header.set('noChecked', allFalse);
+      }
+      this.clearError();
+    },
+&nbsp;
+    /**
+     * Init step6 data
+     * @method loadStep
+     */
+    loadStep: function loadStep() {
+      this.clearStep();
+      var parentController = App.router.get(this.get('content.controllerName'));
+      if (parentController &amp;&amp; parentController.get('content.componentsFromConfigs')) {
+        parentController.clearConfigActionComponents();
+      }
+&nbsp;
+      var selectedServices = App.StackService.find().filterProperty('isSelected');
+      var installedServices = App.StackService.find().filterProperty('isInstalled');
+      var services;
+      if (this.get('isInstallerWizard')) services = selectedServices;else if (this.get('isAddHostWizard')) services = installedServices;else <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('isAddServiceWizard')) services = installedServices.concat(selectedServices);
+&nbsp;
+      var headers = Em.A([]);
+      services.forEach(function (stackService) {
+        stackService.get('serviceComponents').forEach(function (serviceComponent) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (serviceComponent.get('isShownOnInstallerSlaveClientPage')) {
+            headers.pushObject(Em.Object.create({
+              name: serviceComponent.get('componentName'),
+              label: App.format.role(serviceComponent.get('componentName'), false),
+              allChecked: false,
+              isRequired: serviceComponent.get('isRequired'),
+              noChecked: true,
+              isDisabled: installedServices.someProperty('serviceName', stackService.get('serviceName')) &amp;&amp; this.get('isAddServiceWizard'),
+              allId: 'all-' + serviceComponent.get('componentName'),
+              noneId: 'none-' + serviceComponent.get('componentName')
+            }));
+          }
+        }, this);
+      }, this);
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('content.clients') &amp;&amp; !!this.get('content.clients').length) {
+        headers.pushObject(Em.Object.create({
+          name: 'CLIENT',
+          label: App.format.role('CLIENT', false),
+          allChecked: false,
+          noChecked: true,
+          isDisabled: false,
+          allId: 'all-CLIENT',
+          noneId: 'none-CLIENT'
+        }));
+      }
+      this.get('headers').pushObjects(headers);
+&nbsp;
+      this.render();
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('content.skipSlavesStep')) {
+<span class="cstat-no" title="statement not covered" >        App.router.send('next');</span>
+      } else {
+        this.callValidation();
+      }
+    },
+&nbsp;
+    /**
+     * Returns list of new hosts
+     *
+     * @param {object[]} [allHosts=null]
+     * @return {object[]}
+     */
+    getNewHosts: <span class="fstat-no" title="function not covered" >function getNewHosts(allHosts) {</span>
+<span class="cstat-no" title="statement not covered" >      var hosts = allHosts || this.getAllHosts();</span>
+<span class="cstat-no" title="statement not covered" >      return hosts.filterProperty('isInstalled', false);</span>
+    },
+&nbsp;
+    /**
+     * Returns list of registered hosts
+     *
+     * @return {object[{hostName, isInstalled}]}
+     */
+    getAllHosts: function getAllHosts() {
+      var self = this;
+      var hosts = self.get('content.hosts');
+      return Em.keys(this.get('content.hosts')).reduce(function (res, hostName) {
+        var host = hosts[hostName];
+        if (Em.get(host, 'bootStatus') !== 'REGISTERED') {
+          return res;
+        }
+        return res.concat({
+          hostName: hostName,
+          isInstalled: Em.getWithDefault(host, 'isInstalled', false)
+        });
+      }, []);
+    },
+    /**
+     * Load all data needed for this module. Then it automatically renders in template
+     * @method render
+     */
+    render: function render() {
+      var hostsObj = [],
+          masterHosts = [],
+          headers = this.get('headers'),
+          masterHostNames = this.get('content.masterComponentHosts').mapProperty('hostName').uniq(),
+          masterHostNamesMap = masterHostNames.toWickMap(),
+          hosts = this.get('isAddHostWizard') ? <span class="branch-0 cbranch-no" title="branch not covered" >this.getNewHosts() </span>: this.getAllHosts();
+&nbsp;
+      var i = 1;
+      hosts.mapProperty('hostName').forEach(function (_hostName) {
+        var hasMaster = masterHostNamesMap[_hostName];
+        var obj = {
+          hostName: _hostName,
+          hasMaster: hasMaster,
+          checkboxes: headers.map(function (header, index) {
+            return {
+              component: header.name,
+              title: header.label,
+              checked: false,
+              isInstalled: false,
+              isDisabled: header.get('isDisabled'),
+              uId: _hostName + '-checkbox-' + index,
+              dataQaAttr: header.name === 'CLIENT' ? <span class="branch-0 cbranch-no" title="branch not covered" >'client-component' </span>: ''
+            };
+          }),
+          isLast: i === hosts.length ? true : false
+        };
+&nbsp;
+        if (hasMaster) {
+          masterHosts.pushObject(obj);
+        } else {
+          hostsObj.pushObject(obj);
+        }
+        i++;
+      });
+      //hosts with master components should be in the beginning of list
+      hostsObj.unshift.apply(hostsObj, masterHosts);
+      hostsObj = this.renderSlaves(hostsObj);
+      this.set('hosts', hostsObj);
+      headers.forEach(function (header) {
+        this.checkCallback(header.get('name'));
+      }, this);
+      this.set('isLoaded', true);
+    },
+&nbsp;
+    /**
+     * Set checked values for slaves checkboxes
+     * @param {Array} hostsObj
+     * @return {Array}
+     * @method renderSlaves
+     */
+    renderSlaves: function renderSlaves(hostsObj) {
+      var slaveComponents = this.get('content.slaveComponentHosts');
+&nbsp;
+      if (Em.isNone(slaveComponents)) {
+        // we are at this page for the first time
+        this.selectRecommendedComponents(hostsObj);
+        this.setInstalledComponents(hostsObj);
+      } else {
+        this.restoreComponentsSelection(hostsObj, slaveComponents);
+      }
+      if (this.get('isAddServiceWizard')) {
+        this.enableCheckboxesForDependentComponents(hostsObj);
+      }
+      this.selectClientHost(hostsObj);
+      return hostsObj;
+    },
+&nbsp;
+    /**
+     * set installed flag of host-components
+     * @param {Array} hostsObj
+     * @returns {boolean}
+     */
+    setInstalledComponents: function setInstalledComponents(hostsObj) {
+      if (Em.isNone(this.get('content.installedHosts'))) return false;
+      var hosts = this.get('content.installedHosts');
+&nbsp;
+      hostsObj.forEach(function (host) {
+        var installedHost = hosts[host.hostName];
+        var installedComponents = installedHost ? installedHost.hostComponents.mapProperty('HostRoles.component_name') : <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
+&nbsp;
+        host.checkboxes.forEach(function (checkbox) {
+          checkbox.isInstalled = installedComponents.contains(checkbox.component);
+          if (checkbox.isInstalled) {
+            checkbox.checked = true;
+          }
+        });
+      });
+    },
+&nbsp;
+    /**
+     * Enable checkboxes for dependent components of already installed services, that can be added
+     * @param hostsObj
+     */
+    enableCheckboxesForDependentComponents: function enableCheckboxesForDependentComponents(hostsObj) {
+      var dependentSlaves = {};
+      App.StackService.find().filterProperty('isSelected').forEach(function (service) {
+        service.get('serviceComponents').forEach(function (component) {
+          component.get('dependencies').forEach(function (dependency) {
+            var dependentService = App.StackService.find().findProperty('serviceName', dependency.serviceName);
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!dependentService) {
+<span class="cstat-no" title="statement not covered" >              return;</span>
+            }
+            var dependentComponent = dependentService.get('serviceComponents').findProperty('componentName', dependency.componentName);
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (dependentComponent.get('isSlave') &amp;&amp; dependentService.get('isInstalled')) {
+              dependentSlaves[dependentComponent.get('componentName')] = [];
+            }
+          });
+        });
+      });
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!Em.keys(dependentSlaves)) <span class="cstat-no" title="statement not covered" >return false;</span>
+&nbsp;
+      hostsObj.forEach(function (hostObj) {
+        hostObj.checkboxes.forEach(function (checkbox) {
+          if (dependentSlaves[checkbox.component] &amp;&amp; !checkbox.isInstalled) {
+            dependentSlaves[checkbox.component].push(checkbox);
+          }
+        });
+      });
+&nbsp;
+      for (var component in dependentSlaves) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (dependentSlaves.hasOwnProperty(component)) {
+          var maxToInstall = App.StackServiceComponent.find().findProperty('componentName', component).get('maxToInstall');
+          maxToInstall = maxToInstall === Infinity ? <span class="branch-0 cbranch-no" title="branch not covered" >hostsObj.length </span>: maxToInstall;
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (maxToInstall &gt; hostsObj.length - dependentSlaves[component].length) {
+            dependentSlaves[component].setEach('isDisabled', false);
+          }
+        }
+      }
+      return true;
+    },
+&nbsp;
+    /**
+     * restore previous component selection
+     * @param {Array} hostsObj
+     * @param {Array} slaveComponents
+     */
+    restoreComponentsSelection: function restoreComponentsSelection(hostsObj, slaveComponents) {
+      var slaveComponentsMap = slaveComponents.toMapByProperty('componentName');
+      var hostsObjMap = hostsObj.toMapByProperty('hostName');
+&nbsp;
+      this.get('headers').forEach(function (header) {
+        var slaveComponent = slaveComponentsMap[header.get('name')];
+        if (slaveComponent) {
+          slaveComponent.hosts.forEach(function (_node) {
+            var node = hostsObjMap[_node.hostName];
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (node) {
+              Em.set(node.checkboxes.findProperty('title', header.get('label')), 'checked', true);
+              Em.set(node.checkboxes.findProperty('title', header.get('label')), 'isInstalled', _node.isInstalled);
+            }
+          });
+        }
+      });
+    },
+&nbsp;
+    /**
+     * select component which should be checked according to recommendations
+     * @param hostsObj
+     */
+    selectRecommendedComponents: function selectRecommendedComponents(hostsObj) {
+      var recommendations = this.get('content.recommendations'),
+          recommendedMap = {},
+          clientComponentsMap = App.get('components.clients').toWickMap();
+&nbsp;
+      recommendations.blueprint.host_groups.forEach(function (hostGroup) {
+        var group = recommendations.blueprint_cluster_binding.host_groups.findProperty('name', hostGroup.name);
+        var hosts = group.hosts || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
+&nbsp;
+        hosts.forEach(function (host) {
+          recommendedMap[host.fqdn] = hostGroup.components.mapProperty('name');
+        });
+      });
+&nbsp;
+      hostsObj.forEach(function (host) {
+        var checkboxes = host.checkboxes;
+        var hostComponents = recommendedMap[host.hostName] || [];
+        checkboxes.forEach(function (checkbox) {
+          var checked;
+          if (!checkbox.isDisabled) {
+            checked = hostComponents.contains(checkbox.component);
+&nbsp;
+            if (checkbox.component === 'CLIENT' &amp;&amp; !checked) {
+              checked = hostComponents.some(function (componentName) {
+                return clientComponentsMap[componentName];
+              });
+            }
+            checkbox.checked = checked;
+          }
+        });
+      });
+    },
+&nbsp;
+    /**
+     * For clients - select first non-master host, if all has masters then last host
+     * @param hostsObj
+     */
+    selectClientHost: function selectClientHost(hostsObj) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.get('isClientsSet')) {
+        var nonMasterHost = hostsObj.findProperty('hasMaster', false);
+        var clientHost = !!nonMasterHost ? nonMasterHost : hostsObj[hostsObj.length - 1]; // last host
+        var clientCheckBox = clientHost.checkboxes.findProperty('component', 'CLIENT');
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (clientCheckBox) {
+<span class="cstat-no" title="statement not covered" >          Em.set(clientCheckBox, 'checked', true);</span>
+        }
+        this.set('isClientsSet', true);
+      }
+    },
+&nbsp;
+    /**
+     * Select checkboxes which correspond to master components
+     *
+     * @param {Array} hostsObj
+     * @return {Array}
+     * @method selectMasterComponents
+     */
+    selectMasterComponents: function selectMasterComponents(hostsObj) {
+      var masterComponentHosts = this.get('content.masterComponentHosts');
+&nbsp;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (masterComponentHosts) {
+        masterComponentHosts.forEach(function (item) {
+          var host = hostsObj.findProperty('hostName', item.hostName);
+          if (host) {
+            var checkbox = host.get('checkboxes').findProperty('component', item.component);
+            if (checkbox) {
+              checkbox.set('checked', true);
+            }
+          }
+        });
+      }
+      return hostsObj;
+    },
+&nbsp;
+    /**
+     * Return list of master components for specified &lt;code&gt;hostname&lt;/code&gt;
+     * @param {string} hostName
+     * @return {string[]}
+     * @method getMasterComponentsForHost
+     */
+    getMasterComponentsForHost: function getMasterComponentsForHost(hostName) {
+      return this.get('content.masterComponentHosts').filterProperty('hostName', hostName).mapProperty('component');
+    },
+&nbsp;
+    callValidation: function callValidation(successCallback) {
+      var self = this;
+      var validationCallback = <span class="fstat-no" title="function not covered" >function validationCallback() {</span>
+<span class="cstat-no" title="statement not covered" >        self.set('validationInProgress', false);</span>
+<span class="cstat-no" title="statement not covered" >        if (App.get('router.btnClickInProgress') &amp;&amp; successCallback) {</span>
+<span class="cstat-no" title="statement not covered" >          successCallback();</span>
+        }
+      };
+      clearTimeout(this.get('timer'));
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('validationInProgress')) {
+<span class="cstat-no" title="statement not covered" >        this.set('timer', setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          self.callValidation();</span>
+        }, 700));
+      } else {
+        this.callServerSideValidation().then(validationCallback);
+      }
+    },
+&nbsp;
+    /**
+     * Update submit button status
+     * @method callServerSideValidation
+     */
+    callServerSideValidation: function callServerSideValidation(successCallback) {
+      this.set('validationInProgress', true);
+&nbsp;
+      var selectedServices = App.StackService.find().filterProperty('isSelected').mapProperty('serviceName');
+      var installedServices = App.StackService.find().filterProperty('isInstalled').mapProperty('serviceName');
+      var services = installedServices.concat(selectedServices).uniq();
+      var hostNames = this.getAllHosts().mapProperty('hostName');
+&nbsp;
+      var bluePrintsForValidation = this.getValidationBlueprint();
+      this.set('content.recommendationsHostGroups', bluePrintsForValidation);
+&nbsp;
+      return this.validateSelectedHostComponents({
+        services: services,
+        hosts: hostNames,
+        blueprint: bluePrintsForValidation
+      });
+    },
+&nbsp;
+    /**
+     * Returns blueprint passed to validation request
+     * @method getValidationBlueprint
+     */
+    getValidationBlueprint: function getValidationBlueprint() {
+      var slaveBlueprint = this.getCurrentBlueprint();
+      var masterBlueprint = null;
+      var invisibleInstalledMasters = [];
+      var hostNames = this.getAllHosts().mapProperty('hostName');
+      var invisibleSlavesAndClients = App.StackServiceComponent.find().filter(function (component) {
+        return component.get("isSlave") &amp;&amp; component.get("isShownOnInstallerSlaveClientPage") === false || component.get("isClient") &amp;&amp; component.get("isRequiredOnAllHosts");
+      }).mapProperty("componentName");
+      //Existing Installed but invisible masters on `Assign Masters page` should be included in host component layout for recommnedation/validation call
+      if (this.get('isAddServiceWizard')) {
+        var invisibleMasters = App.StackServiceComponent.find().filterProperty("isMaster").filterProperty("isShownOnAddServiceAssignMasterPage", false);
+        invisibleInstalledMasters = invisibleMasters.filter(function (item) {
+          var masterComponent = App.MasterComponent.find().findProperty('componentName', item.get('componentName'));
+          return masterComponent &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!!masterComponent.get('totalCount');</span>
+        }).mapProperty("componentName");
+      }
+      if (this.get('isInstallerWizard') || this.get('isAddServiceWizard')) {
+        masterBlueprint = this.getCurrentMastersBlueprint();
+        var selectedClientComponents = this.get('content.clients').mapProperty('component_name');
+        var alreadyInstalledClients = App.get('components.clients').reject(function (c) {
+          return selectedClientComponents.contains(c);
+        });
+        var invisibleComponents = invisibleInstalledMasters.concat(invisibleSlavesAndClients).concat(alreadyInstalledClients);
+        var invisibleBlueprint = blueprintUtils.filterByComponents(this.get('content.recommendations'), invisibleComponents);
+        masterBlueprint = blueprintUtils.mergeBlueprints(masterBlueprint, invisibleBlueprint);
+      } else if (this.get('isAddHostWizard')) {
+        masterBlueprint = this.getCurrentMasterSlaveBlueprint();
+        hostNames = hostNames.concat(App.Host.find().mapProperty("hostName")).uniq();
+        slaveBlueprint = blueprintUtils.addComponentsToBlueprint(slaveBlueprint, invisibleSlavesAndClients);
+      }
+      return blueprintUtils.mergeBlueprints(masterBlueprint, slaveBlueprint);
+    },
+&nbsp;
+    /**
+     * Success-callback for validations request
+     * @param {object} data
+     * @method updateValidationsSuccessCallback
+     * @override App.HostComponentRecommendationMixin
+     */
+    updateValidationsSuccessCallback: function updateValidationsSuccessCallback(data) {
+      var clientComponents = App.get('components.clients');
+&nbsp;
+      this.set('generalErrorMessages', []);
+      this.set('generalWarningMessages', []);
+      this.get('hosts').setEach('warnMessages', []);
+      this.get('hosts').setEach('errorMessages', []);
+      this.get('hosts').setEach('anyMessage', false);
+      this.get('hosts').forEach(function (host) {
+        host.checkboxes.setEach('hasWarnMessage', false);
+        host.checkboxes.setEach('hasErrorMessage', false);
+      });
+      var anyGeneralClientErrors = false; // any error/warning for any client component (under "CLIENT" alias)
+&nbsp;
+      var validationData = validationUtils.filterNotInstalledComponents(data);
+      validationData.filterProperty('type', 'host-component').filter(function (i) {
+        return !(i['component-name'] &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >App.StackServiceComponent.find().findProperty('componentName', i['component-name']).get('isMaster'))</span>;
+      }).forEach(function (item) {
+        var checkboxWithIssue = null;
+        var isGeneralClientValidationItem = clientComponents.contains(item['component-name']); // it is an error/warning for any client component (under "CLIENT" alias)
+        var host = this.get('hosts').find(function (h) {
+          return h.hostName === item.host &amp;&amp; h.checkboxes.some(function (checkbox) {
+            var isClientComponent = checkbox.component === "CLIENT" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >isGeneralClientValidationItem;</span>
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (checkbox.component === item['component-name'] || <span class="branch-1 cbranch-no" title="branch not covered" >isClientComponent)</span> {
+              checkboxWithIssue = checkbox;
+              return true;
+            }
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+          });
+        });
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (host) {
+          Em.set(host, 'anyMessage', true);
+&nbsp;
+          if (item.level === 'ERROR') {
+            host.errorMessages.pushObject(item.message);
+            Em.set(checkboxWithIssue, 'hasErrorMessage', true);
+          } else <span class="missing-if-branch" title="else path not taken" >E</span>if (item.level === 'WARN') {
+            host.warnMessages.pushObject(item.message);
+            Em.set(checkboxWithIssue, 'hasWarnMessage', true);
+          }
+        } else {
+<span class="cstat-no" title="statement not covered" >          var componentHeader = this.get('headers').findProperty('name', item['component-name']);</span>
+<span class="cstat-no" title="statement not covered" >          if (componentHeader &amp;&amp; componentHeader.get('isDisabled')) {</span>
+            // skip validation messages for components which disabled for editing
+<span class="cstat-no" title="statement not covered" >            return;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          var component;</span>
+<span class="cstat-no" title="statement not covered" >          if (isGeneralClientValidationItem) {</span>
+<span class="cstat-no" title="statement not covered" >            if (!anyGeneralClientErrors) {</span>
+<span class="cstat-no" title="statement not covered" >              anyGeneralClientErrors = true;</span>
+<span class="cstat-no" title="statement not covered" >              component = "Client";</span>
+            }
+          } else {
+<span class="cstat-no" title="statement not covered" >            component = item['component-name'];</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (component || !item['component-name']) {</span>
+<span class="cstat-no" title="statement not covered" >            var details = "";</span>
+<span class="cstat-no" title="statement not covered" >            if (item.host) {</span>
+<span class="cstat-no" title="statement not covered" >              details += " (" + item.host + ")";</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (item.level === 'ERROR') {</span>
+<span class="cstat-no" title="statement not covered" >              this.get('generalErrorMessages').push(item.message + details);</span>
+            } else <span class="cstat-no" title="statement not covered" >if (item.level === 'WARN') {</span>
+<span class="cstat-no" title="statement not covered" >              this.get('generalWarningMessages').push(item.message + details);</span>
+            }
+          }
+        }
+      }, this);
+    },
+&nbsp;
+    /**
+     * Error-callback for validations request
+     * @param {object} jqXHR
+     * @param {object} ajaxOptions
+     * @param {string} error
+     * @param {object} opt
+     * @method updateValidationsErrorCallback
+     * @override App.HostComponentRecommendationMixin
+     */
+    updateValidationsErrorCallback: <span class="fstat-no" title="function not covered" >function updateValidationsErrorCallback(jqXHR, ajaxOptions, error, opt) {</span>},
+&nbsp;
+    /**
+     * Composes selected values of comboboxes into blueprint format
+     */
+    getCurrentBlueprint: function getCurrentBlueprint() {
+      var clientComponents = this.get('content.clients').mapProperty('component_name');
+      var components = this.get('hosts').reduce(function (acc, host) {
+        var checked = host.checkboxes.filterProperty('checked', true).mapProperty('component');
+        var componentNames = checked.indexOf('CLIENT') &gt; -1 ? checked.without('CLIENT').concat(clientComponents) : checked;
+        return acc.concat(componentNames.map(function (componentName) {
+          return Em.Object.create({
+            componentName: componentName,
+            hostName: Em.get(host, 'hostName')
+          });
+        }));
+      }, []);
+      return this.getComponentsBlueprint(components);
+    },
+&nbsp;
+    /**
+     * Create blueprint from assigned master components to appropriate hosts
+     * @returns {Object}
+     * @method getCurrentMastersBlueprint
+     */
+    getCurrentMastersBlueprint: function getCurrentMastersBlueprint() {
+      var masters = this.get('content.masterComponentHosts');
+      var mastersBlueprint = this.getComponentsBlueprint(masters.map(function (component) {
+        var c = Em.Object.create(component);
+        c.set('componentName', c.get('component'));
+        return c;
+      }), this.get('hosts').mapProperty('hostName'));
+      return blueprintUtils.mergeBlueprints(mastersBlueprint, this.getCurrentSlaveBlueprint());
+    },
+&nbsp;
+    /**
+     * In case of any validation issues shows accept dialog box for user which allow cancel and fix issues or continue anyway
+     * @metohd submit
+     */
+    showValidationIssuesAcceptBox: function showValidationIssuesAcceptBox(callback) {
+      var self = this;
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (self.get('anyWarnings') || self.get('anyErrors')) {
+<span class="cstat-no" title="statement not covered" >        App.ModalPopup.show({</span>
+          'data-qa': 'validation-issues-modal',
+          primary: Em.I18n.t('common.continueAnyway'),
+          header: Em.I18n.t('installer.step6.validationIssuesAttention.header'),
+          body: Em.I18n.t('installer.step6.validationIssuesAttention'),
+          primaryClass: 'btn-danger',
+          onPrimary: <span class="fstat-no" title="function not covered" >function onPrimary() {</span>
+<span class="cstat-no" title="statement not covered" >            this.hide();</span>
+<span class="cstat-no" title="statement not covered" >            callback();</span>
+          },
+          onSecondary: <span class="fstat-no" title="function not covered" >function onSecondary() {</span>
+<span class="cstat-no" title="statement not covered" >            App.set('router.nextBtnClickInProgress', false);</span>
+<span class="cstat-no" title="statement not covered" >            this._super();</span>
+          }
+        });
+      } else {
+        callback();
+      }
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

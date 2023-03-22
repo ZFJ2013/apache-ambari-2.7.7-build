@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/main/charts/heatmap.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/controllers/main/charts/heatmap.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(75 / 75)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">70.59% <small>(24 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(23 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(75 / 75)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/controllers/main/charts/</a> &#187; heatmap.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("controllers/main/charts/heatmap", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one or more
+   * contributor license agreements. See the NOTICE file distributed with this
+   * work for additional information regarding copyright ownership. The ASF
+   * licenses this file to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   * http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+   * License for the specific language governing permissions and limitations under
+   * the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.MainChartsHeatmapController = Em.Controller.extend(App.WidgetSectionMixin, {
+    name: 'mainChartsHeatmapController',
+    rackMap: {},
+    racks: [],
+    rackViews: [],
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    isLoaded: false,
+&nbsp;
+    /**
+     * Heatmap metrics that are available choices  on the page
+     */
+    heatmapCategories: [],
+&nbsp;
+    allHeatmaps: [],
+&nbsp;
+    layoutNameSuffix: "_heatmap",
+&nbsp;
+    sectionNameSuffix: "_HEATMAPS",
+&nbsp;
+    loadRacksUrlParams: 'fields=Hosts/rack_info,Hosts/host_name,Hosts/public_host_name,Hosts/os_type,Hosts/ip,host_components,metrics/disk,metrics/cpu/cpu_system,metrics/cpu/cpu_user,metrics/memory/mem_total,metrics/memory/mem_free&amp;minimal_response=true',
+&nbsp;
+    /**
+     * @type {string}
+     */
+    loadHeatmapsUrlParams: function () {
+      var serviceName = this.get('content.serviceName');
+      if (serviceName) {
+        return 'WidgetInfo/widget_type=HEATMAP&amp;WidgetInfo/scope=CLUSTER&amp;WidgetInfo/metrics.matches(.*\"service_name\":\"' + serviceName + '\".*)&amp;fields=WidgetInfo/metrics';
+      } else {
+        return 'WidgetInfo/widget_type=HEATMAP&amp;WidgetInfo/scope=CLUSTER&amp;fields=WidgetInfo/metrics';
+      }
+    }.property('content.serviceName'),
+&nbsp;
+    selectedMetric: null,
+&nbsp;
+    inputMaximum: '',
+&nbsp;
+    /**
+     * Heatmap widget currently shown on the page
+     */
+    activeWidget: Em.computed.alias('widgets.firstObject'),
+&nbsp;
+    /**
+     * This function is called from the bound view of the controller
+     */
+    loadPageData: function loadPageData() {
+      var self = this;
+&nbsp;
+      this.loadRacks().always(function () {
+        self.resetPageData();
+        self.getAllHeatMaps().done(function (allHeatmapData) {
+          self.set('isLoaded', true);
+          allHeatmapData.items.forEach(function (_allHeatmapData) {
+            self.get('allHeatmaps').pushObject(_allHeatmapData.WidgetInfo);
+          });
+          var categories = self.categorizeByServiceName(self.get('allHeatmaps'));
+          self.set('heatmapCategories', categories);
+          self.getActiveWidgetLayout();
+        });
+      });
+    },
+&nbsp;
+    /**
+     * categorize heatmaps with respect to service names
+     * @param {Array} allHeatmaps
+     * @return {Array}
+     */
+    categorizeByServiceName: function categorizeByServiceName(allHeatmaps) {
+      var categories = [];
+&nbsp;
+      allHeatmaps.forEach(function (_heatmap) {
+        var serviceNames = JSON.parse(_heatmap.metrics).mapProperty('service_name').uniq();
+        serviceNames.forEach(function (_serviceName) {
+          var category = categories.findProperty('serviceName', _serviceName);
+          if (!category) {
+            categories.pushObject(Em.Object.create({
+              serviceName: _serviceName,
+              displayName: _serviceName === 'STACK' ? <span class="branch-0 cbranch-no" title="branch not covered" >'Host' </span>: App.format.role(_serviceName, true),
+              heatmaps: [_heatmap]
+            }));
+          } else {
+            category.get('heatmaps').pushObject(_heatmap);
+          }
+        }, this);
+      }, this);
+      return categories;
+    },
+&nbsp;
+    /**
+     * clears/resets the data. This function should be called every time user navigates to heatmap page
+     */
+    resetPageData: function resetPageData() {
+      this.get('heatmapCategories').clear();
+      this.get('allHeatmaps').clear();
+    },
+&nbsp;
+    /**
+     *  Gets all heatmap widgets that should be available in select metrics dropdown on heatmap page
+     * @return {$.ajax}
+     */
+    getAllHeatMaps: function getAllHeatMaps() {
+      var urlParams = this.get('loadHeatmapsUrlParams');
+&nbsp;
+      return App.ajax.send({
+        name: 'widgets.get',
+        sender: this,
+        data: {
+          urlParams: urlParams,
+          sectionName: this.get('sectionName')
+        }
+      });
+    },
+&nbsp;
+    /**
+     * get hosts from server
+     */
+    loadRacks: function loadRacks() {
+      this.get('racks').clear();
+      this.set('rackMap', {});
+      var urlParams = this.get('loadRacksUrlParams');
+      return App.ajax.send({
+        name: 'hosts.heatmaps',
+        sender: this,
+        data: {
+          urlParams: urlParams
+        },
+        success: 'loadRacksSuccessCallback'
+      });
+    },
+&nbsp;
+    loadRacksSuccessCallback: function loadRacksSuccessCallback(data, opt, params) {
+      var hosts = [];
+      data.items.forEach(function (item) {
+        hosts.push({
+          hostName: item.Hosts.host_name,
+          publicHostName: item.Hosts.public_host_name,
+          osType: item.Hosts.os_type,
+          ip: item.Hosts.ip,
+          rack: item.Hosts.rack_info,
+          diskTotal: item.metrics ? <span class="branch-0 cbranch-no" title="branch not covered" >item.metrics.disk.disk_total </span>: 0,
+          diskFree: item.metrics ? <span class="branch-0 cbranch-no" title="branch not covered" >item.metrics.disk.disk_free </span>: 0,
+          cpuSystem: item.metrics ? <span class="branch-0 cbranch-no" title="branch not covered" >item.metrics.cpu.cpu_system </span>: 0,
+          cpuUser: item.metrics ? <span class="branch-0 cbranch-no" title="branch not covered" >item.metrics.cpu.cpu_user </span>: 0,
+          memTotal: item.metrics ? <span class="branch-0 cbranch-no" title="branch not covered" >item.metrics.memory.mem_total </span>: 0,
+          memFree: item.metrics ? <span class="branch-0 cbranch-no" title="branch not covered" >item.metrics.memory.mem_free </span>: 0,
+          hostComponents: item.host_components.mapProperty('HostRoles.component_name')
+        });
+      });
+      var rackMap = this.indexByRackId(hosts);
+      var racks = this.toList(rackMap);
+      //this list has an empty host array property
+      this.set('rackMap', rackMap);
+      this.set('racks', racks);
+    },
+&nbsp;
+    /**
+     * @param {Array} hosts
+     * @returns {Object} rackMap
+     */
+    indexByRackId: function indexByRackId(hosts) {
+      var rackMap = {};
+&nbsp;
+      hosts.forEach(function (host) {
+        var rackId = host.rack;
+        if (!rackMap[rackId]) {
+          rackMap[rackId] = Em.Object.create({
+            name: rackId,
+            rackId: rackId,
+            hosts: [host]
+          });
+        } else {
+          rackMap[rackId].hosts.push(host);
+        }
+      });
+      return rackMap;
+    },
+&nbsp;
+    /**
+     *
+     * @param {Object} rackMap
+     * @returns {Array} racks
+     */
+    toList: function toList(rackMap) {
+      var racks = [];
+      var i = 0;
+      for (var rackKey in rackMap) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (rackMap.hasOwnProperty(rackKey)) {
+          racks.push(Em.Object.create({
+            name: rackKey,
+            rackId: rackKey,
+            hosts: rackMap[rackKey].hosts,
+            isLoaded: false,
+            index: i++
+          }));
+        }
+      }
+      return racks;
+    },
+&nbsp;
+    validation: function () {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('selectedMetric')) {
+        if (/^\d+$/.test(this.get('inputMaximum'))) {
+          $('#inputMaximum').removeClass('error');
+          this.set('selectedMetric.maximumValue', this.get('inputMaximum'));
+        } else {
+          $('#inputMaximum').addClass('error');
+        }
+      }
+    }.observes('inputMaximum'),
+&nbsp;
+    addRackView: function addRackView(view) {
+      this.get('rackViews').push(view);
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('rackViews').length == this.get('racks').length) {
+        this.displayAllRacks();
+      }
+    },
+&nbsp;
+    displayAllRacks: function displayAllRacks() {
+      if (this.get('rackViews').length) {
+        this.get('rackViews').pop().displayHosts();
+        this.displayAllRacks();
+      }
+    },
+&nbsp;
+    showHeatMapMetric: function showHeatMapMetric(event) {
+      var self = this;
+      var metricItem = Em.Object.create(event.context);
+      this.saveWidgetLayout([metricItem]).done(function () {
+        self.getActiveWidgetLayout();
+      });
+    },
+&nbsp;
+    hostToSlotMap: Em.computed.alias('selectedMetric.hostToSlotMap'),
+&nbsp;
+    /**
+     * return class name for to be used for containing each rack.
+     *
+     * @this App.MainChartsHeatmapController
+     */
+    rackClass: function () {
+      var rackCount = this.get('racks.length');
+      if (rackCount &lt; 2) {
+        return "col-md-12";
+      }
+      if (rackCount === 2) {
+        return "col-md-6";
+      }
+      return "col-md-4";
+    }.property('racks.length')
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/utils/configs/move_namenode_config_initializer.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/utils/configs/move_namenode_config_initializer.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(25 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">77.78% <small>(14 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(5 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(25 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/utils/configs/</a> &#187; move_namenode_config_initializer.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("utils/configs/move_namenode_config_initializer", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  require('utils/configs/move_component_config_initializer_class');
+&nbsp;
+  /**
+   * Initializer for configs which should be affected when NameNode is moved from one host to another
+   * If NameNode HA-mode is already activated, several configs are also updated
+   *
+   * @instance MoveComponentConfigInitializerClass
+   */
+  App.MoveNameNodeConfigInitializer = App.MoveComponentConfigInitializerClass.create({
+&nbsp;
+    initializers: {
+      'dfs.namenode.http-address.{{namespaceId}}.{{suffix}}': App.MoveComponentConfigInitializerClass.getTargetHostConfig(50070),
+      'dfs.namenode.https-address.{{namespaceId}}.{{suffix}}': App.MoveComponentConfigInitializerClass.getTargetHostConfig(50470),
+      'dfs.namenode.rpc-address.{{namespaceId}}.{{suffix}}': App.MoveComponentConfigInitializerClass.getTargetHostConfig(8020),
+      'dfs.namenode.servicerpc-address.{{namespaceId}}.{{suffix}}': App.MoveComponentConfigInitializerClass.getTargetHostConfig(8021),
+      'dfs.namenode.lifeline.rpc-address.{{namespaceId}}.{{suffix}}': App.MoveComponentConfigInitializerClass.getTargetHostConfig(8050)
+    },
+&nbsp;
+    uniqueInitializers: {
+      'instance.volumes': '_initInstanceVolumes',
+      'instance.volumes.replacements': '_initInstanceVolumesReplacements',
+      'hbase.rootdir': '_initHbaseRootDir',
+      'hawq_dfs_url': '_initHawqDfsUrl'
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;instance.volumes&lt;/code&gt;-config
+     * Value example: 'hdfs://host1:8020/apps/accumulo/data'
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {reassignComponentDependencies} dependencies
+     * @returns {object}
+     * @private
+     * @method _initInstanceVolumes
+     */
+    _initInstanceVolumes: function _initInstanceVolumes(configProperty, localDB, dependencies) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!App.get('isHaEnabled') &amp;&amp; localDB.installedServices.contains('ACCUMULO')) {
+        var value = Em.get(configProperty, 'value');
+        value = value.replace(/\/\/[^\/]*/, '//' + dependencies.targetHostName + ':8020');
+        Em.set(configProperty, 'value', value);
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;instance.volumes.replacements&lt;/code&gt;-config
+     * Value example: 'hdfs://host1:8020/apps/accumulo/data hdfs://host2:8020/apps/accumulo/data'
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {reassignComponentDependencies} dependencies
+     * @returns {object}
+     * @private
+     * @method _initInstanceVolumesReplacements
+     */
+    _initInstanceVolumesReplacements: function _initInstanceVolumesReplacements(configProperty, localDB, dependencies) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!App.get('isHaEnabled') &amp;&amp; localDB.installedServices.contains('ACCUMULO')) {
+        var target = 'hdfs://' + dependencies.targetHostName + ':8020' + '/apps/accumulo/data';
+        var source = 'hdfs://' + dependencies.sourceHostName + ':8020' + '/apps/accumulo/data';
+        var value = source + ' ' + target;
+        Em.set(configProperty, 'value', value);
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;hbase.rootdir&lt;/code&gt;-config (for HIVE service)
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {reassignComponentDependencies} dependencies
+     * @returns {object}
+     * @private
+     * @method _initHbaseRootDir
+     */
+    _initHbaseRootDir: function _initHbaseRootDir(configProperty, localDB, dependencies) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!App.get('isHaEnabled') &amp;&amp; localDB.installedServices.contains('HBASE') &amp;&amp; 'hbase-site' === configProperty.filename) {
+        var value = Em.get(configProperty, 'value');
+        value = value.replace(/\/\/[^\/]*/, '//' + dependencies.targetHostName + ':8020');
+        Em.set(configProperty, 'value', value);
+      }
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Unique initializer for &lt;code&gt;hawq_dfs_url&lt;/code&gt;-config (for HAWQ service)
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {reassignComponentDependencies} dependencies
+     * @returns {object}
+     * @private
+     * @method _initHawqDfsUrl
+     */
+    _initHawqDfsUrl: function _initHawqDfsUrl(configProperty, localDB, dependencies) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!App.get('isHaEnabled') &amp;&amp; localDB.installedServices.contains('HAWQ') &amp;&amp; 'hawq-site' === configProperty.filename) {
+        var value = Em.get(configProperty, 'value');
+        value = value.replace(/(.*):/, dependencies.targetHostName + ':');
+        Em.set(configProperty, 'value', value);
+      }
+      return configProperty;
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

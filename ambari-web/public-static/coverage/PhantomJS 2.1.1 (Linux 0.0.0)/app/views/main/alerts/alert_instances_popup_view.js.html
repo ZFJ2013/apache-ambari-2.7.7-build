@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/main/alerts/alert_instances_popup_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/main/alerts/alert_instances_popup_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">8.16% <small>(4 / 49)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">7.14% <small>(1 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">8.7% <small>(4 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/views/main/alerts/</a> &#187; alert_instances_popup_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/main/alerts/alert_instances_popup_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  /**
+   * Option for "filter by state" drop down
+   * @typedef {object} categoryObject
+   * @property {string} value "all|warning|critical"
+   * @property {number} count number of items with &lt;code&gt;state&lt;/code&gt; equal to &lt;code&gt;this.value&lt;/code&gt;
+   * @property {string} labelPath key in the messages.js
+   * @property {string} label localized label
+   */
+  var categoryObject = Em.Object.extend({
+    value: '',
+    count: 0,
+    labelPath: '',
+    label: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return Em.I18n.t(this.get('labelPath')).format(this.get('count'));</span>
+    }.property('count', 'labelPath')
+  });
+&nbsp;
+  App.AlertInstancesPopupView = App.TableView.extend(App.TableServerViewMixin, {
+&nbsp;
+    templateName: require('templates/main/alerts/alert_notifications_popup'),
+&nbsp;
+    updaterBinding: 'App.router.updateController',
+&nbsp;
+    controllerBinding: 'App.router.mainAlertInstancesController',
+&nbsp;
+    /**
+     * Number of all critical and warning alert instances
+     * @type {Boolean}
+     */
+    alertsNumberBinding: 'App.router.mainAlertDefinitionsController.unhealthyAlertInstancesCount',
+    criticalNumberBinding: 'App.router.mainAlertDefinitionsController.criticalAlertInstancesCount',
+    warningNumberBinding: 'App.router.mainAlertDefinitionsController.warningAlertInstancesCount',
+&nbsp;
+    isPaginate: false,
+&nbsp;
+    willInsertElement: <span class="fstat-no" title="function not covered" >function willInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >      this._super();</span>
+<span class="cstat-no" title="statement not covered" >      this.updateAlertInstances();</span>
+    },
+&nbsp;
+    didInsertElement: <span class="fstat-no" title="function not covered" >function didInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >      this.filter();</span>
+<span class="cstat-no" title="statement not covered" >      this.addObserver('filteringComplete', this, this.overlayObserver);</span>
+<span class="cstat-no" title="statement not covered" >      this.overlayObserver();</span>
+<span class="cstat-no" title="statement not covered" >      this.$(".filter-select ").click(<span class="fstat-no" title="function not covered" >function (event) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return event.stopPropagation();</span>
+      });
+<span class="cstat-no" title="statement not covered" >      return this._super();</span>
+    },
+&nbsp;
+    content: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('controller.unhealthyAlertInstances');</span>
+    }.property('controller.unhealthyAlertInstances.@each.state'),
+&nbsp;
+    isLoaded: Em.computed.bool('controller.unhealthyAlertInstances'),
+&nbsp;
+    isAlertEmptyList: Em.computed.or('isAlertContentEmptyList', 'isAlertFilterdEmptyList'),
+    isAlertContentEmptyList: Em.computed.empty('content'),
+    isAlertFilterdEmptyList: Em.computed.everyBy('content', 'isVisible', false),
+&nbsp;
+    displayLength: 100,
+&nbsp;
+    /**
+     * Update list of shown alert instances
+     * @method updateAlertInstances
+     */
+    updateAlertInstances: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this,</span>
+          displayLength = this.get('displayLength'),
+          startIndex = this.get('startIndex');
+<span class="cstat-no" title="statement not covered" >      if (!displayLength) <span class="cstat-no" title="statement not covered" >return; </span></span>// wait while table-info is loaded
+<span class="cstat-no" title="statement not covered" >      this.get('updater').set('queryParamsForUnhealthyAlertInstances', {</span>
+        from: startIndex - 1,
+        page_size: displayLength
+      });
+<span class="cstat-no" title="statement not covered" >      this.set('filteringComplete', false);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('updater').updateUnhealthyAlertInstances(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        self.set('filteringComplete', true);</span>
+      });
+    }.observes('displayLength', 'startIndex', 'alertsNumber'),
+&nbsp;
+    /**
+     * Show spinner when filter/sorting request is in processing
+     * @method overlayObserver
+     */
+    overlayObserver: <span class="fstat-no" title="function not covered" >function overlayObserver() {</span>
+<span class="cstat-no" title="statement not covered" >      var $tbody = this.$('.table.alerts-table'),</span>
+          $overlay = this.$('.table-overlay'),
+          $spinner = $($overlay).find('.spinner');
+<span class="cstat-no" title="statement not covered" >      if (!this.get('filteringComplete')) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!$tbody) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        var tbodyPos = $tbody.position();</span>
+<span class="cstat-no" title="statement not covered" >        if (!tbodyPos) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >        $spinner.css('display', 'block');</span>
+<span class="cstat-no" title="statement not covered" >        $overlay.css({</span>
+          top: tbodyPos.top + 1,
+          left: tbodyPos.left + 1,
+          width: $tbody.width() - 1,
+          height: $tbody.height() - 1
+        });
+      }
+    },
+&nbsp;
+    categories: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var allCnt = this.get('alertsNumber');</span>
+<span class="cstat-no" title="statement not covered" >      var criticalCnt = this.get('criticalNumber');</span>
+<span class="cstat-no" title="statement not covered" >      var warningCnt = this.get('warningNumber');</span>
+<span class="cstat-no" title="statement not covered" >      return [categoryObject.create({</span>
+        value: 'all',
+        labelPath: 'alerts.dropdown.dialog.filters.all',
+        count: allCnt
+      }), categoryObject.create({
+        value: 'alert-state-CRITICAL',
+        labelPath: 'alerts.dropdown.dialog.filters.critical',
+        count: criticalCnt
+      }), categoryObject.create({
+        value: 'alert-state-WARNING',
+        labelPath: 'alerts.dropdown.dialog.filters.warning',
+        count: warningCnt
+      })];
+    }.property('criticalNumber', 'warningNumber', 'alertsNumber'),
+&nbsp;
+    selectedCategory: null,
+&nbsp;
+    /**
+     * Filter notifications by state
+     * @method filter
+     */
+    filter: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var selectedState = this.get('selectedCategory.value');</span>
+<span class="cstat-no" title="statement not covered" >      var content = this.get('content');</span>
+<span class="cstat-no" title="statement not covered" >      if (selectedState == 'all') {</span>
+<span class="cstat-no" title="statement not covered" >        content.setEach("isVisible", true);</span>
+<span class="cstat-no" title="statement not covered" >        this.set('filteredContent', content);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.set('filteredContent', content.filter(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (item.get('stateClass') == selectedState) {</span>
+<span class="cstat-no" title="statement not covered" >            item.set('isVisible', true);</span>
+<span class="cstat-no" title="statement not covered" >            return true;</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            item.set('isVisible', false);</span>
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+          }
+        }));
+      }
+    }.observes('content.length', 'selectedCategory'),
+&nbsp;
+    /**
+     * Router transition to alert definition details page
+     * @param event
+     */
+    gotoAlertDetails: <span class="fstat-no" title="function not covered" >function gotoAlertDetails(event) {</span>
+<span class="cstat-no" title="statement not covered" >      if (event &amp;&amp; event.context) {</span>
+<span class="cstat-no" title="statement not covered" >        var definition = App.AlertDefinition.find().findProperty('id', event.context.get('definitionId'));</span>
+<span class="cstat-no" title="statement not covered" >        App.router.transitionTo('main.alerts.alertDetails', definition);</span>
+      }
+    },
+&nbsp;
+    /**
+     * Router transition to alert definition page
+     */
+    gotoAllAlerts: <span class="fstat-no" title="function not covered" >function gotoAllAlerts() {</span>
+<span class="cstat-no" title="statement not covered" >      App.router.transitionTo('main.alerts.index');</span>
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

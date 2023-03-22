@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/global/user_settings_controller.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/controllers/global/user_settings_controller.js</span></h1>
+    <h2>
+        Statements: <span class="metric">78.22% <small>(79 / 101)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">63.64% <small>(28 / 44)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">76.92% <small>(20 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">78.22% <small>(79 / 101)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/controllers/global/</a> &#187; user_settings_controller.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("controllers/global/user_settings_controller", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  var timezoneUtils = require('utils/date/timezone');
+&nbsp;
+  /**
+   * Controller for user settings
+   * Allows to get them from persist and update them to the persist
+   *
+   * @class UserSettingsController
+   */
+  App.UserSettingsController = Em.Controller.extend(App.Persist, {
+&nbsp;
+    name: 'userSettingsController',
+&nbsp;
+    /**
+     * @type {object}
+     */
+    userSettings: {},
+&nbsp;
+    /**
+     * Each property's type is {name: string, defaultValue: *, formatter: function}
+     *
+     * @type {object}
+     */
+    userSettingsKeys: function () {
+      var loginName = App.router.get('loginName');
+      var prefix = 'admin-settings-';
+      return {
+        show_bg: {
+          name: prefix + 'show-bg-' + loginName,
+          defaultValue: true
+        },
+        timezone: {
+          name: prefix + 'timezone-' + loginName,
+          defaultValue: timezoneUtils.detectUserTimezone(),
+          formatter: <span class="fstat-no" title="function not covered" >function formatter(v) {</span>
+<span class="cstat-no" title="statement not covered" >            return timezoneUtils.get('timezonesMappedByValue')[v];</span>
+          }
+        }
+      };
+    }.property('App.router.loginName'),
+&nbsp;
+    /**
+     * Load some user's setting from the persist
+     * If &lt;code&gt;persistKey&lt;/code&gt; is not provided, all settings are loaded
+     *
+     * @param {string} [persistKey]
+     * @method dataLoading
+     * @returns {$.Deferred.promise}
+     */
+    dataLoading: function dataLoading(persistKey) {
+      var key = persistKey ? this.get('userSettingsKeys.' + persistKey + '.name') : '';
+      var dfd = $.Deferred();
+      var self = this;
+      this.getUserPref(key).complete(function () {
+        var curPref = self.get('currentPrefObject');
+        self.set('currentPrefObject', null);
+        dfd.resolve(curPref);
+      });
+      return dfd.promise();
+    },
+&nbsp;
+    /**
+     * Success-callback for user pref
+     *
+     * @param {?object} response
+     * @param {object} opt
+     * @returns {?object}
+     * @method getUserPrefSuccessCallback
+     */
+    getUserPrefSuccessCallback: function getUserPrefSuccessCallback(response, opt) {
+      var getAllRequest = opt.url.endsWith('persist/');
+      if (Em.isNone(response)) {
+        this.updateUserPrefWithDefaultValues(response, getAllRequest);
+      }
+      this.set('currentPrefObject', response);
+      return response;
+    },
+&nbsp;
+    /**
+     * Error-callback for user-pref request
+     * Update user pref with default values if user firstly login
+     *
+     * @param {object} request
+     * @method getUserPrefErrorCallback
+     */
+    getUserPrefErrorCallback: function getUserPrefErrorCallback(request) {
+      // this user is first time login
+      if (404 === request.status) {
+        this.updateUserPrefWithDefaultValues();
+      }
+    },
+&nbsp;
+    /**
+     * Load all current user's settings to the &lt;code&gt;userSettings&lt;/code&gt;
+     *
+     * @method getAllUserSettings
+     */
+    getAllUserSettings: function getAllUserSettings() {
+      var userSettingsKeys = this.get('userSettingsKeys');
+      var userSettings = {};
+      var self = this;
+      this.dataLoading().done(function (json) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!json) {
+<span class="cstat-no" title="statement not covered" >          return;</span>
+        }
+        Object.keys(userSettingsKeys).forEach(function (k) {
+          var value = userSettingsKeys[k].defaultValue;
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (undefined === json[userSettingsKeys[k].name]) {
+            self.postUserPref(k, userSettingsKeys[k].defaultValue);
+          } else {
+<span class="cstat-no" title="statement not covered" >            value = JSON.parse(json[userSettingsKeys[k].name]);</span>
+          }
+          <span class="missing-if-branch" title="if path not taken" >I</span>if ('function' === Em.typeOf(userSettingsKeys[k].formatter)) {
+<span class="cstat-no" title="statement not covered" >            value = userSettingsKeys[k].formatter(value);</span>
+          }
+          userSettings[k] = value;
+        });
+      });
+      this.set('userSettings', userSettings);
+    },
+&nbsp;
+    /**
+     * If user doesn't have any settings stored in the persist,
+     * default values should be populated there
+     *
+     * @param {object} [response]
+     * @param {boolean} [getAllRequest] determines, if user tried to get one field or all fields
+     * @method updateUserPrefWithDefaultValues
+     */
+    updateUserPrefWithDefaultValues: function updateUserPrefWithDefaultValues(response, getAllRequest) {
+      var r = response || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+      var keys = this.get('userSettingsKeys');
+      var self = this;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (getAllRequest) {
+        Object.keys(keys).forEach(function (key) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (Em.isNone(r[keys[key].name])) {
+            self.postUserPref(key, keys[key].defaultValue);
+          }
+        });
+      }
+    },
+&nbsp;
+    /**
+     * "Short"-key method for post user settings to the persist
+     * Example:
+     *  real key is something like 'userSettingsKeys.timezone.name'
+     *  but user should call this method with 'timezone'
+     *
+     * @method postUserPref
+     * @param {string} key
+     * @param {*} value
+     * @returns {*}
+     */
+    postUserPref: function postUserPref(key, value) {
+      var normalizedKey = key.startsWith('userSettingsKeys.') ? key : 'userSettingsKeys.' + key + '.name';
+      var shortKey = normalizedKey.replace('userSettingsKeys.', '').replace('.name', '');
+      this.set('userSettings.' + shortKey, value);
+      return this._super(this.get(normalizedKey), value);
+    },
+&nbsp;
+    /**
+     * Open popup with user settings after settings-request is complete
+     *
+     * @method showSettingsPopup
+     */
+    showSettingsPopup: function showSettingsPopup() {
+      var self = this;
+      // Settings only for admins
+      if (!App.isAuthorized('CLUSTER.UPGRADE_DOWNGRADE_STACK')) {
+        return;
+      }
+&nbsp;
+      this.dataLoading().done(function (response) {
+        self.loadPrivileges().complete(function () {
+          self._showSettingsPopup(response);
+        });
+      });
+    },
+&nbsp;
+    loadPrivileges: function loadPrivileges() {
+      return App.ajax.send({
+        name: 'router.user.privileges',
+        sender: this,
+        data: {
+          userName: App.db.getLoginName()
+        },
+        success: 'loadPrivilegesSuccessCallback'
+      });
+    },
+&nbsp;
+    loadPrivilegesSuccessCallback: function loadPrivilegesSuccessCallback(data) {
+      var key,
+          privileges = this.parsePrivileges(data),
+          clusters = [],
+          views = [];
+&nbsp;
+      for (key in privileges.clusters) {
+        clusters.push({
+          name: key,
+          privileges: privileges.clusters[key]
+        });
+      }
+      for (key in privileges.views) {
+        views.push({
+          instance_name: key,
+          privileges: privileges.views[key].privileges,
+          version: privileges.views[key].version,
+          view_name: privileges.views[key].view_name
+        });
+      }
+      privileges.clusters = clusters;
+      privileges.views = views;
+      this.set('privileges', data.items.length ? privileges : null);
+      this.set('noClusterPriv', Em.isEmpty(clusters));
+      this.set('noViewPriv', Em.isEmpty(views));
+      this.set('hidePrivileges', this.get('noClusterPriv') &amp;&amp; this.get('noViewPriv'));
+    },
+&nbsp;
+    /**
+     *
+     * @param {?object} data
+     * @returns {{clusters: {}, views: {}}}
+     */
+    parsePrivileges: function parsePrivileges(data) {
+      var privileges = {
+        clusters: {},
+        views: {}
+      };
+      data.items.forEach(function (privilege) {
+        privilege = privilege.PrivilegeInfo;
+        if (privilege.type === 'CLUSTER') {
+          // This is cluster
+          privileges.clusters[privilege.cluster_name] = privileges.clusters[privilege.cluster_name] || [];
+          privileges.clusters[privilege.cluster_name].push(privilege.permission_label);
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (privilege.type === 'VIEW') {
+          privileges.views[privilege.instance_name] = privileges.views[privilege.instance_name] || { privileges: [] };
+          privileges.views[privilege.instance_name].version = privilege.version;
+          privileges.views[privilege.instance_name].view_name = privilege.view_name;
+          privileges.views[privilege.instance_name].privileges.push(privilege.permission_label);
+        }
+      });
+      return privileges;
+    },
+&nbsp;
+    /**
+     * Show popup with settings for user
+     * Don't call this method directly! Use &lt;code&gt;showSettingsPopup&lt;/code&gt;
+     *
+     * @param {object} response
+     * @returns {App.ModalPopup}
+     * @method _showSettingsPopup
+     * @private
+     */
+    _showSettingsPopup: function _showSettingsPopup(response) {
+      var keys = this.get('userSettingsKeys');
+      var curValue, self, timezonesFormatted, initValue, initTimezone;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (response[keys.show_bg.name]) {
+<span class="cstat-no" title="statement not covered" >        curValue = null;</span>
+<span class="cstat-no" title="statement not covered" >        self = this;</span>
+<span class="cstat-no" title="statement not covered" >        timezonesFormatted = timezoneUtils.get('timezones');</span>
+<span class="cstat-no" title="statement not covered" >        initValue = JSON.parse(response[keys.show_bg.name]);</span>
+<span class="cstat-no" title="statement not covered" >        initTimezone = timezonesFormatted.findProperty('value', JSON.parse(response[keys.timezone.name]));</span>
+<span class="cstat-no" title="statement not covered" >        return App.ModalPopup.show({</span>
+&nbsp;
+          header: Em.I18n.t('common.userSettings'),
+&nbsp;
+          bodyClass: Em.View.extend({
+&nbsp;
+            templateName: require('templates/common/settings'),
+&nbsp;
+            isNotShowBgChecked: !initValue,
+&nbsp;
+            updateValue: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >              curValue = !this.get('isNotShowBgChecked');</span>
+            }.observes('isNotShowBgChecked'),
+&nbsp;
+            timezonesList: timezonesFormatted,
+&nbsp;
+            privileges: self.get('privileges'),
+&nbsp;
+            isAdmin: App.get('isAdmin'),
+&nbsp;
+            noClusterPriv: self.get('noClusterPriv'),
+&nbsp;
+            noViewPriv: self.get('noViewPriv'),
+&nbsp;
+            hidePrivileges: self.get('hidePrivileges') || App.get('isAdmin')
+          }),
+&nbsp;
+          /**
+           * @type {string}
+           */
+          selectedTimezone: initTimezone,
+&nbsp;
+          primary: Em.I18n.t('common.save'),
+&nbsp;
+          onPrimary: <span class="fstat-no" title="function not covered" >function onPrimary() {</span>
+<span class="cstat-no" title="statement not covered" >            if (Em.isNone(curValue)) {</span>
+<span class="cstat-no" title="statement not covered" >              curValue = initValue;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            var tz = this.get('selectedTimezone.value');</span>
+<span class="cstat-no" title="statement not covered" >            var popup = this;</span>
+<span class="cstat-no" title="statement not covered" >            if (!App.get('testMode')) {</span>
+<span class="cstat-no" title="statement not covered" >              self.postUserPref('show_bg', curValue).always(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                self.postUserPref('timezone', tz).always(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                  if (popup.needsPageRefresh()) {</span>
+<span class="cstat-no" title="statement not covered" >                    location.reload();</span>
+                  }
+                });
+              });
+            }
+<span class="cstat-no" title="statement not covered" >            this._super();</span>
+          },
+&nbsp;
+          /**
+           * Determines if page should be refreshed after user click "Save"
+           *
+           * @returns {boolean}
+           */
+          needsPageRefresh: <span class="fstat-no" title="function not covered" >function needsPageRefresh() {</span>
+<span class="cstat-no" title="statement not covered" >            return initTimezone !== this.get('selectedTimezone');</span>
+          }
+        });
+      } else {
+        App.showAlertPopup(Em.I18n.t('common.error'), Em.I18n.t('app.settings.noData'));
+      }
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/form/spinner_input_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/common/form/spinner_input_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">38.1% <small>(8 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">32.56% <small>(14 / 43)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">28.57% <small>(2 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">38.1% <small>(8 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/form/</a> &#187; spinner_input_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/common/form/spinner_input_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.SpinnerInputView = Em.View.extend({
+    templateName: require('templates/common/form/spinner_input'),
+    classNames: ['spinner-input'],
+&nbsp;
+    /**
+     * Bind content directly from Handlebars template or any another way.
+     * For example:
+     * {{view App.SpinnerInputView contentBinding="someContent"}}
+     *
+     * @property content
+     * @type {Object}
+     */
+    content: {
+&nbsp;
+      /**
+       * Minimal value that can be set. (not required)
+       *
+       * @property [minValue]
+       * @type {Number}
+       */
+      minValue: null,
+&nbsp;
+      /**
+       * Maximum value that can be set. (not required)
+       *
+       * @property [maxValue]
+       * @type {Number}
+       */
+      maxValue: null,
+&nbsp;
+      /**
+       * Input value. (required)
+       *
+       * @property value
+       * @type {String|Number}
+       */
+      value: null,
+&nbsp;
+      /**
+       * Config display name. Will be shown beneath the input. (not required)
+       *
+       * @type {String}
+       * @property [label]
+       */
+      label: null,
+&nbsp;
+      /**
+       * If set to true value will toggle with max|min on property exceed value.
+       *
+       * @property [invertOnOverflow]
+       * @type {Boolean}
+       */
+      invertOnOverflow: false,
+&nbsp;
+      /**
+       * Determines if this control should be enabled or disabled
+       * It's based on increment_step value
+       *
+       * @property [enabled]
+       * @type {Boolean}
+       */
+      enabled: true,
+&nbsp;
+      /**
+       * Increment value
+       *
+       * @property [incrementStep]
+       * @type {Number}
+       */
+      incrementStep: 1
+    },
+&nbsp;
+    /**
+     * Input should be disabled, if whole widget is disabled or if its unit is less than step_increment value
+     * @type {boolean}
+     */
+    computedDisabled: Em.computed.or('!content.enabled', 'disabled'),
+&nbsp;
+    incrementValue: <span class="fstat-no" title="function not covered" >function incrementValue() {</span>
+<span class="cstat-no" title="statement not covered" >      this.setValue(true);</span>
+    },
+&nbsp;
+    decrementValue: <span class="fstat-no" title="function not covered" >function decrementValue() {</span>
+<span class="cstat-no" title="statement not covered" >      this.setValue(false);</span>
+    },
+&nbsp;
+    setValue: <span class="fstat-no" title="function not covered" >function setValue(increment) {</span>
+<span class="cstat-no" title="statement not covered" >      var incrementStep = this.get('content.incrementStep');</span>
+<span class="cstat-no" title="statement not covered" >      var value = parseInt(this.get('content.value')) + (increment ? incrementStep : -incrementStep);</span>
+      // if minimal required value is specified and decremented property value is less than minimal
+<span class="cstat-no" title="statement not covered" >      if (!Em.isEmpty(this.get('content.minValue')) &amp;&amp; !increment &amp;&amp; value &lt; this.get('content.minValue')) {</span>
+        // set maximum value if value invert accepted
+<span class="cstat-no" title="statement not covered" >        value = this.get('content.invertOnOverflow') ? this.get('content.maxValue') + 1 - incrementStep : this.get('content.minValue');</span>
+      }
+      // if maximum require value is specified and incremented value is more than maximum
+      else <span class="cstat-no" title="statement not covered" >if (!Em.isEmpty(this.get('content.maxValue')) &amp;&amp; increment &amp;&amp; value &gt; this.get('content.maxValue')) {</span>
+          // set minimum if value invert accepted
+<span class="cstat-no" title="statement not covered" >          value = this.get('content.invertOnOverflow') ? this.get('content.minValue') : this.get('content.maxValue');</span>
+        }
+<span class="cstat-no" title="statement not covered" >      this.set('content.value', value);</span>
+    },
+&nbsp;
+    /**
+     * Handle keyboard event. Allow digits only and some key maps.
+     */
+    keyDown: function keyDown(e) {
+      var charCode = e.charCode ? e.charCode : <span class="branch-1 cbranch-no" title="branch not covered" >e.which;</span>
+      if ([46, 8, 9, 27, 13, 110].contains(charCode) || charCode == 65 &amp;&amp; e.ctrlKey === true || charCode == 67 &amp;&amp; e.ctrlKey === true || charCode == 88 &amp;&amp; e.ctrlKey === true || charCode &gt;= 35 &amp;&amp; charCode &lt;= 39) {
+        return;
+      }
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (charCode == 190 || (<span class="branch-1 cbranch-no" title="branch not covered" >e.shiftKey </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >charCode &lt; 48 </span>|| <span class="branch-3 cbranch-no" title="branch not covered" >charCode &gt; 57)</span> &amp;&amp; (<span class="branch-4 cbranch-no" title="branch not covered" >charCode &lt; 96 </span>|| <span class="branch-5 cbranch-no" title="branch not covered" >charCode &gt; 105)</span>) {
+        e.preventDefault();
+      }
+    },
+&nbsp;
+    /**
+     * Change value to maximum if exceeded.
+     */
+    keyUp: <span class="fstat-no" title="function not covered" >function keyUp(e) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!Em.isEmpty(this.get('content.maxValue')) &amp;&amp; this.get('content.value') &gt; this.get('content.maxValue')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('content.value', this.get('content.maxValue'));</span>
+      }
+    },
+&nbsp;
+    /**
+     * Set value to 0 if user removed it and changed focus to another element.
+     */
+    focusOut: <span class="fstat-no" title="function not covered" >function focusOut(e) {</span>
+<span class="cstat-no" title="statement not covered" >      if (Em.isEmpty(this.get('content.value'))) {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('content.value', 0);</span>
+      }
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

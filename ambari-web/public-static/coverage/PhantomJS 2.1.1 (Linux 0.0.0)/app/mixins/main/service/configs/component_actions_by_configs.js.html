@@ -1,0 +1,1584 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/mixins/main/service/configs/component_actions_by_configs.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/mixins/main/service/configs/component_actions_by_configs.js</span></h1>
+    <h2>
+        Statements: <span class="metric">84.21% <small>(128 / 152)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">68% <small>(34 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">78.72% <small>(37 / 47)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">84.21% <small>(128 / 152)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">app/mixins/main/service/configs/</a> &#187; component_actions_by_configs.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("mixins/main/service/configs/component_actions_by_configs", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var batchUtils = require('utils/batch_scheduled_requests');
+  var stringUtils = require('utils/string_utils');
+&nbsp;
+  /**
+   * Mixin with methods for component actions that needs to be done when a config with specific value is saved
+   * Used in the service config controller
+   * @type {Em.Mixin}
+   */
+  App.ComponentActionsByConfigs = Em.Mixin.create({
+&nbsp;
+    configAction: null,
+&nbsp;
+    /**
+     * Flag to check if Yarn Queues have been refreshed already
+     */
+    isYarnQueueRefreshed: false,
+&nbsp;
+    /**
+     * Do component add/delete actions as inferred from value of service configs
+     * @public
+     * @method doConfigActions
+     */
+    doConfigActions: function doConfigActions() {
+      var serviceConfigs = this.get('stepConfigs').findProperty('serviceName', this.get('content.serviceName')).get('configs');
+      var configActionComponents = serviceConfigs.filterProperty('configActionComponent');
+      this.isYarnQueueRefreshed = false;
+      this.doComponentDeleteActions(configActionComponents);
+      this.doComponentAddActions(configActionComponents);
+      this.showPopup();
+    },
+&nbsp;
+    /**
+     * Method to show confirmation popup before sending an ajax request
+     */
+    showPopup: function showPopup() {
+      var config_actions = App.ConfigAction.find().filterProperty('actionType', 'showPopup');
+      var self = this;
+      if (config_actions.length) {
+        config_actions.forEach(function (config_action) {
+          var configs = self.get('allConfigs').filterProperty('filename', config_action.get('fileName')).filter(function (item) {
+            return item.get('value') !== item.get('initialValue');
+          });
+&nbsp;
+          if (configs.length) {
+            var hostComponents = App.HostComponent.find();
+            if (config_action.get('fileName') === 'capacity-scheduler.xml' &amp;&amp; !self.isYarnQueueRefreshed) {
+              var isRMRunning = hostComponents.some(function (component) {
+                return component.get('componentName') === 'RESOURCEMANAGER' &amp;&amp; component.get('isRunning');
+              });
+              if (isRMRunning) {
+                var hsiInstance = hostComponents.filterProperty('componentName', 'HIVE_SERVER_INTERACTIVE');
+                if (self.get('content.serviceName') === 'HIVE') {
+                  // Auto refresh yarn capacity scheduler if capacity-scheduler configs are changed from Hive configs page
+                  self.popupPrimaryButtonCallback(config_action);
+                  // Show a popup to restart HSI if HSI is enabled
+                  if (hsiInstance.length &gt; 0) {
+                    self.showHsiRestartPopup(hsiInstance);
+                  }
+                } else {
+                  self.configAction = config_action;
+                  var body = config_action.get('popupProperties').body;
+                  <span class="missing-if-branch" title="if path not taken" >I</span>if (config_action.get('popupProperties').hasOwnProperty('conditionalWarning') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >config_action.get('popupProperties').conditionalWarning === true)</span> {
+                    // Check if Hive Server 2 Interactive is enabled and show a warning message if it is enabled
+<span class="cstat-no" title="statement not covered" >                    if (hsiInstance.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                      body += "&lt;br/&gt;&lt;br/&gt;" + config_action.get('popupProperties').warningMessage;</span>
+                    }
+                  }
+                  App.showConfirmationPopup(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    self.popupPrimaryButtonCallback(config_action);</span>
+                  }, body, null, Em.I18n.t('popup.confirmation.commonHeader'), config_action.get('popupProperties').primaryButton.label, 'success', 'refresh_yarn_queues');
+                }
+              }
+            }
+          }
+        });
+      }
+    },
+&nbsp;
+    showHsiRestartPopup: <span class="fstat-no" title="function not covered" >function showHsiRestartPopup(components) {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      App.showConfirmationPopup(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        self.hsiRestartPopupPrimaryButtonCallback(components);</span>
+      }, Em.I18n.t('popup.confirmation.hsiRestart.body'), null, Em.I18n.t('popup.confirmation.commonHeader'), Em.I18n.t('popup.confirmation.hsiRestart.buttonText'), 'success', 'restart_hsi');
+    },
+&nbsp;
+    hsiRestartPopupPrimaryButtonCallback: <span class="fstat-no" title="function not covered" >function hsiRestartPopupPrimaryButtonCallback(components) {</span>
+<span class="cstat-no" title="statement not covered" >      batchUtils.restartHostComponents(components, Em.I18n.t('rollingrestart.context.selectedComponentOnSelectedHost').format(components[0].get('displayName')), "HOST_COMPONENT");</span>
+    },
+&nbsp;
+    popupPrimaryButtonCallback: <span class="fstat-no" title="function not covered" >function popupPrimaryButtonCallback(config_action) {</span>
+<span class="cstat-no" title="statement not covered" >      var hosts = App.Service.find(config_action.get('serviceName')).get('hostComponents').filterProperty('componentName', config_action.get('componentName')).mapProperty('hostName');</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      App.ajax.send({</span>
+        name: config_action.get('popupProperties').primaryButton.metaData.name,
+        sender: self,
+        data: {
+          command: config_action.get('popupProperties').primaryButton.metaData.command,
+          context: config_action.get('popupProperties').primaryButton.metaData.context,
+          hosts: hosts.join(','),
+          serviceName: config_action.get('serviceName'),
+          componentName: config_action.get('componentName'),
+          forceRefreshConfigTags: config_action.get('configName')
+        },
+        error: 'popupPrimaryButtonCallbackError'
+      });
+    },
+&nbsp;
+    popupPrimaryButtonCallbackError: <span class="fstat-no" title="function not covered" >function popupPrimaryButtonCallbackError(data) {</span>
+<span class="cstat-no" title="statement not covered" >      var error = this.configAction.get('popupProperties').errorMessage;</span>
+<span class="cstat-no" title="statement not covered" >      if (data &amp;&amp; data.responseText) {</span>
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" >          var json = $.parseJSON(data.responseText);</span>
+<span class="cstat-no" title="statement not covered" >          error += json.message;</span>
+        } catch (err) {}
+      }
+<span class="cstat-no" title="statement not covered" >      App.showAlertPopup(this.configAction.get('popupProperties').errorMessage, error, null);</span>
+    },
+&nbsp;
+    /**
+     * Method informs if any component will be added/deleted on saving configurations
+     * @return {boolean}
+     * @public
+     * @method isComponentActionsPresent
+     */
+    isComponentActionsPresent: function isComponentActionsPresent() {
+      var serviceConfigs = this.get('stepConfigs').findProperty('serviceName', this.get('content.serviceName')).get('configs');
+      var configActionComponents = serviceConfigs.filterProperty('configActionComponent');
+      return !!(this.getComponentsToDelete(configActionComponents).length + this.getComponentsToAdd(configActionComponents).length);
+    },
+&nbsp;
+    /**
+     * Get Component that will be deleted on saving configurations
+     * @param configActionComponents {Object}
+     * @return {Array}
+     * @private
+     * @method getComponentsToDelete
+     */
+    getComponentsToDelete: function getComponentsToDelete(configActionComponents) {
+      var hostComponents = App.HostComponent.find();
+      var componentsToDelete = [];
+&nbsp;
+      configActionComponents.filterProperty('configActionComponent.action', 'delete').map(function (item) {
+        return item.configActionComponent;
+      }).forEach(function (_componentToDelete) {
+        var installedHosts = hostComponents.filterProperty('componentName', _componentToDelete.componentName).mapProperty('hostName');
+        _componentToDelete.hostNames.forEach(function (hostsToDelete) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (installedHosts.contains(hostsToDelete)) {
+            componentsToDelete.push({
+              componentName: _componentToDelete.componentName,
+              hostName: hostsToDelete,
+              isClient: _componentToDelete.isClient
+            });
+          }
+        });
+      }, this);
+      return componentsToDelete;
+    },
+&nbsp;
+    /**
+     * Get Component that will be added on saving configurations
+     * @param configActionComponents {Object}
+     * @return {array}
+     * @private
+     * @method getComponentsToDelete
+     */
+    getComponentsToAdd: function getComponentsToAdd(configActionComponents) {
+      var componentsToAdd = [];
+&nbsp;
+      configActionComponents.filterProperty('configActionComponent.action', 'add').map(function (item) {
+        return item.configActionComponent;
+      }).forEach(function (_componentToAdd) {
+        var serviceNameForComponent = App.StackServiceComponent.find(_componentToAdd.componentName).get('serviceName');
+        var hostsToInstall = _componentToAdd.hostNames;
+&nbsp;
+        App.Service.find(serviceNameForComponent).get('hostComponents').filterProperty('componentName', _componentToAdd.componentName).mapProperty('hostName').forEach(function (installedHost) {
+          // List of host components to be added should not include ones that are already present in the cluster.
+          hostsToInstall = _componentToAdd.hostNames.without(installedHost);
+        });
+        hostsToInstall.forEach(function (hostToInstall) {
+          componentsToAdd.push({
+            componentName: _componentToAdd.componentName,
+            hostName: hostToInstall,
+            isClient: _componentToAdd.isClient
+          });
+        });
+      }, this);
+      return componentsToAdd;
+    },
+&nbsp;
+    /**
+     * Do component Delete actions as inferred from value of service config
+     * @param configActionComponents Object[]
+     * @private
+     * @method {configActionComponents}
+     */
+    doComponentDeleteActions: function doComponentDeleteActions(configActionComponents) {
+      var _this = this;
+&nbsp;
+      var componentsToDelete = this.getComponentsToDelete(configActionComponents);
+      if (componentsToDelete.length) {
+        componentsToDelete.forEach(function (componentToDelete) {
+          var componentName = componentToDelete.componentName;
+          var hostName = componentToDelete.hostName;
+          var displayName = App.StackServiceComponent.find(componentName).get('displayName');
+          var context = Em.I18n.t('requestInfo.stop').format(displayName);
+          var batches = [];
+&nbsp;
+          _this.setRefreshYarnQueueRequest(batches);
+          batches.push(_this.getInstallHostComponentsRequest(hostName, componentName, context));
+          batches.push(_this.getDeleteHostComponentRequest(hostName, componentName));
+          _this.setOrderIdForBatches(batches);
+          App.ajax.send({
+            name: 'common.batch.request_schedules',
+            sender: {
+              checkIfComponentWasDeleted: _this.checkIfComponentWasDeleted
+            },
+            data: {
+              intervalTimeSeconds: 60,
+              tolerateSize: 0,
+              batches: batches,
+              displayName: displayName,
+              hostName: hostName
+            },
+            success: 'checkIfComponentWasDeleted'
+          });
+        });
+      }
+    },
+&nbsp;
+    checkIfComponentWasDeleted: <span class="fstat-no" title="function not covered" >function checkIfComponentWasDeleted(resp, req, data) {</span>
+<span class="cstat-no" title="statement not covered" >      var scheduleId = resp.resources[0].RequestSchedule.id;</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        batchUtils.getRequestSchedule(scheduleId, <span class="fstat-no" title="function not covered" >function (resp) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var lastStatus = resp.RequestSchedule.last_execution_status;</span>
+<span class="cstat-no" title="statement not covered" >          var status = resp.RequestSchedule.status;</span>
+<span class="cstat-no" title="statement not covered" >          if (lastStatus === 'FAILED' || status === 'FAILED') {</span>
+<span class="cstat-no" title="statement not covered" >            App.showAlertPopup(Em.I18n.t('hosts.bulkOperation.delete.component.failed.header'), Em.I18n.t('hosts.bulkOperation.delete.component.failed.body').format(data.displayName, data.hostName));</span>
+          }
+        }, <span class="fstat-no" title="function not covered" >function () {</span>});
+      }, data.batches.length * 60000);
+    },
+&nbsp;
+    /**
+     * Do component Add actions as inferred from value of service config
+     * @param configActionComponents Object[]
+     * @private
+     * @method {doComponentAddActions}
+     */
+    doComponentAddActions: function doComponentAddActions(configActionComponents) {
+      var componentsToAdd = this.getComponentsToAdd(configActionComponents);
+&nbsp;
+      if (componentsToAdd.length) {
+        var allComponentsToAdd = componentsToAdd.concat(this.getDependentComponents(componentsToAdd));
+        var allComponentsToAddHosts = allComponentsToAdd.mapProperty('hostName').uniq();
+&nbsp;
+        allComponentsToAddHosts.forEach(function (_hostName) {
+          var hostComponents = allComponentsToAdd.filterProperty('hostName', _hostName).mapProperty('componentName').uniq();
+          var masterHostComponents = allComponentsToAdd.filterProperty('hostName', _hostName).filterProperty('isClient', false).mapProperty('componentName').uniq();
+          var displayNames = masterHostComponents.map(function (item) {
+            return App.StackServiceComponent.find().findProperty('componentName', item).get('displayName');
+          });
+&nbsp;
+          var displayStr = stringUtils.getFormattedStringFromArray(displayNames);
+          var context = Em.I18n.t('requestInfo.start').format(displayStr);
+          var batches = [];
+          this.setCreateComponentRequest(batches, hostComponents);
+          batches.push(this.getCreateHostComponentsRequest(_hostName, hostComponents));
+          batches.push(this.getInstallHostComponentsRequest(_hostName, hostComponents));
+          this.setRefreshYarnQueueRequest(batches);
+          batches.push(this.getStartHostComponentsRequest(_hostName, masterHostComponents, context));
+          this.setOrderIdForBatches(batches);
+&nbsp;
+          App.ajax.send({
+            name: 'common.batch.request_schedules',
+            sender: this,
+            data: {
+              intervalTimeSeconds: 1,
+              tolerateSize: 0,
+              batches: batches
+            }
+          });
+        }, this);
+      }
+    },
+&nbsp;
+    /**
+     * @method getDependentComponents
+     * @param {Array} componentsToAdd
+     * @returns {Array}
+     */
+    getDependentComponents: function getDependentComponents(componentsToAdd) {
+      var dependentComponents = [];
+&nbsp;
+      componentsToAdd.forEach(function (_component) {
+        var componentToAdd = App.StackServiceComponent.find(_component.componentName);
+        var installedComponents = App.HostComponent.find().filterProperty('hostName', _component.hostName).mapProperty('componentName').uniq();
+        var dependencies = componentToAdd.missingDependencies(installedComponents, { 'scope': 'host' }).map(function (_dependency) {
+          return {
+            componentName: _dependency.chooseCompatible(),
+            hostName: _component.hostName,
+            isClient: App.StackServiceComponent.find(_dependency.componentName).get('isClient')
+          };
+        }, this);
+        var dependenciesToInstall = dependencies.filter(function (_dependencyToAdd) {
+          var isInstalled = App.HostComponent.find().filterProperty('componentName', _dependencyToAdd.componentName).someProperty('hostName', _dependencyToAdd.hostName);
+          var isAddedToInstall = dependentComponents.filterProperty('componentName', _dependencyToAdd.componentName).someProperty('hostName', _dependencyToAdd.hostName);
+          return !(isInstalled || isAddedToInstall);
+        }, this);
+        dependentComponents = dependentComponents.concat(dependenciesToInstall);
+      }, this);
+      return dependentComponents;
+    },
+&nbsp;
+    /**
+     * Sets order_id for each batch request in the `batches` array
+     * @param batches {Array}
+     * @private
+     * @method {setOrderIdForBatches}
+     */
+    setOrderIdForBatches: function setOrderIdForBatches(batches) {
+      batches.forEach(function (_batch, index) {
+        _batch.order_id = index + 1;
+      }, this);
+    },
+&nbsp;
+    /**
+     * Gets the API request to create multiple components on a host
+     * @param hostName {String}
+     * @param components {String[]}|{String}
+     * @return {Object} Deferred promise
+     */
+    getCreateHostComponentsRequest: function getCreateHostComponentsRequest(hostName, components) {
+      var query = "Hosts/host_name.in(" + hostName + ")";
+      components = Array.isArray(components) ? components : <span class="branch-1 cbranch-no" title="branch not covered" >[components];</span>
+      var hostComponent = components.map(function (_componentName) {
+        return {
+          "HostRoles": {
+            "component_name": _componentName
+          }
+        };
+      }, this);
+&nbsp;
+      return {
+        "type": 'POST',
+        "uri": "/clusters/" + App.get('clusterName') + "/hosts",
+        "RequestBodyInfo": {
+          "RequestInfo": {
+            "query": query
+          },
+          "Body": {
+            "host_components": hostComponent
+          }
+        }
+      };
+    },
+&nbsp;
+    /**
+     * Gets the API request to install multiple components on a host
+     * @param hostName {String}
+     * @param components {String[]}
+     * @param context {String} Optional
+     * @return {Object}
+     */
+    getInstallHostComponentsRequest: function getInstallHostComponentsRequest(hostName, components, context) {
+      context = context || Em.I18n.t('requestInfo.installComponents');
+      return this.getUpdateHostComponentsRequest(hostName, components, App.HostComponentStatus.stopped, context);
+    },
+&nbsp;
+    /**
+     * Gets the API request to start multiple components on a host
+     * @param hostName {String}
+     * @param components {String[]}
+     * @param context {String} Optional
+     * @return {Object}
+     */
+    getStartHostComponentsRequest: function getStartHostComponentsRequest(hostName, components, context) {
+      context = context || Em.I18n.t('requestInfo.startHostComponents');
+      return this.getUpdateHostComponentsRequest(hostName, components, App.HostComponentStatus.started, context);
+    },
+&nbsp;
+    /**
+     * Gets the API request to start/stop multiple components on a host
+     * @param hostName {String}
+     * @param components
+     * @param desiredState
+     * @param context {String}
+     * @private
+     * @method {getUpdateHostComponentsRequest}
+     * @return {Object}
+     */
+    getUpdateHostComponentsRequest: function getUpdateHostComponentsRequest(hostName, components, desiredState, context) {
+      components = Array.isArray(components) ? components : <span class="branch-1 cbranch-no" title="branch not covered" >[components];</span>
+      var query = "HostRoles/component_name.in(" + components.join(',') + ")";
+&nbsp;
+      return {
+        "type": 'PUT',
+        "uri": "/clusters/" + App.get('clusterName') + "/hosts/" + hostName + "/host_components",
+        "RequestBodyInfo": {
+          "RequestInfo": {
+            "context": context,
+            "operation_level": {
+              "level": "HOST",
+              "cluster_name": App.get('clusterName'),
+              "host_names": hostName
+            },
+            "query": query
+          },
+          "Body": {
+            "HostRoles": {
+              "state": desiredState
+            }
+          }
+        }
+      };
+    },
+&nbsp;
+    /**
+     * Gets the API request to delete component on a host
+     * @param hostName {String}
+     * @param component {String}
+     * @private
+     * @method {getDeleteHostComponentRequest}
+     * @return {Object}
+     */
+    getDeleteHostComponentRequest: function getDeleteHostComponentRequest(hostName, component) {
+      return {
+        "type": 'DELETE',
+        "uri": "/clusters/" + App.get('clusterName') + "/hosts/" + hostName + "/host_components/" + component
+      };
+    },
+&nbsp;
+    /**
+     * Add `Create component` as a request in the batched API call
+     * @param batches  {Array}
+     * @param hostComponents {Array}
+     * @private
+     * @method {setCreateComponentRequest}
+     */
+    setCreateComponentRequest: function setCreateComponentRequest(batches, hostComponents) {
+      var stackServices = App.StackServiceComponent.find(),
+          services = App.Service.find();
+&nbsp;
+      hostComponents.forEach(function (_componentName) {
+        var serviceName = stackServices.findProperty('componentName', _componentName).get('serviceName');
+        var serviceComponents = services.findProperty('serviceName', serviceName).get('serviceComponents');
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!serviceComponents.contains(_componentName)) {
+          batches.push({
+            "type": 'POST',
+            "uri": "/clusters/" + App.get('clusterName') + "/services/" + serviceName + "/components/" + _componentName
+          });
+        }
+      });
+    },
+&nbsp;
+    /**
+     * Add `Refresh YARN Queue` as a request in the batched API call
+     * @param batches  {Array}
+     * @private
+     * @method {setRefreshYarnQueueRequest}
+     */
+    setRefreshYarnQueueRequest: function setRefreshYarnQueueRequest(batches) {
+      var capacitySchedulerConfigs = this.get('allConfigs').filterProperty('filename', 'capacity-scheduler.xml').filter(function (item) {
+        return item.get('value') !== item.get('initialValue');
+      });
+&nbsp;
+      if (capacitySchedulerConfigs.length) {
+        var serviceName = 'YARN';
+        var componentName = 'RESOURCEMANAGER';
+        var hostNames = App.Service.find(serviceName).get('hostComponents').filterProperty('componentName', componentName).mapProperty('hostName');
+        // Set the flag to true
+        this.isYarnQueueRefreshed = true;
+        batches.push({
+          "type": 'POST',
+          "uri": "/clusters/" + App.get('clusterName') + "/requests",
+          "RequestBodyInfo": {
+            "RequestInfo": {
+              "context": Em.I18n.t('services.service.actions.run.yarnRefreshQueues.context'),
+              "command": "REFRESHQUEUES",
+              "parameters/forceRefreshConfigTags": "capacity-scheduler"
+            },
+            "Requests/resource_filters": [{
+              service_name: serviceName,
+              component_name: componentName,
+              hosts: hostNames.join(',')
+            }]
+          }
+        });
+      }
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

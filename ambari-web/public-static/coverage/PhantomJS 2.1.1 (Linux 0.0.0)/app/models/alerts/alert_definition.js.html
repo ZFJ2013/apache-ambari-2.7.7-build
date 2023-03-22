@@ -1,0 +1,1212 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/models/alerts/alert_definition.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/models/alerts/alert_definition.js</span></h1>
+    <h2>
+        Statements: <span class="metric">60.29% <small>(41 / 68)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">56.67% <small>(17 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">53.33% <small>(8 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">60.29% <small>(41 / 68)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/models/alerts/</a> &#187; alert_definition.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("models/alerts/alert_definition", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var dateUtils = require('utils/date/date');
+&nbsp;
+  function computedOnSummaryState(state) {
+    return Em.computed('summary.' + state, 'summary.' + state + '.count', 'summary.' + state + '.maintenanceCount', function () {
+      var summary = Em.get(this, 'summary');
+      return !!summary[state] &amp;&amp; !!(summary[state].count || <span class="branch-1 cbranch-no" title="branch not covered" >summary[state].maintenanceCount)</span>;
+    });
+  }
+&nbsp;
+  App.AlertDefinition = DS.Model.extend({
+&nbsp;
+    name: DS.attr('string'),
+    label: DS.attr('string'),
+    description: DS.attr('string'),
+    service: DS.belongsTo('App.Service'),
+    serviceName: DS.attr('string'),
+    componentName: DS.attr('string'),
+    enabled: DS.attr('boolean'),
+    repeat_tolerance_enabled: DS.attr('boolean'),
+    repeat_tolerance: DS.attr('number'),
+    scope: DS.attr('string'),
+    interval: DS.attr('number'),
+    type: DS.attr('string'),
+    helpUrl: DS.attr('string'),
+    groups: DS.hasMany('App.AlertGroup'),
+    reporting: DS.hasMany('App.AlertReportDefinition'),
+    parameters: DS.hasMany('App.AlertDefinitionParameter'),
+    lastTriggered: 0,
+    lastTriggeredRaw: 0,
+&nbsp;
+    //relates only to SCRIPT-type alert definition
+    location: DS.attr('string'),
+    //relates only to AGGREGATE-type alert definition
+    alertName: DS.attr('string'),
+    //relates only to WEB and METRIC types of alert definition
+    uri: DS.belongsTo('App.AlertMetricsUriDefinition'),
+    //relates only METRIC-type alert definition
+    jmx: DS.belongsTo('App.AlertMetricsSourceDefinition'),
+    ganglia: DS.belongsTo('App.AlertMetricsSourceDefinition'),
+    ams: DS.belongsTo('App.AlertMetricsAmsDefinition'),
+    //relates only PORT-type alert definition
+    defaultPort: DS.attr('number'),
+    portUri: DS.attr('string'),
+&nbsp;
+    /**
+     * Raw data from AlertDefinition/source
+     * used to format request content for updating alert definition
+     * @type {Object}
+     */
+    rawSourceData: {},
+&nbsp;
+    /**
+     * Counts of alert grouped by their status
+     * Format:
+     * &lt;code&gt;
+     *   {
+     *    "CRITICAL": {
+     *      count: 1,
+     *      maintenanceCount: 0
+     *    },
+     *    "OK": {
+     *      count: 0,
+     *      maintenanceCount: 1
+     *    },
+     *    "UNKNOWN": {
+     *      count: 0,
+     *      maintenanceCount: 0
+     *    },
+     *    "WARNING": {
+     *      count: 1,
+     *      maintenanceCount: 1
+     *    }
+     *   }
+     * &lt;/code&gt;
+     * @type {object}
+     */
+    summary: {},
+&nbsp;
+    /**
+     * Formatted timestamp for latest alert triggering for current alertDefinition
+     * @type {string}
+     */
+    lastTriggeredFormatted: function () {
+      var lastTriggered = this.get('lastTriggered');
+      return lastTriggered ? <span class="branch-0 cbranch-no" title="branch not covered" >dateUtils.dateFormat(lastTriggered) </span>: '';
+    }.property('lastTriggered'),
+&nbsp;
+    /**
+     * Formatted timestamp with &lt;code&gt;$.timeago&lt;/code&gt;
+     * @type {string}
+     */
+    lastTriggeredAgoFormatted: function () {
+      var lastTriggered = this.get('lastTriggeredRaw');
+      return lastTriggered ? $.timeago(new Date(lastTriggered)) : '';
+    }.property('lastTriggeredRaw'),
+&nbsp;
+    lastTriggeredVerboseDisplay: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var lastTriggered = this.get('lastTriggered');</span>
+<span class="cstat-no" title="statement not covered" >      return Em.I18n.t('models.alert_definition.triggered.verbose').format(dateUtils.dateFormat(lastTriggered));</span>
+    }.property('lastTriggered'),
+&nbsp;
+    /**
+     * Formatted timestamp in format: for 4 days
+     * @type {string}
+     */
+    lastTriggeredForFormatted: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var lastTriggered = this.get('lastTriggeredRaw');</span>
+<span class="cstat-no" title="statement not covered" >      var previousSuffixAgo = $.timeago.settings.strings.suffixAgo;</span>
+<span class="cstat-no" title="statement not covered" >      var previousPrefixAgo = $.timeago.settings.strings.prefixAgo;</span>
+<span class="cstat-no" title="statement not covered" >      $.timeago.settings.strings.suffixAgo = null;</span>
+<span class="cstat-no" title="statement not covered" >      $.timeago.settings.strings.prefixAgo = 'for';</span>
+<span class="cstat-no" title="statement not covered" >      var triggeredFor = lastTriggered ? $.timeago(new Date(lastTriggered)) : '';</span>
+<span class="cstat-no" title="statement not covered" >      $.timeago.settings.strings.suffixAgo = previousSuffixAgo;</span>
+<span class="cstat-no" title="statement not covered" >      $.timeago.settings.strings.prefixAgo = previousPrefixAgo;</span>
+<span class="cstat-no" title="statement not covered" >      return triggeredFor;</span>
+    }.property('lastTriggeredRaw'),
+&nbsp;
+    /**
+     * Formatted displayName for &lt;code&gt;componentName&lt;/code&gt;
+     * @type {String}
+     */
+    componentNameFormatted: Em.computed.formatRole('componentName', false),
+&nbsp;
+    hostCnt: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var order = this.get('order'),</span>
+          summary = this.get('summary'),
+          hostCnt = 0;
+<span class="cstat-no" title="statement not covered" >      order.forEach(<span class="fstat-no" title="function not covered" >function (state) {</span></span>
+<span class="cstat-no" title="statement not covered" >        hostCnt += summary[state] ? summary[state].count + summary[state].maintenanceCount : 0;</span>
+      });
+<span class="cstat-no" title="statement not covered" >      return hostCnt;</span>
+    }.property('order', 'summary'),
+&nbsp;
+    latestText: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var order = this.get('order'),</span>
+          summary = this.get('summary'),
+          text = '';
+<span class="cstat-no" title="statement not covered" >      order.forEach(<span class="fstat-no" title="function not covered" >function (state) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var cnt = summary[state] ? summary[state].count + summary[state].maintenanceCount : 0;</span>
+<span class="cstat-no" title="statement not covered" >        if (cnt &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >          text = Em.getWithDefault(summary[state], 'latestText', '');</span>
+        }
+      });
+<span class="cstat-no" title="statement not covered" >      return text;</span>
+    }.property('summary'),
+&nbsp;
+    latestTextSummary: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var latestText = this.get('latestText');</span>
+<span class="cstat-no" title="statement not covered" >      var ellipsis = '...';</span>
+<span class="cstat-no" title="statement not covered" >      var summaryLength = 400;</span>
+<span class="cstat-no" title="statement not covered" >      if (latestText.length &gt; summaryLength) {</span>
+<span class="cstat-no" title="statement not covered" >        latestText = latestText.substring(0, summaryLength - ellipsis.length) + ellipsis;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return latestText;</span>
+    }.property('latestText'),
+&nbsp;
+    isAmbariService: Em.computed.equal('service._id', 'AMBARI'),
+&nbsp;
+    isAmbariAgentComponent: Em.computed.equal('componentName', 'AMBARI_AGENT'),
+&nbsp;
+    isHostAlertDefinition: Em.computed.and('isAmbariService', 'isAmbariAgentComponent'),
+&nbsp;
+    typeIconClass: Em.computed.getByKey('typeIcons', 'type'),
+&nbsp;
+    isTypeAggregate: Em.computed.equal('type', 'AGGREGATE'),
+&nbsp;
+    /**
+     * if this definition is in state: CRITICAL / WARNING, if true, will show up in alerts fast access popup
+     * instances with maintenance mode ON are ignored
+     * @type {boolean}
+     */
+    isCriticalOrWarning: Em.computed.or('summary.CRITICAL.count', 'summary.WARNING.count'),
+&nbsp;
+    /**
+     * if this definition is in state: CRITICAL
+     * @type {boolean}
+     */
+    isCritical: computedOnSummaryState('CRITICAL'),
+&nbsp;
+    /**
+     * if this definition is in state: WARNING
+     * @type {boolean}
+     */
+    isWarning: computedOnSummaryState('WARNING'),
+&nbsp;
+    /**
+     * if this definition is in state: OK
+     * @type {boolean}
+     */
+    isOK: computedOnSummaryState('OK'),
+&nbsp;
+    /**
+     * if this definition is in state: UNKNOWN
+     * @type {boolean}
+     */
+    isUnknown: computedOnSummaryState('UNKNOWN'),
+&nbsp;
+    /**
+     * For alerts we will have processes which are not typical
+     * cluster services - like Ambari-Server. This method unifies
+     * cluster services and other services into a common display-name.
+     * @see App.AlertInstance#serviceDisplayName()
+     */
+    serviceDisplayName: function () {
+      var serviceName = this.get('service.displayName');
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!serviceName) {
+        serviceName = this.get('serviceName');
+        if (serviceName) {
+          serviceName = serviceName.toCapital();
+        }
+      }
+      return serviceName;
+    }.property('serviceName', 'service.displayName'),
+&nbsp;
+    /**
+     * Determines if alert definition has help url
+     * @type {boolean}
+     */
+    hasHelpUrl: Em.computed.bool('helpUrl'),
+&nbsp;
+    /**
+     * List of css-classes for alert types
+     * @type {object}
+     */
+    typeIcons: {
+      'METRIC': 'glyphicon glyphicon-flash',
+      'SCRIPT': 'glyphicon glyphicon-file',
+      'WEB': 'glyphicon glyphicon-globe',
+      'PORT': 'glyphicon glyphicon-log-in',
+      'AGGREGATE': 'glyphicon glyphicon-plus',
+      'SERVER': 'glyphicon glyphicon-oil',
+      'RECOVERY': 'glyphicon glyphicon-oil',
+      'AMS': 'glyphicon glyphicon-stats'
+    },
+&nbsp;
+    /**
+     * Sort on load definitions by this severity order
+     */
+    severityOrder: ['CRITICAL', 'WARNING', 'OK', 'UNKNOWN', 'PENDING'],
+    order: ['OK', 'WARNING', 'CRITICAL', 'UNKNOWN']
+  });
+&nbsp;
+  App.AlertDefinition.shortState = {
+    'CRITICAL': 'CRIT',
+    'WARNING': 'WARN',
+    'OK': 'OK',
+    'UNKNOWN': 'UNKWN',
+    'PENDING': 'NONE'
+  };
+&nbsp;
+  App.AlertDefinition.reopenClass({
+&nbsp;
+    /**
+     * Return function to sort list of AlertDefinitions by their status
+     * It sorts according to &lt;code&gt;severityOrder&lt;/code&gt;
+     * @param {boolean} order true - DESC, false - ASC
+     * @returns {Function}
+     * @method getSortDefinitionsByStatus
+     */
+    getSortDefinitionsByStatus: function getSortDefinitionsByStatus(order) {
+      return function (a, b) {
+        var aSummary = a.get('summary'),
+            bSummary = b.get('summary'),
+            stOrder = a.get('severityOrder'),
+            ret = 0;
+        for (var i = 0; i &lt; stOrder.length; i++) {
+          var aV = Em.isNone(aSummary[stOrder[i]]) ? 0 : aSummary[stOrder[i]].count + aSummary[stOrder[i]].maintenanceCount,
+              bV = Em.isNone(bSummary[stOrder[i]]) ? 0 : bSummary[stOrder[i]].count + bSummary[stOrder[i]].maintenanceCount;
+          ret = bV - aV;
+          if (ret !== 0) {
+            break;
+          }
+        }
+        return order ? ret : -ret;
+      };
+    }
+&nbsp;
+  });
+&nbsp;
+  App.AlertDefinitionParameter = DS.Model.extend({
+    name: DS.attr('string'),
+    displayName: DS.attr('string'),
+    units: DS.attr('string'),
+    value: DS.attr('string'),
+    description: DS.attr('string'),
+    type: DS.attr('string'),
+    threshold: DS.attr('string'),
+    visibility: DS.attr('string')
+  });
+&nbsp;
+  App.AlertReportDefinition = DS.Model.extend({
+    type: DS.attr('string'),
+    text: DS.attr('string'),
+    value: DS.attr('number')
+  });
+&nbsp;
+  App.AlertMetricsSourceDefinition = DS.Model.extend({
+    propertyList: [],
+    value: DS.attr('string')
+  });
+&nbsp;
+  App.AlertMetricsUriDefinition = DS.Model.extend({
+    http: DS.attr('string'),
+    https: DS.attr('string'),
+    httpsProperty: DS.attr('string'),
+    httpsPropertyValue: DS.attr('string'),
+    connectionTimeout: DS.attr('number')
+  });
+&nbsp;
+  App.AlertMetricsAmsDefinition = DS.Model.extend({
+    value: DS.attr('string'),
+    minimalValue: DS.attr('number'),
+    interval: DS.attr('number')
+  });
+&nbsp;
+  App.AlertDefinition.FIXTURES = [];
+  App.AlertReportDefinition.FIXTURES = [];
+  App.AlertMetricsSourceDefinition.FIXTURES = [];
+  App.AlertMetricsUriDefinition.FIXTURES = [];
+  App.AlertMetricsAmsDefinition.FIXTURES = [];
+  App.AlertDefinitionParameter.FIXTURES = [];
+&nbsp;
+  App.AlertType = DS.Model.extend({
+    name: DS.attr('string'),
+    displayName: DS.attr('string'),
+    iconPath: DS.attr('string'),
+    description: DS.attr('string'),
+    properties: DS.attr('array')
+  });
+&nbsp;
+  App.AlertType.FIXTURES = [{
+    id: 'PORT',
+    name: 'PORT',
+    icon_path: 'glyphicon glyphicon-log-in',
+    display_name: 'Port',
+    description: Em.I18n.t('alerts.add.wizard.step1.body.port.description')
+  }, {
+    id: 'WEB',
+    name: 'WEB',
+    icon_path: 'glyphicon glyphicon-globe',
+    display_name: 'Web',
+    description: Em.I18n.t('alerts.add.wizard.step1.body.web.description')
+  }, {
+    id: 'METRIC',
+    name: 'METRIC',
+    display_name: 'Metric',
+    icon_path: 'glyphicon glyphicon-flash',
+    description: Em.I18n.t('alerts.add.wizard.step1.body.metric.description')
+  }, {
+    id: 'SCRIPT',
+    name: 'SCRIPT',
+    icon_path: 'glyphicon glyphicon-file',
+    display_name: 'Script',
+    description: Em.I18n.t('alerts.add.wizard.step1.body.script.description')
+  }, {
+    id: 'AGGREGATE',
+    name: 'AGGREGATE',
+    icon_path: 'glyphicon glyphicon-plus',
+    display_name: 'Aggregate',
+    description: Em.I18n.t('alerts.add.wizard.step1.body.aggregate.description')
+  }, {
+    id: 'RAW',
+    name: 'RAW',
+    icon_path: 'glyphicon glyphicon-align-justify',
+    display_name: 'Raw',
+    description: Em.I18n.t('alerts.add.wizard.step1.body.raw.description')
+  }];
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

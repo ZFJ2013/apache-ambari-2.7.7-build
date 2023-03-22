@@ -1,0 +1,1818 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/configs/widgets/config_widget_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/common/configs/widgets/config_widget_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">47.68% <small>(72 / 151)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">48% <small>(48 / 100)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">65.71% <small>(23 / 35)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">47.97% <small>(71 / 148)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/configs/widgets/</a> &#187; config_widget_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">269</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">222</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">261</span>
+<span class="cline-any cline-yes">261</span>
+<span class="cline-any cline-yes">261</span>
+<span class="cline-any cline-yes">261</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">261</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">231</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">286</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">246</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">277</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/common/configs/widgets/config_widget_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  require('views/common/controls_view');
+  /**
+   * Common view for config widgets
+   * @type {Em.View}
+   */
+  App.ConfigWidgetView = Em.View.extend(App.SupportsDependentConfigs, App.WidgetPopoverSupport, App.ConvertUnitWidgetViewMixin, App.ServiceConfigCalculateId, {
+&nbsp;
+    /**
+     * @type {App.ConfigProperty}
+     */
+    config: null,
+&nbsp;
+    /**
+     * @type {App.ConfigProperty}
+     */
+    copyFromConfig: null,
+&nbsp;
+    /**
+     * Determines if user hover on widget-view
+     * @type {boolean}
+     */
+    isHover: false,
+&nbsp;
+    /**
+     * Determines if widget controls should be disabled
+     * @type {boolean}
+     */
+    disabled: false,
+&nbsp;
+    /**
+     * Determines if widget is editable
+     * It true - show all control-elements (undo, override, finalize etc) for widget
+     * If false - no widget control-elements will be shown
+     * Bound from template
+     * @type {boolean}
+     */
+    canEdit: true,
+&nbsp;
+    canNotEdit: Em.computed.not('canEdit'),
+&nbsp;
+    /**
+     * Config label class attribute. Displays validation status of config.
+     * @type {string}
+     */
+    configLabelClass: '',
+&nbsp;
+    /**
+     * defines if widget should be shown
+     * if not, text-field with config value or label "Undefined" should be shown
+     * @type {boolean}
+     */
+    doNotShowWidget: Em.computed.or('isPropertyUndefined', 'config.showAsTextBox'),
+&nbsp;
+    /**
+     * defines if property in not defined in selected version
+     * in this case "Undefined" should be shown instead of widget
+     * @type {boolean}
+     */
+    isPropertyUndefined: Em.computed.equal('config.value', 'Undefined'),
+&nbsp;
+    /**
+     * Tab where current widget placed
+     * Bound in the template
+     * @type {App.Tab}
+     */
+    tab: null,
+&nbsp;
+    /**
+     * Section where current widget placed
+     * Bound in the template
+     * @type {App.Section}
+     */
+    section: null,
+&nbsp;
+    /**
+     * Subsection where current widget placed
+     * Bound in the template
+     * @type {App.SubSection}
+     */
+    subSection: null,
+&nbsp;
+    /**
+     * Determines if user can switch custom widget-view to the input-field
+     * @type {boolean}
+     */
+    supportSwitchToTextBox: false,
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    showPencil: Em.computed.and('supportSwitchToTextBox', '!disabled'),
+&nbsp;
+    /**
+     * Alias to &lt;code&gt;config.isOriginalSCP&lt;/code&gt;
+     * Should be used in the templates
+     * Don't use original &lt;code&gt;config.isOriginalSCP&lt;/code&gt; in the widget-templates!!!
+     * @type {boolean}
+     */
+    isOriginalSCPBinding: 'config.isOriginalSCP',
+&nbsp;
+    /**
+     * Check if property validation failed for overridden property in case when its value is equal to parent
+     * config property.
+     * @type {boolean}
+     */
+    isOverrideEqualityError: function () {
+      return this.get('config.parentSCP') &amp;&amp; this.get('config.parentSCP.value') == this.get('config.value');
+    }.property('config.isValid'),
+&nbsp;
+    /**
+     * Alias to &lt;code&gt;config.isComparison&lt;/code&gt;
+     * Should be used in the templates
+     * Don't use original &lt;code&gt;config.isComparison&lt;/code&gt; in the widget-templates!!!
+     * @type {boolean}
+     */
+    isComparisonBinding: 'config.isComparison',
+&nbsp;
+    classNameBindings: ['isComparison:compare-mode', 'config.overrides.length:overridden-property'],
+&nbsp;
+    issueMessage: '',
+&nbsp;
+    issueView: Em.View.extend({
+&nbsp;
+      tagName: 'i',
+&nbsp;
+      classNames: ['glyphicon glyphicon-warning-sign'],
+&nbsp;
+      classNameBindings: ['issueIconClass'],
+&nbsp;
+      attributeBindings: ['issueMessage:data-original-title'],
+&nbsp;
+      /**
+       * @type {App.ServiceConfigProperty}
+       */
+      config: null,
+&nbsp;
+      /**
+       * @type {string}
+       */
+      issueIconClass: '',
+&nbsp;
+      /**
+       * @type {string}
+       */
+      issueMessage: '',
+&nbsp;
+      didInsertElement: function didInsertElement() {
+        App.tooltip($(this.get('element')));
+        this.errorLevelObserver();
+        this.addObserver('issuedConfig.warnMessage', this, this.errorLevelObserver);
+        this.addObserver('issuedConfig.errorMessage', this, this.errorLevelObserver);
+        this.addObserver('parentView.isPropertyUndefined', this, this.errorLevelObserver);
+      },
+&nbsp;
+      willDestroyElement: function willDestroyElement() {
+        $(this.get('element')).tooltip('destroy');
+        this.removeObserver('issuedConfig.warnMessage', this, this.errorLevelObserver);
+        this.removeObserver('issuedConfig.errorMessage', this, this.errorLevelObserver);
+        this.removeObserver('parentView.isPropertyUndefined', this, this.errorLevelObserver);
+      },
+&nbsp;
+      /**
+       *
+       * @method errorLevelObserver
+       */
+      errorLevelObserver: function errorLevelObserver() {
+        var messageLevel = this.get('issuedConfig.errorMessage') ? 'ERROR' : this.get('issuedConfig.warnMessage') ? 'WARN' : 'NONE';
+        if (this.get('parentView.isPropertyUndefined')) {
+          messageLevel = 'NONE';
+        }
+        var issue = {
+          ERROR: {
+            iconClass: '',
+            message: this.get('issuedConfig.errorMessage'),
+            configLabelClass: 'text-danger'
+          },
+          WARN: {
+            iconClass: 'warning',
+            message: this.get('issuedConfig.warnMessage'),
+            configLabelClass: 'text-warning'
+          },
+          NONE: {
+            iconClass: 'hide',
+            message: false,
+            configLabelClass: ''
+          }
+        }[messageLevel];
+        this.set('parentView.configLabelClass', issue.configLabelClass);
+        this.set('issueIconClass', issue.iconClass);
+        this.set('issueMessage', issue.message);
+        this.set('parentView.issueMessage', issue.message);
+      },
+&nbsp;
+      /**
+       * @type {App.ServiceConfigProperty}
+       */
+      issuedConfig: function () {
+        var config = this.get('config');
+        // check editable override
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!config.get('isEditable') &amp;&amp; config.get('isOriginalSCP') &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >config.get('overrides.length') </span>&amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >config.get('overrides').someProperty('isEditable', true))</span> {
+<span class="cstat-no" title="statement not covered" >          config = config.get('overrides').findProperty('isEditable', true);</span>
+        } else <span class="missing-if-branch" title="if path not taken" >I</span>if (config.get('isOriginalSCP') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >config.get('isEditable'))</span> {
+          // use original config if it is not valid
+<span class="cstat-no" title="statement not covered" >          if (!config.get('isValid')) {</span>
+<span class="cstat-no" title="statement not covered" >            return config;</span>
+            // scan overrides for non valid values and use it
+          } else <span class="cstat-no" title="statement not covered" >if (config.get('overrides.length') &amp;&amp; config.get('overrides').someProperty('isValid', false)) {</span>
+<span class="cstat-no" title="statement not covered" >            return config.get('overrides').findProperty('isValid', false);</span>
+          }
+        }
+        return config;
+      }.property('config.isEditable', 'config.overrides.length')
+&nbsp;
+    }),
+&nbsp;
+    /**
+     * Config name to display.
+     * @type {String}
+     */
+    configLabel: Em.computed.firstNotBlank('config.stackConfigProperty.displayName', 'config.displayName', 'config.name'),
+&nbsp;
+    /**
+     * Error message computed in config property model
+     * @type {String}
+     */
+    configErrorMessageBinding: 'config.errorMessage',
+&nbsp;
+    /**
+     * Determines if config-value was changed
+     * @type {boolean}
+     */
+    valueIsChanged: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return !Em.isNone(this.get('config.savedValue')) &amp;&amp; this.get('config.value') != this.get('config.savedValue');</span>
+    }.property('config.value', 'config.savedValue'),
+&nbsp;
+    /**
+     * Enable/disable widget state
+     * @method toggleWidgetState
+     */
+    toggleWidgetState: function () {
+      this.set('disabled', !this.get('config.isEditable'));
+    }.observes('config.isEditable'),
+&nbsp;
+    /**
+     * Reset config-value to its default
+     * @method restoreValue
+     */
+    restoreValue: function restoreValue() {
+      var self = this;
+      this.set('config.value', this.get('config.savedValue'));
+      this.sendRequestRorDependentConfigs(this.get('config')).done(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        self.restoreDependentConfigs(self.get('config'));</span>
+      });
+&nbsp;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('config.supportsFinal')) {
+        this.get('config').set('isFinal', this.get('config.savedIsFinal'));
+      }
+      Em.$('body &gt; .tooltip').remove();
+    },
+&nbsp;
+    /**
+     * set &lt;code&gt;recommendedValue&lt;code&gt; to config
+     * and send request to change dependent configs
+     * @method setRecommendedValue
+     */
+    setRecommendedValue: function setRecommendedValue() {
+      var self = this;
+      this.set('config.value', this.get('config.recommendedValue'));
+      this.sendRequestRorDependentConfigs(this.get('config')).done(function () {
+        if (self.get('config.value') === self.get('config.savedValue')) {
+          self.restoreDependentConfigs(self.get('config'));
+        }
+      });
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('config.supportsFinal')) {
+<span class="cstat-no" title="statement not covered" >        this.get('config').set('isFinal', this.get('config.recommendedIsFinal'));</span>
+      }
+      Em.$('body &gt; .tooltip').remove();
+    },
+&nbsp;
+    /**
+     * Determines if override is allowed for &lt;code&gt;config&lt;/code&gt;
+     * @type {boolean}
+     */
+    overrideAllowed: function () {
+      var config = this.get('config');
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!config) <span class="cstat-no" title="statement not covered" >return false;</span>
+      return config.get('isOriginalSCP') &amp;&amp; config.get('isPropertyOverridable') &amp;&amp; !this.get('config.isComparison');
+    }.property('config.isOriginalSCP', 'config.isPropertyOverridable', 'config.isComparison'),
+&nbsp;
+    /**
+     * Determines if undo is allowed for &lt;code&gt;config&lt;/code&gt;
+     * @type {boolean}
+     */
+    undoAllowed: function () {
+      var config = this.get('config');
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!config) <span class="cstat-no" title="statement not covered" >return false;</span>
+      if (!this.get('isOriginalSCP') || this.get('disabled')) return false;
+      return !config.get('cantBeUndone') &amp;&amp; config.get('isNotDefaultValue');
+    }.property('config.cantBeUndone', 'config.isNotDefaultValue', 'isOriginalSCP', 'disabled'),
+&nbsp;
+    /**
+     * Determines if "final"-button should be shown
+     * @type {boolean}
+     */
+    showFinalConfig: function () {
+      var config = this.get('config');
+      return config.get('isFinal') || !config.get('isNotEditable');
+    }.property('config.isFinal', 'config.isNotEditable'),
+&nbsp;
+    /**
+     *
+     * @param {{context: App.ServiceConfigProperty}} event
+     * @method toggleFinalFlag
+     */
+    toggleFinalFlag: function toggleFinalFlag(event) {
+      var configProperty = event.context;
+      if (configProperty.get('isNotEditable')) {
+        return;
+      }
+      configProperty.toggleProperty('isFinal');
+    },
+&nbsp;
+    /**
+     * sync widget value with config value when dependent properties
+     * have been loaded or changed
+     * @method syncValueWithConfig
+     */
+    syncValueWithConfig: function () {
+      this.setValue(this.get('config.value'));
+    }.observes('controller.recommendationTimeStamp'),
+&nbsp;
+    /**
+     * defines if config has same config group as selected
+     * @type {boolean}
+     */
+    referToSelectedGroup: function () {
+      return this.get('controller.selectedConfigGroup.isDefault') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.get('config.group') === null </span>|| this.get('controller.selectedConfigGroup.name') === this.get('config.group.name');
+    }.property('controller.selectedConfigGroup.name', 'controller.selectedConfigGroup.isDefault'),
+&nbsp;
+    didInsertElement: function didInsertElement() {
+      App.tooltip(this.$('[data-toggle=tooltip]'), { placement: 'top' });
+      App.tooltip($(this.get('element')).find('span'));
+      var self = this;
+      var element = this.$();
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (element) {
+<span class="cstat-no" title="statement not covered" >        element.hover(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          self.set('isHover', true);</span>
+        }, <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >          self.set('isHover', false);</span>
+        });
+      }
+      this.initIncompatibleWidgetAsTextBox();
+    },
+&nbsp;
+    willInsertElement: function willInsertElement() {
+      var configConditions = this.get('config.configConditions');
+      var configAction = this.get('config.configAction');
+      var isCopy = this.get('config.copy');
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!Em.empty(isCopy)) {
+<span class="cstat-no" title="statement not covered" >        this.bindConfigValue();</span>
+      }
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (configConditions &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >configConditions.length)</span> {
+        //Add Observer to configCondition that depends on another config value
+<span class="cstat-no" title="statement not covered" >        var isConditionConfigDependent = configConditions.filterProperty('resource', 'config').length;</span>
+<span class="cstat-no" title="statement not covered" >        if (isConditionConfigDependent) {</span>
+<span class="cstat-no" title="statement not covered" >          this.addObserver('config.value', this, this.configValueObserverForAttributes);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (configAction) {</span>
+<span class="cstat-no" title="statement not covered" >          this.addObserver('config.value', this, this.configValueObserverForAction);</span>
+        }
+      }
+    },
+&nbsp;
+    willDestroyElement: <span class="fstat-no" title="function not covered" >function willDestroyElement() {</span>
+<span class="cstat-no" title="statement not covered" >      this.$('[data-toggle=tooltip]').tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      $(this.get('element')).find('span').tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('config.configConditions')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.removeObserver('config.value', this, this.configValueObserverForAttributes);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (this.get('config.configAction')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.removeObserver('config.value', this, this.configValueObserverForAction);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (this.get('copyFromConfig')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.removeObserver('copyFromConfig.value', this, this.configValueObserverForCopy);</span>
+      }
+    },
+&nbsp;
+    configValueObserverForAttributes: <span class="fstat-no" title="function not covered" >function configValueObserverForAttributes() {</span>
+<span class="cstat-no" title="statement not covered" >      var configConditions = this.get('config.configConditions'),</span>
+          serviceName = this.get('config.serviceName'),
+          serviceConfigs = this.get('controller.stepConfigs').findProperty('serviceName', serviceName).get('configs');
+<span class="cstat-no" title="statement not covered" >      this.get('controller').updateAttributesFromConditions(configConditions, serviceConfigs, serviceName);</span>
+    },
+&nbsp;
+    /**
+     * This is an observer that is fired when a value of a config that is suppose to add/delete a component is changed
+     * @private
+     * @method {configValueObserverForAction}
+     */
+    configValueObserverForAction: <span class="fstat-no" title="function not covered" >function configValueObserverForAction() {</span>
+<span class="cstat-no" title="statement not covered" >      var assignMasterOnStep7Controller = App.router.get('assignMasterOnStep7Controller');</span>
+<span class="cstat-no" title="statement not covered" >      var configAction = this.get('config.configAction');</span>
+<span class="cstat-no" title="statement not covered" >      var serviceName = this.get('config.serviceName');</span>
+<span class="cstat-no" title="statement not covered" >      var serviceConfigs = this.get('controller.stepConfigs').findProperty('serviceName', serviceName).get('configs');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.set('config.configActionComponent', null);</span>
+<span class="cstat-no" title="statement not covered" >      var hostComponent = {</span>
+        componentName: configAction.get('componentName'),
+        isClient: '',
+        hostNames: [],
+        action: ''
+      };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var hostComponentRecords = App.HostComponent.find().filterProperty('componentName', hostComponent.componentName);</span>
+<span class="cstat-no" title="statement not covered" >      var stackComponentObj = App.StackServiceComponent.find(configAction.get('componentName'));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (stackComponentObj) {</span>
+<span class="cstat-no" title="statement not covered" >        hostComponent.isClient = stackComponentObj.get('isClient');</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (hostComponentRecords.length) {</span>
+<span class="cstat-no" title="statement not covered" >        hostComponent.hostNames = hostComponentRecords.mapProperty('hostName');</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var isConditionTrue = App.configTheme.calculateConfigCondition(configAction.get("if"), serviceConfigs);</span>
+<span class="cstat-no" title="statement not covered" >      var action = isConditionTrue ? configAction.get("then") : configAction.get("else");</span>
+<span class="cstat-no" title="statement not covered" >      hostComponent.action = action;</span>
+<span class="cstat-no" title="statement not covered" >      switch (action) {</span>
+        case 'add':
+          // Disable save button until a host is selected
+<span class="cstat-no" title="statement not covered" >          var isComponentToBeInstalled = !App.HostComponent.find().someProperty('componentName', hostComponent.componentName);</span>
+<span class="cstat-no" title="statement not covered" >          if (isComponentToBeInstalled) {</span>
+<span class="cstat-no" title="statement not covered" >            this.set('controller.saveInProgress', true);</span>
+<span class="cstat-no" title="statement not covered" >            assignMasterOnStep7Controller.execute(this, 'ADD', hostComponent);</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            if (hostComponent.componentName === "HIVE_SERVER_INTERACTIVE") {</span>
+<span class="cstat-no" title="statement not covered" >              assignMasterOnStep7Controller.execute(this, 'ADD', hostComponent);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            assignMasterOnStep7Controller.clearComponentsToBeDeleted(hostComponent.componentName);</span>
+          }
+<span class="cstat-no" title="statement not covered" >          break;</span>
+        case 'delete':
+<span class="cstat-no" title="statement not covered" >          assignMasterOnStep7Controller.execute(this, 'DELETE', hostComponent);</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
+      }
+    },
+&nbsp;
+    bindConfigValue: <span class="fstat-no" title="function not covered" >function bindConfigValue() {</span>
+<span class="cstat-no" title="statement not covered" >      var serviceName = this.get('config.serviceName');</span>
+<span class="cstat-no" title="statement not covered" >      var fileName = this.get('config.copy').split('/')[0] + '.xml';</span>
+<span class="cstat-no" title="statement not covered" >      var configName = this.get('config.copy').split('/')[1];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var serviceConfigs = this.get('controller.stepConfigs').findProperty('serviceName', serviceName).get('configs');</span>
+<span class="cstat-no" title="statement not covered" >      var config = serviceConfigs.filterProperty('filename', fileName).findProperty('name', configName);</span>
+<span class="cstat-no" title="statement not covered" >      this.addObserver('copyFromConfig.value', this, this.configValueObserverForCopy);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('copyFromConfig', config);</span>
+    },
+&nbsp;
+    configValueObserverForCopy: <span class="fstat-no" title="function not covered" >function configValueObserverForCopy() {</span>
+<span class="cstat-no" title="statement not covered" >      var copyFromConfig = this.get('copyFromConfig');</span>
+<span class="cstat-no" title="statement not covered" >      var displayName = copyFromConfig.get('displayName');</span>
+<span class="cstat-no" title="statement not covered" >      var value = copyFromConfig.get('value');</span>
+<span class="cstat-no" title="statement not covered" >      var description = copyFromConfig.get('description');</span>
+<span class="cstat-no" title="statement not covered" >      var config = this.get('config');</span>
+<span class="cstat-no" title="statement not covered" >      config.setProperties({</span>
+        value: value,
+        initialValue: value,
+        displayName: displayName,
+        description: description
+      });
+    },
+&nbsp;
+    /**
+     * set widget value same as config value
+     * useful for widgets that work with intermediate config value, not original
+     * for now used in slider widget
+     * @abstract
+     */
+    setValue: Em.K,
+&nbsp;
+    /**
+     * Config group bound property. Needed for correct render process in template.
+     *
+     * @returns {App.ConfigGroup|Boolean}
+     */
+    configGroup: function () {
+      return !this.get('config.group') || this.get('config.group.isDefault') ? false : this.get('config.group');
+    }.property('config.group.name'),
+&nbsp;
+    /**
+     * switcher to display config as widget or text field
+     * @method toggleWidgetView
+     */
+    toggleWidgetView: <span class="fstat-no" title="function not covered" >function toggleWidgetView() {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('isWidgetViewAllowed')) {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (this.get('config.showAsTextBox')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.textBoxToWidget();</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.widgetToTextBox();</span>
+      }
+    },
+&nbsp;
+    /**
+     * switch display of config to text field
+     * @method widgetToTextBox
+     */
+    widgetToTextBox: function widgetToTextBox() {
+      this.set("config.showAsTextBox", true);
+    },
+&nbsp;
+    /**
+     * switch display of config to widget
+     * @method textBoxToWidget
+     */
+    textBoxToWidget: <span class="fstat-no" title="function not covered" >function textBoxToWidget() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.isValueCompatibleWithWidget()) {</span>
+<span class="cstat-no" title="statement not covered" >        this.setValue(this.get('config.value'));</span>
+<span class="cstat-no" title="statement not covered" >        this.set("config.showAsTextBox", false);</span>
+      }
+    },
+&nbsp;
+    /**
+     * check if config value can be converted to config widget value
+     * IMPORTANT! Each config-widget that override this method should use &lt;code&gt;updateWarningsForCompatibilityWithWidget&lt;/code&gt;
+     * @returns {boolean}
+     */
+    isValueCompatibleWithWidget: function isValueCompatibleWithWidget() {
+      return this.get('isOverrideEqualityError') &amp;&amp; !this.get('config.isValid') || this.get('config.isValid') || !this.get('supportSwitchToTextBox');
+    },
+&nbsp;
+    /**
+     * Initialize widget with incompatible value as textbox
+     */
+    initIncompatibleWidgetAsTextBox: function initIncompatibleWidgetAsTextBox() {
+      this.get('config').set('showAsTextBox', !this.isValueCompatibleWithWidget());
+    },
+&nbsp;
+    /**
+     * Returns &lt;code&gt;true&lt;/code&gt; if raw value can be used by widget or widget view is activated.
+     * @returns {Boolean}
+     */
+    isWidgetViewAllowed: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('config.showAsTextBox')) {</span>
+<span class="cstat-no" title="statement not covered" >        return true;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return this.isValueCompatibleWithWidget();</span>
+    }.property('config.value', 'config.isFinal', 'config.showAsTextBox'),
+&nbsp;
+    /**
+     * Used in &lt;code&gt;isValueCompatibleWithWidget&lt;/code&gt;
+     * Updates issue-parameters if config is in the raw-mode
+     * @param {string} message empty string if value compatible with widget, error-message if value isn't compatible with widget
+     * @method updateWarningsForCompatibilityWithWidget
+     */
+    updateWarningsForCompatibilityWithWidget: function updateWarningsForCompatibilityWithWidget(message) {
+      this.setProperties({
+        warnMessage: message,
+        'config.warnMessage': message,
+        issueMessage: message,
+        configLabelClass: message ? 'text-warning' : ''
+      });
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

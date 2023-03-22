@@ -1,0 +1,2721 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/quick_view_link_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/views/common/quick_view_link_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">57.89% <small>(198 / 342)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">49.54% <small>(107 / 216)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">71.67% <small>(43 / 60)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">58.75% <small>(198 / 337)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/</a> &#187; quick_view_link_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _toConsumableArray(arr) {</span> <span class="cstat-no" title="statement not covered" >if (Array.isArray(arr)) { <span class="cstat-no" title="statement not covered" >for (var i = 0, arr2 = Array(arr.length); i &lt; arr.length; i++) { <span class="cstat-no" title="statement not covered" >arr2[i] = arr[i]; </span>} <span class="cstat-no" title="statement not covered" ></span>return arr2; </span>} else { <span class="cstat-no" title="statement not covered" >return Array.from(arr); </span>} </span>}
+&nbsp;
+;require.register("views/common/quick_view_link_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  /**
+   * @typedef {object} hostForQuickLink
+   * @property {string} hostName
+   * @property {string} publicHostName
+   * @property {string} componentName
+   * @property {?string} status
+   */
+&nbsp;
+  App.QuickLinksView = Em.View.extend({
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    isLoaded: false,
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    showQuickLinks: false,
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    showNoLinks: false,
+&nbsp;
+    /**
+     * @type {string}
+     */
+    quickLinksErrorMessage: '',
+&nbsp;
+    /**
+     * Updated quick links. Here we put correct hostname to url
+     *
+     * @type {object[]}
+     */
+    quickLinks: [],
+&nbsp;
+    /**
+     * @type {object[]}
+     */
+    configProperties: [],
+&nbsp;
+    /**
+     * list of files that contains properties for enabling/disabling ssl
+     *
+     * @type {string[]}
+     */
+    requiredSiteNames: [],
+&nbsp;
+    /**
+     * services that supports security. this array is used to find out protocol.
+     * besides YARN, MAPREDUCE2, ACCUMULO. These services use
+     * their properties to know protocol
+     */
+    servicesSupportsHttps: ["HDFS", "HBASE"],
+&nbsp;
+    masterGroups: [],
+&nbsp;
+    tooltipAttribute: 'quick-links-title-tooltip',
+&nbsp;
+    shouldSetGroupedLinks: false,
+&nbsp;
+    /**
+     * @type {object}
+     */
+    ambariProperties: function () {
+      return App.router.get('clusterController.ambariProperties');
+    }.property().volatile(),
+&nbsp;
+    didInsertElement: function didInsertElement() {
+      this.loadQuickLinksConfigurations();
+    },
+&nbsp;
+    willDestroyElement: function willDestroyElement() {
+      this.get('configProperties').clear();
+      this.get('quickLinks').clear();
+      this.get('requiredSiteNames').clear();
+    },
+&nbsp;
+    /**
+     * The flags responsible for data to build quick links:
+     * - App.router.clusterController.isServiceMetricsLoaded
+     *
+     * The flags responsible for correct, up-to-date state of quick links:
+     * - App.currentStackVersionNumber
+     * - App.router.clusterController.isHostComponentMetricsLoaded
+     */
+    setQuickLinks: function () {
+      var _this = this;
+&nbsp;
+      if (App.get('router.clusterController.isServiceMetricsLoaded')) {
+        this.setConfigProperties().done(function (configProperties) {
+          _this.get('configProperties').pushObjects(configProperties);
+          _this.getQuickLinksHosts();
+        });
+      }
+    }.observes('App.currentStackVersionNumber', 'App.router.clusterController.isServiceMetricsLoaded', 'App.router.clusterController.isHostComponentMetricsLoaded', 'App.router.clusterController.quickLinksUpdateCounter'),
+&nbsp;
+    /**
+    * Request for quick-links config
+    *
+    * @returns {$.ajax}
+    * @method loadQuickLinksConfigurations
+    */
+    loadQuickLinksConfigurations: <span class="fstat-no" title="function not covered" >function loadQuickLinksConfigurations() {</span>
+<span class="cstat-no" title="statement not covered" >      var serviceName = this.get('content.serviceName');</span>
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        name: 'configs.quicklinksconfig',
+        sender: this,
+        data: {
+          serviceName: serviceName,
+          stackVersionUrl: App.get('stackVersionURL')
+        },
+        success: 'loadQuickLinksConfigSuccessCallback'
+      });
+    },
+&nbsp;
+    /**
+     * Sucess-callback for quick-links config request
+     *
+     * @param {object} data
+     * @method loadQuickLinksConfigSuccessCallback
+     */
+    loadQuickLinksConfigSuccessCallback: function loadQuickLinksConfigSuccessCallback(data) {
+      App.quicklinksMapper.map(data);
+      var quickLinksConfig = this.getQuickLinksConfiguration();
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!Em.isNone(quickLinksConfig)) {
+        var protocolConfig = Em.get(quickLinksConfig, 'protocol');
+        var checks = Em.get(protocolConfig, 'checks');
+        var sites = ['core-site', 'hdfs-site', 'admin-properties'];
+        if (checks) {
+          checks.forEach(function (check) {
+            var protocolConfigSiteProp = Em.get(check, 'site');
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (sites.indexOf(protocolConfigSiteProp) &lt; 0) {
+              sites.push(protocolConfigSiteProp);
+            }
+          }, this);
+        }
+&nbsp;
+        var links = Em.get(quickLinksConfig, 'links');
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!Em.isEmpty(links)) {
+          links.forEach(function (link) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (!link.remove) {
+              this.addSite(link, 'host', sites);
+              this.addSite(link, 'port', sites);
+            }
+          }, this);
+          this.set('requiredSiteNames', this.get('requiredSiteNames').pushObjects(sites).uniq());
+          this.setQuickLinks();
+        }
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.set('showNoLinks', true);</span>
+      }
+    },
+&nbsp;
+    addSite: function addSite(link, linkPropertyName, sites) {
+      var config = Em.get(link, linkPropertyName);
+      if (config) {
+        var siteName = Em.get(config, 'site');
+        if (!sites.contains(siteName)) {
+          sites.push(siteName);
+        }
+      }
+    },
+&nbsp;
+    /**
+     * call for public host names
+     *
+     * @returns {$.ajax}
+     * @method getQuickLinksHosts
+     */
+    getQuickLinksHosts: function getQuickLinksHosts() {
+      var links = App.QuickLinksConfig.find().mapProperty('links'),
+          components = links.reduce(function (componentsArray, currentLinksArray) {
+        var componentNames = currentLinksArray.mapProperty('component_name').uniq();
+        return [].concat(_toConsumableArray(componentsArray), _toConsumableArray(componentNames));
+      }, []),
+          hosts = App.HostComponent.find().filter(function (component) {
+        return components.contains(component.get('componentName'));
+      }).mapProperty('hostName').uniq();
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (hosts.length === 0) {
+<span class="cstat-no" title="statement not covered" >        return $.Deferred().reject().promise();</span>
+      }
+&nbsp;
+      return App.ajax.send({
+        name: 'hosts.for_quick_links',
+        sender: this,
+        data: {
+          clusterName: App.get('clusterName'),
+          hosts: hosts.join(','),
+          urlParams: this.get('content.serviceName') === 'HBASE' ? ',host_components/metrics/hbase/master/IsActiveMaster' : ''
+        },
+        success: 'setQuickLinksSuccessCallback'
+      });
+    },
+&nbsp;
+    /**
+     * Success-callback for quick-links hosts request
+     *
+     * @param {object} response
+     * @method setQuickLinksSuccessCallback
+     */
+    setQuickLinksSuccessCallback: function setQuickLinksSuccessCallback(response) {
+      var serviceName = this.get('content.serviceName');
+      var hosts = this.getHosts(response, serviceName);
+      var hasQuickLinks = this.hasQuickLinksConfig(serviceName, hosts);
+      var hasHosts = false;
+      var componentNames = hosts.mapProperty('componentName');
+      componentNames.forEach(function (_componentName) {
+        var component = App.MasterComponent.find().findProperty('componentName', _componentName) || App.SlaveComponent.find().findProperty('componentName', _componentName);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (component) {
+<span class="cstat-no" title="statement not covered" >          hasHosts = hasHosts || !!component.get('totalCount');</span>
+        }
+      });
+      // no need to set quicklinks if
+      // 1)current service does not have quick links configured
+      // 2)No host component present for the configured quicklinks and has no overridden hosts
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (hasQuickLinks &amp;&amp; (<span class="branch-1 cbranch-no" title="branch not covered" >hasHosts </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >this.hasOverriddenHost())</span>) {
+<span class="cstat-no" title="statement not covered" >        this.set('showQuickLinks', true);</span>
+      } else {
+        this.set('showNoLinks', true);
+      }
+&nbsp;
+      var isMultipleComponentsInLinks = componentNames.uniq().length &gt; 1;
+&nbsp;
+      if (hosts.length === 0 &amp;&amp; !this.hasOverriddenHost()) {
+        this.setEmptyLinks();
+      } else if (hosts.length === 1 || isMultipleComponentsInLinks || this.hasOverriddenHost()) {
+        this.setSingleHostLinks(hosts, response);
+      } else if (this.get('masterGroups.length') &gt; 1 || this.get('shouldSetGroupedLinks')) {
+        this.setMultipleGroupLinks(hosts);
+      } else {
+        this.setMultipleHostLinks(hosts);
+      }
+    },
+&nbsp;
+    hasOverriddenHost: function hasOverriddenHost() {
+      var links = Em.get(this.getQuickLinksConfiguration(), 'links');
+      return links &amp;&amp; links.some(function (each) {
+        return each.host;
+      });
+    },
+&nbsp;
+    /**
+     * Get public host name by its host name.
+     *
+     * @method getPublicHostName
+     * @param {Object[]} hosts - list of hosts from response
+     * @param {string} hostName
+     * @return {?string}
+     **/
+    getPublicHostName: function getPublicHostName(hosts, hostName) {
+      var host = hosts.findProperty('Hosts.host_name', hostName);
+      return host ? Em.get(host, 'Hosts.public_host_name') : null;
+    },
+&nbsp;
+    /**
+     * Get configs from `configurationController` for provided list of the tags
+     *
+     * @returns {$.Deferred}
+     * @method setConfigProperties
+     */
+    setConfigProperties: function setConfigProperties() {
+      this.get('configProperties').clear();
+      return App.router.get('configurationController').getCurrentConfigsBySites(this.get('requiredSiteNames'));
+    },
+&nbsp;
+    /**
+     * Get quick links config for &lt;code&gt;content.serviceName&lt;/code&gt;
+     *
+     * @returns {?App.QuickLinksConfig}
+     * @method getQuickLinksConfiguration
+     */
+    getQuickLinksConfiguration: <span class="fstat-no" title="function not covered" >function getQuickLinksConfiguration() {</span>
+<span class="cstat-no" title="statement not covered" >      var serviceName = this.get('content.serviceName');</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      var quicklinks = {};</span>
+<span class="cstat-no" title="statement not covered" >      if (self.hasQuickLinksConfig(serviceName)) {</span>
+<span class="cstat-no" title="statement not covered" >        quicklinks = App.QuickLinksConfig.find().findProperty('id', serviceName);</span>
+<span class="cstat-no" title="statement not covered" >        Em.set(quicklinks, 'links', Em.get(quicklinks, 'links').filterProperty('visible', true));</span>
+<span class="cstat-no" title="statement not covered" >        return quicklinks;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return null;</span>
+    },
+&nbsp;
+    /**
+     * Check if &lt;code&gt;serviceName&lt;/code&gt; has quick-links config
+     *
+     * @param {string} serviceName
+     * @returns {boolean}
+     * @method hasQuickLinksConfig
+     */
+    hasQuickLinksConfig: function hasQuickLinksConfig(serviceName) {
+      var result = App.QuickLinksConfig.find().findProperty('id', serviceName);
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!result) {
+        return false;
+      }
+<span class="cstat-no" title="statement not covered" >      var links = result.get('links');</span>
+<span class="cstat-no" title="statement not covered" >      return Em.isEmpty(links) ? false : links.length !== links.filterProperty('remove').length;</span>
+    },
+&nbsp;
+    /**
+     *
+     * @param {object} link
+     * @param {string} host
+     * @param {string} protocol
+     * @param {object[]} configProperties
+     * @param {object} response
+     * @returns {?object}
+     * @method getHostLink
+     */
+    getHostLink: <span class="fstat-no" title="function not covered" >function getHostLink(link, host, protocol, configProperties, response) {</span>
+<span class="cstat-no" title="statement not covered" >      var serviceName = this.get('content.serviceName');</span>
+<span class="cstat-no" title="statement not covered" >      if (serviceName === 'MAPREDUCE2' &amp;&amp; response) {</span>
+<span class="cstat-no" title="statement not covered" >        var portConfig = Em.get(link, 'port');</span>
+<span class="cstat-no" title="statement not covered" >        var siteName = Em.get(portConfig, 'site');</span>
+<span class="cstat-no" title="statement not covered" >        var siteConfigs = this.get('configProperties').findProperty('type', siteName).properties;</span>
+<span class="cstat-no" title="statement not covered" >        var hostPortConfigValue = siteConfigs[Em.get(portConfig, protocol + '_config')];</span>
+<span class="cstat-no" title="statement not covered" >        if (!Em.isNone(hostPortConfigValue)) {</span>
+<span class="cstat-no" title="statement not covered" >          var hostPortValue = hostPortConfigValue.match(new RegExp('([\\w\\d.-]*):(\\d+)'));</span>
+<span class="cstat-no" title="statement not covered" >          var hostObj = response.items.findProperty('Hosts.host_name', hostPortValue[1]);</span>
+<span class="cstat-no" title="statement not covered" >          if (!Em.isNone(hostObj)) {</span>
+<span class="cstat-no" title="statement not covered" >            host = hostObj.Hosts.public_host_name;</span>
+          }
+        }
+      } else <span class="cstat-no" title="statement not covered" >if (serviceName === 'RANGER') {</span>
+<span class="cstat-no" title="statement not covered" >        var _siteConfigs = this.get('configProperties').findProperty('type', 'admin-properties').properties;</span>
+<span class="cstat-no" title="statement not covered" >        if (_siteConfigs['policymgr_external_url']) {</span>
+<span class="cstat-no" title="statement not covered" >          return {</span>
+            label: link.label,
+            url: _siteConfigs['policymgr_external_url']
+          };
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var linkPort = this.setPort(Em.get(link, 'port'), protocol, configProperties);</span>
+<span class="cstat-no" title="statement not covered" >      if (Em.get(link, 'url') &amp;&amp; !Em.get(link, 'removed')) {</span>
+<span class="cstat-no" title="statement not covered" >        var newItem = {};</span>
+<span class="cstat-no" title="statement not covered" >        var requiresUserName = Em.get(link, 'requires_user_name');</span>
+<span class="cstat-no" title="statement not covered" >        var template = Em.get(link, 'url');</span>
+<span class="cstat-no" title="statement not covered" >        if ('true' === requiresUserName) {</span>
+<span class="cstat-no" title="statement not covered" >          newItem.url = template.fmt(protocol, host, linkPort, App.router.get('loginName'));</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          newItem.url = template.fmt(protocol, host, linkPort);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        newItem.label = link.label;</span>
+<span class="cstat-no" title="statement not covered" >        newItem.url = this.resolvePlaceholders(newItem.url);</span>
+<span class="cstat-no" title="statement not covered" >        return newItem;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return null;</span>
+    },
+&nbsp;
+    /**
+     * Replace placeholders like ${config-type/property-name} in the given URL
+     */
+    resolvePlaceholders: function resolvePlaceholders(url) {
+      return url.replace(/\$\{(\S+)\/(\S+)\}/g, function (match, configType, propertyName) {
+        var config = this.get('configProperties').findProperty('type', configType);
+        if (config) {
+          return config.properties[propertyName] ? config.properties[propertyName] : match;
+        } else {
+          return match;
+        }
+      }.bind(this));
+    },
+&nbsp;
+    /**
+     * set empty links
+     *
+     * @method setEmptyLinks
+     */
+    setEmptyLinks: function setEmptyLinks() {
+      //display an error message
+      var quickLinks = [{
+        label: this.get('quickLinksErrorMessage')
+      }];
+      this.set('quickLinks', quickLinks);
+      this.set('isLoaded', true);
+    },
+&nbsp;
+    /**
+     * set links that contain only one host
+     *
+     * @param {hostForQuickLink[]} hosts
+     * @param {object} response
+     * @method setSingleHostLinks
+     */
+    setSingleHostLinks: <span class="fstat-no" title="function not covered" >function setSingleHostLinks(hosts, response) {</span>
+<span class="cstat-no" title="statement not covered" >      var quickLinksConfig = this.getQuickLinksConfiguration();</span>
+<span class="cstat-no" title="statement not covered" >      if (!Em.isNone(quickLinksConfig)) {</span>
+<span class="cstat-no" title="statement not covered" >        var quickLinks = [];</span>
+<span class="cstat-no" title="statement not covered" >        var configProperties = this.get('configProperties');</span>
+<span class="cstat-no" title="statement not covered" >        var protocol = this.setProtocol(configProperties, quickLinksConfig.get('protocol'));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var links = Em.get(quickLinksConfig, 'links');</span>
+<span class="cstat-no" title="statement not covered" >        links.forEach(<span class="fstat-no" title="function not covered" >function (link) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var isRelatedComponentInstalled = this.isRelatedComponentInstalled(link);</span>
+<span class="cstat-no" title="statement not covered" >          if (isRelatedComponentInstalled) {</span>
+<span class="cstat-no" title="statement not covered" >            var publicHostName = this.publicHostName(link, hosts, protocol);</span>
+<span class="cstat-no" title="statement not covered" >            if (publicHostName) {</span>
+<span class="cstat-no" title="statement not covered" >              if (link.protocol) {</span>
+<span class="cstat-no" title="statement not covered" >                protocol = this.setProtocol(configProperties, link.protocol);</span>
+              }
+<span class="cstat-no" title="statement not covered" >              var newItem = this.getHostLink(link, publicHostName, protocol, configProperties, response); </span>//quicklink generated for the hbs template
+<span class="cstat-no" title="statement not covered" >              if (!Em.isNone(newItem)) {</span>
+<span class="cstat-no" title="statement not covered" >                quickLinks.push(newItem);</span>
+              }
+            }
+          }
+        }, this);
+<span class="cstat-no" title="statement not covered" >        this.set('quickLinks', quickLinks);</span>
+<span class="cstat-no" title="statement not covered" >        this.set('isLoaded', true);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.set('quickLinks', []);</span>
+<span class="cstat-no" title="statement not covered" >        this.set('isLoaded', false);</span>
+      }
+    },
+&nbsp;
+    publicHostName: <span class="fstat-no" title="function not covered" >function publicHostName(link, hosts, protocol) {</span>
+<span class="cstat-no" title="statement not covered" >      if (link.host) {</span>
+        // if quicklink overrides hostcomponent host name, get host from config
+<span class="cstat-no" title="statement not covered" >        var configProperties = this.get('configProperties');</span>
+<span class="cstat-no" title="statement not covered" >        var hostProperty = Em.get(link.host, protocol + '_property');</span>
+<span class="cstat-no" title="statement not covered" >        var site = configProperties.findProperty('type', Em.get(link.host, 'site'));</span>
+<span class="cstat-no" title="statement not covered" >        return site &amp;&amp; site.properties ? this.parseHostFromUri(site.properties[hostProperty]) : null;</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        var hostNameForComponent = hosts.findProperty('componentName', link.component_name);</span>
+<span class="cstat-no" title="statement not covered" >        return hostNameForComponent ? hostNameForComponent.publicHostName : null;</span>
+      }
+    },
+&nbsp;
+    /**
+     * @param {string} uri
+     */
+    parseHostFromUri: <span class="fstat-no" title="function not covered" >function parseHostFromUri(uri) {</span>
+<span class="cstat-no" title="statement not covered" >      if (uri) {</span>
+<span class="cstat-no" title="statement not covered" >        var match = uri.match(/:\/\/([^/:]+)/i);</span>
+<span class="cstat-no" title="statement not covered" >        return match != null &amp;&amp; match.length == 2 ? match[1] : uri;</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+      }
+    },
+&nbsp;
+    getMultipleHostLinks: <span class="fstat-no" title="function not covered" >function getMultipleHostLinks(hosts) {</span>
+<span class="cstat-no" title="statement not covered" >      var quickLinksConfig = this.getQuickLinksConfiguration();</span>
+<span class="cstat-no" title="statement not covered" >      if (Em.isNone(quickLinksConfig)) {</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var quickLinksArray = [];</span>
+<span class="cstat-no" title="statement not covered" >      hosts.forEach(<span class="fstat-no" title="function not covered" >function (host) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var publicHostName = host.publicHostName;</span>
+<span class="cstat-no" title="statement not covered" >        var quickLinks = [];</span>
+<span class="cstat-no" title="statement not covered" >        var configProperties = this.get('configProperties');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var protocol = this.setProtocol(configProperties, quickLinksConfig.get('protocol'));</span>
+<span class="cstat-no" title="statement not covered" >        var serviceName = Em.get(quickLinksConfig, 'serviceName');</span>
+<span class="cstat-no" title="statement not covered" >        var links = Em.get(quickLinksConfig, 'links');</span>
+<span class="cstat-no" title="statement not covered" >        links.forEach(<span class="fstat-no" title="function not covered" >function (link) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var linkRemoved = Em.get(link, 'removed');</span>
+<span class="cstat-no" title="statement not covered" >          var url = Em.get(link, 'url');</span>
+<span class="cstat-no" title="statement not covered" >          var isRelatedComponentInstalled = this.isRelatedComponentInstalled(link);</span>
+<span class="cstat-no" title="statement not covered" >          if (url &amp;&amp; !linkRemoved &amp;&amp; isRelatedComponentInstalled) {</span>
+<span class="cstat-no" title="statement not covered" >            var hostNameRegExp = new RegExp('([\\w\\W]*):\\d+');</span>
+<span class="cstat-no" title="statement not covered" >            if (serviceName === 'HDFS') {</span>
+<span class="cstat-no" title="statement not covered" >              var config;</span>
+<span class="cstat-no" title="statement not covered" >              var configPropertiesObject = configProperties.findProperty('type', 'hdfs-site');</span>
+<span class="cstat-no" title="statement not covered" >              if (configPropertiesObject &amp;&amp; configPropertiesObject.properties) {</span>
+<span class="cstat-no" title="statement not covered" >                var properties = configPropertiesObject.properties;</span>
+<span class="cstat-no" title="statement not covered" >                var nnKeyRegex = new RegExp('^dfs\.namenode\.' + protocol + '-address\.');</span>
+<span class="cstat-no" title="statement not covered" >                var nnProperties = Object.keys(properties).filter(<span class="fstat-no" title="function not covered" >function (key) {</span></span>
+<span class="cstat-no" title="statement not covered" >                  return nnKeyRegex.test(key);</span>
+                });
+<span class="cstat-no" title="statement not covered" >                var nnPropertiesLength = nnProperties.length;</span>
+<span class="cstat-no" title="statement not covered" >                for (var i = nnPropertiesLength; i--;) {</span>
+<span class="cstat-no" title="statement not covered" >                  var propertyName = nnProperties[i];</span>
+<span class="cstat-no" title="statement not covered" >                  var hostNameMatch = properties[propertyName] &amp;&amp; properties[propertyName].match(hostNameRegExp);</span>
+<span class="cstat-no" title="statement not covered" >                  if (hostNameMatch &amp;&amp; hostNameMatch[1] === host.publicHostName) {</span>
+<span class="cstat-no" title="statement not covered" >                    config = propertyName;</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                  }
+                }
+              }
+<span class="cstat-no" title="statement not covered" >              var portConfig = Em.get(link, 'port');</span>
+<span class="cstat-no" title="statement not covered" >              Em.set(portConfig, protocol + '_property', config);</span>
+<span class="cstat-no" title="statement not covered" >              Em.set(link, 'port', portConfig);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var newItem = this.getHostLink(link, publicHostName, protocol, configProperties); </span>//quicklink generated for the hbs template
+<span class="cstat-no" title="statement not covered" >            if (!Em.isNone(newItem)) {</span>
+<span class="cstat-no" title="statement not covered" >              quickLinks.push(newItem);</span>
+            }
+          }
+        }, this);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (host.status) {</span>
+<span class="cstat-no" title="statement not covered" >          quickLinks.set('publicHostNameLabel', Em.I18n.t('quick.links.publicHostName').format(host.publicHostName, host.status));</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          quickLinks.set('publicHostNameLabel', host.publicHostName);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        quickLinksArray.push(quickLinks);</span>
+      }, this);
+<span class="cstat-no" title="statement not covered" >      return quickLinksArray;</span>
+    },
+&nbsp;
+    /**
+     * set links that contain multiple hosts
+     *
+     * @param {hostForQuickLink[]} hosts
+     * @method setMultipleHostLinks
+     */
+    setMultipleHostLinks: <span class="fstat-no" title="function not covered" >function setMultipleHostLinks(hosts) {</span>
+<span class="cstat-no" title="statement not covered" >      var quickLinks = this.getMultipleHostLinks(hosts);</span>
+<span class="cstat-no" title="statement not covered" >      this.setProperties({</span>
+        quickLinksArray: [{
+          links: quickLinks || []
+        }],
+        isLoaded: !!quickLinks
+      });
+    },
+&nbsp;
+    /**
+     * set links that contain for multiple grouped hosts
+     *
+     * @param {hostForQuickLink[]} hosts
+     * @method setMultipleGroupLinks
+     */
+    setMultipleGroupLinks: <span class="fstat-no" title="function not covered" >function setMultipleGroupLinks(hosts) {</span>
+<span class="cstat-no" title="statement not covered" >      var _this2 = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var isLoaded = true;</span>
+<span class="cstat-no" title="statement not covered" >      var quickLinksArray = this.get('masterGroups').map(<span class="fstat-no" title="function not covered" >function (group) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var groupHosts = hosts.filter(<span class="fstat-no" title="function not covered" >function (host) {</span></span>
+<span class="cstat-no" title="statement not covered" >          return group.hosts.contains(host.hostName);</span>
+        }),
+            links = _this2.getMultipleHostLinks(groupHosts);
+<span class="cstat-no" title="statement not covered" >        if (!links) {</span>
+<span class="cstat-no" title="statement not covered" >          isLoaded = false;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return {</span>
+          title: group.title,
+          links: links || []
+        };
+      });
+<span class="cstat-no" title="statement not covered" >      this.setProperties({</span>
+        quickLinksArray: quickLinksArray,
+        isLoaded: isLoaded
+      });
+    },
+&nbsp;
+    /**
+     * set status to hosts with OOZIE_SERVER
+     *
+     * @param {object[]} hosts
+     * @returns {object[]}
+     * @method processOozieHosts
+     */
+    processOozieHosts: function processOozieHosts(hosts) {
+      var activeOozieServers = this.get('content.hostComponents').filterProperty('componentName', 'OOZIE_SERVER').filterProperty('workStatus', 'STARTED').mapProperty('hostName');
+&nbsp;
+      var oozieHostsArray = hosts.filter(function (host) {
+        host.status = Em.I18n.t('quick.links.label.active');
+        return activeOozieServers.contains(host.hostName);
+      }, this);
+&nbsp;
+      if (!oozieHostsArray.length) {
+        this.set('quickLinksErrorMessage', Em.I18n.t('quick.links.error.oozie.label'));
+      }
+      return oozieHostsArray;
+    },
+&nbsp;
+    /**
+     * set status to hosts with NAMENODE
+     *
+     * @param {hostForQuickLink[]} hosts
+     * @returns {object[]}
+     * @method hostForQuickLink
+     */
+    processHdfsHosts: function processHdfsHosts(hosts) {
+      var _this3 = this;
+&nbsp;
+      return hosts.map(function (host) {
+        var hostName = host.hostName,
+            isActiveNameNode = Em.get(_this3, 'content.activeNameNodes').someProperty('hostName', hostName),
+            isStandbyNameNode = Em.get(_this3, 'content.standbyNameNodes').someProperty('hostName', hostName);
+&nbsp;
+        if (isActiveNameNode) {
+          host.status = Em.I18n.t('quick.links.label.active');
+        }
+        if (isStandbyNameNode) {
+          host.status = Em.I18n.t('quick.links.label.standby');
+        }
+        return host;
+      });
+    },
+&nbsp;
+    /**
+     * set status to hosts with HBASE_MASTER
+     *
+     * @param {hostForQuickLink[]} hosts
+     * @param {object} response
+     * @returns {hostForQuickLink[]}
+     * @method processHbaseHosts
+     */
+    processHbaseHosts: function processHbaseHosts(hosts, response) {
+      return hosts.map(function (host) {
+        var isActiveMaster;
+        response.items.filterProperty('Hosts.host_name', host.hostName).filter(function (item) {
+          var hbaseMaster = item.host_components.findProperty('HostRoles.component_name', 'HBASE_MASTER');
+          isActiveMaster = hbaseMaster &amp;&amp; Em.get(hbaseMaster, 'metrics.hbase.master.IsActiveMaster');
+        });
+        if (isActiveMaster === 'true') {
+          host.status = Em.I18n.t('quick.links.label.active');
+        } else if (isActiveMaster === 'false') {
+          host.status = Em.I18n.t('quick.links.label.standby');
+        }
+        return host;
+      }, this);
+    },
+&nbsp;
+    /**
+     * set status to hosts with RESOURCEMANAGER
+     *
+     * @param {hostForQuickLink[]} hosts
+     * @returns {hostForQuickLink[]}
+     * @method processYarnHosts
+     */
+    processYarnHosts: function processYarnHosts(hosts) {
+      return hosts.map(function (host) {
+        var resourceManager = this.get('content.hostComponents').filterProperty('componentName', 'RESOURCEMANAGER').findProperty('hostName', host.hostName);
+        var haStatus = resourceManager &amp;&amp; resourceManager.get('haStatus');
+        if (haStatus === 'ACTIVE') {
+          host.status = Em.I18n.t('quick.links.label.active');
+        } else if (haStatus === 'STANDBY') {
+          host.status = Em.I18n.t('quick.links.label.standby');
+        }
+        return host;
+      }, this);
+    },
+&nbsp;
+    /**
+     * sets public host names for required masters of current service
+     *
+     * @param {object} response
+     * @param {string} serviceName - selected serviceName
+     * @returns {hostForQuickLink[]} containing hostName(s)
+     * @method getHosts
+     */
+    getHosts: function getHosts(response, serviceName) {
+      //The default error message when we cannot obtain the host information for the given service
+      this.set('quickLinksErrorMessage', Em.I18n.t('quick.links.error.nohosts.label').format(serviceName));
+      var hosts = [];
+      var quickLinkConfigs = App.QuickLinksConfig.find().findProperty("id", serviceName);
+      if (quickLinkConfigs) {
+        var links = quickLinkConfigs.get('links');
+        var componentNames = links.mapProperty('component_name').uniq();
+        componentNames.forEach(function (_componentName) {
+          var componentHosts = this.findHosts(_componentName, response);
+          switch (serviceName) {
+            case 'OOZIE':
+              hosts = hosts.concat(this.processOozieHosts(componentHosts));
+              break;
+            case "HDFS":
+              hosts = hosts.concat(this.processHdfsHosts(componentHosts));
+              break;
+            case "HBASE":
+              hosts = hosts.concat(this.processHbaseHosts(componentHosts, response));
+              break;
+            case "YARN":
+              hosts = hosts.concat(this.processYarnHosts(componentHosts));
+              break;
+<span class="branch-4 cbranch-no" title="branch not covered" >            case "SMARTSENSE":</span>
+<span class="cstat-no" title="statement not covered" >              if (!App.MasterComponent.find().findProperty('componentName', _componentName)) {</span>
+<span class="cstat-no" title="statement not covered" >                hosts = [];</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+              }
+            default:
+              hosts = hosts.concat(componentHosts);
+              break;
+          }
+        }, this);
+      }
+      return hosts;
+    },
+&nbsp;
+    /**
+     * find host public names
+     *
+     * @param {string} componentName
+     * @param {object} response
+     * @returns {hostForQuickLink[]}
+     */
+    findHosts: function findHosts(componentName, response) {
+      var hosts = [];
+      var component = App.MasterComponent.find().findProperty('componentName', componentName) || <span class="branch-1 cbranch-no" title="branch not covered" >App.SlaveComponent.find().findProperty('componentName', componentName);</span>
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (component) {
+        var hostComponents = component.get('hostNames') || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
+        hostComponents.forEach(function (_hostName) {
+          var host = this.getPublicHostName(response.items, _hostName);
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (host) {
+            hosts.push({
+              hostName: _hostName,
+              publicHostName: host,
+              componentName: componentName
+            });
+          }
+        }, this);
+      }
+      return hosts;
+    },
+&nbsp;
+    /**
+     * 'http' for 'https'
+     * 'https' for 'https'
+     * empty string otherwise
+     *
+     * @param {string} type
+     * @returns {string}
+     * @method reverseType
+     */
+    reverseType: function reverseType(type) {
+      if ('https' === type) {
+        return 'http';
+      }
+      if ('http' === type) {
+        return 'https';
+      }
+      return '';
+    },
+&nbsp;
+    /**
+     *
+     * @param {object[]} configProperties
+     * @param {string} configType
+     * @param {string} property
+     * @param {string} desiredState
+     * @returns {boolean}
+     * @method meetDesired
+     */
+    meetDesired: function meetDesired(configProperties, configType, property, desiredState) {
+      var currentConfig = configProperties.findProperty('type', configType);
+      if (!currentConfig) {
+        return false;
+      }
+      var currentPropertyValue = currentConfig.properties[property];
+      if ('NOT_EXIST' === desiredState) {
+        return Em.isNone(currentPropertyValue);
+      }
+      if ('EXIST' === desiredState) {
+        return !Em.isNone(currentPropertyValue);
+      }
+      return desiredState === currentPropertyValue;
+    },
+&nbsp;
+    /**
+     * setProtocol - if cluster is secure for some services (GANGLIA, MAPREDUCE2, YARN and servicesSupportsHttps)
+     * protocol becomes "https" otherwise "http" (by default)
+     *
+     * @param {Object} configProperties
+     * @param {Object} protocolConfig
+     * @returns {string} "https" or "http" only!
+     * @method setProtocol
+     */
+    setProtocol: function setProtocol(configProperties, protocolConfig) {
+      var hadoopSslEnabled = false;
+&nbsp;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!Em.isEmpty(configProperties)) {
+        var hdfsSite = configProperties.findProperty('type', 'hdfs-site');
+        hadoopSslEnabled = hdfsSite &amp;&amp; Em.get(hdfsSite, 'properties') &amp;&amp; hdfsSite.properties['dfs.http.policy'] === 'HTTPS_ONLY';
+      }
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!protocolConfig) {
+<span class="cstat-no" title="statement not covered" >        return hadoopSslEnabled ? 'https' : 'http';</span>
+      }
+&nbsp;
+      var protocolType = Em.get(protocolConfig, 'type');
+&nbsp;
+      if ('HTTPS_ONLY' === protocolType) {
+        return 'https';
+      }
+      if ('HTTP_ONLY' === protocolType) {
+        return 'http';
+      }
+&nbsp;
+      protocolType = protocolType.toLowerCase();
+&nbsp;
+      var count = 0;
+      var checks = Em.get(protocolConfig, 'checks');
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!checks) {
+<span class="cstat-no" title="statement not covered" >        return hadoopSslEnabled ? 'https' : 'http';</span>
+      }
+      checks.forEach(function (check) {
+        var configType = Em.get(check, 'site');
+        var property = Em.get(check, 'property');
+        var desiredState = Em.get(check, 'desired');
+        var checkMeet = this.meetDesired(configProperties, configType, property, desiredState);
+        if (!checkMeet) {
+          count++;
+        }
+      }, this);
+&nbsp;
+      return count ? this.reverseType(protocolType) : protocolType;
+    },
+&nbsp;
+    /**
+     * sets the port of quick link
+     *
+     * @param {object} portConfigs
+     * @param {string} protocol
+     * @param {object[]} configProperties
+     * @returns {string}
+     * @method setPort
+     */
+    setPort: function setPort(portConfigs, protocol, configProperties) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!portConfigs) {
+<span class="cstat-no" title="statement not covered" >        return '';</span>
+      }
+      var defaultPort = Em.get(portConfigs, protocol + '_default_port');
+      var portProperty = Em.get(portConfigs, protocol + '_property');
+      var site = configProperties.findProperty('type', Em.get(portConfigs, 'site'));
+      var propertyValue = site &amp;&amp; site.properties &amp;&amp; site.properties[portProperty];
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!propertyValue) {
+<span class="cstat-no" title="statement not covered" >        return defaultPort;</span>
+      }
+&nbsp;
+      var regexValue = Em.get(portConfigs, 'regex');
+      if (protocol === 'https') {
+        var httpsRegex = Em.get(portConfigs, 'https_regex');
+        if (httpsRegex) {
+          regexValue = httpsRegex;
+        }
+      }
+      regexValue = regexValue.trim();
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (regexValue) {
+        var re = new RegExp(regexValue);
+        var portValue = propertyValue.match(re);
+        try {
+          return portValue[1];
+        } catch (err) {
+<span class="cstat-no" title="statement not covered" >          return defaultPort;</span>
+        }
+      } else {
+<span class="cstat-no" title="statement not covered" >        return propertyValue;</span>
+      }
+    },
+&nbsp;
+    setTooltip: function () {
+      var _this4 = this;
+&nbsp;
+      Em.run.next(function () {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (_this4.get('showQuickLinks') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >_this4.get('isLoaded') </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >_this4.get('quickLinksArray.length'))</span> {
+<span class="cstat-no" title="statement not covered" >          App.tooltip($('[rel="' + _this4.get('tooltipAttribute') + '"]'));</span>
+        }
+      });
+    }.observes('showQuickLinks', 'isLoaded', 'quickLinksArray.length'),
+&nbsp;
+    /**
+     * Check if host component related to quickLink is installed
+     * @param quickLink
+     * @returns {Boolean}
+     */
+    isRelatedComponentInstalled: <span class="fstat-no" title="function not covered" >function isRelatedComponentInstalled(quickLink) {</span>
+<span class="cstat-no" title="statement not covered" >      return App.HostComponent.find().someProperty('componentName', quickLink.component_name);</span>
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

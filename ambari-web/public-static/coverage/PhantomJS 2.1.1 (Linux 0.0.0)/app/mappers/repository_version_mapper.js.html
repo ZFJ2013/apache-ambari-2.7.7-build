@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/mappers/repository_version_mapper.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/mappers/repository_version_mapper.js</span></h1>
+    <h2>
+        Statements: <span class="metric">17.24% <small>(10 / 58)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">12.12% <small>(4 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">41.67% <small>(5 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">17.24% <small>(10 / 58)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/mappers/</a> &#187; repository_version_mapper.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("mappers/repository_version_mapper", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * 'License'); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an 'AS IS' BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+  var App = require('app');
+&nbsp;
+  App.repoVersionMapper = App.QuickDataMapper.create({
+    modelRepoVersions: App.RepositoryVersion,
+    modelOperatingSystems: App.OS,
+    modelRepositories: App.Repository,
+    modelServices: App.ServiceSimple,
+&nbsp;
+    modelRepoVersion: <span class="fstat-no" title="function not covered" >function modelRepoVersion(isCurrentStackOnly) {</span>
+<span class="cstat-no" title="statement not covered" >      var repoVersionsKey = 'RepositoryVersions';</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        id: repoVersionsKey + '.id',
+        stack_version_id: repoVersionsKey + '.stackVersionId',
+        display_name: repoVersionsKey + '.display_name',
+        type: repoVersionsKey + '.type',
+        hidden: repoVersionsKey + '.hidden',
+        repository_version: repoVersionsKey + '.repository_version',
+        upgrade_pack: repoVersionsKey + '.upgrade_pack',
+        stack_version_type: repoVersionsKey + '.stack_name',
+        stack_version_number: repoVersionsKey + '.stack_version',
+        use_redhat_satellite: 'use_redhat_satellite',
+        stack_services_key: 'stack_services',
+        stack_services_type: 'array',
+        stack_services: {
+          item: 'id'
+        },
+        operating_systems_key: 'operating_systems',
+        operating_systems_type: 'array',
+        operating_systems: {
+          item: 'id'
+        }
+      };
+    },
+&nbsp;
+    modelOS: {
+      id: 'id',
+      repository_version_id: 'repository_version_id',
+      os_type: 'OperatingSystems.os_type',
+      stack_name: 'OperatingSystems.stack_name',
+      stack_version: 'OperatingSystems.stack_version',
+      repositories_key: 'repositories',
+      repositories_type: 'array',
+      repositories: {
+        item: 'id'
+      }
+    },
+&nbsp;
+    modelRepository: {
+      id: 'id',
+      operating_system_id: 'Repositories.operating_system_id',
+      base_url: 'Repositories.base_url',
+      default_base_url: 'Repositories.default_base_url',
+      latest_base_url: 'Repositories.latest_base_url',
+      mirrors_list: 'Repositories.mirrors_list',
+      os_type: 'Repositories.os_type',
+      repo_id: 'Repositories.repo_id',
+      original_repo_id: 'Repositories.repo_id',
+      repo_name: 'Repositories.repo_name',
+      stack_name: 'Repositories.stack_name',
+      stack_version: 'Repositories.stack_version',
+      tags: 'Repositories.tags',
+      applicable_services: 'Repositories.applicable_services'
+    },
+&nbsp;
+    map: <span class="fstat-no" title="function not covered" >function map(json, loadAll, isCurrentStackOnly) {</span>
+<span class="cstat-no" title="statement not covered" >      var modelRepoVersions = this.get('modelRepoVersions');</span>
+<span class="cstat-no" title="statement not covered" >      var modelOperatingSystems = this.get('modelOperatingSystems');</span>
+<span class="cstat-no" title="statement not covered" >      var modelRepositories = this.get('modelRepositories');</span>
+<span class="cstat-no" title="statement not covered" >      var modelServices = this.get('modelServices');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var resultRepoVersion = [];</span>
+<span class="cstat-no" title="statement not covered" >      var resultOS = [];</span>
+<span class="cstat-no" title="statement not covered" >      var resultRepo = [];</span>
+<span class="cstat-no" title="statement not covered" >      var resultService = [];</span>
+<span class="cstat-no" title="statement not covered" >      var repoVersionsKey = 'RepositoryVersions';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!isCurrentStackOnly) {</span>
+<span class="cstat-no" title="statement not covered" >        json = this.convertToRepoScheme(json);</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (json &amp;&amp; json.items) {</span>
+<span class="cstat-no" title="statement not covered" >        json.items.forEach(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (loadAll || item[repoVersionsKey] &amp;&amp; !App.StackVersion.find().someProperty('repositoryVersion.id', item[repoVersionsKey].id)) {</span>
+<span class="cstat-no" title="statement not covered" >            var repo = item;</span>
+<span class="cstat-no" title="statement not covered" >            var osArray = [];</span>
+<span class="cstat-no" title="statement not covered" >            if (item.operating_systems) {</span>
+<span class="cstat-no" title="statement not covered" >              item.operating_systems.forEach(<span class="fstat-no" title="function not covered" >function (os) {</span></span>
+<span class="cstat-no" title="statement not covered" >                os.id = item[repoVersionsKey].repository_version + os.OperatingSystems.os_type;</span>
+<span class="cstat-no" title="statement not covered" >                os.repository_version_id = repo.id;</span>
+<span class="cstat-no" title="statement not covered" >                var repoArray = [];</span>
+<span class="cstat-no" title="statement not covered" >                if (Em.get(os, 'repositories')) {</span>
+<span class="cstat-no" title="statement not covered" >                  os.repositories.forEach(<span class="fstat-no" title="function not covered" >function (repo) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    repo.id = repo.Repositories.repo_id + os.id;</span>
+<span class="cstat-no" title="statement not covered" >                    repo.operating_system_id = os.id;</span>
+<span class="cstat-no" title="statement not covered" >                    repoArray.pushObject(repo);</span>
+<span class="cstat-no" title="statement not covered" >                    resultRepo.push(this.parseIt(repo, this.get('modelRepository')));</span>
+                  }, this);
+                }
+<span class="cstat-no" title="statement not covered" >                os.repositories = repoArray;</span>
+<span class="cstat-no" title="statement not covered" >                osArray.pushObject(os);</span>
+<span class="cstat-no" title="statement not covered" >                resultOS.push(this.parseIt(os, this.get('modelOS')));</span>
+              }, this);
+            }
+<span class="cstat-no" title="statement not covered" >            if (item[repoVersionsKey].stack_services) {</span>
+<span class="cstat-no" title="statement not covered" >              item[repoVersionsKey].stack_services.forEach(<span class="fstat-no" title="function not covered" >function (service) {</span></span>
+<span class="cstat-no" title="statement not covered" >                var serviceObj = {</span>
+                  id: item[repoVersionsKey].repository_version + service.name,
+                  name: service.name,
+                  display_name: service.display_name,
+                  latest_version: service.versions[0] ? service.versions[0] : '',
+                  is_available: item[repoVersionsKey].services ? item[repoVersionsKey].services.someProperty('name', service.name) : true,
+                  is_upgradable: json.stackServices ? json.stackServices[service.name] &amp;&amp; json.stackServices[service.name].upgrade : true
+                };
+<span class="cstat-no" title="statement not covered" >                resultService.push(serviceObj);</span>
+              }, this);
+            } else <span class="cstat-no" title="statement not covered" >if (item[repoVersionsKey].services) {</span>
+<span class="cstat-no" title="statement not covered" >              item[repoVersionsKey].services.forEach(<span class="fstat-no" title="function not covered" >function (service) {</span></span>
+<span class="cstat-no" title="statement not covered" >                var serviceObj = {</span>
+                  id: item[repoVersionsKey].repository_version + service.name,
+                  name: service.name,
+                  display_name: service.display_name,
+                  latest_version: service.versions[0] ? service.versions[0].version : ''
+                };
+<span class="cstat-no" title="statement not covered" >                resultService.push(serviceObj);</span>
+              }, this);
+            }
+<span class="cstat-no" title="statement not covered" >            repo.use_redhat_satellite = Em.get(item, 'operating_systems.0.OperatingSystems.ambari_managed_repositories') === false;</span>
+<span class="cstat-no" title="statement not covered" >            repo.operating_systems = osArray;</span>
+<span class="cstat-no" title="statement not covered" >            repo.stack_services = resultService;</span>
+<span class="cstat-no" title="statement not covered" >            resultRepoVersion.push(this.parseIt(repo, this.modelRepoVersion(isCurrentStackOnly)));</span>
+          }
+        }, this);
+      }
+<span class="cstat-no" title="statement not covered" >      App.store.safeLoadMany(modelRepositories, resultRepo);</span>
+<span class="cstat-no" title="statement not covered" >      App.store.safeLoadMany(modelOperatingSystems, resultOS);</span>
+<span class="cstat-no" title="statement not covered" >      App.store.safeLoadMany(modelServices, resultService);</span>
+<span class="cstat-no" title="statement not covered" >      App.store.safeLoadMany(modelRepoVersions, resultRepoVersion);</span>
+    },
+&nbsp;
+    /**
+     *
+     * @param {?object} json
+     * @returns {{items: Array}}
+     */
+    convertToRepoScheme: function convertToRepoScheme(json) {
+      var extractedJson = { items: [] };
+&nbsp;
+      if (json &amp;&amp; json.items) {
+        json.items.forEach(function (stack) {
+          stack.versions.forEach(function (version) {
+            version.repository_versions.forEach(function (repoVersion) {
+              extractedJson.items.push(repoVersion);
+            }, this);
+          }, this);
+        }, this);
+      }
+      return extractedJson;
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

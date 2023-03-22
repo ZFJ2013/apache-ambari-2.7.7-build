@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/sort_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/common/sort_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">30.71% <small>(43 / 140)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">29.33% <small>(22 / 75)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">19.35% <small>(6 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">31.16% <small>(43 / 138)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/</a> &#187; sort_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/common/sort_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var misc = require('utils/misc');
+  var stringUtils = require('utils/string_utils');
+  var App = require('app');
+&nbsp;
+  /**
+   * Wrapper View for all sort components. Layout template and common actions are located inside of it.
+   * Logic specific for sort fields
+   * located in inner view - &lt;code&gt;fieldView&lt;/code&gt;.
+   *
+   * @type {*}
+   */
+  var wrapperView = Em.View.extend({
+    tagName: 'tr',
+&nbsp;
+    name: 'SortWrapperView',
+&nbsp;
+    classNames: ['sort-wrapper'],
+&nbsp;
+    willInsertElement: <span class="fstat-no" title="function not covered" >function willInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('parentView.tableFilteringComplete')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.get('parentView').set('filteringComplete', true);</span>
+      }
+    },
+&nbsp;
+    /**
+     * Load sort statuses from local storage
+     * Works only after finish filtering in the parent View
+     */
+    loadSortStatuses: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var statuses = App.db.getSortingStatuses(this.get('controller.name'));</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('parentView.filteringComplete')) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >      if (statuses) {</span>
+<span class="cstat-no" title="statement not covered" >        var childViews = this.get('childViews');</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+<span class="cstat-no" title="statement not covered" >        statuses.forEach(<span class="fstat-no" title="function not covered" >function (st) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (st.status != 'sorting') {</span>
+<span class="cstat-no" title="statement not covered" >            var sortOrder = false;</span>
+<span class="cstat-no" title="statement not covered" >            if (st.status == 'sorting_desc') {</span>
+<span class="cstat-no" title="statement not covered" >              sortOrder = true;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            self.sort(childViews.findProperty('name', st.name), sortOrder);</span>
+<span class="cstat-no" title="statement not covered" >            childViews.findProperty('name', st.name).set('status', sortOrder ? 'sorting_desc' : 'sorting_asc');</span>
+<span class="cstat-no" title="statement not covered" >            self.get('controller').set('sortingColumn', childViews.findProperty('name', st.name));</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            childViews.findProperty('name', st.name).set('status', st.status);</span>
+          }
+        });
+      }
+    }.observes('parentView.filteringComplete'),
+&nbsp;
+    /**
+     * Save sort statuses to local storage
+     * Works only after finish filtering in the parent View
+     */
+    saveSortStatuses: <span class="fstat-no" title="function not covered" >function saveSortStatuses() {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('parentView.filteringComplete')) <span class="cstat-no" title="statement not covered" >return;</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var statuses = [];</span>
+<span class="cstat-no" title="statement not covered" >      this.get('childViews').forEach(<span class="fstat-no" title="function not covered" >function (childView) {</span></span>
+<span class="cstat-no" title="statement not covered" >        statuses.push({</span>
+          name: childView.get('name'),
+          status: childView.get('status')
+        });
+      });
+<span class="cstat-no" title="statement not covered" >      App.db.setSortingStatuses(this.get('controller.name'), statuses);</span>
+    },
+&nbsp;
+    /**
+     * sort content by property
+     * @param property {object}
+     * @param order {Boolean} true - DESC, false - ASC
+     * @param returnSorted {Boolean}
+     * @param content {Array}
+     */
+    sort: <span class="fstat-no" title="function not covered" >function sort(property, order, returnSorted, content) {</span>
+<span class="cstat-no" title="statement not covered" >      content = content || this.get('content').toArray();</span>
+<span class="cstat-no" title="statement not covered" >      var sortFunc = this.getSortFunc(property, order);</span>
+<span class="cstat-no" title="statement not covered" >      var status = order ? 'sorting_desc' : 'sorting_asc';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.resetSort();</span>
+<span class="cstat-no" title="statement not covered" >      this.get('childViews').findProperty('name', property.get('name')).set('status', status);</span>
+<span class="cstat-no" title="statement not covered" >      this.saveSortStatuses(property, order);</span>
+<span class="cstat-no" title="statement not covered" >      content.sort(sortFunc);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!!returnSorted) {</span>
+<span class="cstat-no" title="statement not covered" >        return content;</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.set('content', content);</span>
+      }
+    },
+&nbsp;
+    isSorting: false,
+&nbsp;
+    onContentChange: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('isSorting') &amp;&amp; this.get('content.length')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.get('childViews').forEach(<span class="fstat-no" title="function not covered" >function (view) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (view.status !== 'sorting') {</span>
+<span class="cstat-no" title="statement not covered" >            var status = view.get('status');</span>
+<span class="cstat-no" title="statement not covered" >            this.set('isSorting', true);</span>
+<span class="cstat-no" title="statement not covered" >            this.sort(view, status == 'sorting_desc');</span>
+<span class="cstat-no" title="statement not covered" >            this.set('isSorting', false);</span>
+<span class="cstat-no" title="statement not covered" >            view.set('status', status);</span>
+          }
+        }, this);
+      }
+    }.observes('controller.contentUpdater'),
+&nbsp;
+    /**
+     *
+     * @param {Em.Object[]} content
+     * @returns {Em.Object[]}
+     */
+    getSortedContent: function getSortedContent(content) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.get('isSorting') &amp;&amp; content.get('length')) {
+        var activeSortViews = this.get('childViews').rejectProperty('status', 'sorting');
+        if (activeSortViews[0]) {
+          var status = activeSortViews[0].get('status');
+          this.set('isSorting', true);
+          content = this.sort(activeSortViews[0], status === 'sorting_desc', true, content);
+          this.set('isSorting', false);
+          activeSortViews[0].set('status', status);
+        }
+      }
+      return content;
+    },
+&nbsp;
+    /**
+     * reset all sorts fields
+     */
+    resetSort: <span class="fstat-no" title="function not covered" >function resetSort() {</span>
+<span class="cstat-no" title="statement not covered" >      this.get('childViews').setEach('status', 'sorting');</span>
+    },
+    /**
+     * determines sort function depending on the type of sort field
+     * @param property
+     * @param order
+     * @return {*}
+     */
+    getSortFunc: function getSortFunc(property, order) {
+      var func;
+      switch (property.get('type')) {
+<span class="branch-0 cbranch-no" title="branch not covered" >        case 'ip':</span>
+<span class="cstat-no" title="statement not covered" >          func = <span class="fstat-no" title="function not covered" >function func(a, b) {</span></span>
+<span class="cstat-no" title="statement not covered" >            var a = misc.ipToInt(a.get(property.get('name')));</span>
+<span class="cstat-no" title="statement not covered" >            var b = misc.ipToInt(b.get(property.get('name')));</span>
+<span class="cstat-no" title="statement not covered" >            if (order) {</span>
+<span class="cstat-no" title="statement not covered" >              return a - b;</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              return b - a;</span>
+            }
+          };
+<span class="cstat-no" title="statement not covered" >          break;</span>
+        case 'number':
+          func = function func(a, b) {
+            var a_p = a.get(property.get('name'));
+            var b_p = b.get(property.get('name'));
+            a_p = Em.isNone(a_p) ? -Infinity : parseFloat(a_p);
+            b_p = Em.isNone(b_p) ? <span class="branch-0 cbranch-no" title="branch not covered" >-Infinity </span>: parseFloat(b_p);
+            if (order) {
+              return a_p - b_p;
+            } else {
+              return b_p - a_p;
+            }
+          };
+          break;
+<span class="branch-2 cbranch-no" title="branch not covered" >        case 'version':</span>
+<span class="cstat-no" title="statement not covered" >          func = <span class="fstat-no" title="function not covered" >function func(a, b) {</span></span>
+<span class="cstat-no" title="statement not covered" >            var res = stringUtils.compareVersions(a.get(property.get('name')), b.get(property.get('name')));</span>
+<span class="cstat-no" title="statement not covered" >            if (order) {</span>
+<span class="cstat-no" title="statement not covered" >              return -res;</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              return res;</span>
+            }
+          };
+<span class="cstat-no" title="statement not covered" >          break;</span>
+<span class="branch-3 cbranch-no" title="branch not covered" >        case 'alert_status':</span>
+<span class="cstat-no" title="statement not covered" >          func = App.AlertDefinition.getSortDefinitionsByStatus(order);</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
+        default:
+          func = function func(a, b) {
+            var a_p = a.get(property.get('name'));
+            var b_p = b.get(property.get('name'));
+            a_p = Em.isNone(a_p) ? '' : ('' + a_p).toLowerCase();
+            b_p = Em.isNone(b_p) ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: ('' + b_p).toLowerCase();
+            return order ? b_p.localeCompare(a_p) : a_p.localeCompare(b_p);
+          };
+      }
+      return func;
+    },
+&nbsp;
+    /**
+     * method that runs &lt;code&gt;contentWasChanged&lt;code&gt;
+     *
+     * @method onContentChangeOnce
+     */
+    onContentChangeOnce: <span class="fstat-no" title="function not covered" >function onContentChangeOnce() {</span>
+<span class="cstat-no" title="statement not covered" >      var keys = arguments[1].match(/[a-zA-Z]+$/),</span>
+          key = keys.length ? keys[0] : null;
+<span class="cstat-no" title="statement not covered" >      if (key) {</span>
+<span class="cstat-no" title="statement not covered" >        Em.run.once(this.get('controller'), 'contentWasChanged', key);</span>
+      }
+    },
+&nbsp;
+    /**
+     * Add observer for key to call  &lt;code&gt;onContentChange&lt;/code&gt;
+     * @param key
+     */
+    addSortingObserver: <span class="fstat-no" title="function not covered" >function addSortingObserver(key) {</span>
+<span class="cstat-no" title="statement not covered" >      this.addObserver('controller.content.@each.' + key, this, 'onContentChangeOnce');</span>
+    },
+&nbsp;
+    /**
+     * Remove observer for key to call  &lt;code&gt;onContentChange&lt;/code&gt;
+     * @param key
+     */
+    removeSortingObserver: <span class="fstat-no" title="function not covered" >function removeSortingObserver(key) {</span>
+<span class="cstat-no" title="statement not covered" >      this.removeObserver('controller.content.@each.' + key, this, 'onContentChangeOnce');</span>
+    },
+&nbsp;
+    willDestroyElement: <span class="fstat-no" title="function not covered" >function willDestroyElement() {</span>
+<span class="cstat-no" title="statement not covered" >      this.removeSortingObserver(this.get('controller.sortingColumn.name'));</span>
+    }
+  });
+&nbsp;
+  /**
+   * view that carry on sorting on server-side via &lt;code&gt;refresh()&lt;/code&gt; in parentView
+   * @type {*}
+   */
+  var serverWrapperView = Em.View.extend({
+    tagName: 'tr',
+&nbsp;
+    classNames: ['sort-wrapper'],
+&nbsp;
+    willInsertElement: <span class="fstat-no" title="function not covered" >function willInsertElement() {</span>
+<span class="cstat-no" title="statement not covered" >      this.loadSortStatuses();</span>
+    },
+&nbsp;
+    /**
+     * Initialize and save sorting statuses: hostName sorting_asc
+     */
+    loadSortStatuses: <span class="fstat-no" title="function not covered" >function loadSortStatuses() {</span>
+<span class="cstat-no" title="statement not covered" >      var childViews = this.get('childViews');</span>
+<span class="cstat-no" title="statement not covered" >      var statuses = App.db.getSortingStatuses(this.get('controller.name'));</span>
+<span class="cstat-no" title="statement not covered" >      if (statuses) {</span>
+<span class="cstat-no" title="statement not covered" >        var sortingColumn = App.db.getSortingStatuses(this.get('controller.name')).find(<span class="fstat-no" title="function not covered" >function (column) {</span></span>
+<span class="cstat-no" title="statement not covered" >          return column.status != 'sorting';</span>
+        });
+<span class="cstat-no" title="statement not covered" >        if (sortingColumn) {</span>
+<span class="cstat-no" title="statement not covered" >          var sortingColumnView = childViews.findProperty('name', sortingColumn.name);</span>
+<span class="cstat-no" title="statement not covered" >          sortingColumnView.set('status', sortingColumn.status);</span>
+<span class="cstat-no" title="statement not covered" >          this.get('controller').set('sortingColumn', sortingColumnView);</span>
+        }
+      } else {
+<span class="cstat-no" title="statement not covered" >        statuses = [];</span>
+<span class="cstat-no" title="statement not covered" >        childViews.forEach(<span class="fstat-no" title="function not covered" >function (childView) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var sortStatus = childView.get('name') == 'hostName' &amp;&amp; childView.get('status') == 'sorting' ? 'sorting_asc' : childView.get('status');</span>
+<span class="cstat-no" title="statement not covered" >          statuses.push({</span>
+            name: childView.get('name'),
+            status: sortStatus
+          });
+<span class="cstat-no" title="statement not covered" >          childView.set('status', sortStatus);</span>
+        });
+<span class="cstat-no" title="statement not covered" >        App.db.setSortingStatuses(this.get('controller.name'), statuses);</span>
+<span class="cstat-no" title="statement not covered" >        this.get('controller').set('sortingColumn', childViews.findProperty('name', 'hostName'));</span>
+      }
+    },
+&nbsp;
+    /**
+     * Save sort statuses to local storage
+     * Works only after finish filtering in the parent View
+     */
+    saveSortStatuses: <span class="fstat-no" title="function not covered" >function saveSortStatuses() {</span>
+<span class="cstat-no" title="statement not covered" >      var statuses = [];</span>
+<span class="cstat-no" title="statement not covered" >      this.get('childViews').forEach(<span class="fstat-no" title="function not covered" >function (childView) {</span></span>
+<span class="cstat-no" title="statement not covered" >        statuses.push({</span>
+          name: childView.get('name'),
+          status: childView.get('status')
+        });
+      });
+<span class="cstat-no" title="statement not covered" >      App.db.setSortingStatuses(this.get('controller.name'), statuses);</span>
+    },
+&nbsp;
+    /**
+     * sort content by property
+     * @param property {object}
+     * @param order {Boolean} true - DESC, false - ASC
+     */
+    sort: <span class="fstat-no" title="function not covered" >function sort(property, order) {</span>
+<span class="cstat-no" title="statement not covered" >      var status = order ? 'sorting_desc' : 'sorting_asc';</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.resetSort();</span>
+<span class="cstat-no" title="statement not covered" >      this.get('childViews').findProperty('name', property.get('name')).set('status', status);</span>
+<span class="cstat-no" title="statement not covered" >      this.saveSortStatuses();</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('parentView.filteringComplete')) {</span>
+<span class="cstat-no" title="statement not covered" >        clearTimeout(this.get('parentView.timeOut'));</span>
+<span class="cstat-no" title="statement not covered" >        this.set('parentView.timeOut', setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          self.sort(property, order);</span>
+        }, this.get('parentView.filterWaitingTime')));
+      } else {
+<span class="cstat-no" title="statement not covered" >        clearTimeout(this.get('parentView.timeOut'));</span>
+<span class="cstat-no" title="statement not covered" >        this.get('parentView').refresh();</span>
+      }
+    },
+&nbsp;
+    /**
+     * reset all sorts fields
+     */
+    resetSort: <span class="fstat-no" title="function not covered" >function resetSort() {</span>
+<span class="cstat-no" title="statement not covered" >      this.get('childViews').setEach('status', 'sorting');</span>
+    }
+  });
+  /**
+   * particular view that contain sort field properties:
+   * name - name of property in content table
+   * type(optional) - specific type to sort
+   * displayName - label to display
+   * @type {*}
+   */
+  var fieldView = Em.View.extend({
+    template: Em.Handlebars.compile('&lt;span {{bindAttr class="view.status :column-name"}}&gt;{{view.displayName}}&lt;/span&gt;'),
+    classNameBindings: ['viewNameClass'],
+    tagName: 'th',
+    name: null,
+    displayName: null,
+    status: 'sorting',
+    viewNameClass: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return 'sort-view-' + this.get('column');</span>
+    }.property(),
+    type: null,
+    column: 0,
+    /**
+     * callback that run sorting and define order of sorting
+     * @param event
+     */
+    click: function click(event) {
+      var wrapperView = this.get('parentView');
+      wrapperView.sort(this, this.get('status') !== 'sorting_desc');
+&nbsp;
+      // add observer for sorting property key to apply sorting if some value will be changed
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (wrapperView.addSortingObserver &amp;&amp; wrapperView.removeSortingObserver) {
+        var currentObserverProperty = this.get('controller.sortingColumn.name');
+        if (currentObserverProperty) {
+          wrapperView.removeSortingObserver(currentObserverProperty);
+        }
+        wrapperView.addSortingObserver(this.get('name'));
+      }
+      this.get('controller').set('sortingColumn', this);
+    }
+  });
+&nbsp;
+  /**
+   * Result object, which will be accessible outside
+   * @type {Object}
+   */
+  module.exports = {
+    serverWrapperView: serverWrapperView,
+    wrapperView: wrapperView,
+    fieldView: fieldView
+  };
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

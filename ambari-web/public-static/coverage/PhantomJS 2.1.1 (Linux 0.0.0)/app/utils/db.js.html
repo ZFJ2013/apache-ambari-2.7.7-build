@@ -1,0 +1,1713 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/utils/db.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/utils/db.js</span></h1>
+    <h2>
+        Statements: <span class="metric">64.32% <small>(155 / 241)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">50% <small>(19 / 38)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">31% <small>(31 / 100)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">64.32% <small>(155 / 241)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/utils/</a> &#187; db.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">374</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">374</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">374</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">195</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">388</span>
+<span class="cline-any cline-yes">388</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">87</span>
+<span class="cline-any cline-yes">87</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">276</span>
+<span class="cline-any cline-yes">276</span>
+<span class="cline-any cline-yes">276</span>
+<span class="cline-any cline-yes">276</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">276</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">85</span>
+<span class="cline-any cline-yes">85</span>
+<span class="cline-any cline-yes">85</span>
+<span class="cline-any cline-yes">85</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">85</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">85</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">157</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("utils/db", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+  var App = require('app');
+  App.db = {};
+  var InitialData = {
+    'app': {
+      'loginName': '',
+      'authenticated': false,
+      'configs': [],
+      'tags': [],
+      'tables': {
+        'filterConditions': {},
+        'displayLength': {},
+        'startIndex': {},
+        'sortingConditions': {},
+        'selectedItems': {}
+      }
+    },
+&nbsp;
+    'Installer': {},
+    'AddHost': {},
+    'AddService': {},
+    'WidgetWizard': {},
+    'KerberosWizard': {},
+    'ReassignMaster': {},
+    'AddSecurity': {},
+    'AddAlertDefinition': {
+      content: {}
+    },
+    'HighAvailabilityWizard': {},
+    'RMHighAvailabilityWizard': {},
+    'AddHawqStandbyWizard': {},
+    'RemoveHawqStandbyWizard': {},
+    'ActivateHawqStandbyWizard': {},
+    'RAHighAvailabilityWizard': {},
+    'NameNodeFederationWizard': {},
+    'RollbackHighAvailabilityWizard': {},
+    'MainAdminStackAndUpgrade': {},
+    'KerberosDisable': {},
+    'tmp': {}
+&nbsp;
+  };
+&nbsp;
+  function checkNamespace(namespace) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!namespace) {
+<span class="cstat-no" title="statement not covered" >      return false;</span>
+    }
+    if (Em.isNone(Em.get(App.db.data, namespace))) {
+      Em.setFullPath(App.db.data, namespace, {});
+    }
+    return true;
+  }
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof Storage === 'undefined') {
+    // stub for unit testing purposes
+<span class="cstat-no" title="statement not covered" >    window.localStorage = {};</span>
+<span class="cstat-no" title="statement not covered" >    localStorage.setItem = <span class="fstat-no" title="function not covered" >function (key, val) {</span></span>
+<span class="cstat-no" title="statement not covered" >      this[key] = val;</span>
+    };
+<span class="cstat-no" title="statement not covered" >    localStorage.getItem = <span class="fstat-no" title="function not covered" >function (key) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return this[key];</span>
+    };
+<span class="cstat-no" title="statement not covered" >    window.localStorage.setObject = <span class="fstat-no" title="function not covered" >function (key, value) {</span></span>
+<span class="cstat-no" title="statement not covered" >      this[key] = value;</span>
+    };
+<span class="cstat-no" title="statement not covered" >    window.localStorage.getObject = <span class="fstat-no" title="function not covered" >function (key) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return this[key];</span>
+    };
+  } else {
+    Storage.prototype.setObject = function (key, value) {
+      this.setItem(key, JSON.stringify(value));
+    };
+&nbsp;
+    Storage.prototype.getObject = function (key) {
+      var value = this.getItem(key);
+      return value &amp;&amp; JSON.parse(value);
+    };
+  }
+&nbsp;
+  App.db.cleanUp = function () {
+    App.db.data = InitialData;
+    localStorage.setObject('ambari', App.db.data);
+  };
+&nbsp;
+  App.db.cleanTmp = function () {
+    App.db.data.tmp = {};
+    localStorage.setObject('ambari', App.db.data);
+  };
+&nbsp;
+  App.db.updateStorage = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.data = localStorage.getObject('ambari');</span>
+<span class="cstat-no" title="statement not covered" >    if (Em.get(App, 'db.data.app.tables') &amp;&amp; Em.get(App, 'db.data.app.configs')) {</span>
+<span class="cstat-no" title="statement not covered" >      return true;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    App.db.cleanUp();</span>
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+  };
+&nbsp;
+  /*
+   Initialize wizard namespaces if they are not initialized on login.
+   This will be required during upgrade.
+   */
+  App.db.mergeStorage = function () {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (localStorage.getObject('ambari') == null) {
+<span class="cstat-no" title="statement not covered" >      App.db.cleanUp();</span>
+    } else {
+      localStorage.setObject('ambari', $.extend(true, {}, InitialData, App.db.data));
+    }
+  };
+&nbsp;
+  // called whenever user logs in
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (localStorage.getObject('ambari') == null) {
+<span class="cstat-no" title="statement not covered" >    App.db.cleanUp();</span>
+  }
+&nbsp;
+  /**
+   *
+   * @param {string} namespace
+   * @param {string} key
+   * @returns {*}
+   */
+  App.db.get = function (namespace, key) {
+    App.db.data = localStorage.getObject('ambari');
+    Em.assert('`namespace` should be defined', !!namespace);
+    checkNamespace(namespace);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (key.contains('user-pref')) {
+      // username may contain "." which is the part of "user-pref-*" key so Em.set should be avoided
+<span class="cstat-no" title="statement not covered" >      return Em.get(App.db.data, namespace)[key];</span>
+    }
+    return Em.get(Em.get(App.db.data, namespace), key);
+  };
+&nbsp;
+  /**
+   *
+   * @param {string} namespace
+   * @param {string[]} listOfProperties
+   * @returns {object}
+   */
+  App.db.getProperties = function (namespace, listOfProperties) {
+    App.db.data = localStorage.getObject('ambari');
+    Em.assert('`namespace` should be defined', !!namespace);
+    checkNamespace(namespace);
+    return Em.getProperties(Em.get(App.db.data, namespace), listOfProperties);
+  };
+&nbsp;
+  /**
+   *
+   * @param {string} namespace
+   * @param {string} key
+   * @param {*} value
+   */
+  App.db.set = function (namespace, key, value) {
+    App.db.data = localStorage.getObject('ambari');
+    Em.assert('`namespace` should be defined', !!namespace);
+    checkNamespace(namespace);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (key.contains('user-pref')) {
+      // username may contain "." which is the part of "user-pref-*" key so Em.set should be avoided
+<span class="cstat-no" title="statement not covered" >      Em.get(App.db.data, namespace)[key] = value;</span>
+    } else {
+      Em.set(Em.get(App.db.data, namespace), key, value);
+    }
+    localStorage.setObject('ambari', App.db.data);
+  };
+&nbsp;
+  /**
+   *
+   * @param {string} namespace
+   * @param {{key: value}} hash
+   */
+  App.db.setProperties = function (namespace, hash) {
+    App.db.data = localStorage.getObject('ambari');
+    Em.assert('`namespace` should be defined', !!namespace);
+    checkNamespace(namespace);
+    Em.setProperties(Em.get(App.db.data, namespace), hash);
+    localStorage.setObject('ambari', App.db.data);
+  };
+&nbsp;
+  App.db.setLoginName = function (name) {
+    App.db.set('app', 'loginName', name);
+  };
+&nbsp;
+  /**
+   * Set user model to db
+   * @param user
+   */
+  App.db.setUser = function (user) {
+    App.db.set('app', 'user', user);
+  };
+&nbsp;
+  App.db.setAuth = function (auth) {
+    App.db.set('app', 'auth', auth);
+  };
+&nbsp;
+  App.db.setAuthenticated = function (authenticated) {
+    App.db.set('app', 'authenticated', authenticated);
+    App.db.data = localStorage.getObject('ambari');
+  };
+&nbsp;
+  App.db.setFilterConditions = <span class="fstat-no" title="function not covered" >function (name, filterConditions) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('app.tables.filterConditions', name, filterConditions);</span>
+  };
+&nbsp;
+  App.db.setComboSearchQuery = function (name, query) {
+    App.db.set('app.tables.comboSearchQuery', name, query);
+  };
+&nbsp;
+  App.db.setDisplayLength = <span class="fstat-no" title="function not covered" >function (name, displayLength) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('app.tables.displayLength', name, displayLength);</span>
+  };
+&nbsp;
+  App.db.setStartIndex = <span class="fstat-no" title="function not covered" >function (name, startIndex) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('app.tables.startIndex', name, startIndex);</span>
+  };
+&nbsp;
+  App.db.setSortingStatuses = <span class="fstat-no" title="function not covered" >function (name, sortingConditions) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('app.tables.sortingConditions', name, sortingConditions);</span>
+  };
+&nbsp;
+  App.db.setSelectedHosts = <span class="fstat-no" title="function not covered" >function (selectedHosts) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('app.tables.selectedItems', 'mainHostController', selectedHosts);</span>
+  };
+&nbsp;
+  App.db.unselectHosts = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    var hostsToUnselect = arguments.length &gt; 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var selectedHosts = App.db.getSelectedHosts();</span>
+<span class="cstat-no" title="statement not covered" >    selectedHosts = selectedHosts.filter(<span class="fstat-no" title="function not covered" >function (host) {</span></span>
+<span class="cstat-no" title="statement not covered" >      return hostsToUnselect.indexOf(host) === -1;</span>
+    });
+<span class="cstat-no" title="statement not covered" >    App.db.setSelectedHosts(selectedHosts);</span>
+  };
+&nbsp;
+  App.db.setMasterComponentHosts = <span class="fstat-no" title="function not covered" >function (masterComponentHosts) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('Installer', 'masterComponentHosts', masterComponentHosts);</span>
+  };
+&nbsp;
+  App.db.setMasterToReassign = <span class="fstat-no" title="function not covered" >function (masterComponent) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('ReassignMaster', 'masterComponent', masterComponent);</span>
+  };
+&nbsp;
+  App.db.setReassignTasksStatuses = <span class="fstat-no" title="function not covered" >function (tasksStatuses) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('ReassignMaster', 'tasksStatuses', tasksStatuses);</span>
+  };
+&nbsp;
+  App.db.setReassignTasksRequestIds = <span class="fstat-no" title="function not covered" >function (requestIds) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('ReassignMaster', 'tasksRequestIds', requestIds);</span>
+  };
+&nbsp;
+  App.db.setStacks = <span class="fstat-no" title="function not covered" >function (stacks) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('Installer', 'stacksVersions', stacks);</span>
+  };
+&nbsp;
+  App.db.setOses = <span class="fstat-no" title="function not covered" >function (oses) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('Installer', 'operatingSystems', oses);</span>
+  };
+&nbsp;
+  App.db.setRepos = <span class="fstat-no" title="function not covered" >function (repos) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('Installer', 'repositories', repos);</span>
+  };
+&nbsp;
+  App.db.setLocalRepoVDFData = function (data) {
+    App.db.set('Installer', 'localRepoVDFData', data);
+  };
+&nbsp;
+  App.db.setConfigs = function (configs) {
+    App.db.set('app', 'configs', configs);
+  };
+&nbsp;
+  App.db.setTags = <span class="fstat-no" title="function not covered" >function (tags) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('app', 'tags', tags);</span>
+  };
+&nbsp;
+  /**
+   * Set current step value for specified Wizard Type
+   * @param wizardType
+   * @param currentStep
+   */
+  App.db.setWizardCurrentStep = function (wizardType, currentStep) {
+    App.db.set(wizardType.capitalize(), 'currentStep', currentStep);
+  };
+&nbsp;
+  /**
+   * Set localStorage with data from server
+   */
+  App.db.setLocalStorage = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    localStorage.setObject('ambari', App.db.data);</span>
+  };
+&nbsp;
+  App.db.setSecurityWizardStatus = <span class="fstat-no" title="function not covered" >function (status) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('AddSecurity', 'status', status);</span>
+  };
+&nbsp;
+  App.db.setDisableSecurityStatus = <span class="fstat-no" title="function not covered" >function (status) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('AddSecurity', 'disableSecurityStatus', status);</span>
+  };
+&nbsp;
+  App.db.setSecurityDeployCommands = <span class="fstat-no" title="function not covered" >function (commands) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('AddSecurity', 'securityDeployCommands', commands);</span>
+  };
+&nbsp;
+  App.db.setHighAvailabilityWizardConfigTag = <span class="fstat-no" title="function not covered" >function (tag) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('HighAvailabilityWizard', tag.name, tag.value);</span>
+  };
+&nbsp;
+  App.db.setHighAvailabilityWizardHdfsClientHosts = <span class="fstat-no" title="function not covered" >function (hostNames) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('HighAvailabilityWizard', 'hdfsClientHostNames', hostNames);</span>
+  };
+&nbsp;
+  App.db.setHighAvailabilityWizardTasksStatuses = <span class="fstat-no" title="function not covered" >function (tasksStatuses) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('HighAvailabilityWizard', 'tasksStatuses', tasksStatuses);</span>
+  };
+&nbsp;
+  App.db.setHighAvailabilityWizardTasksRequestIds = <span class="fstat-no" title="function not covered" >function (requestIds) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('HighAvailabilityWizard', 'tasksRequestIds', requestIds);</span>
+  };
+&nbsp;
+  App.db.setHighAvailabilityWizardHdfsUser = <span class="fstat-no" title="function not covered" >function (hdfsUser) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('HighAvailabilityWizard', 'hdfsUser', hdfsUser);</span>
+  };
+&nbsp;
+  App.db.setHighAvailabilityWizardRequestIds = <span class="fstat-no" title="function not covered" >function (requestIds) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('HighAvailabilityWizard', 'requestIds', requestIds);</span>
+  };
+&nbsp;
+  App.db.setHighAvailabilityWizardNameServiceId = <span class="fstat-no" title="function not covered" >function (nameServiceId) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('HighAvailabilityWizard', 'nameServiceId', nameServiceId);</span>
+  };
+&nbsp;
+  App.db.setRollBackHighAvailabilityWizardAddNNHost = <span class="fstat-no" title="function not covered" >function (host) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('RollbackHighAvailabilityWizard', 'addNNHost', host);</span>
+  };
+&nbsp;
+  App.db.setRollBackHighAvailabilityWizardSNNHost = <span class="fstat-no" title="function not covered" >function (host) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('RollbackHighAvailabilityWizard', 'sNNHost', host);</span>
+  };
+&nbsp;
+  App.db.setRollBackHighAvailabilityWizardSelectedAddNN = <span class="fstat-no" title="function not covered" >function (host) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('RollbackHighAvailabilityWizard', 'selectedAddNN', host);</span>
+  };
+&nbsp;
+  App.db.setRollBackHighAvailabilityWizardSelectedSNN = <span class="fstat-no" title="function not covered" >function (host) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('RollbackHighAvailabilityWizard', 'selectedSNNH', host);</span>
+  };
+&nbsp;
+  App.db.setRollbackHighAvailabilityWizardTasksStatuses = <span class="fstat-no" title="function not covered" >function (tasksStatuses) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('RollbackHighAvailabilityWizard', 'tasksStatuses', tasksStatuses);</span>
+  };
+&nbsp;
+  App.db.setRollbackHighAvailabilityWizardRequestIds = <span class="fstat-no" title="function not covered" >function (requestIds) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('RollbackHighAvailabilityWizard', 'requestIds', requestIds);</span>
+  };
+&nbsp;
+  App.db.setReassignMasterWizardRequestIds = <span class="fstat-no" title="function not covered" >function (requestIds) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('ReassignMaster', 'requestIds', requestIds);</span>
+  };
+&nbsp;
+  App.db.setReassignMasterWizardComponentDir = <span class="fstat-no" title="function not covered" >function (componentDir) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('ReassignMaster', 'componentDir', componentDir);</span>
+  };
+&nbsp;
+  App.db.setReassignMasterWizardReassignHosts = <span class="fstat-no" title="function not covered" >function (reassignHosts) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('ReassignMaster', 'reassignHosts', reassignHosts);</span>
+  };
+&nbsp;
+  App.db.setKerberosWizardConfigTag = <span class="fstat-no" title="function not covered" >function (tag) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('KerberosWizard', tag.name, tag.value);</span>
+  };
+&nbsp;
+  App.db.setManageJournalNodeWizardConfigTag = <span class="fstat-no" title="function not covered" >function (tag) {</span>
+<span class="cstat-no" title="statement not covered" >    App.db.set('ManageJournalNodeWizard', tag.name, tag.value);</span>
+  };
+&nbsp;
+  /**
+   * Get user model from db
+   * @return {*}
+   */
+  App.db.getUser = function () {
+    return App.db.get('app', 'user');
+  };
+&nbsp;
+  App.db.getAuth = function () {
+    return App.db.get('app', 'auth');
+  };
+&nbsp;
+  App.db.getLoginName = function () {
+    return App.db.get('app', 'loginName');
+  };
+&nbsp;
+  App.db.getAuthenticated = function () {
+    return Boolean(App.db.get('app', 'authenticated'));
+  };
+&nbsp;
+  App.db.getFilterConditions = function (name) {
+    return name ? App.db.get('app.tables.filterConditions', name) : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+  };
+&nbsp;
+  App.db.getComboSearchQuery = <span class="fstat-no" title="function not covered" >function (name) {</span>
+<span class="cstat-no" title="statement not covered" >    return name ? App.db.get('app.tables.comboSearchQuery', name) : null;</span>
+  };
+&nbsp;
+  App.db.getDisplayLength = function (name) {
+    return name ? App.db.get('app.tables.displayLength', name) : null;
+  };
+&nbsp;
+  App.db.getStartIndex = function (name) {
+    return name ? App.db.get('app.tables.startIndex', name) : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+  };
+&nbsp;
+  App.db.getSortingStatuses = function (name) {
+    return name ? App.db.get('app.tables.sortingConditions', name) : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+  };
+&nbsp;
+  App.db.getSelectedHosts = function () {
+    return App.db.get('app.tables.selectedItems', 'mainHostController') || [];
+  };
+&nbsp;
+  /**
+   * Return current step for specified Wizard Type
+   * @param wizardType
+   * @return {*}
+   */
+  App.db.getWizardCurrentStep = function (wizardType) {
+    return App.db.get(wizardType.capitalize(), 'currentStep') || 0;
+  };
+&nbsp;
+  App.db.getAllHostNames = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('Installer', 'hostNames');</span>
+  };
+&nbsp;
+  App.db.getMasterToReassign = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('ReassignMaster', 'masterComponent');</span>
+  };
+&nbsp;
+  App.db.getReassignTasksStatuses = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('ReassignMaster', 'tasksStatuses');</span>
+  };
+&nbsp;
+  App.db.getReassignTasksRequestIds = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('ReassignMaster', 'tasksRequestIds');</span>
+  };
+&nbsp;
+  App.db.getSecurityWizardStatus = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('AddSecurity', 'status');</span>
+  };
+&nbsp;
+  App.db.getDisableSecurityStatus = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('AddSecurity', 'disableSecurityStatus');</span>
+  };
+&nbsp;
+  App.db.getStacks = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('Installer', 'stacksVersions');</span>
+  };
+&nbsp;
+  App.db.getOses = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('Installer', 'operatingSystems');</span>
+  };
+&nbsp;
+  App.db.getRepos = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('Installer', 'repositories');</span>
+  };
+&nbsp;
+  App.db.getLocalRepoVDFData = function () {
+    return App.db.get('Installer', 'localRepoVDFData');
+  };
+&nbsp;
+  App.db.getHighAvailabilityWizardHdfsUser = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('HighAvailabilityWizard', 'hdfsUser');</span>
+  };
+&nbsp;
+  App.db.getHighAvailabilityWizardTasksStatuses = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('HighAvailabilityWizard', 'tasksStatuses');</span>
+  };
+&nbsp;
+  App.db.getHighAvailabilityWizardTasksRequestIds = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('HighAvailabilityWizard', 'tasksRequestIds');</span>
+  };
+&nbsp;
+  App.db.getHighAvailabilityWizardFailedTask = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('HighAvailabilityWizard', 'failedTask');</span>
+  };
+&nbsp;
+  App.db.getHighAvailabilityWizardHdfsClientHosts = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('HighAvailabilityWizard', 'hdfsClientHostNames');</span>
+  };
+&nbsp;
+  App.db.getHighAvailabilityWizardConfigTag = <span class="fstat-no" title="function not covered" >function (tag) {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('HighAvailabilityWizard', tag);</span>
+  };
+&nbsp;
+  App.db.getHighAvailabilityWizardRequestIds = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('HighAvailabilityWizard', 'requestIds');</span>
+  };
+&nbsp;
+  App.db.getHighAvailabilityWizardNameServiceId = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('HighAvailabilityWizard', 'nameServiceId');</span>
+  };
+&nbsp;
+  App.db.getRollbackHighAvailabilityWizardTasksStatuses = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('RollbackHighAvailabilityWizard', 'tasksStatuses');</span>
+  };
+&nbsp;
+  App.db.getRollbackHighAvailabilityWizardRequestIds = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('RollbackHighAvailabilityWizard', 'requestIds');</span>
+  };
+&nbsp;
+  App.db.getRollBackHighAvailabilityWizardAddNNHost = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('RollbackHighAvailabilityWizard', 'addNNHost');</span>
+  };
+&nbsp;
+  App.db.getRollBackHighAvailabilityWizardSNNHost = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('RollbackHighAvailabilityWizard', 'sNNHost');</span>
+  };
+&nbsp;
+  App.db.getReassignMasterWizardRequestIds = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('ReassignMaster', 'requestIds');</span>
+  };
+&nbsp;
+  App.db.getReassignMasterWizardComponentDir = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('ReassignMaster', 'componentDir');</span>
+  };
+&nbsp;
+  App.db.getManageJournalNodeWizardConfigTag = <span class="fstat-no" title="function not covered" >function (tag) {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('ManageJournalNodeWizard', tag);</span>
+  };
+&nbsp;
+  App.db.getConfigs = function () {
+    return App.db.get('app', 'configs');
+  };
+&nbsp;
+  App.db.getTags = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('app', 'tags');</span>
+  };
+&nbsp;
+  App.db.getReassignMasterWizardReassignHosts = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return App.db.get('ReassignMaster', 'reassignHosts');</span>
+  };
+&nbsp;
+  module.exports = App.db;
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

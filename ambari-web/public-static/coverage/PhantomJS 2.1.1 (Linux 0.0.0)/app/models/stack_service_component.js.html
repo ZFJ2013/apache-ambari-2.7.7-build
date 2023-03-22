@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/models/stack_service_component.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/models/stack_service_component.js</span></h1>
+    <h2>
+        Statements: <span class="metric">93.22% <small>(55 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">73.91% <small>(34 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">96.43% <small>(27 / 28)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">93.1% <small>(54 / 58)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/models/</a> &#187; stack_service_component.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">394</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">96</span>
+<span class="cline-any cline-yes">276</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">288</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">378</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">722</span>
+<span class="cline-any cline-yes">722</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">722</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">722</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("models/stack_service_component", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var numberUtils = require('utils/number_utils');
+&nbsp;
+  var ComponentDependency = Ember.Object.extend({
+    componentName: null,
+    compatibleComponents: [],
+&nbsp;
+    /**
+     * Find the first compatible component which belongs to a service that is installed
+     */
+    chooseCompatible: function chooseCompatible() {
+      var compatibleComponent = this.get('compatibleComponents').find(function (component) {
+        return App.Service.find().someProperty('serviceName', component.get('serviceName'));
+      });
+      return (compatibleComponent ? <span class="branch-0 cbranch-no" title="branch not covered" >compatibleComponent </span>: this.get('compatibleComponents')[0]).get('componentName');
+    }
+  });
+&nbsp;
+  /**
+   * This model loads all serviceComponents supported by the stack
+   * @type {*}
+   */
+  App.StackServiceComponent = DS.Model.extend({
+    componentName: DS.attr('string'),
+    displayName: DS.attr('string'),
+    cardinality: DS.attr('string'),
+    customCommands: DS.attr('array'),
+    reassignAllowed: DS.attr('boolean'),
+    decommissionAllowed: DS.attr('boolean'),
+    hasBulkCommandsDefinition: DS.attr('boolean'),
+    bulkCommandsDisplayName: DS.attr('string'),
+    bulkCommandsMasterComponentName: DS.attr('string'),
+    dependencies: DS.attr('array'),
+    serviceName: DS.attr('string'),
+    componentCategory: DS.attr('string'),
+    rollingRestartSupported: DS.attr('boolean'),
+    isMaster: DS.attr('boolean'),
+    isClient: DS.attr('boolean'),
+    componentType: DS.attr('string'),
+    stackName: DS.attr('string'),
+    stackVersion: DS.attr('string'),
+    stackService: DS.belongsTo('App.StackService'),
+    serviceComponentId: DS.attr('number', { defaultValue: 1 }), // this is used on Assign Master page for multiple masters
+&nbsp;
+    /**
+     * Minimum required count for installation.
+     *
+     * @property {Number} minToInstall
+     **/
+    minToInstall: function () {
+      return numberUtils.getCardinalityValue(this.get('cardinality'), false);
+    }.property('cardinality'),
+&nbsp;
+    /**
+     * Maximum required count for installation.
+     *
+     * @property {Number} maxToInstall
+     **/
+    maxToInstall: function () {
+      return numberUtils.getCardinalityValue(this.get('cardinality'), true);
+    }.property('cardinality'),
+&nbsp;
+    /**
+     * Check if the given component is compatible with this one. Having the same name or componentType indicates compatibility.
+     **/
+    dependsOn: function dependsOn(aStackServiceComponent, opt) {
+      return this.get('dependencies').some(function (each) {
+        return aStackServiceComponent.compatibleWith(App.StackServiceComponent.find(each.componentName));
+      });
+    },
+&nbsp;
+    compatibleWith: function compatibleWith(aStackServiceComponent) {
+      return this.get('componentName') === aStackServiceComponent.get('componentName') || this.get('componentType') &amp;&amp; this.get('componentType') === aStackServiceComponent.get('componentType');
+    },
+&nbsp;
+    /**
+     * Collect dependencies which are required by this component but not installed.
+     * A compatible installed component (e.g.: componentType=HCFS_CLIENT) is not considered as a missing dependency.
+     **/
+    missingDependencies: function missingDependencies(installedComponents, opt) {
+      opt = opt || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+      opt.scope = opt.scope || <span class="branch-1 cbranch-no" title="branch not covered" >'*';</span>
+      var dependencies = this.get('dependencies');
+      dependencies = opt.scope === '*' ? dependencies : dependencies.filterProperty('scope', opt.scope);
+      if (dependencies.length === 0) return [];
+      installedComponents = installedComponents.map(function (each) {
+        return App.StackServiceComponent.find(each);
+      });
+      var missingComponents = dependencies.filter(function (dependency) {
+        return !installedComponents.some(function (each) {
+          return each.compatibleWith(App.StackServiceComponent.find(dependency.componentName));
+        });
+      }).mapProperty('componentName');
+      return missingComponents.map(function (missingComponentName) {
+        return ComponentDependency.create({
+          'componentName': missingComponentName,
+          'compatibleComponents': App.StackServiceComponent.find().filter(function (each) {
+            return each.compatibleWith(App.StackServiceComponent.find(missingComponentName));
+          })
+        });
+      });
+    },
+&nbsp;
+    /** @property {Boolean} isRequired - component required to install **/
+    isRequired: Em.computed.gt('minToInstall', 0),
+&nbsp;
+    /** @property {Boolean} isMultipleAllowed - component can be assigned for more than one host **/
+    isMultipleAllowed: Em.computed.gt('maxToInstall', 1),
+&nbsp;
+    /** @property {Boolean} isSlave **/
+    isSlave: Em.computed.equal('componentCategory', 'SLAVE'),
+&nbsp;
+    /** @property {Boolean} isRestartable - component supports restart action **/
+    isRestartable: Em.computed.not('isClient'),
+&nbsp;
+    /** @property {Boolean} isReassignable - component supports reassign action **/
+    isReassignable: function () {
+      return this.get('reassignAllowed');
+    }.property('reassignAllowed'),
+&nbsp;
+    /** @property {Boolean} isNonHDPComponent - component not belongs to HDP services **/
+    isNonHDPComponent: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return ['METRICS_COLLECTOR', 'METRICS_MONITOR'].contains(this.get('componentName'));</span>
+    }.property('componentName'),
+&nbsp;
+    /** @property {Boolean} isRollinRestartAllowed - component supports rolling restart action **/
+    isRollinRestartAllowed: function () {
+      return this.get('isSlave') || this.get('rollingRestartSupported');
+    }.property('componentName'),
+&nbsp;
+    /** @property {Boolean} isDecommissionAllowed - component supports decommission action **/
+    isDecommissionAllowed: function () {
+      return this.get('decommissionAllowed');
+    }.property('decommissionAllowed'),
+&nbsp;
+    /** @property {Boolean} isRefreshConfigsAllowed - component supports refresh configs action **/
+    isRefreshConfigsAllowed: Em.computed.existsIn('componentName', ['FLUME_HANDLER']),
+&nbsp;
+    /** @property {Boolean} isAddableToHost - component can be added on host details page **/
+    isAddableToHost: function () {
+      return this.get('isMasterAddableInstallerWizard') || (this.get('isNotAddableOnlyInInstall') || this.get('isSlave') || this.get('isClient')) &amp;&amp; (!this.get('isHAComponentOnly') || App.get('isHaEnabled') &amp;&amp; <span class="branch-6 cbranch-no" title="branch not covered" >this.get('componentName') === 'JOURNALNODE')</span>;
+    }.property('componentName'),
+&nbsp;
+    /** @property {Boolean} isDeletable - component supports delete action **/
+    isDeletable: function () {
+      var ignored = [];
+      return this.get('isAddableToHost') &amp;&amp; !ignored.contains(this.get('componentName')) || this.get('componentName') === 'MYSQL_SERVER';
+    }.property('componentName'),
+&nbsp;
+    /**
+     * @type {boolean}
+     */
+    isInstallable: function () {
+      var notInstallable = App.get('currentStackName') === 'HDF' ? <span class="branch-0 cbranch-no" title="branch not covered" >['ACTIVITY_ANALYZER', 'ACTIVITY_EXPLORER'] </span>: [];
+      return !notInstallable.contains(this.get('componentName'));
+    }.property('componentName'),
+&nbsp;
+    /** @property {Boolean} isShownOnInstallerAssignMasterPage - component visible on "Assign Masters" step of Install Wizard **/
+    // Note: Components that are not visible on Assign Master Page are not saved as part of host component recommendation/validation layout
+    isShownOnInstallerAssignMasterPage: function () {
+      var component = this.get('componentName');
+      var mastersNotShown = ['MYSQL_SERVER', 'POSTGRESQL_SERVER', 'HIVE_SERVER_INTERACTIVE'];
+      return this.get('isMaster') &amp;&amp; this.get('isInstallable') &amp;&amp; !mastersNotShown.contains(component);
+    }.property('isMaster', 'componentName', 'isInstallable'),
+&nbsp;
+    /** @property {Boolean} isShownOnInstallerSlaveClientPage - component visible on "Assign Slaves and Clients" step of Install Wizard**/
+    // Note: Components that are not visible on Assign Slaves and Clients Page are saved as part of host component recommendation/validation layout
+    isShownOnInstallerSlaveClientPage: function () {
+      var component = this.get('componentName');
+      var slavesNotShown = ['JOURNALNODE', 'ZKFC', 'APP_TIMELINE_SERVER'];
+      return this.get('isSlave') &amp;&amp; !this.get('isRequiredOnAllHosts') &amp;&amp; !slavesNotShown.contains(component);
+    }.property('isSlave', 'componentName', 'isRequiredOnAllHosts'),
+&nbsp;
+    /** @property {Boolean} isShownOnAddServiceAssignMasterPage - component visible on "Assign Masters" step of Add Service Wizard **/
+    // Note: Components that are not visible on Assign Master Page are not saved as part of host component recommendation/validation layout
+    isShownOnAddServiceAssignMasterPage: function () {
+      var isVisible = this.get('isShownOnInstallerAssignMasterPage');
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (App.get('isHaEnabled')) {
+<span class="cstat-no" title="statement not covered" >        isVisible = isVisible &amp;&amp; this.get('componentName') !== 'SECONDARY_NAMENODE';</span>
+      }
+      return isVisible;
+    }.property('isShownOnInstallerAssignMasterPage', 'App.isHaEnabled'),
+&nbsp;
+    /** @property {Boolean} isMasterWithMultipleInstances **/
+    isMasterWithMultipleInstances: function () {
+      // @todo: safe removing JOURNALNODE from masters list
+      return this.get('isMaster') &amp;&amp; this.get('isMultipleAllowed') || this.get('componentName') == 'JOURNALNODE';
+    }.property('componentName'),
+&nbsp;
+    /**
+     * Master component list that could be assigned for more than 1 host.
+     * Some components like NameNode and ResourceManager have range cardinality value, so they are excluded using isMasterAddableOnlyOnHA property
+     *
+     * @property {Boolean} isMasterAddableInstallerWizard
+     **/
+    isMasterAddableInstallerWizard: Em.computed.and('isMaster', 'isMultipleAllowed', '!isMasterAddableOnlyOnHA', '!isNotAddableOnlyInInstall'),
+&nbsp;
+    /**
+     * Master components with cardinality more than 1 (n+ or n-n) that could not be added in wizards
+     * New instances of these components are added in appropriate HA wizards
+     * @property {Boolean} isMasterAddableOnlyOnHA
+     */
+    isMasterAddableOnlyOnHA: Em.computed.existsIn('componentName', ['NAMENODE', 'RESOURCEMANAGER', 'RANGER_ADMIN']),
+&nbsp;
+    /** @property {Boolean} isHAComponentOnly - Components that can be installed only if HA enabled **/
+    isHAComponentOnly: Em.computed.existsIn('componentName', ['ZKFC', 'JOURNALNODE']),
+&nbsp;
+    /** @property {Boolean} isRequiredOnAllHosts - Is It require to install the components on all hosts. used in step-6 wizard controller **/
+    isRequiredOnAllHosts: Em.computed.equal('minToInstall', Infinity),
+&nbsp;
+    /** @property {Number} defaultNoOfMasterHosts - default number of master hosts on Assign Master page: **/
+    defaultNoOfMasterHosts: function () {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.get('isMasterAddableInstallerWizard')) {
+        return this.get('componentName') === 'ZOOKEEPER_SERVER' ? 3 : <span class="branch-1 cbranch-no" title="branch not covered" >this.get('minToInstall');</span>
+      }
+    }.property('componentName'),
+&nbsp;
+    /** @property {Boolean} coHostedComponents - components that are co-hosted with this component **/
+    coHostedComponents: function () {
+      var componentName = this.get('componentName');
+      var key,
+          coHostedComponents = [];
+      for (key in App.StackServiceComponent.coHost) {
+<span class="cstat-no" title="statement not covered" >        if (App.StackServiceComponent.coHost[key] === componentName) {</span>
+<span class="cstat-no" title="statement not covered" >          coHostedComponents.push(key);</span>
+        }
+      }
+      return coHostedComponents;
+    }.property('componentName'),
+&nbsp;
+    /** @property {Boolean} isOtherComponentCoHosted - Is any other component co-hosted with this component **/
+    isOtherComponentCoHosted: Em.computed.bool('coHostedComponents.length'),
+&nbsp;
+    /** @property {Boolean} isCoHostedComponent - Is this component co-hosted with other component **/
+    isCoHostedComponent: function () {
+      var componentName = this.get('componentName');
+      return !!App.StackServiceComponent.coHost[componentName];
+    }.property('componentName'),
+&nbsp;
+    /** @property {Boolean} isNotAddableOnlyInInstall - is this component addable, except Install and Add Service Wizards  **/
+    isNotAddableOnlyInInstall: Em.computed.existsIn('componentName', ['HIVE_METASTORE', 'HIVE_SERVER', 'RANGER_KMS_SERVER', 'OOZIE_SERVER', 'TIMELINE_READER', 'YARN_REGISTRY_DNS']),
+&nbsp;
+    /** @property {Boolean} isNotAllowedOnSingleNodeCluster - is this component allowed on single node  **/
+    isNotAllowedOnSingleNodeCluster: Em.computed.existsIn('componentName', ['HAWQSTANDBY'])
+&nbsp;
+  });
+&nbsp;
+  App.StackServiceComponent.FIXTURES = [];
+&nbsp;
+  App.StackServiceComponent.coHost = {};
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

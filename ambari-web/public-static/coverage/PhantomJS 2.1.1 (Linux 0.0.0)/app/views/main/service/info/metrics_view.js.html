@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/main/service/info/metrics_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/views/main/service/info/metrics_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">65.66% <small>(65 / 99)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">51.11% <small>(23 / 45)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">65.38% <small>(17 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">65.66% <small>(65 / 99)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">app/views/main/service/info/</a> &#187; metrics_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/main/service/info/metrics_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one or more
+   * contributor license agreements. See the NOTICE file distributed with this
+   * work for additional information regarding copyright ownership. The ASF
+   * licenses this file to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   * http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+   * License for the specific language governing permissions and limitations under
+   * the License.
+   */
+&nbsp;
+  var App = require('app');
+  var misc = require('utils/misc');
+  require('views/main/service/service');
+  require('data/service_graph_config');
+&nbsp;
+  App.MainServiceInfoMetricsView = Em.View.extend(App.Persist, App.TimeRangeMixin, {
+    templateName: require('templates/main/service/info/metrics'),
+    /**
+     * @property {Number} chunkSize - number of columns in Metrics section
+     */
+    chunkSize: 5,
+&nbsp;
+    service: null,
+&nbsp;
+    svc: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var svc = this.get('controller.content');</span>
+<span class="cstat-no" title="statement not covered" >      var svcName = svc.get('serviceName');</span>
+<span class="cstat-no" title="statement not covered" >      if (svcName) {</span>
+<span class="cstat-no" title="statement not covered" >        switch (svcName.toLowerCase()) {</span>
+          case 'hdfs':
+<span class="cstat-no" title="statement not covered" >            svc = App.HDFSService.find().objectAt(0);</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+          case 'yarn':
+<span class="cstat-no" title="statement not covered" >            svc = App.YARNService.find().objectAt(0);</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+          case 'hbase':
+<span class="cstat-no" title="statement not covered" >            svc = App.HBaseService.find().objectAt(0);</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+          case 'flume':
+<span class="cstat-no" title="statement not covered" >            svc = App.FlumeService.find().objectAt(0);</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+          default:
+<span class="cstat-no" title="statement not covered" >            break;</span>
+        }
+      }
+<span class="cstat-no" title="statement not covered" >      return svc;</span>
+    }.property('controller.content.serviceName').volatile(),
+&nbsp;
+    getServiceModel: function getServiceModel(serviceName) {
+      var extended = App.Service.extendedModel[serviceName];
+      if (extended) {
+        return App[extended].find().objectAt(0);
+      }
+      return App.Service.find(serviceName);
+    },
+&nbsp;
+    serviceName: Em.computed.alias('service.serviceName'),
+&nbsp;
+    /**
+     * Contains graphs for this particular service
+     */
+    serviceMetricGraphs: [],
+&nbsp;
+    /**
+     * @type {boolean}
+     * @default false
+     */
+    serviceHasMetrics: false,
+&nbsp;
+    /**
+     * Key-name to store time range in Persist
+     * @type {string}
+     */
+    persistKey: Em.computed.format('time-range-service-{0}', 'service.serviceName'),
+&nbsp;
+    isLoading: false,
+&nbsp;
+    didInsertElement: function didInsertElement() {
+      var svcName = this.get('controller.content.serviceName');
+      this.set('service', this.getServiceModel(svcName));
+      var isMetricsSupported = svcName !== 'STORM' || <span class="branch-1 cbranch-no" title="branch not covered" >App.get('isStormMetricsSupported');</span>
+&nbsp;
+      this.loadActiveWidgetLayout();
+&nbsp;
+      if (App.get('supports.customizedWidgetLayout')) {
+        this.get('controller').loadWidgetLayouts();
+      }
+&nbsp;
+      if (svcName &amp;&amp; isMetricsSupported) {
+        var allServices = require('data/service_graph_config');
+        this.constructGraphObjects(allServices[svcName.toLowerCase()]);
+      }
+      this.makeSortable('#widget_layout');
+      this.makeSortable('#ns_widget_layout', true);
+      this.addWidgetTooltip();
+      this._super();
+    },
+&nbsp;
+    loadActiveWidgetLayout: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var isHDFS = this.get('controller.content.serviceName') === 'HDFS';</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('isLoading') &amp;&amp; (!isHDFS || isHDFS &amp;&amp; App.router.get('clusterController.isHostComponentMetricsLoaded'))) {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('isLoading', true);</span>
+<span class="cstat-no" title="statement not covered" >        this.get('controller').getActiveWidgetLayout();</span>
+      }
+    }.observes('App.router.clusterController.isHostComponentMetricsLoaded'),
+&nbsp;
+    addWidgetTooltip: function addWidgetTooltip() {
+      Em.run.later(this, function () {
+        App.tooltip($("[rel='add-widget-tooltip']"));
+        // enable description show up on hover
+        $('.img-thumbnail').hoverIntent(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >          if ($(this).is('hover')) {</span>
+<span class="cstat-no" title="statement not covered" >            $(this).find('.hidden-description').delay(1000).fadeIn(200).end();</span>
+          }
+        }, <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >          $(this).find('.hidden-description').stop().hide().end();</span>
+        });
+      }, 1000);
+    },
+&nbsp;
+    willDestroyElement: <span class="fstat-no" title="function not covered" >function willDestroyElement() {</span>
+<span class="cstat-no" title="statement not covered" >      $("[rel='add-widget-tooltip']").tooltip('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      $('.img-thumbnail').off();</span>
+<span class="cstat-no" title="statement not covered" >      $('#widget_layout').sortable('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      $('#ns_widget_layout').sortable('destroy');</span>
+<span class="cstat-no" title="statement not covered" >      $('.widget.span2p4').detach().remove();</span>
+<span class="cstat-no" title="statement not covered" >      this.get('serviceMetricGraphs').clear();</span>
+<span class="cstat-no" title="statement not covered" >      this.set('service', null);</span>
+    },
+&nbsp;
+    /*
+    * Find the graph class associated with the graph name, and split
+    * the array into sections of 5 for displaying on the page
+    * (will only display rows with 5 items)
+    */
+    constructGraphObjects: function constructGraphObjects(graphNames) {
+      var self = this,
+          stackService = App.StackService.find(this.get('controller.content.serviceName'));
+&nbsp;
+      if (!graphNames &amp;&amp; !stackService.get('isServiceWithWidgets')) {
+        this.get('serviceMetricGraphs').clear();
+        this.set('serviceHasMetrics', false);
+        return;
+      }
+&nbsp;
+      // load time range(currentTimeRangeIndex) for current service from server
+      this.getUserPref(self.get('persistKey')).complete(function () {
+        var result = [],
+            graphObjects = [],
+            chunkSize = self.get('chunkSize');
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (graphNames) {
+          graphNames.forEach(function (graphName) {
+            graphObjects.push(App["ChartServiceMetrics" + graphName].extend());
+          });
+        }
+        while (graphObjects.length) {
+          result.push(graphObjects.splice(0, chunkSize));
+        }
+        self.set('serviceMetricGraphs', result);
+        self.set('serviceHasMetrics', true);
+      });
+    },
+&nbsp;
+    getUserPrefSuccessCallback: function getUserPrefSuccessCallback(response, request) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (response) {
+        this.set('currentTimeRangeIndex', response);
+      }
+    },
+&nbsp;
+    getUserPrefErrorCallback: function getUserPrefErrorCallback(request) {
+      if (request.status === 404) {
+        this.postUserPref(this.get('persistKey'), 0);
+        this.set('currentTimeRangeIndex', 0);
+      }
+    },
+&nbsp;
+    /**
+     * list of static actions of widget
+     * @type {Array}
+     */
+    staticGeneralWidgetActions: [Em.Object.create({
+      label: Em.I18n.t('dashboard.widgets.actions.browse'),
+      class: 'glyphicon glyphicon-th',
+      action: 'goToWidgetsBrowser',
+      isAction: true
+    })],
+&nbsp;
+    /**
+     *list of static actions of widget accessible to Admin/Operator privelege
+     * @type {Array}
+     */
+&nbsp;
+    staticAdminPrivelegeWidgetActions: [Em.Object.create({
+      label: Em.I18n.t('dashboard.widgets.create'),
+      class: 'glyphicon glyphicon-plus',
+      action: 'createWidget',
+      isAction: true
+    })],
+&nbsp;
+    /**
+     * List of static actions related to widget layout
+     */
+    staticWidgetLayoutActions: [Em.Object.create({
+      label: Em.I18n.t('dashboard.widgets.layout.save'),
+      class: 'glyphicon glyphicon-download-alt',
+      action: 'saveLayout',
+      isAction: true
+    }), Em.Object.create({
+      label: Em.I18n.t('dashboard.widgets.layout.import'),
+      class: 'glyphicon glyphicon-file',
+      isAction: true,
+      layouts: App.WidgetLayout.find()
+    })],
+&nbsp;
+    /**
+     * @type {Array}
+     */
+    widgetActions: function () {
+      var options = [];
+      if (App.isAuthorized('SERVICE.MODIFY_CONFIGS')) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (App.supports.customizedWidgetLayout) {
+          options.pushObjects(this.get('staticWidgetLayoutActions'));
+        }
+        options.pushObjects(this.get('staticAdminPrivelegeWidgetActions'));
+      }
+      options.pushObjects(this.get('staticGeneralWidgetActions'));
+      return options;
+    }.property(''),
+&nbsp;
+    /**
+     * call action function defined in controller
+     * @param event
+     */
+    doWidgetAction: function doWidgetAction(event) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if ($.isFunction(this.get('controller')[event.context])) {
+        this.get('controller')[event.context].apply(this.get('controller'));
+      }
+    },
+&nbsp;
+    /**
+     * onclick handler for a time range option
+     * @param {object} event
+     */
+    setTimeRange: function setTimeRange(event) {
+      var graphs = this.get('controller.widgets').filterProperty('widgetType', 'GRAPH'),
+          callback = function callback() {
+        graphs.forEach(function (widget) {
+          widget.set('properties.time_range', event.context.value);
+        });
+      };
+      this._super(event, callback);
+&nbsp;
+      // Preset time range is specified by user
+      if (event.context.value !== '0') {
+        callback();
+      }
+    },
+&nbsp;
+    /**
+     * Define if some widget is currently moving
+     * @type {boolean}
+     */
+    isMoving: false,
+&nbsp;
+    /**
+     * Make widgets' list sortable on New Dashboard style
+     */
+    makeSortable: function makeSortable(selector, isNSLayout) {
+      var self = this;
+      var controller = this.get('controller');
+      $('html').on('DOMNodeInserted', selector, function () {
+        $(this).sortable({
+          items: "&gt; div",
+          cursor: "move",
+          tolerance: "pointer",
+          scroll: false,
+          update: <span class="fstat-no" title="function not covered" >function update() {</span>
+<span class="cstat-no" title="statement not covered" >            var layout = isNSLayout ? controller.get('selectedNSWidgetLayout') : controller.get('activeWidgetLayout');</span>
+<span class="cstat-no" title="statement not covered" >            var widgets = misc.sortByOrder($(selector + " .widget").map(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >              return this.id;</span>
+            }), layout.get('widgets').toArray());
+<span class="cstat-no" title="statement not covered" >            controller.saveWidgetLayout(widgets, layout);</span>
+          },
+          activate: <span class="fstat-no" title="function not covered" >function activate() {</span>
+<span class="cstat-no" title="statement not covered" >            self.set('isMoving', true);</span>
+          },
+          deactivate: <span class="fstat-no" title="function not covered" >function deactivate() {</span>
+<span class="cstat-no" title="statement not covered" >            self.set('isMoving', false);</span>
+          }
+        }).disableSelection();
+        $('html').off('DOMNodeInserted', selector);
+      });
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

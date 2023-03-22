@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/main/admin/federation/step3_controller.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/controllers/main/admin/federation/step3_controller.js</span></h1>
+    <h2>
+        Statements: <span class="metric">63.79% <small>(74 / 116)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">51.22% <small>(21 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">76% <small>(19 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">63.79% <small>(74 / 116)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">app/controllers/main/admin/federation/</a> &#187; step3_controller.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+&nbsp;
+;require.register("controllers/main/admin/federation/step3_controller", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.NameNodeFederationWizardStep3Controller = Em.Controller.extend(App.BlueprintMixin, {
+    name: "nameNodeFederationWizardStep3Controller",
+    selectedService: null,
+    stepConfigs: [],
+    serverConfigData: {},
+    once: false,
+    isLoaded: false,
+    isConfigsLoaded: false,
+    versionLoaded: true,
+    hideDependenciesInfoBar: true,
+&nbsp;
+    /**
+     * Map of sites and properties to delete
+     * @type Object
+     */
+    configsToRemove: {
+      'hdfs-site': ['dfs.namenode.shared.edits.dir', 'dfs.journalnode.edits.dir']
+    },
+&nbsp;
+    clearStep: function clearStep() {
+      this.get('stepConfigs').clear();
+      this.set('serverConfigData', {});
+      this.set('isConfigsLoaded', false);
+      this.set('isLoaded', false);
+    },
+&nbsp;
+    loadStep: function loadStep() {
+      this.clearStep();
+      this.loadConfigsTags();
+    },
+&nbsp;
+    loadConfigsTags: function loadConfigsTags() {
+      return App.ajax.send({
+        name: 'config.tags',
+        sender: this,
+        success: 'onLoadConfigsTags'
+      });
+    },
+&nbsp;
+    onLoadConfigsTags: function onLoadConfigsTags(data) {
+      var servicesModel = App.Service.find();
+      var urlParams = '(type=hdfs-site&amp;tag=' + data.Clusters.desired_configs['hdfs-site'].tag + ')';
+      if (servicesModel.someProperty('serviceName', 'RANGER')) {
+        urlParams += '|(type=core-site&amp;tag=' + data.Clusters.desired_configs['core-site'].tag + ')' + '|(type=ranger-tagsync-site&amp;tag=' + data.Clusters.desired_configs['ranger-tagsync-site'].tag + ')' + '|(type=ranger-hdfs-security&amp;tag=' + data.Clusters.desired_configs['ranger-hdfs-security'].tag + ')';
+      }
+      if (servicesModel.someProperty('serviceName', 'ACCUMULO')) {
+        urlParams += '|(type=accumulo-site&amp;tag=' + data.Clusters.desired_configs['accumulo-site'].tag + ')';
+      }
+      App.ajax.send({
+        name: 'admin.get.all_configurations',
+        sender: this,
+        data: {
+          urlParams: urlParams
+        },
+        success: 'onLoadConfigs'
+      });
+    },
+&nbsp;
+    onLoadConfigs: function onLoadConfigs(data) {
+      this.set('serverConfigData', data);
+      this.set('isConfigsLoaded', true);
+    },
+&nbsp;
+    onLoad: function () {
+      if (this.get('isConfigsLoaded') &amp;&amp; App.router.get('clusterController.isHDFSNameSpacesLoaded')) {
+        var federationConfig = $.extend(true, {}, require('data/configs/wizards/federation_properties').federationConfig);
+        if (App.get('hasNameNodeFederation')) {
+          federationConfig.configs = federationConfig.configs.rejectProperty('firstRun');
+        }
+        federationConfig.configs = this.tweakServiceConfigs(federationConfig.configs);
+        this.removeConfigs(this.get('configsToRemove'), this.get('serverConfigData'));
+        this.renderServiceConfigs(federationConfig);
+        this.set('isLoaded', true);
+      }
+    }.observes('isConfigsLoaded', 'App.router.clusterController.isHDFSNameSpacesLoaded'),
+&nbsp;
+    prepareDependencies: function prepareDependencies() {
+      var ret = {};
+      var configsFromServer = this.get('serverConfigData.items');
+      var journalNodes = App.HostComponent.find().filterProperty('componentName', 'JOURNALNODE');
+      var nameNodes = this.get('content.masterComponentHosts').filterProperty('component', 'NAMENODE');
+      var hdfsSiteConfigs = configsFromServer.findProperty('type', 'hdfs-site').properties;
+      var nameServices = App.HDFSService.find().objectAt(0).get('masterComponentGroups').mapProperty('name');
+      ret.nameServicesList = nameServices.join(',');
+      ret.nameservice1 = nameServices.find(function (ns) {
+        return hdfsSiteConfigs['dfs.namenode.rpc-address.' + ns + '.nn1'];
+      });
+      ret.newNameservice = this.get('content.nameServiceId');
+      ret.namenode1 = hdfsSiteConfigs['dfs.namenode.rpc-address.' + ret.nameservice1 + '.nn1'].split(':')[0];
+      ret.namenode2 = hdfsSiteConfigs['dfs.namenode.rpc-address.' + ret.nameservice1 + '.nn2'].split(':')[0];
+      ret.newNameNode1Index = 'nn' + (nameNodes.length - 1);
+      ret.newNameNode2Index = 'nn' + nameNodes.length;
+      ret.newNameNode1 = nameNodes.filterProperty('isInstalled', false).mapProperty('hostName')[0];
+      ret.newNameNode2 = nameNodes.filterProperty('isInstalled', false).mapProperty('hostName')[1];
+      ret.journalnodes = journalNodes.map(function (c) {
+        return c.get('hostName') + ':8485';
+      }).join(';');
+      ret.clustername = App.get('clusterName');
+&nbsp;
+      var dfsHttpA = hdfsSiteConfigs['dfs.namenode.http-address'];
+      ret.nnHttpPort = dfsHttpA ? dfsHttpA.split(':')[1] : 50070;
+&nbsp;
+      var dfsHttpsA = hdfsSiteConfigs['dfs.namenode.https-address'];
+      ret.nnHttpsPort = dfsHttpsA ? dfsHttpsA.split(':')[1] : 50470;
+&nbsp;
+      var dfsRpcA = hdfsSiteConfigs['dfs.namenode.rpc-address'];
+      ret.nnRpcPort = dfsRpcA ? dfsRpcA.split(':')[1] : 8020;
+&nbsp;
+      ret.journalnode_edits_dir = hdfsSiteConfigs['dfs.journalnode.edits.dir'];
+&nbsp;
+      return ret;
+    },
+&nbsp;
+    tweakServiceConfigs: <span class="fstat-no" title="function not covered" >function tweakServiceConfigs(configs) {</span>
+<span class="cstat-no" title="statement not covered" >      var servicesModel = App.Service.find();</span>
+<span class="cstat-no" title="statement not covered" >      var dependencies = this.prepareDependencies();</span>
+<span class="cstat-no" title="statement not covered" >      var nameServices = App.HDFSService.find().objectAt(0).get('masterComponentGroups').mapProperty('name');</span>
+<span class="cstat-no" title="statement not covered" >      nameServices.push(dependencies.newNameservice);</span>
+<span class="cstat-no" title="statement not covered" >      var result = [];</span>
+<span class="cstat-no" title="statement not covered" >      var configsToRemove = [];</span>
+<span class="cstat-no" title="statement not covered" >      var hdfsSiteConfigs = this.get('serverConfigData').items.findProperty('type', 'hdfs-site').properties;</span>
+<span class="cstat-no" title="statement not covered" >      var wizardController = App.router.get(this.get('content.controllerName'));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!hdfsSiteConfigs['dfs.namenode.servicerpc-address.' + dependencies.nameservice1 + '.nn1'] &amp;&amp; !hdfsSiteConfigs['dfs.namenode.servicerpc-address.' + dependencies.nameservice1 + '.nn2']) {</span>
+<span class="cstat-no" title="statement not covered" >        configsToRemove = configsToRemove.concat(['dfs.namenode.servicerpc-address.{{nameservice1}}.nn1', 'dfs.namenode.servicerpc-address.{{nameservice1}}.nn2', 'dfs.namenode.servicerpc-address.{{newNameservice}}.{{newNameNode1Index}}', 'dfs.namenode.servicerpc-address.{{newNameservice}}.{{newNameNode2Index}}']);</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (servicesModel.someProperty('serviceName', 'RANGER')) {</span>
+<span class="cstat-no" title="statement not covered" >        var hdfsRangerConfigs = this.get('serverConfigData').items.findProperty('type', 'ranger-hdfs-security').properties;</span>
+<span class="cstat-no" title="statement not covered" >        var reponamePrefix = hdfsRangerConfigs['ranger.plugin.hdfs.service.name'] === '{{repo_name}}' ? dependencies.clustername + '_hadoop_' : hdfsRangerConfigs['ranger.plugin.hdfs.service.name'] + '_';</span>
+<span class="cstat-no" title="statement not covered" >        var coreSiteConfigs = this.get('serverConfigData').items.findProperty('type', 'core-site').properties;</span>
+<span class="cstat-no" title="statement not covered" >        var defaultFSNS = coreSiteConfigs['fs.defaultFS'].split('hdfs://')[1];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        nameServices.forEach(<span class="fstat-no" title="function not covered" >function (nameService) {</span></span>
+<span class="cstat-no" title="statement not covered" >          configs.push(this.createRangerServiceProperty(nameService, reponamePrefix, "ranger.tagsync.atlas.hdfs.instance." + App.get('clusterName') + ".nameservice." + nameService + ".ranger.service"));</span>
+<span class="cstat-no" title="statement not covered" >          configs.push(this.createRangerServiceProperty(defaultFSNS, reponamePrefix, "ranger.tagsync.atlas.hdfs.instance." + App.get('clusterName') + ".ranger.service"));</span>
+        }, this);
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (servicesModel.someProperty('serviceName', 'ACCUMULO')) {</span>
+<span class="cstat-no" title="statement not covered" >        var hdfsNameSpacesModel = App.HDFSService.find().objectAt(0).get('masterComponentGroups');</span>
+<span class="cstat-no" title="statement not covered" >        var newNameSpace = this.get('content.nameServiceId');</span>
+<span class="cstat-no" title="statement not covered" >        var volumesValue = nameServices.map(<span class="fstat-no" title="function not covered" >function (ns) {</span></span>
+<span class="cstat-no" title="statement not covered" >          return 'hdfs://' + ns + '/apps/accumulo/data';</span>
+        }).join();
+<span class="cstat-no" title="statement not covered" >        var replacementsValue = nameServices.map(<span class="fstat-no" title="function not covered" >function (ns) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var hostName;</span>
+<span class="cstat-no" title="statement not covered" >          if (ns === newNameSpace) {</span>
+<span class="cstat-no" title="statement not covered" >            var hostNames = this.get('content.masterComponentHosts').filter(<span class="fstat-no" title="function not covered" >function (hc) {</span></span>
+<span class="cstat-no" title="statement not covered" >              return hc.component === 'NAMENODE' &amp;&amp; !hc.isInstalled;</span>
+            }).mapProperty('hostName');
+<span class="cstat-no" title="statement not covered" >            hostName = hostNames[0];</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            var nameSpaceObject = hdfsNameSpacesModel.findProperty('name', ns);</span>
+<span class="cstat-no" title="statement not covered" >            hostName = nameSpaceObject &amp;&amp; nameSpaceObject.hosts[0];</span>
+          }
+<span class="cstat-no" title="statement not covered" >          return 'hdfs://' + hostName + ':8020/apps/accumulo/data hdfs://' + ns + '/apps/accumulo/data';</span>
+        }, this).join();
+<span class="cstat-no" title="statement not covered" >        configs.push({</span>
+          name: 'instance.volumes',
+          displayName: 'instance.volumes',
+          isReconfigurable: false,
+          value: volumesValue,
+          recommendedValue: volumesValue,
+          category: 'ACCUMULO',
+          filename: 'accumulo-site',
+          serviceName: 'MISC'
+        }, {
+          name: 'instance.volumes.replacements',
+          displayName: 'instance.volumes.replacements',
+          isReconfigurable: false,
+          value: replacementsValue,
+          recommendedValue: replacementsValue,
+          category: 'ACCUMULO',
+          filename: 'accumulo-site',
+          serviceName: 'MISC'
+        });
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      configs.forEach(<span class="fstat-no" title="function not covered" >function (config) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (!configsToRemove.contains(config.name)) {</span>
+<span class="cstat-no" title="statement not covered" >          config.isOverridable = false;</span>
+<span class="cstat-no" title="statement not covered" >          config.name = wizardController.replaceDependencies(config.name, dependencies);</span>
+<span class="cstat-no" title="statement not covered" >          config.displayName = wizardController.replaceDependencies(config.displayName, dependencies);</span>
+<span class="cstat-no" title="statement not covered" >          config.value = wizardController.replaceDependencies(config.value, dependencies);</span>
+<span class="cstat-no" title="statement not covered" >          config.recommendedValue = wizardController.replaceDependencies(config.recommendedValue, dependencies);</span>
+<span class="cstat-no" title="statement not covered" >          result.push(config);</span>
+        }
+      }, this);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return result;</span>
+    },
+&nbsp;
+    createRangerServiceProperty: function createRangerServiceProperty(nameservice, reponamePrefix, propertyName) {
+      return {
+        "name": propertyName,
+        "displayName": propertyName,
+        "isReconfigurable": false,
+        "recommendedValue": reponamePrefix + nameservice,
+        "value": reponamePrefix + nameservice,
+        "category": "RANGER",
+        "filename": "ranger-tagsync-site",
+        "serviceName": 'MISC'
+      };
+    },
+&nbsp;
+    removeConfigs: function removeConfigs(configsToRemove, configs) {
+      Em.keys(configsToRemove).forEach(function (site) {
+        var siteConfigs = configs.items.findProperty('type', site);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (siteConfigs) {
+          configsToRemove[site].forEach(function (property) {
+            delete siteConfigs.properties[property];
+          });
+        }
+      });
+      return configs;
+    },
+&nbsp;
+    renderServiceConfigs: function renderServiceConfigs(_serviceConfig) {
+      var serviceConfig = App.ServiceConfig.create({
+        serviceName: _serviceConfig.serviceName,
+        displayName: _serviceConfig.displayName,
+        configCategories: [],
+        showConfig: true,
+        configs: []
+      });
+&nbsp;
+      _serviceConfig.configCategories.forEach(function (_configCategory) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (App.Service.find().someProperty('serviceName', _configCategory.name)) {
+          serviceConfig.configCategories.pushObject(_configCategory);
+        }
+      }, this);
+&nbsp;
+      this.loadComponentConfigs(_serviceConfig, serviceConfig);
+&nbsp;
+      this.get('stepConfigs').pushObject(serviceConfig);
+      this.set('selectedService', this.get('stepConfigs').objectAt(0));
+      this.set('once', true);
+    },
+&nbsp;
+    /**
+     * Load child components to service config object
+     * @param _componentConfig
+     * @param componentConfig
+     */
+    loadComponentConfigs: function loadComponentConfigs(_componentConfig, componentConfig) {
+      _componentConfig.configs.forEach(function (_serviceConfigProperty) {
+        var serviceConfigProperty = App.ServiceConfigProperty.create(_serviceConfigProperty);
+        componentConfig.configs.pushObject(serviceConfigProperty);
+        serviceConfigProperty.set('isEditable', serviceConfigProperty.get('isReconfigurable'));
+      }, this);
+    },
+&nbsp;
+    isNextDisabled: function () {
+      return !this.get('isLoaded') || this.get('isLoaded') &amp;&amp; this.get('selectedService.configs').someProperty('isValid', false);
+    }.property('selectedService.configs.@each.isValid', 'isLoaded')
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

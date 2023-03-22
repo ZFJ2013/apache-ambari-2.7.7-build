@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/mixins/unit_convert/base_unit_convert_mixin.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/mixins/unit_convert/base_unit_convert_mixin.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(47 / 47)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">96.77% <small>(30 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(10 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(47 / 47)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/mixins/unit_convert/</a> &#187; base_unit_convert_mixin.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1245</span>
+<span class="cline-any cline-yes">1245</span>
+<span class="cline-any cline-yes">1245</span>
+<span class="cline-any cline-yes">1219</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1245</span>
+<span class="cline-any cline-yes">774</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">471</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">459</span>
+<span class="cline-any cline-yes">458</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">459</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">67</span>
+<span class="cline-any cline-yes">67</span>
+<span class="cline-any cline-yes">67</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">427</span>
+<span class="cline-any cline-yes">401</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-yes">52</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-yes">386</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">201</span>
+<span class="cline-any cline-yes">603</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-yes">583</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-yes">587</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">583</span>
+<span class="cline-any cline-yes">583</span>
+<span class="cline-any cline-yes">583</span>
+<span class="cline-any cline-yes">734</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">151</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">583</span>
+<span class="cline-any cline-yes">387</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">196</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">583</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("mixins/unit_convert/base_unit_convert_mixin", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.BaseUnitConvertMixin = Em.Mixin.create({
+    /**
+     * Which type of units should be used e.g. size, time.
+     * Conversion dimensions will be used according this type.
+     * For more info regarding dimension table @see convertMapTable property.
+     *
+     * This property can be used in mixed object to specify which dimension table map will
+     * be used for conversion. If type is not specified we try to find correct table by input unit type.
+     *
+     * Note: You should specify dimension for `percentage` conversion with specified property unit type.
+     *
+     * @property currentDimensionType
+     * @type {String}
+     */
+    currentDimensionType: null,
+&nbsp;
+    units: ['b', 'kb', 'mb', 'gb', 'tb', 'pb'],
+&nbsp;
+    /**
+     * Labels related to units. Specify desired display names here that not much actual unit name.
+     */
+    unitLabelMap: {
+      percent: '%',
+      int: '',
+      float: ''
+    },
+&nbsp;
+    convertMapTable: Em.Object.create({
+      size: {
+        b: 1024,
+        kb: 1024,
+        mb: 1024,
+        gb: 1024,
+        tb: 1024,
+        pb: 1024
+      },
+      time: {
+        milliseconds: 1,
+        seconds: 1000,
+        minutes: 60,
+        hours: 60,
+        days: 24
+      },
+      /**
+       * Percent dimension type should be specified directly through `currentDimensionType` property.
+       * For example:
+       * 'percent.percent_int' if widget `unit-name` is "percent" and config property `type` is "int"
+       * 'percent.percent_float' if widget `unit-name` is "percent" and config property `type` is "float"
+       */
+      percent: {
+        percent_int: {
+          int: 1,
+          percent: 1
+        },
+        percent_float: {
+          float: 1,
+          percent: 0.01
+        }
+      }
+    }),
+&nbsp;
+    /**
+     * Convert value between different unit types. Conversion works for following directions:
+     *  single unit -&gt; single unit e.g. from "s" -&gt; "s".
+     *  single unit -&gt; multi unit e.g. from "ms" -&gt; "days,hours"
+     *  multi unit -&gt; single unit e.g. from "days,hours" -&gt; "ms"
+     * For single -&gt; single unit conversion returned value will be as is or an array of objects if
+     * isObjectOutput flag passed.
+     * If any passed unit is multi dimensions like "days,hours" array of objects will return always.
+     * For example:
+     *  &lt;code&gt;
+     *     convertValue(1024, 'kb', 'kb') // returns 1024
+     *     convertValue(1024, 'kb', 'kb', true) // returns [{ type: 'kb', value: 1024 }]
+     *     convertValue(60000, 'ms', 'hours,minutes') // returns [{type: 'hours', value: 0 }, {type: 'minutes', value: 1}]
+     *  &lt;/code&gt;
+     * For more examples see unit tests.
+     *
+     * @method convertValue
+     * @param {String|Number|Object[]} value - value to convert
+     * @param {String|String[]} fromUnit - specified value unit type(s) e.g. "mb"
+     *    Form multi dimensional format pass units separated with "," or list of unit types
+     *    e.g. "gb,mb", ['gb', 'mb']
+     * @param {Boolean} [isObjectOutput=false] - 'returned' value should be object this option useful for widgets where its
+     *    value should be an Object
+     * @param {String|String[]} toUnit - desired unit(s) to convert specified value. Same format as for `fromUnit`
+     * @returns {Number|Object[]} returns single value or array of objects according to multi unit format
+     */
+    convertValue: function convertValue(value, fromUnit, toUnit, isObjectOutput) {
+      var self = this;
+      var valueIsArray = Em.isArray(value);
+      if (!valueIsArray) {
+        value = +value;
+      }
+      // if desired unit not passed or fromUnit and toUnit are the same
+      // just return the value
+      if ((fromUnit == toUnit || !toUnit) &amp;&amp; !isObjectOutput) {
+        return value;
+      }
+      if (isNaN(value) &amp;&amp; !valueIsArray) {
+        return null;
+      }
+      // convert passed toUnit string to array of units by ','
+      // for example "mb,kb" to ['mb','kb']
+      if (!Em.isArray(toUnit)) {
+        toUnit = toUnit.split(',');
+      }
+      // process multi unit format
+      if (toUnit.length &gt; 1 || isObjectOutput) {
+        // returned array has following structure
+        //  .value - value according to unit
+        //  .type - unit name
+        return toUnit.map(function (unit) {
+          var convertedValue = Math.floor(self._convertToSingleValue(value, fromUnit, unit));
+          value -= self._convertToSingleValue(convertedValue, unit, fromUnit);
+          return {
+            value: convertedValue,
+            type: unit
+          };
+        });
+      }
+      // for single unit format just return single value
+      else {
+          if (!valueIsArray) {
+            return this._convertToSingleValue(value, fromUnit, toUnit[0]);
+          } else {
+            return value.map(function (item) {
+              return self._convertToSingleValue(item.value, item.type, toUnit[0]);
+            }).reduce(Em.sum, 0);
+          }
+        }
+    },
+&nbsp;
+    /**
+     * Get dimension table map. `currentDimensionType` will be used if specified or
+     * detected by property unit type.
+     *
+     * @method _converterGetUnitTable
+     * @private
+     * @param {String|String[]} unit - unit type
+     * @return {Object}
+     */
+    _converterGetUnitTable: function _converterGetUnitTable(unit) {
+      var unitType;
+      if (this.get('currentDimensionType')) {
+        unitType = this.get('currentDimensionType');
+      } else {
+        unitType = Em.keys(this.get('convertMapTable')).filter(function (item) {
+          return Em.keys(this.get('convertMapTable.' + item)).contains(Em.isArray(unit) ? <span class="branch-0 cbranch-no" title="branch not covered" >unit[0].toLowerCase() </span>: unit.toLowerCase());
+        }, this)[0];
+      }
+      return this.get('convertMapTable.' + unitType);
+    },
+&nbsp;
+    /**
+     * @method _convertToSingleValue
+     * @private
+     * @param {Number} value - value to convert
+     * @param {String} fromUnit - unit type for current value
+     * @param {String} toUnit - desired unit type
+     * @return {Number}
+     */
+    _convertToSingleValue: function _convertToSingleValue(value, fromUnit, toUnit) {
+      var convertTable = this._converterGetUnitTable(fromUnit);
+      var units = Em.keys(convertTable);
+      var fromUnitIndex = units.indexOf(fromUnit.toLowerCase());
+      var toUnitIndex = units.indexOf(toUnit.toLowerCase());
+      var isInt = function isInt(val) {
+        return parseInt(val) === val;
+      };
+      Em.assert("Invalid value unit type " + fromUnit, fromUnitIndex &gt; -1);
+      Em.assert("Invalid desired unit type " + toUnit, toUnitIndex &gt; -1);
+      if (fromUnitIndex == toUnitIndex) {
+        return value;
+      }
+      var range = [fromUnitIndex + 1, toUnitIndex + 1];
+      var processedUnits = Array.prototype.slice.apply(units, range[0] &lt; range[1] ? range : range.slice().reverse());
+      var factor = processedUnits.map(function (unit) {
+        return Em.get(convertTable, unit);
+      }, this).reduce(function (p, c) {
+        return p * c;
+      });
+      if (range[0] &lt; range[1]) {
+        value /= factor;
+      } else {
+        value *= factor;
+      }
+      return isInt(value) ? value : parseFloat(value.toFixed(3));
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

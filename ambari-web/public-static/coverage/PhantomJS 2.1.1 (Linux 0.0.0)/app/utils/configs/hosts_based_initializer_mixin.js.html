@@ -1,0 +1,1215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/utils/configs/hosts_based_initializer_mixin.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/utils/configs/hosts_based_initializer_mixin.js</span></h1>
+    <h2>
+        Statements: <span class="metric">98.73% <small>(78 / 79)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">90% <small>(45 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(16 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">98.73% <small>(78 / 79)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/utils/configs/</a> &#187; hosts_based_initializer_mixin.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74</span>
+<span class="cline-any cline-yes">74</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">73</span>
+<span class="cline-any cline-yes">62</span>
+<span class="cline-any cline-yes">62</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">73</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">133</span>
+<span class="cline-any cline-yes">133</span>
+<span class="cline-any cline-yes">108</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">122</span>
+<span class="cline-any cline-yes">122</span>
+<span class="cline-any cline-yes">122</span>
+<span class="cline-any cline-yes">122</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">122</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48</span>
+<span class="cline-any cline-yes">48</span>
+<span class="cline-any cline-yes">48</span>
+<span class="cline-any cline-yes">48</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">74</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">159</span>
+<span class="cline-any cline-yes">159</span>
+<span class="cline-any cline-yes">112</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+&nbsp;
+;require.register("utils/configs/hosts_based_initializer_mixin", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  /**
+   * Regexp for host with port ('hostName:1234')
+   *
+   * @type {string}
+   */
+  var hostWithPort = "([\\w|\\.]*)(?=:)";
+&nbsp;
+  /**
+   * Regexp for host with port and protocol ('://hostName:1234')
+   *
+   * @type {string}
+   */
+  var hostWithPrefix = ":\/\/" + hostWithPort;
+&nbsp;
+  /**
+   * Mixin describes host name computations initializers and handlers.
+   *
+   * @mixin App.HostsBasedInitializerMixin
+   */
+  App.HostsBasedInitializerMixin = Em.Mixin.create({
+&nbsp;
+    initializerTypes: [{ name: 'host_with_component', method: '_initAsHostWithComponent' }, { name: 'hosts_with_components', method: '_initAsHostsWithComponents' }, { name: 'hosts_list_with_component', method: '_initAsHostsListWithComponent' }],
+&nbsp;
+    /**
+     * Initializer for configs with value equal to hostName with needed component
+     * Value example: 'hostName'
+     *
+     * @param {configProperty} configProperty
+     * @param {topologyLocalDB} localDB
+     * @param {object} dependencies
+     * @param {object} initializer
+     * @returns {Object}
+     * @private
+     */
+    _initAsHostWithComponent: function _initAsHostWithComponent(configProperty, localDB, dependencies, initializer) {
+      var component = localDB.masterComponentHosts.findProperty('component', initializer.component);
+      if (!component) {
+        return configProperty;
+      }
+      if (initializer.modifier) {
+        var replaceWith = Em.getWithDefault(initializer.modifier, 'prefix', '') + component.hostName + Em.getWithDefault(initializer.modifier, 'suffix', '');
+        this.setRecommendedValue(configProperty, initializer.modifier.regex, replaceWith);
+      } else {
+        Em.setProperties(configProperty, {
+          recommendedValue: component.hostName,
+          value: component.hostName
+        });
+      }
+&nbsp;
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Settings for &lt;code&gt;hosts_with_components&lt;/code&gt;-initializer
+     * Used for configs with value equal to the hosts list
+     * May set value as array (if &lt;code&gt;asArray&lt;/code&gt; is true) or as comma-sepratated string (if &lt;code&gt;asArray&lt;/code&gt; is false)
+     *
+     * @see _initAsHostsWithComponents
+     * @param {string|string[]} components
+     * @param {boolean} [asArray=false]
+     * @param {boolean|undefined} [isInstalled=undefined]
+     * @returns {{type: string, components: string[], asArray: boolean}}
+     */
+    getComponentsHostsConfig: function getComponentsHostsConfig(components, asArray, isInstalled) {
+      if (1 === arguments.length) {
+        asArray = false;
+      }
+      return {
+        type: 'hosts_with_components',
+        components: Em.makeArray(components),
+        asArray: asArray,
+        isInstalled: isInstalled
+      };
+    },
+&nbsp;
+    /**
+     * Initializer for configs with value equal to hostNames with needed components
+     * May be array or comma-separated list
+     * Depends on &lt;code&gt;initializer.asArray&lt;/code&gt; (true - array, false - string)
+     * Value example: 'hostName1,hostName2,hostName3' or ['hostName1', 'hostName2', 'hostName3']
+     *
+     * @param {configProperty} configProperty
+     * @param {topologyLocalDB} localDB
+     * @param {object} dependencies
+     * @param {object} initializer
+     * @return {Object}
+     * @private
+     */
+    _initAsHostsWithComponents: function _initAsHostsWithComponents(configProperty, localDB, dependencies, initializer) {
+      var hostNames = localDB.masterComponentHosts.filter(function (masterComponent) {
+        var hasFound = initializer.components.contains(masterComponent.component);
+        if (Em.isNone(initializer.isInstalled)) {
+          return hasFound;
+        }
+        return hasFound &amp;&amp; masterComponent.isInstalled === initializer.isInstalled;
+      }).sortProperty('hostName').mapProperty('hostName');
+      if (!initializer.asArray) {
+        hostNames = hostNames.uniq().join(',');
+      }
+      Em.setProperties(configProperty, {
+        value: hostNames,
+        recommendedValue: hostNames
+      });
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Settings for &lt;code&gt;host_with_component&lt;/code&gt;-initializer
+     * Used for configs with value equal to hostName that has &lt;code&gt;component&lt;/code&gt;
+     * Value may be modified with if &lt;code&gt;withModifier&lt;/code&gt; is true (it is by default)
+     * &lt;code&gt;hostWithPort&lt;/code&gt;-regexp will be used in this case
+     *
+     * @see _initAsHostWithComponent
+     * @param {string} component
+     * @param {boolean} [withModifier=true]
+     * @return {object}
+     */
+    getSimpleComponentConfig: function getSimpleComponentConfig(component, withModifier) {
+      if (arguments.length === 1) {
+        withModifier = true;
+      }
+      var config = {
+        type: 'host_with_component',
+        component: component
+      };
+      if (withModifier) {
+        config.modifier = {
+          type: 'regexp',
+          regex: hostWithPort
+        };
+      }
+      return config;
+    },
+&nbsp;
+    /**
+     * Almost the same to &lt;code&gt;getSimpleComponentConfig&lt;/code&gt;, but with possibility to modify &lt;code&gt;replaceWith&lt;/code&gt;-value
+     * &lt;code&gt;prefix&lt;/code&gt; is added before it
+     * &lt;code&gt;suffix&lt;/code&gt; is added after it
+     * &lt;code&gt;hostWithPrefix&lt;/code&gt;-regexp is used
+     *
+     * @see _initAsHostWithComponent
+     * @param {string} component
+     * @param {string} [prefix]
+     * @param {string} [suffix]
+     * @returns {object}
+     */
+    getComponentConfigWithAffixes: function getComponentConfigWithAffixes(component, prefix, suffix) {
+      prefix = prefix || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+      suffix = suffix || '';
+      return {
+        type: 'host_with_component',
+        component: component,
+        modifier: {
+          type: 'regexp',
+          regex: hostWithPrefix,
+          prefix: prefix,
+          suffix: suffix
+        }
+      };
+    },
+&nbsp;
+    /**
+     * Settings for &lt;code&gt;host_with_port&lt;/code&gt;-initializer
+     * Used for configs with value equal to hostName where some component exists concatenated with port-value
+     * Port-value is calculated according to &lt;code&gt;port&lt;/code&gt; and &lt;code&gt;portFromDependencies&lt;/code&gt; values
+     * If &lt;code&gt;portFromDependencies&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;port&lt;/code&gt;-value is used as key of the &lt;code&gt;dependencies&lt;/code&gt; (where real port-value is)
+     * Otherwise - &lt;code&gt;port&lt;/code&gt;-value used as is
+     * If calculated port-value is empty, it will be skipped (and ':' too)
+     * Value also may be customized with prefix and suffix
+     *
+     * @param {string} component needed component
+     * @param {boolean} componentExists component already exists or just going to be installed
+     * @param {string} prefix=''
+     * @param {string} suffix=''
+     * @param {string} port
+     * @param {boolean} [portFromDependencies=false]
+     * @returns {{type: string, component: string, componentExists: boolean, modifier: {prefix: (string), suffix: (string)}}}
+     * @method getHostWithPortConfig
+     * @static
+     */
+    getHostWithPortConfig: function getHostWithPortConfig(component, componentExists, prefix, suffix, port, portFromDependencies) {
+      if (arguments.length &lt; 6) {
+        portFromDependencies = false;
+      }
+      prefix = prefix || '';
+      suffix = suffix || '';
+      var ret = {
+        type: 'host_with_port',
+        component: component,
+        componentExists: componentExists,
+        modifier: {
+          prefix: prefix,
+          suffix: suffix
+        }
+      };
+      if (portFromDependencies) {
+        ret.portKey = port;
+      } else {
+        ret.port = port;
+      }
+      return ret;
+    },
+&nbsp;
+    /**
+     * Initializer for configs with value equal to the hostName where some component exists
+     * Value may be customized with prefix and suffix (see &lt;code&gt;initializer.modifier&lt;/code&gt;)
+     * Port-value is calculated according to &lt;code&gt;initializer.portKey&lt;/code&gt; or &lt;code&gt;initializer.port&lt;/code&gt; values
+     * If calculated port-value is empty, it will be skipped (and ':' too)
+     * Value-examples: 'SOME_COOL_PREFIXhost1:port1SOME_COOL_SUFFIX', 'host1:port2'
+     *
+     * @param {configProperty} configProperty
+     * @param {extendedTopologyLocalDB} localDB
+     * @param {object} dependencies
+     * @param {object} initializer
+     * @returns {object}
+     * @private
+     * @method _initAsHostWithPort
+     */
+    _initAsHostWithPort: function _initAsHostWithPort(configProperty, localDB, dependencies, initializer) {
+      var hostName = localDB.masterComponentHosts.filterProperty('component', initializer.component).findProperty('isInstalled', initializer.componentExists).hostName;
+      var port = this.__getPort(dependencies, initializer);
+      var value = initializer.modifier.prefix + hostName + (port ? ':' + port : '') + initializer.modifier.suffix;
+      Em.setProperties(configProperty, {
+        value: value,
+        recommendedValue: value
+      });
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Settings for &lt;code&gt;hosts_with_port&lt;/code&gt;-initializer
+     * Used for configs with value equal to the list of hostNames with port
+     * Value also may be customized with prefix, suffix and delimiter between host:port elements
+     * Port-value is calculated according to &lt;code&gt;port&lt;/code&gt; and &lt;code&gt;portFromDependencies&lt;/code&gt; values
+     * If &lt;code&gt;portFromDependencies&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;port&lt;/code&gt;-value is used as key of the &lt;code&gt;dependencies&lt;/code&gt; (where real port-value is)
+     * Otherwise - &lt;code&gt;port&lt;/code&gt;-value used as is
+     * If calculated port-value is empty, it will be skipped (and ':' too)
+     *
+     * @param {string|string[]} component hosts where this component(s) exists are used as config-value
+     * @param {string} prefix='' substring added before hosts-list
+     * @param {string} suffix='' substring added after hosts-list
+     * @param {string} delimiter=',' delimiter between hosts in the value
+     * @param {string} port if &lt;code&gt;portFromDependencies&lt;/code&gt; is &lt;code&gt;false&lt;/code&gt; this value is used as port for hosts
+     * if &lt;code&gt;portFromDependencies&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt; `port` is used as key in the &lt;code&gt;dependencies&lt;/code&gt; to get real port-value
+     * @param {boolean} portFromDependencies=false true - use &lt;code&gt;port&lt;/code&gt; as key for &lt;code&gt;dependencies&lt;/code&gt; to get real port-value,
+     * false - use &lt;code&gt;port&lt;/code&gt; as port-value
+     * @returns {{type: string, component: string, modifier: {prefix: (string), suffix: (string), delimiter: (string)}}}
+     * @method getHostsWithPortConfig
+     * @static
+     */
+    getHostsWithPortConfig: function getHostsWithPortConfig(component, prefix, suffix, delimiter, port, portFromDependencies) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (arguments.length &lt; 6) {
+<span class="cstat-no" title="statement not covered" >        portFromDependencies = false;</span>
+      }
+      prefix = prefix || '';
+      suffix = suffix || '';
+      delimiter = delimiter || <span class="branch-1 cbranch-no" title="branch not covered" >',';</span>
+      var ret = {
+        type: 'hosts_with_port',
+        component: component,
+        modifier: {
+          prefix: prefix,
+          suffix: suffix,
+          delimiter: delimiter
+        }
+      };
+      if (portFromDependencies) {
+        ret.portKey = port;
+      } else {
+        ret.port = port;
+      }
+      return ret;
+    },
+&nbsp;
+    /**
+     * Initializer for configs with value equal to the list of hosts where some component exists
+     * Value may be customized with prefix and suffix (see &lt;code&gt;initializer.modifier&lt;/code&gt;)
+     * Delimiter between hostNames also may be customized in the &lt;code&gt;initializer.modifier&lt;/code&gt;
+     * Port-value is calculated according to &lt;code&gt;initializer.portKey&lt;/code&gt; or &lt;code&gt;initializer.port&lt;/code&gt; values
+     * If calculated port-value is empty, it will be skipped (and ':' too)
+     * Value examples: 'SOME_COOL_PREFIXhost1:port,host2:port,host2:portSOME_COOL_SUFFIX', 'host1:port|||host2:port|||host2:port'
+     *
+     * @param {configProperty} configProperty
+     * @param {topologyLocalDB} localDB
+     * @param {object} dependencies
+     * @param {object} initializer
+     * @returns {object}
+     * @private
+     * @method _initAsHostsWithPort
+     */
+    _initAsHostsWithPort: function _initAsHostsWithPort(configProperty, localDB, dependencies, initializer) {
+      var hostNames, hosts;
+      if (Em.isArray(initializer.component)) {
+        hosts = localDB.masterComponentHosts.filter(function (masterComponent) {
+          return initializer.component.contains(masterComponent.component);
+        }).sortProperty('hostName');
+      } else {
+        hosts = localDB.masterComponentHosts.filterProperty('component', initializer.component);
+      }
+      if (Em.isNone(initializer.componentExists)) {
+        hostNames = hosts.mapProperty('hostName');
+      } else {
+        hostNames = hosts.filterProperty('isInstalled', initializer.componentExists).mapProperty('hostName');
+      }
+      var port = this.__getPort(dependencies, initializer);
+      var value = initializer.modifier.prefix + hostNames.uniq().map(function (hostName) {
+        return hostName + (port ? ':' + port : <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>;
+      }).join(initializer.modifier.delimiter) + initializer.modifier.suffix;
+      Em.setProperties(configProperty, {
+        value: value,
+        recommendedValue: value
+      });
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Returns port-value from &lt;code&gt;dependencies&lt;/code&gt; accorfing to &lt;code&gt;initializer.portKey&lt;/code&gt; or &lt;code&gt;initializer.port&lt;/code&gt; values
+     *
+     * @param {object} dependencies
+     * @param {object} initializer
+     * @returns {string|number}
+     * @private
+     * @method __getPort
+     */
+    __getPort: function __getPort(dependencies, initializer) {
+      var portKey = initializer.portKey;
+      if (portKey) {
+        return dependencies[portKey];
+      }
+      return initializer.port;
+    },
+&nbsp;
+    /**
+     *
+     * @param {string} component component name
+     * @param {boolean} componentExists
+     * @returns {object}
+     */
+    getHostsListComponentConfig: function getHostsListComponentConfig(component, componentExists, delimiter) {
+      return {
+        type: 'hosts_list_with_component',
+        component: component,
+        componentExists: componentExists,
+        modifier: {
+          delimiter: Em.isNone(delimiter) ? ',' : <span class="branch-1 cbranch-no" title="branch not covered" >delimiter</span>
+        }
+      };
+    },
+&nbsp;
+    /**
+     *
+     * @param {configProperty} configProperty
+     * @param {topologyLocalDB} localDB
+     * @param {object} dependencies
+     * @param {object} initializer
+     * @returns {configProperty}
+     */
+    _initAsHostsListWithComponent: function _initAsHostsListWithComponent(configProperty, localDB, dependencies, initializer) {
+      var hostNames = localDB.masterComponentHosts.filterProperty('component', initializer.component).filterProperty('isInstalled', initializer.componentExists).mapProperty('hostName').join(initializer.modifier.delimiter);
+&nbsp;
+      Em.setProperties(configProperty, {
+        value: hostNames,
+        recommendedValue: hostNames
+      });
+      return configProperty;
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

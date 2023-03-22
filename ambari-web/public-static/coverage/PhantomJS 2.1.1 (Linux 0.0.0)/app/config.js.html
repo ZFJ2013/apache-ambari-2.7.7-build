@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/config.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/config.js</span></h1>
+    <h2>
+        Statements: <span class="metric">94.23% <small>(49 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">50% <small>(2 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(1 / 1)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">94.23% <small>(49 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">app/</a> &#187; config.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("config", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.version = ''; // filled out by set-ambari-version.sh script
+  App.testMode = location.port == '3333'; // test mode is automatically enabled if running on brunch server
+  App.testModeDelayForActions = 10000;
+  App.skipBootstrap = false;
+  App.alwaysGoToInstaller = false;
+  App.testEnableSecurity = true; // By default enable security is tested; turning it false tests disable security
+  App.testNameNodeHA = true;
+  App.appURLRoot = '{proxy_root}/'.replace(/\{.+\}/g, ''); // determines application root path name, not related to hash route
+  App.apiPrefix = '/api/v1';
+  App.defaultStackVersion = 'HDP-2.3';
+  App.defaultWindowsStackVersion = 'HDPWIN-2.1';
+&nbsp;
+  App.defaultJavaHome = '/usr/jdk/jdk1.6.0_31';
+  App.timeout = 300000; // default AJAX timeout
+  App.maxRetries = 3; // max number of retries for certain AJAX calls
+  App.sessionKeepAliveInterval = 60000;
+  App.bgOperationsUpdateInterval = 6000;
+  App.componentsUpdateInterval = 6000;
+  App.contentUpdateInterval = 15000;
+  App.hostStatusCountersUpdateInterval = 10000;
+  App.alertDefinitionsUpdateInterval = 10000;
+  App.alertInstancesUpdateInterval = 10000;
+  App.alertGroupsUpdateInterval = 10000;
+  App.clusterEnvUpdateInterval = 10000;
+  App.pageReloadTime = 3600000;
+  App.nnCheckpointAgeAlertThreshold = 12; // in hours
+  App.minDiskSpace = 2.0; // minimum disk space required for '/' for each host before install, unit GB
+  App.minDiskSpaceUsrLib = 1.0; // minimum disk space for '/usr/lib' for each host before install, unit GB
+  App.healthIconClassGreen = 'glyphicon glyphicon-ok-sign'; // bootstrap icon class for healthy/started service/host/host-component
+  App.healthIconClassRed = 'glyphicon glyphicon-warning-sign'; // bootstrap icon class for master down/stopped service/host/host-component
+  App.healthIconClassOrange = 'glyphicon glyphicon-minus-sign'; // bootstrap icon class for slave down/decommissioned host/host-component
+  App.healthIconClassYellow = 'glyphicon glyphicon-question-sign'; // bootstrap icon class for heartbeat lost service/host/host-component
+  App.isManagedMySQLForHiveEnabled = false;
+  App.isStormMetricsSupported = true;
+  App.healthStatusRed = '#EF6162';
+  App.healthStatusGreen = '#1EB475';
+  App.healthStatusOrange = '#E98A40';
+  App.widgetContentColor = '#666666';
+  App.inactivityRemainTime = 60; // in seconds
+  App.enableLogger = true;
+  App.stackVersionsAvailable = true;
+  App.upgradeHistoryAvailable = false;
+  App.enableDigitalClock = false;
+&nbsp;
+  // experimental features are automatically enabled if running on brunch server
+  App.enableExperimental = false;
+&nbsp;
+  App.supports = {
+    preUpgradeCheck: true,
+    displayOlderVersions: false,
+    autoRollbackHA: false,
+    alwaysEnableManagedMySQLForHive: false,
+    preKerberizeCheck: false,
+    customizeAgentUserAccount: false,
+    installGanglia: false,
+    opsDuringRollingUpgrade: false,
+    customizedWidgetLayout: false,
+    showPageLoadTime: false,
+    skipComponentStartAfterInstall: false,
+    preInstallChecks: false,
+    serviceAutoStart: true,
+    logSearch: true,
+    redhatSatellite: false,
+    addingNewRepository: false,
+    kerberosStackAdvisor: true,
+    logCountVizualization: false,
+    createAlerts: false,
+    enabledWizardForHostOrderedUpgrade: true,
+    manageJournalNode: true,
+    enableToggleKerberos: true,
+    enableAddDeleteServices: true,
+    regenerateKeytabsOnSingleHost: false,
+    disableCredentialsAutocompleteForRepoUrls: false
+  };
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (App.enableExperimental) {
+<span class="cstat-no" title="statement not covered" >    for (var support in App.supports) {</span>
+<span class="cstat-no" title="statement not covered" >      App.supports[support] = true;</span>
+    }
+  }
+&nbsp;
+  // this is to make sure that IE does not cache data when making AJAX calls to the server
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!$.mocho) {
+<span class="cstat-no" title="statement not covered" >    $.ajaxSetup({</span>
+      cache: false,
+      headers: { "X-Requested-By": "X-Requested-By" }
+    });
+  }
+&nbsp;
+  /**
+   * Test Mode values
+   */
+  App.test_hostname = 'hostname';
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

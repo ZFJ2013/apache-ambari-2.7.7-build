@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/models/cluster_states.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/models/cluster_states.js</span></h1>
+    <h2>
+        Statements: <span class="metric">54.17% <small>(52 / 96)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">35.42% <small>(34 / 96)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">33.33% <small>(4 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">57.95% <small>(51 / 88)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/models/</a> &#187; cluster_states.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var _typeof = typeof Symbol === "function" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >typeof Symbol.iterator === "symbol" </span>? <span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >function (obj) {</span> <span class="cstat-no" title="statement not covered" >return typeof obj; </span>} </span>: <span class="fstat-no" title="function not covered" >function (obj) {</span> <span class="cstat-no" title="statement not covered" >return obj &amp;&amp; typeof Symbol === "function" &amp;&amp; obj.constructor === Symbol &amp;&amp; obj !== Symbol.prototype ? "symbol" : typeof obj; </span>};
+&nbsp;
+;require.register("models/cluster_states", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+  var App = require('app');
+  var LZString = require('utils/lz-string');
+  App.clusterStatus = Em.Object.create(App.Persist, {
+&nbsp;
+    /**
+     * Cluster name
+     * @type {string}
+     */
+    clusterName: '',
+&nbsp;
+    /**
+     * List valid cluster states
+     * @type {string[]}
+     */
+    validStates: ['DEFAULT', 'CLUSTER_NOT_CREATED_1', 'CLUSTER_DEPLOY_PREP_2', 'CLUSTER_INSTALLING_3', 'SERVICE_STARTING_3', 'CLUSTER_INSTALLED_4', 'ADD_HOSTS_DEPLOY_PREP_2', 'ADD_HOSTS_INSTALLING_3', 'ADD_HOSTS_INSTALLED_4', 'ADD_SERVICES_DEPLOY_PREP_2', 'ADD_SERVICES_INSTALLING_3', 'ADD_SERVICES_INSTALLED_4', 'STOPPING_SERVICES', 'STACK_UPGRADING', 'STACK_UPGRADE_FAILED', 'STACK_UPGRADED', 'ADD_SECURITY_STEP_1', 'ADD_SECURITY_STEP_2', 'ADD_SECURITY_STEP_3', 'ADD_SECURITY_STEP_4', 'DISABLE_SECURITY', 'HIGH_AVAILABILITY_DEPLOY', 'ROLLBACK_HIGH_AVAILABILITY'],
+&nbsp;
+    /**
+     * Default cluster state
+     * @type {string}
+     */
+    clusterState: 'CLUSTER_NOT_CREATED_1',
+&nbsp;
+    /**
+     * Current used wizard &lt;code&gt;controller.name&lt;/code&gt;
+     * @type {string|null}
+     */
+    wizardControllerName: null,
+&nbsp;
+    /**
+     * Local DB
+     * @type {object|null}
+     */
+    localdb: null,
+&nbsp;
+    /**
+     * Persist key
+     * @type {string}
+     */
+    key: 'CLUSTER_CURRENT_STATUS',
+&nbsp;
+    /**
+     * Is cluster installed
+     * @type {bool}
+     */
+    isInstalled: Em.computed.notExistsIn('clusterState', ['CLUSTER_NOT_CREATED_1', 'CLUSTER_DEPLOY_PREP_2', 'CLUSTER_INSTALLING_3', 'SERVICE_STARTING_3']),
+&nbsp;
+    /**
+     * Stores instance of &lt;code&gt;App.ModalPopup&lt;/code&gt; created by &lt;code&gt;postUserPrefErrorCallback&lt;/code&gt;
+     * @property {App.ModalPopup|null}
+     */
+    persistErrorModal: null,
+&nbsp;
+    /**
+     * General info about cluster
+     * @type {{clusterName: string, clusterState: string, wizardControllerName: string, localdb: object}}
+     */
+    value: function () {
+      return {
+        clusterName: this.get('clusterName'),
+        clusterState: this.get('clusterState'),
+        wizardControllerName: this.get('wizardControllerName'),
+        localdb: this.get('localdb')
+      };
+    }.property('clusterName', 'clusterState', 'localdb', 'wizardControllerName'),
+&nbsp;
+    /**
+     * get cluster data from server and update cluster status
+     * @param {bool} overrideLocaldb
+     * @return promise object for the get call
+     * @method updateFromServer
+     */
+    updateFromServer: <span class="fstat-no" title="function not covered" >function updateFromServer(overrideLocaldb) {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('additionalData', {</span>
+        user: App.db.getUser(),
+        login: App.db.getLoginName(),
+        auth: App.db.getAuth(),
+        overrideLocaldb: !overrideLocaldb
+      });
+<span class="cstat-no" title="statement not covered" >      return this.getUserPref(this.get('key'));</span>
+    },
+&nbsp;
+    /**
+     * Success callback for get-persist request
+     * @param {object} response
+     * @param {object} opt
+     * @param {object} params
+     * @method getUserPrefSuccessCallback
+     */
+    getUserPrefSuccessCallback: function getUserPrefSuccessCallback(response, opt, params) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (response) {
+        // decompress response
+        if ((typeof response === 'undefined' ? <span class="branch-0 cbranch-no" title="branch not covered" >'undefined' </span>: _typeof(response)) != 'object') {
+          response = JSON.parse(LZString.decompressFromBase64(response));
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (response.clusterState) {
+          this.set('clusterState', response.clusterState);
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (response.clusterName) {
+          this.set('clusterName', response.clusterName);
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (response.wizardControllerName) {
+<span class="cstat-no" title="statement not covered" >          this.set('wizardControllerName', response.wizardControllerName);</span>
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (response.localdb &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!$.isEmptyObject(response.localdb))</span> {
+<span class="cstat-no" title="statement not covered" >          this.set('localdb', response.localdb);</span>
+          // restore HAWizard data if process was started
+<span class="cstat-no" title="statement not covered" >          var isHAWizardStarted = App.isAuthorized('SERVICE.ENABLE_HA') &amp;&amp; !App.isEmptyObject(response.localdb.HighAvailabilityWizard);</span>
+          // restore Kerberos Wizard is started
+<span class="cstat-no" title="statement not covered" >          var isKerberosWizardStarted = App.isAuthorized('CLUSTER.TOGGLE_KERBEROS') &amp;&amp; !App.isEmptyObject(response.localdb.KerberosWizard);</span>
+<span class="cstat-no" title="statement not covered" >          if (params.data.overrideLocaldb || isHAWizardStarted || isKerberosWizardStarted) {</span>
+<span class="cstat-no" title="statement not covered" >            var localdbTables = App.db.data.app &amp;&amp; App.db.data.app.tables ? App.db.data.app.tables : {};</span>
+<span class="cstat-no" title="statement not covered" >            var authenticated = Em.get(App, 'db.data.app.authenticated') || false;</span>
+<span class="cstat-no" title="statement not covered" >            App.db.data = response.localdb;</span>
+<span class="cstat-no" title="statement not covered" >            App.db.setLocalStorage();</span>
+<span class="cstat-no" title="statement not covered" >            App.db.setUser(params.data.user);</span>
+<span class="cstat-no" title="statement not covered" >            App.db.setLoginName(params.data.login);</span>
+<span class="cstat-no" title="statement not covered" >            App.db.setAuth(params.data.auth);</span>
+<span class="cstat-no" title="statement not covered" >            App.db.setAuthenticated(authenticated);</span>
+<span class="cstat-no" title="statement not covered" >            App.db.data.app.tables = localdbTables;</span>
+          }
+        }
+      }
+      // this is to ensure that the local storage namespaces are initialized with all expected namespaces.
+      // after upgrading ambari, loading local storage data from the "persist" data saved via an older version of
+      // Ambari can result in missing namespaces that are defined in the new version of Ambari.
+      App.db.mergeStorage();
+    },
+&nbsp;
+    /**
+     * Error callback for get-persist request
+     * @param {object} request
+     * @param {object} ajaxOptions
+     * @param {string} error
+     * @method getUserPrefErrorCallback
+     */
+    getUserPrefErrorCallback: <span class="fstat-no" title="function not covered" >function getUserPrefErrorCallback(request, ajaxOptions, error) {</span>
+<span class="cstat-no" title="statement not covered" >      if (request.status == 404) {</span>
+        // default status already set
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      App.ModalPopup.show({</span>
+        header: Em.I18n.t('common.error'),
+        secondary: false,
+        bodyClass: Em.View.extend({
+          template: Em.Handlebars.compile('&lt;p&gt;{{t common.update.error}}&lt;/p&gt;')
+        })
+      });
+    },
+&nbsp;
+    /**
+     * update cluster status and post it on server.
+     * This function should always be called by admin user
+     * @param {object} newValue
+     * @param {object} opt - Can have additional params for ajax callBacks and sender
+     *                 opt.successCallback
+     *                 opt.successCallbackData
+     *                 opt.errorCallback
+     *                 opt.errorCallbackData
+     *                 opt.alwaysCallback
+     *                 opt.alwaysCallbackData
+     *                 opt.sender
+     * @method setClusterStatus
+     * @return {*}
+     */
+    setClusterStatus: function setClusterStatus(newValue, opt) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (App.get('testMode')) <span class="cstat-no" title="statement not covered" >return false;</span>
+      var user = App.db.getUser();
+      var auth = App.db.getAuth();
+      var login = App.db.getLoginName();
+      var val = { clusterName: this.get('clusterName') };
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (newValue) {
+        App.db.cleanTmp();
+        //setter
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (newValue.clusterName) {
+          this.set('clusterName', newValue.clusterName);
+          val.clusterName = newValue.clusterName;
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (newValue.clusterState) {
+          this.set('clusterState', newValue.clusterState);
+          val.clusterState = newValue.clusterState;
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (newValue.wizardControllerName) {
+          this.set('wizardControllerName', newValue.wizardControllerName);
+          val.wizardControllerName = newValue.wizardControllerName;
+        }
+&nbsp;
+        if (newValue.localdb) {
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (newValue.localdb.app &amp;&amp; newValue.localdb.app.user) <span class="cstat-no" title="statement not covered" >delete newValue.localdb.app.user;</span>
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (newValue.localdb.app &amp;&amp; newValue.localdb.app.auth) <span class="cstat-no" title="statement not covered" >delete newValue.localdb.app.auth;</span>
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (newValue.localdb.app &amp;&amp; newValue.localdb.app.loginName) <span class="cstat-no" title="statement not covered" >delete newValue.localdb.app.loginName;</span>
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (newValue.localdb.app &amp;&amp; newValue.localdb.app.tables) delete newValue.localdb.app.tables;
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (newValue.localdb.app &amp;&amp; newValue.localdb.app.authenticated) <span class="cstat-no" title="statement not covered" >delete newValue.localdb.app.authenticated;</span>
+          this.set('localdb', newValue.localdb);
+          val.localdb = newValue.localdb;
+        } else {
+          delete App.db.data.app.user;
+          delete App.db.data.app.auth;
+          delete App.db.data.app.loginName;
+          delete App.db.data.app.tables;
+          delete App.db.data.app.authenticated;
+          val.localdb = App.db.data;
+          App.db.setUser(user);
+          App.db.setAuth(auth);
+          App.db.setLoginName(login);
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!$.mocho) {
+          // compress val
+<span class="cstat-no" title="statement not covered" >          val = LZString.compressToBase64(JSON.stringify(val));</span>
+<span class="cstat-no" title="statement not covered" >          this.postUserPref(this.get('key'), val).done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            !!opt &amp;&amp; Em.typeOf(opt.successCallback) === 'function' &amp;&amp; opt.successCallback.call(opt.sender || this, opt.successCallbackData);</span>
+          }).fail(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >            !!opt &amp;&amp; Em.typeOf(opt.errorCallback) === 'function' &amp;&amp; opt.errorCallback.call(opt.sender || this, opt.errorCallbackData);</span>
+          }).always(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >            !!opt &amp;&amp; Em.typeOf(opt.alwaysCallback) === 'function' &amp;&amp; opt.alwaysCallback.call(opt.sender || this, opt.alwaysCallbackData);</span>
+          });
+        }
+        return newValue;
+      }
+    },
+&nbsp;
+    /**
+     * Error callback for post-persist request
+     * @param {object} request
+     * @param {object} ajaxOptions
+     * @param {string} error
+     * @method postUserPrefErrorCallback
+     */
+    postUserPrefErrorCallback: <span class="fstat-no" title="function not covered" >function postUserPrefErrorCallback(request, ajaxOptions, error) {</span>
+<span class="cstat-no" title="statement not covered" >      var msg = '',</span>
+          doc;
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        msg = 'Error ' + request.status + ' ';</span>
+<span class="cstat-no" title="statement not covered" >        doc = $.parseXML(request.responseText);</span>
+<span class="cstat-no" title="statement not covered" >        msg += $(doc).find("body p").text();</span>
+      } catch (e) {
+<span class="cstat-no" title="statement not covered" >        msg += JSON.parse(request.responseText).message;</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.get('persistErrorModal')) {</span>
+<span class="cstat-no" title="statement not covered" >        if (this.get('persistErrorModal').get('state') === 'destroyed') {</span>
+<span class="cstat-no" title="statement not covered" >          this.set('persistErrorModal', null);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          this.get('persistErrorModal').onPrimary();</span>
+<span class="cstat-no" title="statement not covered" >          this.set('persistErrorModal', null);</span>
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var modal = App.ModalPopup.show({</span>
+        header: Em.I18n.t('common.error'),
+        secondary: false,
+        response: msg,
+        bodyClass: Em.View.extend({
+          template: Em.Handlebars.compile('&lt;p&gt;{{t common.persist.error}} {{response}}&lt;/p&gt;')
+        })
+      });
+<span class="cstat-no" title="statement not covered" >      this.set('persistErrorModal', modal);</span>
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

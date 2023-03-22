@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/common/grid.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/views/common/grid.js</span></h1>
+    <h2>
+        Statements: <span class="metric">0.82% <small>(1 / 122)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 44)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 39)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">0.83% <small>(1 / 120)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/views/common/</a> &#187; grid.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/common/grid", <span class="fstat-no" title="function not covered" >function (exports, require, module) {</span>
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var App = require('app');</span>
+<span class="cstat-no" title="statement not covered" >  var validator = require('utils/validator');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  App.GridFilterObject = Em.Object.extend({</span>
+    checked: false
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  App.GridFilter = Em.View.extend({</span>
+    tagName: "ul",
+    classNames: ['filter'],
+    templateName: require('templates/common/grid/filter'),
+    attributeBindings: ['style'],
+    getHeader: <span class="fstat-no" title="function not covered" >function getHeader() {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('header');</span>
+    },
+    filters: Em.computed.alias('header._filters')
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  App.GridHeader = Em.View.extend({</span>
+    templateName: require('templates/common/grid/header'),
+    tagName: 'th',
+    filterable: true,
+    showFilter: false,
+    getGrid: <span class="fstat-no" title="function not covered" >function getGrid() {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('grid');</span>
+    },
+    _filters: [],
+    doFilter: <span class="fstat-no" title="function not covered" >function doFilter() {</span>},
+    toggleFilter: <span class="fstat-no" title="function not covered" >function toggleFilter() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('showFilter', 1 - this.get('showFilter'));</span>
+    },
+    applyFilter: <span class="fstat-no" title="function not covered" >function applyFilter() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var filters = this.get('_filters');</span>
+<span class="cstat-no" title="statement not covered" >      var filterValues = [];</span>
+<span class="cstat-no" title="statement not covered" >      $.each(filters, <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (this.get('checked')) {</span>
+<span class="cstat-no" title="statement not covered" >          filterValues.push(this.get('value'));</span>
+        }
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var grid = this.get('grid');</span>
+<span class="cstat-no" title="statement not covered" >      grid.addFilters(this.get('name'), filterValues);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('showFilter', false);</span>
+    },
+    init: <span class="fstat-no" title="function not covered" >function init() {</span>
+<span class="cstat-no" title="statement not covered" >      this._super();</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.get('_filters').length) {</span>
+<span class="cstat-no" title="statement not covered" >        this.filterValues();</span>
+<span class="cstat-no" title="statement not covered" >        var thisHeader = this;</span>
+<span class="cstat-no" title="statement not covered" >        this.set('filter', App.GridFilter.extend({ header: thisHeader }));</span>
+      }
+    },
+&nbsp;
+    filterValues: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var gridFilters = this.get('grid._filters');</span>
+<span class="cstat-no" title="statement not covered" >      if (gridFilters &amp;&amp; gridFilters[this.get('name')]) {</span>
+<span class="cstat-no" title="statement not covered" >        var filters = this.get('grid._filters')[this.get('name')];</span>
+        // there should be something like filter preparing
+<span class="cstat-no" title="statement not covered" >        var newFilters = [];</span>
+<span class="cstat-no" title="statement not covered" >        $.each(filters, <span class="fstat-no" title="function not covered" >function (i, v) {</span></span>
+<span class="cstat-no" title="statement not covered" >          newFilters.push(App.GridFilterObject.create({ label: v, value: v }));</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.set('_filters', newFilters);</span>
+      }
+    }.observes('grid._filters')
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  App.GridRow = Em.View.extend({</span>
+    tagName: 'tr',
+    init: <span class="fstat-no" title="function not covered" >function init(options) {</span>
+<span class="cstat-no" title="statement not covered" >      var object = this.get('object');</span>
+<span class="cstat-no" title="statement not covered" >      var grid = this.get('grid');</span>
+<span class="cstat-no" title="statement not covered" >      var fieldNames = grid.get('fieldNames');</span>
+<span class="cstat-no" title="statement not covered" >      var template = '';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (fieldNames) {</span>
+<span class="cstat-no" title="statement not covered" >        $.each(grid.get('fieldNames'), <span class="fstat-no" title="function not covered" >function (i, field) {</span></span>
+<span class="cstat-no" title="statement not covered" >          template += "&lt;td&gt;" + object.get(field) + "&lt;/td&gt;";</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.set('template', Em.Handlebars.compile(template));</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return this._super();</span>
+    }
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  App.GridPage = Em.Object.extend({</span>
+    activeClass: Em.computed.ifThenElse('active', 'active', ''),
+    active: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return parseInt(this.get('number')) == parseInt(this.get('pager.grid.currentPage'));</span>
+    }.property('pager.grid.currentPage')
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  App.GridPager = Em.View.extend({</span>
+&nbsp;
+    pages: [],
+    templateName: require('templates/common/grid/pager'),
+    classNames: ['pagination'],
+&nbsp;
+    activatePrevPage: <span class="fstat-no" title="function not covered" >function activatePrevPage() {</span>
+<span class="cstat-no" title="statement not covered" >      var current = this.get('grid.currentPage');</span>
+<span class="cstat-no" title="statement not covered" >      if (current &gt; 1) <span class="cstat-no" title="statement not covered" >this.set('grid.currentPage', current - 1);</span></span>
+    },
+    activateNextPage: <span class="fstat-no" title="function not covered" >function activateNextPage() {</span>
+<span class="cstat-no" title="statement not covered" >      var current = this.get('grid.currentPage');</span>
+<span class="cstat-no" title="statement not covered" >      if (current &lt; this.get('pages').length) <span class="cstat-no" title="statement not covered" >this.set('grid.currentPage', current + 1);</span></span>
+    },
+&nbsp;
+    prevPageDisabled: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('grid.currentPage') &gt; 1 ? false : "disabled";</span>
+    }.property('grid.currentPage'),
+&nbsp;
+    nextPageDisabled: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return this.get('grid.currentPage') &lt; this.get('pages').length ? false : "disabled";</span>
+    }.property('grid.currentPage'),
+&nbsp;
+    init: <span class="fstat-no" title="function not covered" >function init() {</span>
+<span class="cstat-no" title="statement not covered" >      this._super();</span>
+<span class="cstat-no" title="statement not covered" >      this.clearPages();</span>
+<span class="cstat-no" title="statement not covered" >      this.pushPages();</span>
+    },
+&nbsp;
+    activatePage: <span class="fstat-no" title="function not covered" >function activatePage(event) {</span>
+<span class="cstat-no" title="statement not covered" >      var page = event.context;</span>
+<span class="cstat-no" title="statement not covered" >      this.get('grid').set('currentPage', parseInt(event.context.get('number')));</span>
+    },
+&nbsp;
+    clearPages: <span class="fstat-no" title="function not covered" >function clearPages() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('pages', []);</span>
+    },
+&nbsp;
+    pushPages: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var thisPager = this;</span>
+<span class="cstat-no" title="statement not covered" >      var pages = this.get('grid._pager.pages');</span>
+<span class="cstat-no" title="statement not covered" >      $.each(pages, <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        var thisNumber = this;</span>
+<span class="cstat-no" title="statement not covered" >        thisPager.get('pages').push(App.GridPage.create({</span>
+          number: thisNumber,
+          pager: thisPager
+        }));
+      });
+    }.observes('grid._pager')
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  App.Grid = Em.View.extend({</span>
+    _columns: {}, // not used
+    _filters: {}, // prepared filters from data values
+    _pager: { pages: [1, 2, 3, 4, 5] }, // observed by pager to config it
+&nbsp;
+    _collection: { className: false, staticOptions: {} }, // collection config
+    currentPage: 1,
+    fieldNames: [],
+    appliedFilters: {},
+    filteredArray: [],
+    columns: [],
+    collection: [],
+    initComleted: false,
+    rows: [],
+    templateName: require('templates/main/admin/audit'),
+&nbsp;
+    init: <span class="fstat-no" title="function not covered" >function init() {</span>
+<span class="cstat-no" title="statement not covered" >      this._super();</span>
+<span class="cstat-no" title="statement not covered" >      this.prepareColumns(); </span>// should be the 1
+<span class="cstat-no" title="statement not covered" >      this.prepareCollection();</span>
+<span class="cstat-no" title="statement not covered" >      this.preparePager();</span>
+    },
+&nbsp;
+    preparePager: <span class="fstat-no" title="function not covered" >function preparePager() {</span>
+      //    this.set('pager', App.GridPager.extend({ grid:this })); ask to hide
+    },
+&nbsp;
+    addFilters: <span class="fstat-no" title="function not covered" >function addFilters(field, values) {</span>
+<span class="cstat-no" title="statement not covered" >      var filters = this.get('appliedFilters');</span>
+<span class="cstat-no" title="statement not covered" >      filters[field] = values;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var collection = this.get('_collection.className');</span>
+<span class="cstat-no" title="statement not covered" >      collection = collection.find();</span>
+<span class="cstat-no" title="statement not covered" >      var arrayCollection = collection.filter(<span class="fstat-no" title="function not covered" >function (data) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var oneFilterFail = false;</span>
+<span class="cstat-no" title="statement not covered" >        $.each(filters, <span class="fstat-no" title="function not covered" >function (fieldname, values) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (values.length &amp;&amp; values.indexOf(data.get(fieldname)) == -1) {</span>
+<span class="cstat-no" title="statement not covered" >            return oneFilterFail = true;</span>
+          }
+        });
+<span class="cstat-no" title="statement not covered" >        return !oneFilterFail;</span>
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.set('filteredArray', arrayCollection);</span>
+    },
+&nbsp;
+    prepareCollection: <span class="fstat-no" title="function not covered" >function prepareCollection() {</span>
+<span class="cstat-no" title="statement not covered" >      if (validator.empty(this.get('_collection.className'))) {</span>
+<span class="cstat-no" title="statement not covered" >        throw "_collection.className field is not defined";</span>
+      }
+<span class="cstat-no" title="statement not covered" >      var collection = this.get('_collection.className');</span>
+<span class="cstat-no" title="statement not covered" >      this.set('collection', collection.find(this.get('_collection.staticOptions')));</span>
+    },
+&nbsp;
+    addColumn: <span class="fstat-no" title="function not covered" >function addColumn(options) {</span>
+<span class="cstat-no" title="statement not covered" >      options.grid = this;</span>
+<span class="cstat-no" title="statement not covered" >      if (validator.empty(options.name)) {</span>
+<span class="cstat-no" title="statement not covered" >        throw "define column name";</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.get('_columns.' + options.name)) {</span>
+<span class="cstat-no" title="statement not covered" >        throw "column with this '" + options.name + "' already exists";</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var field = App.GridHeader.extend(options);</span>
+<span class="cstat-no" title="statement not covered" >      this.columns.push(field);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (field.filterable || 1) {</span>
+        // .filterable - field not working :(
+<span class="cstat-no" title="statement not covered" >        this.fieldNames.push(options.name);</span>
+      }
+    },
+&nbsp;
+    clearColumns: <span class="fstat-no" title="function not covered" >function clearColumns() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('_columns', {});</span>
+<span class="cstat-no" title="statement not covered" >      this.set('columns', []);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('fieldNames', []);</span>
+    },
+&nbsp;
+    prepareColumns: <span class="fstat-no" title="function not covered" >function prepareColumns() {</span>
+<span class="cstat-no" title="statement not covered" >      this.clearColumns();</span>
+    },
+&nbsp;
+    prepareFilters: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var thisGrid = this;</span>
+<span class="cstat-no" title="statement not covered" >      var collection = this.get('collection');</span>
+<span class="cstat-no" title="statement not covered" >      var fieldNames = this.get('fieldNames');</span>
+<span class="cstat-no" title="statement not covered" >      var options = {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (collection &amp;&amp; collection.content) {</span>
+<span class="cstat-no" title="statement not covered" >        collection.forEach(<span class="fstat-no" title="function not covered" >function (object, i) {</span></span>
+<span class="cstat-no" title="statement not covered" >          $.each(fieldNames, <span class="fstat-no" title="function not covered" >function (j, field) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (!options[field]) {</span>
+<span class="cstat-no" title="statement not covered" >              options[field] = [];</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var filter = object.get(field);</span>
+<span class="cstat-no" title="statement not covered" >            if (options[field].indexOf(filter) == -1) {</span>
+<span class="cstat-no" title="statement not covered" >              options[field].push(filter);</span>
+            }
+          });
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        thisGrid.set('_filters', options);</span>
+      }
+    }.observes('collection.length'),
+&nbsp;
+    clearRows: <span class="fstat-no" title="function not covered" >function clearRows() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('rows', []);</span>
+    },
+&nbsp;
+    prepareRows: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var collection = this.get('collection');</span>
+<span class="cstat-no" title="statement not covered" >      var thisGrid = this;</span>
+<span class="cstat-no" title="statement not covered" >      this.clearRows();</span>
+<span class="cstat-no" title="statement not covered" >      var i = 1;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (collection &amp;&amp; collection.content) {</span>
+<span class="cstat-no" title="statement not covered" >        collection.forEach(<span class="fstat-no" title="function not covered" >function (object, i) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var row = App.GridRow.extend({ grid: thisGrid, object: object });</span>
+<span class="cstat-no" title="statement not covered" >          thisGrid.rows.push(row);</span>
+        });
+      }
+    }.observes('collection.length'),
+&nbsp;
+    filteredRows: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var collection = this.get('filteredArray');</span>
+<span class="cstat-no" title="statement not covered" >      var thisGrid = this;</span>
+<span class="cstat-no" title="statement not covered" >      this.clearRows();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      collection.forEach(<span class="fstat-no" title="function not covered" >function (object) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var row = App.GridRow.extend({ grid: thisGrid, object: object });</span>
+<span class="cstat-no" title="statement not covered" >        thisGrid.rows.push(row);</span>
+      });
+    }.observes('filteredArray')
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

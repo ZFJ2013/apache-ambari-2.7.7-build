@@ -1,0 +1,1692 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/global/background_operations_controller.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/controllers/global/background_operations_controller.js</span></h1>
+    <h2>
+        Statements: <span class="metric">96.65% <small>(173 / 179)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">89.74% <small>(70 / 78)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">96.67% <small>(29 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">96.65% <small>(173 / 179)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/controllers/global/</a> &#187; background_operations_controller.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("controllers/global/background_operations_controller", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.BackgroundOperationsController = Em.Controller.extend({
+    name: 'backgroundOperationsController',
+&nbsp;
+    runningOperationsCount: function () {
+      return this.get('services').filterProperty('isRunning').length;
+    }.property('services.@each.isRunning'),
+&nbsp;
+    /**
+     * List of requests
+     */
+    services: Em.A([]),
+    serviceTimestamp: null,
+&nbsp;
+    /**
+     * Number of operation to load
+     */
+    operationsCount: 10,
+&nbsp;
+    /**
+     * Possible levels:
+     * REQUESTS_LIST
+     * HOSTS_LIST
+     * TASKS_LIST
+     * TASK_DETAILS
+     */
+    levelInfo: Em.Object.create({
+      name: 'REQUESTS_LIST',
+      requestId: null,
+      taskId: null
+    }),
+&nbsp;
+    subscribeToUpdates: function subscribeToUpdates() {
+      var _this = this;
+&nbsp;
+      this.requestMostRecent(function () {
+        App.StompClient.subscribe('/events/requests', _this.updateRequests.bind(_this));
+      });
+    },
+&nbsp;
+    updateRequests: function updateRequests(event) {
+      if (this.isUpgradeRequest({ Requests: { request_context: event.requestContext } })) {
+        return;
+      }
+      var request = this.get('services').findProperty('id', event.requestId);
+      var context = this.parseRequestContext(event.requestContext);
+      var visibleOperationsCount = this.get('operationsCount');
+      var map = this.generateTasksMapOfRequest(event, request);
+      var updatedState = {
+        progress: Math.floor(event.progressPercent),
+        status: event.requestStatus,
+        userName: event.userName,
+        isRunning: this.isRunning(event.requestStatus),
+        startTime: App.dateTimeWithTimeZone(event.startTime),
+        endTime: event.endTime &gt; 0 ? App.dateTimeWithTimeZone(event.endTime) : event.endTime,
+        previousTaskStatusMap: map.currentTaskStatusMap,
+        hostsMap: map.hostsMap
+      };
+&nbsp;
+      if (request) {
+        request.setProperties(updatedState);
+      } else {
+        this.get('services').unshift(Em.Object.create(updatedState, {
+          id: event.requestId,
+          name: context.requestContext,
+          displayName: context.requestContext,
+          tasks: event.Tasks
+        }));
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('services').length &gt;= visibleOperationsCount) {
+<span class="cstat-no" title="statement not covered" >          this.set('isShowMoreAvailable', true);</span>
+<span class="cstat-no" title="statement not covered" >          this.get('services').pop();</span>
+        }
+      }
+      this.set('serviceTimestamp', App.dateTime());
+      this.propertyDidChange('services');
+    },
+&nbsp;
+    /**
+     *
+     * @param {object} event
+     * @param {Em.Object} request
+     * @returns {{}}
+     */
+    generateTasksMapOfRequest: function generateTasksMapOfRequest(event, request) {
+      var _this2 = this;
+&nbsp;
+      var hostsMap = request ? <span class="branch-0 cbranch-no" title="branch not covered" >request.get('hostsMap') </span>: {};
+      var previousTaskStatusMap = request ? <span class="branch-0 cbranch-no" title="branch not covered" >request.get('previousTaskStatusMap') </span>: {};
+      var currentTaskStatusMap = {};
+      event.Tasks.forEach(function (task) {
+        var host = hostsMap[task.hostName];
+        if (host) {
+          var existedTask = host.logTasks.findProperty('Tasks.id', task.id);
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (existedTask) {
+<span class="cstat-no" title="statement not covered" >            existedTask.Tasks.status = task.status;</span>
+          } else {
+            host.logTasks.push(_this2.convertTaskFromEventToApi(task));
+          }
+          host.isModified = host.isModified ? true : <span class="branch-1 cbranch-no" title="branch not covered" >previousTaskStatusMap[task.id] !== task.status;</span>
+        } else {
+          hostsMap[task.hostName] = {
+            name: task.hostName,
+            publicName: task.hostName,
+            logTasks: [_this2.convertTaskFromEventToApi(task)],
+            isModified: previousTaskStatusMap[task.id] !== task.status
+          };
+        }
+        currentTaskStatusMap[task.id] = task.status;
+      }, this);
+      return {
+        currentTaskStatusMap: currentTaskStatusMap,
+        hostsMap: hostsMap
+      };
+    },
+&nbsp;
+    convertTaskFromEventToApi: function convertTaskFromEventToApi(task) {
+      return {
+        Tasks: {
+          status: task.status,
+          host_name: task.hostName,
+          id: task.id,
+          request_id: task.requestId
+        }
+      };
+    },
+&nbsp;
+    handleTaskUpdates: function () {
+      var _this3 = this;
+&nbsp;
+      var levelInfo = this.get('levelInfo');
+      if (!levelInfo.get('requestId') || !levelInfo.get('taskId')) {
+        return;
+      }
+      var request = this.get('services').findProperty('id', levelInfo.get('requestId'));
+      var taskStatus = request.get('previousTaskStatusMap')[levelInfo.get('taskId')];
+      if (levelInfo.get('name') === 'TASK_DETAILS' &amp;&amp; !this.isFinished(taskStatus)) {
+        App.StompClient.subscribe('/events/tasks/' + levelInfo.get('taskId'), function (updatedTask) {
+          _this3.updateTask(updatedTask);
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (_this3.isFinished(updatedTask.status)) {
+            App.StompClient.unsubscribe('/events/tasks/' + updatedTask.id);
+          }
+        });
+      }
+    }.observes('levelInfo.name'),
+&nbsp;
+    updateTask: function updateTask(updatedTask) {
+      var request = this.get('services').findProperty('id', updatedTask.requestId);
+      var host = request.get('hostsMap')[updatedTask.hostName];
+      var task = host.logTasks.findProperty('Tasks.id', updatedTask.id);
+      task.Tasks.status = updatedTask.status;
+      task.Tasks.stdout = updatedTask.stdout;
+      task.Tasks.stderr = updatedTask.stderr;
+      task.Tasks.structured_out = updatedTask.structured_out;
+      task.Tasks.output_log = updatedTask.outLog;
+      task.Tasks.error_log = updatedTask.errorLog;
+      this.set('serviceTimestamp', App.dateTime());
+    },
+&nbsp;
+    /**
+     * Get requests data from server
+     * @param callback
+     */
+    requestMostRecent: <span class="fstat-no" title="function not covered" >function requestMostRecent(callback) {</span>
+<span class="cstat-no" title="statement not covered" >      var queryParams = this.getQueryParams();</span>
+<span class="cstat-no" title="statement not covered" >      App.ajax.send({</span>
+        'name': queryParams.name,
+        'sender': this,
+        'success': queryParams.successCallback,
+        'callback': callback,
+        'data': queryParams.data
+      });
+<span class="cstat-no" title="statement not covered" >      return !this.isInitLoading();</span>
+    },
+&nbsp;
+    /**
+     * indicate whether data for current level has already been loaded or not
+     * @return {Boolean}
+     */
+    isInitLoading: function isInitLoading() {
+      var levelInfo = this.get('levelInfo');
+      var request = this.get('services').findProperty('id', levelInfo.get('requestId'));
+&nbsp;
+      if (levelInfo.get('name') === 'HOSTS_LIST') {
+        return Boolean(request &amp;&amp; !request.get('hostsLevelLoaded'));
+      }
+      return false;
+    },
+    /**
+     * construct params of ajax query regarding displayed level
+     */
+    getQueryParams: function getQueryParams() {
+      var levelInfo = this.get('levelInfo');
+      var count = this.get('operationsCount');
+      var result = {
+        name: 'background_operations.get_most_recent',
+        successCallback: 'callBackForMostRecent',
+        data: {
+          'operationsCount': count
+        }
+      };
+      if (levelInfo.get('name') === 'TASK_DETAILS') {
+        result.name = 'background_operations.get_by_task';
+        result.successCallback = 'callBackFilteredByTask';
+        result.data = {
+          'taskId': levelInfo.get('taskId'),
+          'requestId': levelInfo.get('requestId')
+        };
+      } else if (levelInfo.get('name') === 'TASKS_LIST' || levelInfo.get('name') === 'HOSTS_LIST') {
+        result.name = 'background_operations.get_by_request';
+        result.successCallback = 'callBackFilteredByRequest';
+        result.data = {
+          'requestId': levelInfo.get('requestId')
+        };
+      }
+      return result;
+    },
+&nbsp;
+    /**
+     * Push hosts and their tasks to request
+     * @param data
+     */
+    callBackFilteredByRequest: function callBackFilteredByRequest(data) {
+      var requestId = data.Requests.id;
+      var requestInputs = data.Requests.inputs;
+      var request = this.get('services').findProperty('id', requestId);
+      var hostsMap = {};
+      var previousTaskStatusMap = request.get('previousTaskStatusMap');
+      var currentTaskStatusMap = {};
+      data.tasks.forEach(function (task) {
+        var host = hostsMap[task.Tasks.host_name];
+        task.Tasks.request_id = requestId;
+        task.Tasks.request_inputs = requestInputs;
+        if (host) {
+          host.logTasks.push(task);
+          host.isModified = true;
+        } else {
+          hostsMap[task.Tasks.host_name] = {
+            name: task.Tasks.host_name,
+            publicName: task.Tasks.host_name,
+            logTasks: [task],
+            isModified: true
+          };
+        }
+        currentTaskStatusMap[task.Tasks.id] = task.Tasks.status;
+      }, this);
+      request.set('previousTaskStatusMap', currentTaskStatusMap);
+      request.set('hostsMap', hostsMap);
+      request.set('hostsLevelLoaded', true);
+      this.set('serviceTimestamp', App.dateTime());
+    },
+    /**
+     * Update task, with uploading two additional properties: stdout and stderr
+     * @param data
+     * @param ajaxQuery
+     * @param params
+     */
+    callBackFilteredByTask: function callBackFilteredByTask(data, ajaxQuery, params) {
+      var request = this.get('services').findProperty('id', data.Tasks.request_id);
+      var host = request.get('hostsMap')[data.Tasks.host_name];
+      var task = host.logTasks.findProperty('Tasks.id', data.Tasks.id);
+      task.Tasks.status = data.Tasks.status;
+      task.Tasks.stdout = data.Tasks.stdout;
+      task.Tasks.stderr = data.Tasks.stderr;
+&nbsp;
+      // Put some command information to task object
+      task.Tasks.command = data.Tasks.command;
+      task.Tasks.custom_command_name = data.Tasks.custom_command_name;
+      task.Tasks.structured_out = data.Tasks.structured_out;
+&nbsp;
+      task.Tasks.output_log = data.Tasks.output_log;
+      task.Tasks.error_log = data.Tasks.error_log;
+      this.set('serviceTimestamp', App.dateTime());
+    },
+&nbsp;
+    /**
+     * returns true if it's upgrade equest
+     * use this flag to exclude upgrade requests from bgo
+     * @param {object} request
+     * @returns {boolean}
+     */
+    isUpgradeRequest: function isUpgradeRequest(request) {
+      var context = Em.get(request, 'Requests.request_context');
+      return context ? /(upgrading|downgrading)/.test(context.toLowerCase()) : false;
+    },
+    /**
+     * Prepare, received from server, requests for host component popup
+     * @param data
+     */
+    callBackForMostRecent: function callBackForMostRecent(data) {
+      var currentRequestIds = [];
+      var countIssued = this.get('operationsCount');
+      var countGot = data.itemTotal;
+&nbsp;
+      data.items.forEach(function (request) {
+        if (this.isUpgradeRequest(request)) {
+          return;
+        }
+        var rq = this.get("services").findProperty('id', request.Requests.id);
+        var isRunning = this.isRunning(request.Requests.request_status);
+        var requestParams = this.parseRequestContext(request.Requests.request_context);
+        var requestState = {
+          progress: Math.floor(request.Requests.progress_percent),
+          status: request.Requests.request_status,
+          userName: request.Requests.user_name || Em.I18n.t('hostPopup.default.userName'),
+          isRunning: isRunning,
+          startTime: App.dateTimeWithTimeZone(request.Requests.start_time),
+          endTime: request.Requests.end_time &gt; 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >App.dateTimeWithTimeZone(request.Requests.end_time) </span>: request.Requests.end_time
+        };
+        this.assignScheduleId(request, requestParams);
+        currentRequestIds.push(request.Requests.id);
+&nbsp;
+        if (rq) {
+          rq.setProperties(requestState);
+        } else {
+          rq = Em.Object.create(requestState, {
+            id: request.Requests.id,
+            name: requestParams.requestContext,
+            displayName: requestParams.requestContext,
+            hostsMap: {},
+            tasks: [],
+            dependentService: requestParams.dependentService,
+            sourceRequestScheduleId: request.Requests.request_schedule &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >request.Requests.request_schedule.schedule_id,</span>
+            previousTaskStatusMap: {},
+            contextCommand: requestParams.contextCommand
+          });
+          this.get("services").unshift(rq);
+          //To sort DESC by request id
+          this.set("services", this.get("services").sortProperty('id').reverse());
+        }
+      }, this);
+      this.removeOldRequests(currentRequestIds);
+      this.set('isShowMoreAvailable', countGot &gt;= countIssued);
+      this.set('serviceTimestamp', App.dateTimeWithTimeZone());
+    },
+&nbsp;
+    isShowMoreAvailable: null,
+&nbsp;
+    /**
+     * remove old requests
+     * as API returns 10, or  20 , or 30 ...etc latest request, the requests that absent in response should be removed
+     * @param currentRequestIds
+     */
+    removeOldRequests: function removeOldRequests(currentRequestIds) {
+      var services = this.get('services');
+&nbsp;
+      for (var i = 0, l = services.length; i &lt; l; i++) {
+        if (!currentRequestIds.contains(services[i].id)) {
+          services.splice(i, 1);
+          i--;
+          l--;
+        }
+      }
+    },
+&nbsp;
+    /**
+     * identify whether request or task is running by status
+     * @param status
+     * @return {Boolean}
+     */
+    isRunning: function isRunning(status) {
+      return ['IN_PROGRESS', 'QUEUED', 'PENDING'].contains(status);
+    },
+&nbsp;
+    /**
+     * identify whether request or task is finished by status
+     * @param status
+     * @return {Boolean}
+     */
+    isFinished: function isFinished(status) {
+      return ['FAILED', 'ABORTED', 'COMPLETED'].contains(status);
+    },
+&nbsp;
+    /**
+     * identify whether there is only one host in request
+     * @param inputs
+     * @return {Boolean}
+     */
+    isOneHost: function isOneHost(inputs) {
+      if (!inputs) {
+        return false;
+      }
+      inputs = JSON.parse(inputs);
+      if (inputs &amp;&amp; inputs.included_hosts) {
+        return inputs.included_hosts.split(',').length &lt; 2;
+      }
+      return false;
+    },
+    /**
+     * assign schedule_id of request to null if it's Recommission operation
+     * @param request
+     * @param requestParams
+     */
+    assignScheduleId: function assignScheduleId(request, requestParams) {
+      var oneHost = this.isOneHost(request.Requests.inputs);
+      if (request.Requests.request_schedule &amp;&amp; oneHost &amp;&amp; /Recommission/.test(requestParams.requestContext)) {
+        request.Requests.request_schedule.schedule_id = null;
+      }
+    },
+&nbsp;
+    /**
+     * parse request context and if keyword "_PARSE_" is present then format it
+     * @param {string} requestContext
+     * @return {Object}
+     */
+    parseRequestContext: function parseRequestContext(requestContext) {
+      var context = {};
+      if (requestContext) {
+        if (requestContext.indexOf(App.BackgroundOperationsController.CommandContexts.PREFIX) !== -1) {
+          context = this.getRequestContextWithPrefix(requestContext);
+        } else {
+          context.requestContext = requestContext;
+        }
+      } else {
+        context.requestContext = Em.I18n.t('requestInfo.unspecified');
+      }
+      return context;
+    },
+&nbsp;
+    /**
+     *
+     * @param {string} requestContext
+     * @returns {{requestContext: *, dependentService: *, contextCommand: *}}
+     */
+    getRequestContextWithPrefix: function getRequestContextWithPrefix(requestContext) {
+      var contextSplits = requestContext.split('.'),
+          parsedRequestContext,
+          contextCommand = contextSplits[1],
+          service = contextSplits[2];
+&nbsp;
+      switch (contextCommand) {
+        case "STOP":
+        case "START":
+          if (service === 'ALL_SERVICES') {
+            parsedRequestContext = Em.I18n.t("requestInfo." + contextCommand.toLowerCase()).format(Em.I18n.t('common.allServices'));
+          } else {
+            parsedRequestContext = Em.I18n.t("requestInfo." + contextCommand.toLowerCase()).format(App.format.role(service, true));
+          }
+          break;
+        case "ROLLING-RESTART":
+          parsedRequestContext = Em.I18n.t("rollingrestart.rest.context").format(App.format.role(service, true), contextSplits[3], contextSplits[4]);
+          break;
+      }
+      return {
+        requestContext: parsedRequestContext,
+        dependentService: service,
+        contextCommand: contextCommand
+      };
+    },
+&nbsp;
+    popupView: null,
+&nbsp;
+    /**
+     * Onclick handler for background operations number located right to logo
+     */
+    showPopup: function showPopup() {
+      // load the checkbox on footer first, then show popup.
+      var self = this;
+      App.router.get('userSettingsController').dataLoading('show_bg').done(function (initValue) {
+        App.updater.immediateRun('requestMostRecent');
+&nbsp;
+        App.HostPopup.set("breadcrumbs", [App.HostPopup.get("rootBreadcrumb")]);
+&nbsp;
+        if (self.get('popupView') &amp;&amp; App.HostPopup.get('isBackgroundOperations')) {
+          self.set('popupView.isNotShowBgChecked', !initValue);
+          self.set('popupView.isOpen', true);
+          var el = $(self.get('popupView.element'));
+          el.appendTo('#wrapper');
+          el.find('.modal').show();
+        } else {
+          self.set('popupView', App.HostPopup.initPopup("", self, true));
+          self.set('popupView.isNotShowBgChecked', !initValue);
+        }
+      });
+    },
+&nbsp;
+    /**
+     * Called on logout
+     */
+    clear: function clear() {
+      // set operations count to default value
+      this.set('operationsCount', 10);
+    }
+&nbsp;
+  });
+&nbsp;
+  /**
+   * Each background operation has a context in which it operates.
+   * Generally these contexts are fixed messages. However, we might
+   * want to associate semantics to this context - like showing, disabling
+   * buttons when certain operations are in progress.
+   *
+   * To make this possible we have command contexts where the context
+   * is not a human readable string, but a pattern indicating the command
+   * it is running. When UI shows these, they are translated into human
+   * readable strings.
+   *
+   * General pattern of context names is "_PARSE_.{COMMAND}.{ID}[.{Additional-Data}...]"
+   */
+  App.BackgroundOperationsController.CommandContexts = {
+    PREFIX: "_PARSE_",
+    /**
+     * Stops all services
+     */
+    STOP_ALL_SERVICES: "_PARSE_.STOP.ALL_SERVICES",
+    /**
+     * Starts all services
+     */
+    START_ALL_SERVICES: "_PARSE_.START.ALL_SERVICES",
+    /**
+     * Starts service indicated by serviceID.
+     * @param {String} serviceID Parameter {0}. Example: HDFS
+     */
+    START_SERVICE: "_PARSE_.START.{0}",
+    /**
+     * Stops service indicated by serviceID.
+     * @param {String} serviceID Parameter {0}. Example: HDFS
+     */
+    STOP_SERVICE: "_PARSE_.STOP.{0}",
+    /**
+     * Performs rolling restart of componentID in batches.
+     * This context is the batchNumber batch out of totalBatchCount batches.
+     * @param {String} componentID Parameter {0}. Example "DATANODE"
+     * @param {Number} batchNumber Parameter {1}. Batch number of this batch. Example 3.
+     * @param {Number} totalBatchCount Parameter {2}. Total number of batches. Example 10.
+     */
+    ROLLING_RESTART: "_PARSE_.ROLLING-RESTART.{0}.{1}.{2}"
+  };
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

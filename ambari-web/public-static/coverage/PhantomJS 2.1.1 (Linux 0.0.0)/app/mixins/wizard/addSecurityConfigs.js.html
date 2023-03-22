@@ -1,0 +1,2766 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/mixins/wizard/addSecurityConfigs.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/mixins/wizard/addSecurityConfigs.js</span></h1>
+    <h2>
+        Statements: <span class="metric">44.86% <small>(144 / 321)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">39.9% <small>(77 / 193)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">48.72% <small>(38 / 78)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">44.97% <small>(143 / 318)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/mixins/wizard/</a> &#187; addSecurityConfigs.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">34</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-yes">52</span>
+<span class="cline-any cline-yes">52</span>
+<span class="cline-any cline-yes">52</span>
+<span class="cline-any cline-yes">52</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46</span>
+<span class="cline-any cline-yes">46</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-yes">44</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("mixins/wizard/addSecurityConfigs", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  var blueprintUtils = require('utils/blueprint');
+&nbsp;
+  /**
+   * Mixin for loading and setting secure configs
+   *
+   * @type {Ember.Mixin}
+   */
+  App.AddSecurityConfigs = Em.Mixin.create({
+&nbsp;
+    kerberosDescriptor: {},
+&nbsp;
+    kerberosDescriptorProperties: require('data/configs/wizards/kerberos_descriptor_properties'),
+&nbsp;
+    /**
+     * security configs, which values should be modified after APPLY CONFIGURATIONS stage
+     */
+    secureConfigs: [{
+      name: 'zookeeper_principal_name',
+      serviceName: 'ZOOKEEPER'
+    }, {
+      name: 'knox_principal_name',
+      serviceName: 'KNOX'
+    }, {
+      name: 'storm_principal_name',
+      serviceName: 'STORM'
+    }, {
+      name: 'nimbus_principal_name',
+      serviceName: 'STORM'
+    }],
+&nbsp;
+    /**
+     *
+     * @param {object[]} items - stack descriptor json response
+     * @returns {App.ServiceConfigProperty[]}
+     */
+    createServicesStackDescriptorConfigs: function createServicesStackDescriptorConfigs(items) {
+      var self = this;
+      var configs = [];
+      var clusterConfigs = [];
+      var kerberosDescriptor = Em.get(items, 'KerberosDescriptor.kerberos_descriptor');
+      this.set('kerberosDescriptor', kerberosDescriptor);
+      // generate configs for root level properties object, currently realm, keytab_dir
+      clusterConfigs = clusterConfigs.concat(this.expandKerberosStackDescriptorProps(kerberosDescriptor.properties, 'Cluster', 'stackConfigs'));
+      // generate configs for root level identities object, currently spnego property
+      clusterConfigs = clusterConfigs.concat(this.createConfigsByIdentities(kerberosDescriptor.identities, 'Cluster'));
+      kerberosDescriptor.services.forEach(function (service) {
+        var serviceName = service.name;
+        // generate configs for service level identity objects
+        configs = configs.concat(self.createResourceConfigs(service, serviceName));
+        // generate configs for service component level identity  object
+        Em.getWithDefault(service, 'components', []).forEach(function (component) {
+          configs = configs.concat(self.createResourceConfigs(component, serviceName));
+        });
+      });
+      // unite cluster, service and component configs
+      configs = configs.concat(clusterConfigs);
+      self.processConfigReferences(kerberosDescriptor, configs);
+      return configs;
+    },
+&nbsp;
+    /**
+     *
+     * @param {Object} resource
+     * @param {String} serviceName
+     * @return {Array}
+     */
+    createResourceConfigs: function createResourceConfigs(resource, serviceName) {
+      var identityConfigs = [];
+      var resourceConfigs = [];
+      if (resource.identities) {
+        identityConfigs = this.createConfigsByIdentities(resource.identities, serviceName);
+      }
+      if (resource.configurations) {
+        resource.configurations.forEach(function (_configuration) {
+          for (var key in _configuration) {
+            resourceConfigs = resourceConfigs.concat(this.expandKerberosStackDescriptorProps(_configuration[key], serviceName, key));
+          }
+        }, this);
+      }
+      return identityConfigs.concat(resourceConfigs);
+    },
+&nbsp;
+    /**
+     * Create service properties based on component identity
+     *
+     * @param {object[]} identities
+     * @param {string} serviceName
+     * @returns {App.ServiceConfigProperty[]}
+     */
+    createConfigsByIdentities: function createConfigsByIdentities(identities, serviceName) {
+      var self = this;
+      var configs = [];
+      identities.forEach(function (identity) {
+        var defaultObject = {
+          isConfigIdentity: true,
+          isOverridable: false,
+          // the user should not be changing the principal name and keytab file values for identity items
+          // that reference some other identity item,
+          // if an identity entry has a "reference" attribute or the name attribute starts with a "/"
+          isVisible: !Boolean(identity.reference || identity.name.startsWith('/')),
+          isSecureConfig: true,
+          serviceName: serviceName,
+          name: identity.name,
+          identityType: identity.principal &amp;&amp; identity.principal.type
+        };
+        self.parseIdentityObject(identity).forEach(function (item) {
+          configs.push(App.ServiceConfigProperty.create($.extend({}, defaultObject, item)));
+        });
+      });
+&nbsp;
+      return configs;
+    },
+&nbsp;
+    /**
+     * Bootstrap base object according to identity info. Generate objects will be converted to
+     * App.ServiceConfigProperty model class instances.
+     *
+     * @param {object} identity
+     * @returns {object[]}
+     */
+    parseIdentityObject: function parseIdentityObject(identity) {
+      var result = [];
+      var name = identity.name;
+      var self = this;
+      Em.keys(identity).without('name').forEach(function (item) {
+        var configObject = {};
+        var prop = identity[item];
+        var itemValue = prop[{ keytab: 'file', principal: 'value' }[item]];
+        var predefinedProperty;
+        // skip inherited property without `configuration` and `keytab` or `file` values
+        if (!prop.configuration &amp;&amp; !itemValue) return;
+        // inherited property with value should not observe value from reference
+        if (name.startsWith('/') &amp;&amp; !itemValue) {
+          configObject.referenceProperty = name.substring(1) + ':' + item;
+          configObject.isEditable = false;
+        }
+        Em.setProperties(configObject, {
+          recommendedValue: itemValue,
+          initialValue: itemValue,
+          defaultValue: itemValue,
+          value: itemValue
+        });
+        configObject.filename = prop.configuration ? prop.configuration.split('/')[0] : 'cluster-env';
+        configObject.name = prop.configuration ? prop.configuration.split('/')[1] : name + '_' + item;
+        predefinedProperty = self.get('kerberosDescriptorProperties').findProperty('name', configObject.name);
+        configObject.displayName = self._getDisplayNameForConfig(configObject.name, configObject.filename);
+        configObject.index = predefinedProperty &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!Em.isNone(predefinedProperty.index) </span>? <span class="branch-0 cbranch-no" title="branch not covered" >predefinedProperty.index </span>: Infinity;
+        result.push(configObject);
+      });
+      return result;
+    },
+&nbsp;
+    /**
+     * Get new config display name basing on its name and filename
+     * If config &lt;code&gt;fileName&lt;/code&gt; is `cluster-env`, normalizing for its &lt;code&gt;name&lt;/code&gt; is used (@see App.format.normalizeName)
+     * If config is predefined in the &lt;code&gt;secureProperties&lt;/code&gt; (and it's displayName isn't empty there), predefined displayName is used
+     * Otherwise - config &lt;code&gt;name&lt;/code&gt; is returned
+     *
+     * @param {string} name config name
+     * @param {string} fileName config filename
+     * @returns {String} new config display name
+     * @method _getDisplayNameForConfig
+     * @private
+     */
+    _getDisplayNameForConfig: function _getDisplayNameForConfig(name, fileName) {
+      var predefinedConfig = App.config.get('kerberosIdentitiesMap')[App.config.configId(name, fileName)];
+      return predefinedConfig &amp;&amp; predefinedConfig.displayName ? predefinedConfig.displayName : fileName == 'cluster-env' ? App.format.normalizeName(name) : name;
+    },
+&nbsp;
+    /**
+     * Wrap kerberos properties to App.ServiceConfigProperty model class instances.
+     *
+     * @param {object} kerberosProperties
+     * @param {string} serviceName
+     * @param {string} filename
+     * @returns {App.ServiceConfigProperty[]}
+     */
+    expandKerberosStackDescriptorProps: function expandKerberosStackDescriptorProps(kerberosProperties, serviceName, filename) {
+      var configs = [];
+&nbsp;
+      for (var propertyName in kerberosProperties) {
+        var predefinedProperty = this.get('kerberosDescriptorProperties').findProperty('name', propertyName);
+        var value = kerberosProperties[propertyName];
+        var isRequired = ['additional_realms', 'principal_suffix'].contains(propertyName) ? <span class="branch-0 cbranch-no" title="branch not covered" >false </span>: value !== "";
+        var propertyObject = {
+          name: propertyName,
+          value: value,
+          defaultValue: value,
+          recommendedValue: value,
+          initialValue: value,
+          serviceName: serviceName,
+          filename: filename,
+          displayName: serviceName == "Cluster" ? App.format.normalizeName(propertyName) : propertyName,
+          isOverridable: false,
+          isEditable: propertyName != 'realm',
+          isRequired: isRequired,
+          isSecureConfig: true,
+          placeholderText: predefinedProperty &amp;&amp; !Em.isNone(predefinedProperty.index) ? predefinedProperty.placeholderText : '',
+          index: predefinedProperty &amp;&amp; !Em.isNone(predefinedProperty.index) ? predefinedProperty.index : Infinity
+        };
+        configs.push(App.ServiceConfigProperty.create(propertyObject));
+      }
+&nbsp;
+      return configs;
+    },
+&nbsp;
+    /**
+     * Take care about configs that should observe value from referenced configs.
+     * Reference is set with `referenceProperty` key.
+     *
+     * @param {object[]} kerberosDescriptor
+     * @param {App.ServiceConfigProperty[]} configs
+     */
+    processConfigReferences: function processConfigReferences(kerberosDescriptor, configs) {
+      var identities = kerberosDescriptor.identities;
+&nbsp;
+      /**
+       * Returns indentity object with additional attribute `referencePath`.
+       * Reference path depends on how deep identity is. Each level separated by `/` sign.
+       *
+       * @param {object} identity
+       * @param {string} [prefix=false] prefix to append e.g. 'SERVICE_NAME'
+       * @returns {object} identity object
+       */
+      var setReferencePath = function setReferencePath(identity, prefix) {
+        var name = Em.getWithDefault(identity, 'name', false);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (name) {
+          if (prefix) {
+            name = prefix + '/' + name;
+          }
+          identity.referencePath = name;
+        }
+        return identity;
+      };
+&nbsp;
+      // map all identities and add attribute `referencePath`
+      // `referencePath` is a path to identity it can be 1-3 levels
+      // 1 for "/global" identity e.g. `/spnego`
+      // 2 for "/SERVICE/identity"
+      // 3 for "/SERVICE/COMPONENT/identity"
+      identities = identities.map(function (i) {
+        return setReferencePath(i);
+      }).concat(kerberosDescriptor.services.map(function (service) {
+        var serviceName = Em.getWithDefault(service, 'name', false);
+        var serviceIdentities = Em.getWithDefault(service, 'identities', []).map(function (i) {
+          return setReferencePath(i, serviceName);
+        });
+        var componentIdentities = Em.getWithDefault(service || <span class="branch-1 cbranch-no" title="branch not covered" >{},</span> 'components', []).map(function (i) {
+          var componentName = Em.getWithDefault(i, 'name', false);
+          return Em.getWithDefault(i, 'identities', []).map(function (componentIdentity) {
+            return setReferencePath(componentIdentity, serviceName + '/' + componentName);
+          });
+        }).reduce(function (p, c) {
+          return p.concat(c);
+        }, []);
+        serviceIdentities.pushObjects(componentIdentities);
+        return serviceIdentities;
+      }).reduce(function (p, c) {
+        return p.concat(c);
+      }, []));
+      // clean up array
+      identities = identities.compact().without(undefined);
+      configs.forEach(function (item) {
+        var reference = item.get('referenceProperty');
+        if (!!reference) {
+          // first find identity by `name`
+          // if not found try to find by `referencePath`
+          var identity = Em.getWithDefault(identities.findProperty('name', reference.split(':')[0]) || {}, reference.split(':')[1], false) || Em.getWithDefault(identities.findProperty('referencePath', reference.split(':')[0]) || <span class="branch-1 cbranch-no" title="branch not covered" >{},</span> reference.split(':')[1], false);
+          if (identity &amp;&amp; !!identity.configuration) {
+            item.set('observesValueFrom', identity.configuration.split('/')[1]);
+          } else {
+            item.set('observesValueFrom', reference.replace(':', '_'));
+          }
+        }
+      });
+    },
+&nbsp;
+    /**
+     * update the kerberos descriptor to be put on cluster resource with user customizations
+     * @param kerberosDescriptor {Object}
+     * @param configs {Object}
+     */
+    updateKerberosDescriptor: <span class="fstat-no" title="function not covered" >function updateKerberosDescriptor(kerberosDescriptor, configs) {</span>
+<span class="cstat-no" title="statement not covered" >      configs.forEach(<span class="fstat-no" title="function not covered" >function (_config) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var isConfigUpdated;</span>
+<span class="cstat-no" title="statement not covered" >        var isStackResource = true;</span>
+<span class="cstat-no" title="statement not covered" >        isConfigUpdated = this.updateResourceIdentityConfigs(kerberosDescriptor, _config, isStackResource);</span>
+<span class="cstat-no" title="statement not covered" >        if (!isConfigUpdated) {</span>
+<span class="cstat-no" title="statement not covered" >          kerberosDescriptor.services.forEach(<span class="fstat-no" title="function not covered" >function (_service) {</span></span>
+<span class="cstat-no" title="statement not covered" >            isConfigUpdated = this.updateResourceIdentityConfigs(_service, _config);</span>
+<span class="cstat-no" title="statement not covered" >            if (!isConfigUpdated) {</span>
+<span class="cstat-no" title="statement not covered" >              Em.getWithDefault(_service, 'components', []).forEach(<span class="fstat-no" title="function not covered" >function (_component) {</span></span>
+<span class="cstat-no" title="statement not covered" >                isConfigUpdated = this.updateResourceIdentityConfigs(_component, _config);</span>
+              }, this);
+            }
+          }, this);
+        }
+      }, this);
+    },
+&nbsp;
+    /**
+     * Updates the identity configs or configurations at a resource. A resource could be
+     * 1) Stack
+     * 2) Service
+     * 3) Component
+     * @param resource
+     * @param config
+     * @param isStackResource
+     * @return boolean
+     */
+    updateResourceIdentityConfigs: <span class="fstat-no" title="function not covered" >function updateResourceIdentityConfigs(resource, config, isStackResource) {</span>
+<span class="cstat-no" title="statement not covered" >      var isConfigUpdated;</span>
+<span class="cstat-no" title="statement not covered" >      var identities = resource.identities;</span>
+<span class="cstat-no" title="statement not covered" >      var properties = !!isStackResource ? resource.properties : resource.configurations;</span>
+<span class="cstat-no" title="statement not covered" >      isConfigUpdated = this.updateDescriptorConfigs(properties, config);</span>
+<span class="cstat-no" title="statement not covered" >      if (!isConfigUpdated) {</span>
+<span class="cstat-no" title="statement not covered" >        if (identities) {</span>
+<span class="cstat-no" title="statement not covered" >          isConfigUpdated = this.updateDescriptorIdentityConfig(identities, config);</span>
+        }
+      }
+<span class="cstat-no" title="statement not covered" >      return isConfigUpdated;</span>
+    },
+&nbsp;
+    /**
+     * This function updates stack/service/component level configurations of the kerberos descriptor
+     * with the values entered by the user on the rendered ui
+     * @param configurations
+     * @param config
+     * @return boolean
+     */
+    updateDescriptorConfigs: <span class="fstat-no" title="function not covered" >function updateDescriptorConfigs(configurations, config) {</span>
+<span class="cstat-no" title="statement not covered" >      var isConfigUpdated;</span>
+<span class="cstat-no" title="statement not covered" >      if (!!configurations) {</span>
+<span class="cstat-no" title="statement not covered" >        if (Array.isArray(configurations)) {</span>
+<span class="cstat-no" title="statement not covered" >          configurations.forEach(<span class="fstat-no" title="function not covered" >function (_configuration) {</span></span>
+<span class="cstat-no" title="statement not covered" >            for (var key in _configuration) {</span>
+<span class="cstat-no" title="statement not covered" >              if (Object.keys(_configuration[key]).contains(config.name) &amp;&amp; App.config.getConfigTagFromFileName(config.filename) === key) {</span>
+<span class="cstat-no" title="statement not covered" >                _configuration[key][config.name] = config.value;</span>
+<span class="cstat-no" title="statement not covered" >                isConfigUpdated = true;</span>
+              }
+            }
+          }, this);
+        } else <span class="cstat-no" title="statement not covered" >if (Object.keys(configurations).contains(config.name) &amp;&amp; App.config.getConfigTagFromFileName(config.filename) === 'stackConfigs') {</span>
+<span class="cstat-no" title="statement not covered" >          configurations[config.name] = config.value;</span>
+<span class="cstat-no" title="statement not covered" >          isConfigUpdated = true;</span>
+        }
+      }
+<span class="cstat-no" title="statement not covered" >      return isConfigUpdated;</span>
+    },
+&nbsp;
+    /**
+     * This function updates stack/service/component level kerberos descriptor identities (principal and keytab)
+     * with the values entered by the user on the rendered ui
+     * @param identities
+     * @param config
+     * @return boolean
+     */
+    updateDescriptorIdentityConfig: <span class="fstat-no" title="function not covered" >function updateDescriptorIdentityConfig(identities, config) {</span>
+<span class="cstat-no" title="statement not covered" >      var isConfigUpdated = false;</span>
+<span class="cstat-no" title="statement not covered" >      identities.forEach(<span class="fstat-no" title="function not covered" >function (identity) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var keys = Em.keys(identity).without('name');</span>
+<span class="cstat-no" title="statement not covered" >        keys.forEach(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var prop = identity[item];</span>
+&nbsp;
+          // compare ui rendered config against identity with `configuration attribute` (Most of the identities have `configuration attribute`)
+<span class="cstat-no" title="statement not covered" >          var isIdentityWithConfig = prop.configuration &amp;&amp; prop.configuration.split('/')[0] === App.config.getConfigTagFromFileName(config.filename) &amp;&amp; prop.configuration.split('/')[1] === config.name;</span>
+&nbsp;
+          // compare ui rendered config against identity without `configuration attribute` (For example spnego principal and keytab)
+<span class="cstat-no" title="statement not covered" >          var isIdentityWithoutConfig = !prop.configuration &amp;&amp; identity.name === config.name.split('_')[0] &amp;&amp; item === config.name.split('_')[1];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (isIdentityWithConfig || isIdentityWithoutConfig) {</span>
+<span class="cstat-no" title="statement not covered" >            prop[{ keytab: 'file', principal: 'value' }[item]] = config.value;</span>
+<span class="cstat-no" title="statement not covered" >            isConfigUpdated = true;</span>
+          }
+        });
+      }, this);
+<span class="cstat-no" title="statement not covered" >      return isConfigUpdated;</span>
+    },
+&nbsp;
+    /**
+     * Make request for cluster descriptor configs.
+     *
+     * @param {string[]|null} [services=null] services to be added
+     * @returns {$.ajax}
+     * @method loadClusterDescriptorConfigs
+     */
+    loadClusterDescriptorConfigs: <span class="fstat-no" title="function not covered" >function loadClusterDescriptorConfigs(services) {</span>
+<span class="cstat-no" title="statement not covered" >      var servicesParam = services ? 'additional_services=' + services.join(',') : null,</span>
+          queryParams = ['evaluate_when=true'].concat(servicesParam).compact().join('&amp;');
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        sender: this,
+        name: 'admin.kerberize.cluster_descriptor',
+        data: {
+          queryParams: '?' + queryParams
+        }
+      });
+    },
+&nbsp;
+    loadClusterDescriptorStackConfigs: <span class="fstat-no" title="function not covered" >function loadClusterDescriptorStackConfigs() {</span>
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        sender: this,
+        name: 'admin.kerberize.cluster_descriptor.stack'
+      });
+    },
+&nbsp;
+    mergeDescriptorStackWithConfigs: <span class="fstat-no" title="function not covered" >function mergeDescriptorStackWithConfigs(descriptorStack, descriptorConfigs) {</span>
+<span class="cstat-no" title="statement not covered" >      var result = [];</span>
+<span class="cstat-no" title="statement not covered" >      var stackConfigs = this.createServicesStackDescriptorConfigs(descriptorStack);</span>
+<span class="cstat-no" title="statement not covered" >      var currentConfigs = this.createServicesStackDescriptorConfigs(descriptorConfigs);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      stackConfigs.forEach(<span class="fstat-no" title="function not covered" >function (stackConfig) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var currentConfig = currentConfigs.filterProperty('name', stackConfig.get('name')).findProperty('filename', stackConfig.get('filename'));</span>
+<span class="cstat-no" title="statement not covered" >        if (currentConfig) {</span>
+<span class="cstat-no" title="statement not covered" >          currentConfigs = currentConfigs.without(currentConfig);</span>
+<span class="cstat-no" title="statement not covered" >          result.push(currentConfig);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          result.push(stackConfig);</span>
+        }
+      });
+&nbsp;
+      // add all properties from descriptor/COMPOSITE, that are absent in descriptor/STACK as custom properties
+<span class="cstat-no" title="statement not covered" >      currentConfigs.setEach('isUserProperty', true);</span>
+<span class="cstat-no" title="statement not covered" >      result = result.concat(currentConfigs);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return result;</span>
+    },
+&nbsp;
+    /**
+     * Prepare step configs using stack descriptor properties.
+     *
+     * @param {App.ServiceConfigProperty[]} configs
+     * @param {App.ServiceConfigProperty[]} stackConfigs converted kerberos descriptor
+     */
+    setStepConfigs: <span class="fstat-no" title="function not covered" >function setStepConfigs(configs, stackConfigs, showAdminProperties) {</span>
+<span class="cstat-no" title="statement not covered" >      var configProperties = this.prepareConfigProperties(configs, showAdminProperties),</span>
+          stackConfigProperties = stackConfigs ? this.prepareConfigProperties(stackConfigs, showAdminProperties) : [],
+          alterProperties = ['value', 'initialValue', 'defaultValue'];
+<span class="cstat-no" title="statement not covered" >      if (this.get('wizardController.name') === 'addServiceController') {</span>
+        // config properties for installed services should be disabled on Add Service Wizard
+<span class="cstat-no" title="statement not covered" >        configProperties.forEach(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (this.get('installedServiceNames').contains(item.get('serviceName')) || item.get('serviceName') == 'Cluster') {</span>
+<span class="cstat-no" title="statement not covered" >            item.set('isEditable', false);</span>
+          } else <span class="cstat-no" title="statement not covered" >if (stackConfigs) {</span>
+<span class="cstat-no" title="statement not covered" >            var stackConfigProperty = stackConfigProperties.filterProperty('filename', item.get('filename')).findProperty('name', item.get('name'));</span>
+<span class="cstat-no" title="statement not covered" >            if (stackConfigProperty) {</span>
+<span class="cstat-no" title="statement not covered" >              alterProperties.forEach(<span class="fstat-no" title="function not covered" >function (alterProperty) {</span></span>
+<span class="cstat-no" title="statement not covered" >                item.set(alterProperty, stackConfigProperty.get(alterProperty));</span>
+              });
+            }
+          }
+        }, this);
+        // Concat properties that are present in the stack's kerberos  descriptor but not in the cluster kerberos descriptor
+<span class="cstat-no" title="statement not covered" >        stackConfigProperties.forEach(<span class="fstat-no" title="function not covered" >function (_stackConfigProperty) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var isPropertyInClusterDescriptor = configProperties.filterProperty('filename', _stackConfigProperty.get('filename')).someProperty('name', _stackConfigProperty.get('name'));</span>
+<span class="cstat-no" title="statement not covered" >          if (!isPropertyInClusterDescriptor) {</span>
+<span class="cstat-no" title="statement not covered" >            if (this.get('installedServiceNames').contains(_stackConfigProperty.get('serviceName')) || _stackConfigProperty.get('serviceName') === 'Cluster') {</span>
+<span class="cstat-no" title="statement not covered" >              _stackConfigProperty.set('isEditable', false);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            configProperties.pushObject(_stackConfigProperty);</span>
+          }
+        }, this);
+      }
+<span class="cstat-no" title="statement not covered" >      configProperties = App.config.sortConfigs(configProperties);</span>
+<span class="cstat-no" title="statement not covered" >      var stepConfigs = this.createServiceConfig(configProperties);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('stepConfigs').pushObjects(stepConfigs);</span>
+<span class="cstat-no" title="statement not covered" >      return stepConfigs;</span>
+    },
+&nbsp;
+    /**
+     * Filter configs by installed services for Kerberos Wizard or by installed + selected services
+     * for Add Service Wizard.
+     * Set property value observer.
+     * Set realm property with value from previous configuration step.
+     * Set appropriate category for all configs.
+     * Hide KDC related credentials properties if kerberos was manually enabled.
+     *
+     * @param {App.ServiceConfigProperty[]} configs
+     * @returns {App.ServiceConfigProperty[]}
+     */
+    prepareConfigProperties: <span class="fstat-no" title="function not covered" >function prepareConfigProperties(configs, showAdminProperties) {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+      // stored configs from previous steps (Configure Kerberos or Customize Services for ASW)
+<span class="cstat-no" title="statement not covered" >      var storedServiceConfigs = this.get('wizardController.content.serviceConfigProperties');</span>
+<span class="cstat-no" title="statement not covered" >      var installedServiceNames = ['Cluster', 'AMBARI'].concat(App.Service.find().mapProperty('serviceName'));</span>
+<span class="cstat-no" title="statement not covered" >      var configProperties = configs.slice(0);</span>
+<span class="cstat-no" title="statement not covered" >      var siteProperties = App.configsCollection.getAll();</span>
+<span class="cstat-no" title="statement not covered" >      var realmValue;</span>
+      // override stored values
+<span class="cstat-no" title="statement not covered" >      App.config.mergeStoredValue(configProperties, this.get('wizardController').loadCachedStepConfigValues(this));</span>
+&nbsp;
+      // show admin properties in add service wizard
+<span class="cstat-no" title="statement not covered" >      if (showAdminProperties) {</span>
+<span class="cstat-no" title="statement not covered" >        installedServiceNames = installedServiceNames.concat(this.get('selectedServiceNames'));</span>
+      }
+<span class="cstat-no" title="statement not covered" >      configProperties = configProperties.filter(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return installedServiceNames.contains(item.get('serviceName'));</span>
+      });
+<span class="cstat-no" title="statement not covered" >      if (this.get('wizardController.name') !== 'addServiceController') {</span>
+<span class="cstat-no" title="statement not covered" >        realmValue = storedServiceConfigs.findProperty('name', 'realm').value;</span>
+<span class="cstat-no" title="statement not covered" >        configProperties.findProperty('name', 'realm').set('value', realmValue);</span>
+<span class="cstat-no" title="statement not covered" >        configProperties.findProperty('name', 'realm').set('savedValue', realmValue);</span>
+<span class="cstat-no" title="statement not covered" >        configProperties.findProperty('name', 'realm').set('recommendedValue', realmValue);</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      configProperties.setEach('isSecureConfig', false);</span>
+<span class="cstat-no" title="statement not covered" >      configProperties.forEach(<span class="fstat-no" title="function not covered" >function (property, item, allConfigs) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (['spnego_keytab', 'spnego_principal'].contains(property.get('name'))) {</span>
+<span class="cstat-no" title="statement not covered" >          property.addObserver('value', self, 'spnegoPropertiesObserver');</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (property.get('observesValueFrom') &amp;&amp; allConfigs.someProperty('name', property.get('observesValueFrom'))) {</span>
+<span class="cstat-no" title="statement not covered" >          var observedValue = Em.get(allConfigs.findProperty('name', property.get('observesValueFrom')), 'value');</span>
+<span class="cstat-no" title="statement not covered" >          property.set('value', observedValue);</span>
+<span class="cstat-no" title="statement not covered" >          property.set('recommendedValue', observedValue);</span>
+<span class="cstat-no" title="statement not covered" >          property.set('isVisible', true);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (property.get('serviceName') === 'Cluster') {</span>
+<span class="cstat-no" title="statement not covered" >          property.set('category', 'Global');</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          property.set('category', property.get('serviceName'));</span>
+        }
+        // All user identity except storm should be grouped under "Ambari Principals" category
+<span class="cstat-no" title="statement not covered" >        if (property.get('identityType') == 'user') <span class="cstat-no" title="statement not covered" >property.set('category', 'Ambari Principals');</span></span>
+<span class="cstat-no" title="statement not covered" >        var siteProperty = siteProperties.findProperty('name', property.get('name'));</span>
+<span class="cstat-no" title="statement not covered" >        if (siteProperty) {</span>
+<span class="cstat-no" title="statement not covered" >          if (siteProperty.category === property.get('category')) {</span>
+<span class="cstat-no" title="statement not covered" >            property.set('displayName', siteProperty.displayName);</span>
+<span class="cstat-no" title="statement not covered" >            if (siteProperty.index) {</span>
+<span class="cstat-no" title="statement not covered" >              property.set('index', siteProperty.index);</span>
+            }
+          }
+<span class="cstat-no" title="statement not covered" >          if (siteProperty.displayType) {</span>
+<span class="cstat-no" title="statement not covered" >            property.set('displayType', siteProperty.displayType);</span>
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        this.tweakConfigProperty(property);</span>
+      }, this);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return configProperties;</span>
+    },
+&nbsp;
+    /**
+     * Function to override kerberos descriptor's property values
+     */
+    tweakConfigProperty: <span class="fstat-no" title="function not covered" >function tweakConfigProperty(config) {</span>
+<span class="cstat-no" title="statement not covered" >      var defaultHiveMsPort = "9083",</span>
+          hiveMSHosts,
+          port,
+          hiveMSHostNames,
+          configValue;
+<span class="cstat-no" title="statement not covered" >      if (config.name === 'templeton.hive.properties') {</span>
+<span class="cstat-no" title="statement not covered" >        hiveMSHosts = App.HostComponent.find().filterProperty('componentName', 'HIVE_METASTORE');</span>
+<span class="cstat-no" title="statement not covered" >        if (hiveMSHosts.length &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >          hiveMSHostNames = hiveMSHosts.mapProperty('hostName');</span>
+<span class="cstat-no" title="statement not covered" >          port = config.value.match(/:[0-9]{2,4}/);</span>
+<span class="cstat-no" title="statement not covered" >          port = port ? port[0].slice(1) : defaultHiveMsPort;</span>
+<span class="cstat-no" title="statement not covered" >          for (var i = 0; i &lt; hiveMSHostNames.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            hiveMSHostNames[i] = "thrift://" + hiveMSHostNames[i] + ":" + port;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          configValue = config.value.replace(/thrift.+[0-9]{2,},/i, hiveMSHostNames.join('\\,') + ",");</span>
+<span class="cstat-no" title="statement not covered" >          config.set('value', configValue);</span>
+<span class="cstat-no" title="statement not covered" >          config.set('recommendedValue', configValue);</span>
+        }
+      }
+    },
+&nbsp;
+    /**
+     * Sync up values between inherited property and its reference.
+     *
+     * @param {App.ServiceConfigProperty} configProperty
+     */
+    spnegoPropertiesObserver: <span class="fstat-no" title="function not covered" >function spnegoPropertiesObserver(configProperty) {</span>
+<span class="cstat-no" title="statement not covered" >      var stepConfig = this.get('stepConfigs').findProperty('name', 'KERBEROS') || this.get('stepConfigs').findProperty('name', 'ADVANCED');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      stepConfig.get('configs').forEach(<span class="fstat-no" title="function not covered" >function (config) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (config.get('observesValueFrom') === configProperty.get('name')) {</span>
+<span class="cstat-no" title="statement not covered" >          Em.run.once(this, <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            config.set('value', configProperty.get('value'));</span>
+<span class="cstat-no" title="statement not covered" >            config.set('recommendedValue', configProperty.get('value'));</span>
+          });
+        }
+      }, this);
+    },
+    /**
+    * Prepare all necessary data for recommendations payload.
+    *
+    * #mutates initialConfigValues
+    * @returns {$.Deferred.promise()}
+    */
+    bootstrapRecommendationPayload: <span class="fstat-no" title="function not covered" >function bootstrapRecommendationPayload(kerberosDescriptor) {</span>
+<span class="cstat-no" title="statement not covered" >      var dfd = $.Deferred();</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.getServicesConfigurations().then(<span class="fstat-no" title="function not covered" >function (configurations) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var recommendations = self.getBlueprintPayloadObject(configurations, kerberosDescriptor);</span>
+<span class="cstat-no" title="statement not covered" >        self.set('servicesConfigurations', configurations);</span>
+<span class="cstat-no" title="statement not covered" >        self.set('initialConfigValues', recommendations.blueprint.configurations);</span>
+<span class="cstat-no" title="statement not covered" >        dfd.resolve(recommendations);</span>
+      });
+<span class="cstat-no" title="statement not covered" >      return dfd.promise();</span>
+    },
+&nbsp;
+    getServicesConfigurations: <span class="fstat-no" title="function not covered" >function getServicesConfigurations() {</span>
+<span class="cstat-no" title="statement not covered" >      var dfd = $.Deferred();</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      this.getConfigTags().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        App.router.get('configurationController').getConfigsByTags(self.get('serviceConfigTags')).done(<span class="fstat-no" title="function not covered" >function (configurations) {</span></span>
+<span class="cstat-no" title="statement not covered" >          dfd.resolve(configurations);</span>
+        });
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return dfd.promise();</span>
+    },
+&nbsp;
+    /**
+     * Returns payload for recommendations request.
+     * Takes services' configurations and merge them with kerberos descriptor properties.
+     *
+     * @param {object[]} configurations services' configurations fetched from API
+     * @param {App.ServiceConfigProperty[]} kerberosDescriptor descriptor configs
+     * @returns {object} payload for recommendations request
+     */
+    getBlueprintPayloadObject: function getBlueprintPayloadObject(configurations, kerberosDescriptor) {
+      var recommendations = blueprintUtils.generateHostGroups(App.get('allHostNames'));
+      var mergedConfigurations = this.mergeDescriptorToConfigurations(configurations, this.createServicesStackDescriptorConfigs(kerberosDescriptor));
+      recommendations.blueprint.configurations = mergedConfigurations.reduce(function (p, c) {
+        p[c.type] = {};
+        p[c.type].properties = c.properties;
+        return p;
+      }, {});
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('isWithinAddService')) {
+<span class="cstat-no" title="statement not covered" >        this.get('content.masterComponentHosts').filterProperty('isInstalled', false).forEach(<span class="fstat-no" title="function not covered" >function (item) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var hostGroupName = blueprintUtils.getHostGroupByFqdn(recommendations, item.hostName);</span>
+<span class="cstat-no" title="statement not covered" >          blueprintUtils.addComponentToHostGroup(recommendations, item.component, hostGroupName);</span>
+        }, this);
+      }
+&nbsp;
+      return recommendations;
+    },
+&nbsp;
+    /**
+     * Returns map with appropriate action and properties to process with.
+     * Key is an action e.g. `add`, `update`, `delete` and value is  an object `fileName` -&gt; `propertyName`: `propertyValue`.
+     *
+     * @param {object} recommendedConfigurations
+     * @param {object[]} servicesConfigurations services' configurations fetched from API
+     * @param {App.ServiceConfigProperty[]} allConfigs all current configurations stored in controller, basically kerberos descriptor
+     * @returns {object}
+     */
+    groupRecommendationProperties: function groupRecommendationProperties(recommendedConfigurations, servicesConfigurations, allConfigs) {
+      var resultMap = {
+        update: {},
+        add: {},
+        delete: {}
+      };
+&nbsp;
+      /**
+       * Adds property to associated group `add`,`delete`,`update`.
+       *
+       * @param {object} propertyMap &lt;code&gt;resultMap&lt;/code&gt; object
+       * @param {string} name property name
+       * @param {string} propertyValue property value
+       * @param {string} fileName property file name
+       * @return {object} &lt;code&gt;resultMap&lt;/code&gt;
+       * @param {string} group, `add`,`delete`,`update`
+       */
+      var addProperty = function addProperty(propertyMap, name, propertyValue, fileName, group) {
+        var ret = $.extend(true, {}, propertyMap);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (ret.hasOwnProperty(group)) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (!ret[group].hasOwnProperty(fileName)) {
+            ret[group][fileName] = {};
+          }
+          ret[group][fileName][name] = propertyValue;
+        }
+        return ret;
+      };
+&nbsp;
+      return Em.keys(recommendedConfigurations || <span class="branch-1 cbranch-no" title="branch not covered" >{})</span>.reduce(function (acc, fileName) {
+        var propertyMap = acc;
+        var recommendedProperties = Em.getWithDefault(recommendedConfigurations, fileName + '.properties', {});
+        var recommendedAttributes = Em.getWithDefault(recommendedConfigurations, fileName + '.property_attributes', {});
+        // check for properties that should be delted
+        Em.keys(recommendedAttributes).forEach(function (propertyName) {
+          var attribute = recommendedAttributes[propertyName];
+          // delete properties which are present in kerberos descriptor
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (attribute.hasOwnProperty('delete') &amp;&amp; allConfigs.filterProperty('filename', fileName).someProperty('name', propertyName)) {
+            propertyMap = addProperty(propertyMap, propertyName, '', fileName, 'delete');
+          }
+        });
+&nbsp;
+        return Em.keys(recommendedProperties).reduce(function (a, propertyName) {
+          var propertyValue = recommendedProperties[propertyName];
+          // check if property exist in saved configurations on server
+          var isExist = Em.getWithDefault(servicesConfigurations.findProperty('type', fileName) || <span class="branch-1 cbranch-no" title="branch not covered" >{},</span> 'properties', {}).hasOwnProperty(propertyName);
+          if (!isExist) {
+            return addProperty(a, propertyName, propertyValue, fileName, 'add');
+          }
+          // when property exist check that it present in current step configs (kerberos descriptor)
+          // and add it as property to `update`
+          if (allConfigs.filterProperty('filename', fileName).someProperty('name', propertyName)) {
+            return addProperty(a, propertyName, propertyValue, fileName, 'update');
+          }
+          return a;
+        }, propertyMap);
+      }, resultMap);
+    },
+&nbsp;
+    /**
+     *
+     * @method getServiceByFilename
+     * @param {string}fileName
+     * @returns {string}
+     */
+    getServiceByFilename: function getServiceByFilename(fileName) {
+      // core-site properties goes to HDFS
+      if (fileName === 'core-site' &amp;&amp; App.Service.find().someProperty('serviceName', 'HDFS')) {
+        return 'HDFS';
+      }
+      var associatedService = App.StackService.find().filter(function (service) {
+        return Em.keys(service.get('configTypes')).contains(fileName);
+      })[0];
+      return associatedService ? associatedService.get('serviceName') : '';
+    },
+&nbsp;
+    loadServerSideConfigsRecommendations: <span class="fstat-no" title="function not covered" >function loadServerSideConfigsRecommendations(recommendations) {</span>
+<span class="cstat-no" title="statement not covered" >      return App.ajax.send({</span>
+        'name': 'config.recommendations',
+        'sender': this,
+        'data': {
+          stackVersionUrl: App.get('stackVersionURL'),
+          dataToSend: {
+            recommend: 'configurations',
+            hosts: App.get('allHostNames'),
+            services: this.get('serviceNames'),
+            recommendations: recommendations
+          }
+        },
+        'success': 'loadRecommendationsSuccess',
+        'error': 'loadRecommendationsError'
+      });
+    },
+&nbsp;
+    loadRecommendationsError: <span class="fstat-no" title="function not covered" >function loadRecommendationsError(req, ajaxOpts, error, opt) {</span>
+<span class="cstat-no" title="statement not covered" >      var resp;</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        resp = $.parseJSON(req.responseText);</span>
+      } catch (e) {}
+<span class="cstat-no" title="statement not covered" >      return App.ModalPopup.show({</span>
+        header: Em.I18n.t('common.error'),
+        secondary: false,
+        bodyClass: App.AjaxDefaultErrorPopupBodyView.extend({
+          type: opt.type || 'GET',
+          url: opt.url,
+          status: req.status,
+          message: resp &amp;&amp; resp.message || req.responseText
+        })
+      });
+    },
+&nbsp;
+    /**
+     * Callback executed when all configs specified by tags are loaded.
+     * Here we handle configurations for instlled services and Kerberos.
+     * Gather needed info for recommendation request such as configurations object.
+     *
+     * @override
+     */
+    getConfigTagsSuccess: <span class="fstat-no" title="function not covered" >function getConfigTagsSuccess(data) {</span>
+      // here we get all installed services including KERBEROS
+<span class="cstat-no" title="statement not covered" >      var serviceNames = App.Service.find().mapProperty('serviceName').concat(['KERBEROS']).uniq();</span>
+      // collect all config types for selected services
+<span class="cstat-no" title="statement not covered" >      var installedServiceSites = Array.prototype.concat.apply([], App.config.get('preDefinedServiceConfigs').filter(<span class="fstat-no" title="function not covered" >function (serviceConfig) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return serviceNames.contains(Em.get(serviceConfig, 'serviceName'));</span>
+      }).map(<span class="fstat-no" title="function not covered" >function (service) {</span>
+        // when service have no configs return &lt;code&gt;null&lt;/code&gt; instead return config types
+<span class="cstat-no" title="statement not covered" >        if (!service.get('configTypes')) <span class="cstat-no" title="statement not covered" >return null;</span></span>
+<span class="cstat-no" title="statement not covered" >        return Object.keys(service.get('configTypes'));</span>
+      }, this).compact()).uniq(); // cleanup &lt;code&gt;null&lt;/code&gt;
+&nbsp;
+      // take all configs for selected services by config types recieved from API response
+<span class="cstat-no" title="statement not covered" >      var serviceConfigTags = Em.keys(data.Clusters.desired_configs).reduce(<span class="fstat-no" title="function not covered" >function (tags, site) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (data.Clusters.desired_configs.hasOwnProperty(site)) {</span>
+          // push cluster-env.xml also since it not associated with any service but need to further processing
+<span class="cstat-no" title="statement not covered" >          if (installedServiceSites.contains(site) || site === 'cluster-env') {</span>
+<span class="cstat-no" title="statement not covered" >            tags.push({</span>
+              siteName: site,
+              tagName: data.Clusters.desired_configs[site].tag,
+              newTagName: null
+            });
+          }
+        }
+<span class="cstat-no" title="statement not covered" >        return tags;</span>
+      }, []);
+      // store configurations
+<span class="cstat-no" title="statement not covered" >      this.set('serviceConfigTags', serviceConfigTags);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('isAppliedConfigLoaded', true);</span>
+    },
+&nbsp;
+    /**
+     * Add/update property in `properties` object for each config type with
+     * associated kerberos descriptor config value.
+     *
+     * @private
+     * @param {object[]} configurations
+     * @param {App.ServiceConfigProperty[]} kerberosDescriptor
+     * @returns {object[]}
+     */
+    mergeDescriptorToConfigurations: <span class="fstat-no" title="function not covered" >function mergeDescriptorToConfigurations(configurations, kerberosDescriptor) {</span>
+<span class="cstat-no" title="statement not covered" >      return configurations.map(<span class="fstat-no" title="function not covered" >function (configType) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var properties = $.extend({}, configType.properties);</span>
+<span class="cstat-no" title="statement not covered" >        var filteredDescriptor = kerberosDescriptor.filterProperty('filename', configType.type);</span>
+<span class="cstat-no" title="statement not covered" >        if (filteredDescriptor.length) {</span>
+<span class="cstat-no" title="statement not covered" >          filteredDescriptor.forEach(<span class="fstat-no" title="function not covered" >function (descriptorConfig) {</span></span>
+<span class="cstat-no" title="statement not covered" >            var configName = Em.get(descriptorConfig, 'name');</span>
+<span class="cstat-no" title="statement not covered" >            properties[configName] = Em.get(descriptorConfig, 'value');</span>
+          });
+        }
+<span class="cstat-no" title="statement not covered" >        return {</span>
+          type: configType.type,
+          version: configType.version,
+          tag: configType.tag,
+          properties: properties
+        };
+      });
+    },
+&nbsp;
+    postKerberosDescriptor: function postKerberosDescriptor(kerberosDescriptor) {
+      return App.ajax.send({
+        name: 'admin.kerberos.cluster.artifact.create',
+        sender: this,
+        data: {
+          artifactName: 'kerberos_descriptor',
+          data: {
+            artifact_data: this.removeIdentityReferences(kerberosDescriptor)
+          }
+        }
+      });
+    },
+&nbsp;
+    /**
+     * Send request to update kerberos descriptor
+     * @param kerberosDescriptor
+     * @returns {$.ajax|*}
+     */
+    putKerberosDescriptor: function putKerberosDescriptor(kerberosDescriptor) {
+      return App.ajax.send({
+        name: 'admin.kerberos.cluster.artifact.update',
+        sender: this,
+        data: {
+          artifactName: 'kerberos_descriptor',
+          data: {
+            artifact_data: this.removeIdentityReferences(kerberosDescriptor)
+          }
+        },
+        success: 'unkerberizeCluster',
+        error: 'unkerberizeCluster'
+      });
+    },
+&nbsp;
+    /**
+     * The UI should ignore Kerberos identity references
+     * when setting the user-supplied Kerberos descriptor
+     * @param {object} kerberosDescriptor
+     * @returns {object}
+     */
+    removeIdentityReferences: function removeIdentityReferences(kerberosDescriptor) {
+      var notReference = function notReference(identity) {
+        return Em.isNone(identity.reference) &amp;&amp; !identity.name.startsWith('/');
+      };
+      kerberosDescriptor.services.forEach(function (service) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (service.identities) {
+          service.identities = service.identities.filter(notReference);
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (service.components) {
+          service.components.forEach(function (component) {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (component.identities) {
+              component.identities = component.identities.filter(notReference);
+            }
+          });
+        }
+      });
+      return kerberosDescriptor;
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

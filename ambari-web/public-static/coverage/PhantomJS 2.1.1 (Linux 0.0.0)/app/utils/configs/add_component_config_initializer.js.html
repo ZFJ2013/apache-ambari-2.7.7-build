@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/utils/configs/add_component_config_initializer.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/utils/configs/add_component_config_initializer.js</span></h1>
+    <h2>
+        Statements: <span class="metric">91.23% <small>(52 / 57)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">87.5% <small>(14 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">86.36% <small>(19 / 22)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">91.07% <small>(51 / 56)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/utils/configs/</a> &#187; add_component_config_initializer.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">43</span>
+<span class="cline-any cline-yes">42</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42</span>
+<span class="cline-any cline-yes">42</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">45</span>
+<span class="cline-any cline-yes">45</span>
+<span class="cline-any cline-yes">45</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">23</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">33</span>
+<span class="cline-any cline-yes">28</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("utils/configs/add_component_config_initializer", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  require('utils/configs/config_initializer_class');
+  require('utils/configs/ha_config_initializer_class');
+  require('utils/configs/hosts_based_initializer_mixin');
+  require('utils/configs/control_flow_initializer_mixin');
+&nbsp;
+  var _slice = Array.prototype.slice;
+&nbsp;
+  /**
+   * Main class responsible for properties computation.
+   * This class contains all required info to manipulate properties regarding value updates
+   * during removing/adding components.
+   * To determine when component removed or added you just need to setup properly localDB object
+   * and set `isInstalled` flag to `true` where selected component(s) will be located after adding/removing.
+   * By default all initializer handlers filtering localDB by `isInstalled` `true`.
+   *
+   * @mixes App.ControlFlowInitializerMixin
+   * @mixes App.HostsBasedInitializerMixin
+   * @type {AddComponentConfigInitializer}
+   * @augments {HaConfigInitializerClass}
+   */
+  App.AddComponentConfigInitializer = App.HaConfigInitializerClass.extend(App.HostsBasedInitializerMixin, App.ControlFlowInitializerMixin, {
+    /**
+     * All initializer properties definition.
+     * Object format is the same as for App.ConfigInitializerClass.initializers
+     * @see App.ConfigInitializerClass.initializers
+     *
+     * @return {object} property name - initializer map
+     */
+    __defaultInitializers: function __defaultInitializers() {
+      return {
+        'zookeeper.connect': this.getHDPStackOnlyHostsPortConfig('2.2', 'ZOOKEEPER_SERVER', '', '', ',', 'zkClientPort', true),
+        'ha.zookeeper.quorum': this.getNameNodeHAOnlyHostsPortConfig('ZOOKEEPER_SERVER', '', '', ',', 'zkClientPort', true),
+        'hbase.zookeeper.quorum': this.getHostsListComponentConfig('ZOOKEEPER_SERVER', true),
+        'instance.zookeeper.host': this.getHostsWithPortConfig('ZOOKEEPER_SERVER', '', '', ',', 'zkClientPort', true),
+        'templeton.zookeeper.hosts': this.getHostsWithPortConfig('ZOOKEEPER_SERVER', '', '', ',', 'zkClientPort', true),
+        'hive.cluster.delegation.token.store.zookeeper.connectString': this.getHostsWithPortConfig('ZOOKEEPER_SERVER', '', '', ',', 'zkClientPort', true),
+        'storm.zookeeper.servers': this.getHostsListComponentJSONStringifiedConfig('ZOOKEEPER_SERVER', true),
+        'hive.zookeeper.quorum': this.getHDPStackOnlyHostsPortConfig('2.2', 'ZOOKEEPER_SERVER', '', '', ',', 'zkClientPort', true),
+        'hadoop.registry.zk.quorum': this.getHDPStackOnlyHostsPortConfig('2.2', 'ZOOKEEPER_SERVER', '', '', ',', 'zkClientPort', true),
+        'nimbus.seeds': this.getHostsListComponentJSONStringifiedConfig('NIMBUS', true),
+        'hadoop.proxyuser.{{webhcatUser}}.hosts': this.getComponentsHostsConfig(['HIVE_SERVER', 'WEBHCAT_SERVER', 'HIVE_METASTORE'], false, true),
+        'hadoop.proxyuser.{{hiveUser}}.hosts': this.getComponentsHostsConfig(['HIVE_SERVER', 'WEBHCAT_SERVER', 'HIVE_METASTORE', 'HIVE_SERVER_INTERACTIVE'], false, true),
+        'hive.metastore.uris': this.getHostsWithPortConfig(['HIVE_METASTORE'], 'thrift://', '', ',thrift://', 'hiveMetastorePort', true),
+        'atlas.audit.hbase.zookeeper.quorum': this.getHostsListComponentConfig('ZOOKEEPER_SERVER', true),
+        'atlas.graph.storage.hostname': this.getHostsListComponentConfig('ZOOKEEPER_SERVER', true),
+        'atlas.kafka.zookeeper.connect': this.getHostsWithPortConfig('ZOOKEEPER_SERVER', '', '', ',', 'zkClientPort', true)
+      };
+    },
+&nbsp;
+    /**
+     * All unique initializer definition.
+     * Object format is the same as for App.ConfigInitializerClass.uniqueInitializers
+     * @see App.ConfigInitializerClass.uniqueInitializers
+     *
+     * @type {Object}
+     */
+    __defaultUniqueInitializers: {
+      'yarn.resourcemanager.zk-address': '_initYarnRMZkAdress',
+      'templeton.hive.properties': '_initTempletonHiveProperties',
+      'atlas.graph.index.search.solr.zookeeper-url': '_initAtlasGraphIndexSearchSolrZkUrl'
+    },
+&nbsp;
+    /**
+     * Property names to initialize. This attribute should be overrided in class instance.
+     * `initializers` property will set up according this list from `__defaultUniqueInitializers` and
+     * `__defaultInitializers`
+     *
+     * @type {string[]}
+     */
+    initializeForProperties: null,
+&nbsp;
+    initializers: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return {};</span>
+    }.property(),
+&nbsp;
+    uniqueInitializers: {},
+&nbsp;
+    init: function init() {
+      this._super();
+      this._bootstrapInitializers(this.get('initializeForProperties'));
+    },
+&nbsp;
+    initializerTypes: [{
+      name: 'json_stringified_value',
+      method: '_initAsJSONStrigifiedValueConfig'
+    }],
+&nbsp;
+    /**
+     * @override
+     * @param {object} settings
+     */
+    setup: function setup(settings) {
+      this._updateInitializers(settings);
+    },
+&nbsp;
+    /**
+     * @override
+     */
+    cleanup: function cleanup() {
+      this._restoreInitializers();
+    },
+&nbsp;
+    getJSONStringifiedValueConfig: function getJSONStringifiedValueConfig() {
+      return {
+        type: 'json_stringified_value'
+      };
+    },
+&nbsp;
+    _initAsJSONStrigifiedValueConfig: function _initAsJSONStrigifiedValueConfig(configProperty, localDB, dependencies, initializer) {
+      var hostsValue = Em.get(configProperty, 'value').split(Em.getWithDefault(initializer, 'modifier.delimiter', ','));
+      var propertyValue = JSON.stringify(hostsValue).replace(/"/g, "'");
+      Em.setProperties(configProperty, {
+        value: propertyValue,
+        recommendedValue: propertyValue
+      });
+      return configProperty;
+    },
+&nbsp;
+    /**
+     * Perform value update according to hosts. Mutate &lt;code&gt;siteConfigs&lt;/code&gt;
+     *
+     * @param {object} siteConfigs
+     * @param {configProperty} configProperty
+     * @returns {boolean}
+     */
+    updateSiteObj: function updateSiteObj(siteConfigs, configProperty) {
+      if (!siteConfigs || !configProperty) return false;
+      var initializer = this.get('initializers')[configProperty.name],
+          isArray = !!(initializer &amp;&amp; (initializer.type === 'json_stringified_value' || Em.isArray(initializer) &amp;&amp; initializer.someProperty('type', 'json_stringified_value')));
+      App.config.updateHostsListValue(siteConfigs, configProperty.fileName, configProperty.name, configProperty.value, isArray);
+      return true;
+    },
+&nbsp;
+    /**
+     * @see App.ControlFlowInitializerMixin.getNameNodeHAControl
+     * @see App.HostsBasedInitializerMixin.getComponentsHostsConfig
+     */
+    getNameNodeHAOnlyHostsConfig: <span class="fstat-no" title="function not covered" >function getNameNodeHAOnlyHostsConfig(components, asArray) {</span>
+<span class="cstat-no" title="statement not covered" >      return [this.getNameNodeHAControl(), this.getComponentsHostsConfig.apply(this, _slice.call(arguments))];</span>
+    },
+&nbsp;
+    /**
+     * @override
+     **/
+    getHostsWithPortConfig: function getHostsWithPortConfig(component, prefix, suffix, delimiter, port, portFromDependencies) {
+      var ret = this._super.apply(this, _slice.call(arguments));
+      ret.componentExists = true;
+      return ret;
+    },
+&nbsp;
+    /**
+     * @see App.ControlFlowInitializerMixin.getNameNodeHAControl
+     * @see App.HostsBasedInitializerMixin.getHostsWithPortConfig
+     */
+    getNameNodeHAOnlyHostsPortConfig: function getNameNodeHAOnlyHostsPortConfig(component, prefix, suffix, delimiter, port, portFromDependencies) {
+      return [this.getNameNodeHAControl(), this.getHostsWithPortConfig.apply(this, _slice.call(arguments))];
+    },
+&nbsp;
+    /**
+     * @see App.ControlFlowInitializerMixin.getResourceManagerHAControl
+     * @see App.HostsBasedInitializerMixin.getHostsWithPortConfig
+     */
+    getResourceManagerHAOnlyHostsPortConfig: <span class="fstat-no" title="function not covered" >function getResourceManagerHAOnlyHostsPortConfig(component, prefix, suffix, delimiter, port, portFromDependencies) {</span>
+<span class="cstat-no" title="statement not covered" >      return [this.getResourceManagerHAControl(), this.getHostsWithPortConfig.apply(this, _slice.call(arguments))];</span>
+    },
+&nbsp;
+    /**
+     * @see App.HostsBasedInitializerMixin.getHostsListComponentConfig
+     * @see getJSONStringifiedValueConfig
+     */
+    getHostsListComponentJSONStringifiedConfig: function getHostsListComponentJSONStringifiedConfig(component, componentExists, delimiter) {
+      return [this.getHostsListComponentConfig.apply(this, _slice.call(arguments)), this.getJSONStringifiedValueConfig()];
+    },
+&nbsp;
+    /**
+     * @see App.ControlFlowInitializerMixin.getHDPStackVersionControl
+     * @see App.HostsBasedInitializerMixin.getHostsWithPortConfig
+     */
+    getHDPStackOnlyHostsPortConfig: function getHDPStackOnlyHostsPortConfig(minStackVersion, component, prefix, suffix, delimiter, port, portFromDependencies) {
+      return [this.getHDPStackVersionControl(minStackVersion), this.getHostsWithPortConfig.apply(this, _slice.call(arguments, 1))];
+    },
+&nbsp;
+    _initYarnRMZkAdress: function _initYarnRMZkAdress(configProperty, localDB, dependencies) {
+      return this._initAsHostsWithPort(configProperty, localDB, dependencies, {
+        component: 'ZOOKEEPER_SERVER',
+        componentExists: true,
+        modifier: {
+          prefix: '',
+          suffix: '',
+          delimiter: ','
+        },
+        portKey: 'zkClientPort'
+      });
+    },
+&nbsp;
+    _initTempletonHiveProperties: function _initTempletonHiveProperties(configProperty, localDB, dependecies, initializer) {
+      var hostNames = localDB.masterComponentHosts.filter(function (masterComponent) {
+        return ['HIVE_METASTORE'].contains(masterComponent.component) &amp;&amp; masterComponent.isInstalled === true;
+      }).mapProperty('hostName').uniq().sort();
+      var hiveMSHosts = hostNames.map(function (hostName) {
+        return "thrift://" + hostName + ":" + dependecies.hiveMetastorePort;
+      }).join('\\,');
+      var value = configProperty.value.replace(/thrift.+[0-9]{2,},/i, hiveMSHosts + ",");
+      Em.setProperties(configProperty, {
+        value: value,
+        recommendedValue: value
+      });
+      return configProperty;
+    },
+&nbsp;
+    _initAtlasGraphIndexSearchSolrZkUrl: function _initAtlasGraphIndexSearchSolrZkUrl(configProperty, localDB, dependencies, initializer) {
+      var solr = dependencies.infraSolrZnode;
+      return this._initAsHostsWithPort(configProperty, localDB, dependencies, {
+        component: 'ZOOKEEPER_SERVER',
+        componentExists: true,
+        modifier: {
+          prefix: '',
+          suffix: solr,
+          delimiter: solr + ','
+        },
+        portKey: 'zkClientPort'
+      });
+    },
+&nbsp;
+    /**
+     * Set up `this.initializers` and `this.uniqueInitializers` properties according
+     * to property list names.
+     *
+     * @param  {string[]} properties list of property names
+     */
+    _bootstrapInitializers: function _bootstrapInitializers(properties) {
+      var initializers = {},
+          uniqueInitializers = {},
+          defaultInitializers = this.__defaultInitializers(),
+          defaultUniqueInitializers = this.get('__defaultUniqueInitializers');
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (Em.isNone(properties)) {
+<span class="cstat-no" title="statement not covered" >        initializers = this.__defaultInitializers();</span>
+<span class="cstat-no" title="statement not covered" >        uniqueInitializer = this.get('__defaultUniqueInitializers');</span>
+      } else {
+        properties.forEach(function (propertyName) {
+          if (defaultInitializers[propertyName]) {
+            initializers[propertyName] = defaultInitializers[propertyName];
+          } else <span class="missing-if-branch" title="else path not taken" >E</span>if (defaultUniqueInitializers[propertyName]) {
+            uniqueInitializers[propertyName] = defaultUniqueInitializers[propertyName];
+          }
+        });
+      }
+      this._setForComputed('initializers', initializers);
+      this.set('uniqueInitializers', uniqueInitializers);
+    }
+  });
+&nbsp;
+  /**
+   * ZooKeeper service add/remove components initializer.
+   * @instance App.AddComponentConfigInitializer
+   */
+  App.AddZooKeeperComponentsInitializer = App.AddComponentConfigInitializer.create({
+    initializeForProperties: ['zookeeper.connect', 'ha.zookeeper.quorum', 'hbase.zookeeper.quorum', 'instance.zookeeper.host', 'templeton.zookeeper.hosts', 'hive.cluster.delegation.token.store.zookeeper.connectString', 'yarn.resourcemanager.zk-address', 'hive.zookeeper.quorum', 'storm.zookeeper.servers', 'hadoop.registry.zk.quorum', 'atlas.audit.hbase.zookeeper.quorum', 'atlas.graph.index.search.solr.zookeeper-url', 'atlas.graph.storage.hostname', 'atlas.kafka.zookeeper.connect']
+  });
+&nbsp;
+  /**
+   * Hive service add/remove components initializer.
+   * @instance App.AddComponentConfigInitializer
+   */
+  App.AddHiveComponentsInitializer = App.AddComponentConfigInitializer.create({
+    initializeForProperties: ['hive.metastore.uris', 'templeton.hive.properties', 'hadoop.proxyuser.{{hiveUser}}.hosts']
+  });
+&nbsp;
+  /**
+   * WebHCat service add/remove components initializer.
+   * @instance App.AddComponentConfigInitializer
+   */
+  App.AddWebHCatComponentsInitializer = App.AddComponentConfigInitializer.create({
+    initializeForProperties: ['hadoop.proxyuser.{{webhcatUser}}.hosts']
+  });
+&nbsp;
+  /**
+   * Hive Server Interactive component add initializer.
+   * @instance App.AddHiveServerInteractiveInitializer
+   */
+  App.AddHiveServerInteractiveInitializer = App.AddComponentConfigInitializer.create({
+    initializeForProperties: ['hadoop.proxyuser.{{hiveUser}}.hosts']
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,2055 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/controllers/main/admin/kerberos.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">app/controllers/main/admin/kerberos.js</span></h1>
+    <h2>
+        Statements: <span class="metric">31.94% <small>(61 / 191)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">47.67% <small>(41 / 86)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">23.81% <small>(15 / 63)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">32.11% <small>(61 / 190)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/controllers/main/admin/</a> &#187; kerberos.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">31</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("controllers/main/admin/kerberos", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+  require('controllers/main/admin/kerberos/step4_controller');
+&nbsp;
+  App.MainAdminKerberosController = App.KerberosWizardStep4Controller.extend({
+    name: 'mainAdminKerberosController',
+&nbsp;
+    /**
+     * @type {boolean}
+     * @deafult false
+     */
+    securityEnabled: false,
+&nbsp;
+    /**
+     * @type {boolean}
+     * @default false
+     */
+    defaultKerberosLoaded: false,
+&nbsp;
+    /**
+     * @type {boolean}
+     * @default false
+     */
+    dataIsLoaded: false,
+&nbsp;
+    /**
+     * @type {boolean}
+     * @default true
+     */
+    isRecommendedLoaded: true,
+&nbsp;
+    /**
+     * @type {boolean}
+     * @default false
+     */
+    isEditMode: false,
+&nbsp;
+    /**
+     * @type {string}
+     */
+    kdc_type: '',
+&nbsp;
+    kdcTypesValues: {
+      'mit-kdc': Em.I18n.t('admin.kerberos.wizard.step1.option.kdc'),
+      'active-directory': Em.I18n.t('admin.kerberos.wizard.step1.option.ad'),
+      'ipa': Em.I18n.t('admin.kerberos.wizard.step1.option.ipa'),
+      'none': Em.I18n.t('admin.kerberos.wizard.step1.option.manual')
+    },
+&nbsp;
+    getAddSecurityWizardStatus: <span class="fstat-no" title="function not covered" >function getAddSecurityWizardStatus() {</span>
+<span class="cstat-no" title="statement not covered" >      return App.db.getSecurityWizardStatus();</span>
+    },
+    setAddSecurityWizardStatus: <span class="fstat-no" title="function not covered" >function setAddSecurityWizardStatus(status) {</span>
+<span class="cstat-no" title="statement not covered" >      App.db.setSecurityWizardStatus(status);</span>
+    },
+&nbsp;
+    setDisableSecurityStatus: <span class="fstat-no" title="function not covered" >function setDisableSecurityStatus(status) {</span>
+<span class="cstat-no" title="statement not covered" >      App.db.setDisableSecurityStatus(status);</span>
+    },
+    getDisableSecurityStatus: <span class="fstat-no" title="function not covered" >function getDisableSecurityStatus(status) {</span>
+<span class="cstat-no" title="statement not covered" >      return App.db.getDisableSecurityStatus();</span>
+    },
+&nbsp;
+    notifySecurityOff: false,
+    notifySecurityAdd: false,
+&nbsp;
+    notifySecurityOffPopup: <span class="fstat-no" title="function not covered" >function notifySecurityOffPopup() {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      this.checkServiceWarnings().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        App.ModalPopup.show({</span>
+          header: Em.I18n.t('popup.confirmation.commonHeader'),
+          primary: Em.I18n.t('ok'),
+          onPrimary: <span class="fstat-no" title="function not covered" >function onPrimary() {</span>
+<span class="cstat-no" title="statement not covered" >            App.db.setSecurityDeployCommands(undefined);</span>
+<span class="cstat-no" title="statement not covered" >            self.setDisableSecurityStatus("RUNNING");</span>
+<span class="cstat-no" title="statement not covered" >            App.router.transitionTo('disableSecurity');</span>
+<span class="cstat-no" title="statement not covered" >            this.hide();</span>
+          },
+          bodyClass: Ember.View.extend({
+            templateName: require('templates/main/admin/kerberos/notify_security_off_popup')
+          })
+        });
+      });
+    },
+&nbsp;
+    /**
+     * Show confirmation popup for regenerate keytabs
+     * @method regenerateKeytabs
+     * @param callback function (optional)
+     * @return {App.ModalPopup}
+     */
+    regenerateKeytabs: function regenerateKeytabs(callback) {
+      var self = this;
+&nbsp;
+      return App.ModalPopup.show({
+&nbsp;
+        /**
+         * True - regenerate keytabs only for missing hosts and components, false - regenerate for all hosts and components
+         * @type {boolean}
+         */
+        regenerateKeytabsOnlyForMissing: false,
+&nbsp;
+        header: Em.I18n.t('admin.kerberos.button.regenerateKeytabs'),
+&nbsp;
+        bodyClass: Em.View.extend({
+          templateName: require('templates/main/admin/kerberos/regenerate_keytabs_popup_body')
+        }),
+&nbsp;
+        onPrimary: function onPrimary() {
+          this._super();
+          return self.restartServicesAfterRegenerate(this.get('regenerateKeytabsOnlyForMissing'), callback);
+        }
+      });
+    },
+&nbsp;
+    /**
+     * Show confirmation popup for restarting all services and after confirmation regenerate keytabs
+     *
+     * @param regenerateKeytabsOnlyForMissing {Boolean}
+     * @param callback (optional)
+     * @returns {*}
+     */
+    restartServicesAfterRegenerate: function restartServicesAfterRegenerate(regenerateKeytabsOnlyForMissing, callback) {
+      var self = this;
+&nbsp;
+      return App.ModalPopup.show({
+&nbsp;
+        /**
+         * True - automatically restart services, false - user will have to restart required services manually
+         * @type {boolean}
+         */
+        restartComponents: false,
+&nbsp;
+        header: Em.I18n.t('admin.kerberos.button.regenerateKeytabs'),
+&nbsp;
+        bodyClass: Em.View.extend({
+          templateName: require('templates/main/admin/kerberos/restart_services_after_regenerate_body')
+        }),
+&nbsp;
+        onPrimary: function onPrimary() {
+          this._super();
+          var popupContext = this;
+          // Keytabs can either be regenerated directly or after updating kerberos descriptor in the callback function
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (Em.typeOf(callback) === 'function') {
+<span class="cstat-no" title="statement not covered" >            callback().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >              self.regenerateKeytabsRequest(regenerateKeytabsOnlyForMissing, popupContext.get('restartComponents'));</span>
+            });
+          } else {
+            self.regenerateKeytabsRequest(regenerateKeytabsOnlyForMissing, popupContext.get('restartComponents'));
+          }
+        }
+      });
+    },
+&nbsp;
+    /**
+     * Send request to regenerate keytabs
+     * @param {boolean} missingOnly determines type of regeneration - missing|all
+     * @param {boolean} withAutoRestart determines if the system should automatically restart all services or not after regeneration
+     * @returns {$.ajax}
+     */
+    regenerateKeytabsRequest: function regenerateKeytabsRequest(missingOnly, withAutoRestart) {
+      missingOnly = missingOnly || false;
+&nbsp;
+      return App.ajax.send({
+        name: "admin.kerberos_security.regenerate_keytabs",
+        sender: this,
+        data: {
+          type: missingOnly ? 'missing' : 'all',
+          withAutoRestart: withAutoRestart || false
+        },
+        success: "regenerateKeytabsSuccess"
+      });
+    },
+&nbsp;
+    /**
+     * Success callback of &lt;code&gt;regenerateKeytabs&lt;/code&gt;
+     * show background operations popup if appropriate option is set
+     *
+     * @param data
+     * @param opt
+     * @param params
+     * @param request
+     */
+    regenerateKeytabsSuccess: <span class="fstat-no" title="function not covered" >function regenerateKeytabsSuccess(data, opt, params, request) {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      App.router.get('userSettingsController').dataLoading('show_bg').done(<span class="fstat-no" title="function not covered" >function (initValue) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (initValue) {</span>
+<span class="cstat-no" title="statement not covered" >          App.router.get('backgroundOperationsController').showPopup();</span>
+        }
+<span class="cstat-no" title="statement not covered" >        self.set('needsRestartAfterRegenerate', params.withAutoRestart);</span>
+      });
+    },
+&nbsp;
+    /**
+     * Do request to server for restarting all services
+     * @method restartAllServices
+     * @return {$.ajax}
+     */
+    restartAllServices: function () {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!App.router.get('backgroundOperationsController.runningOperationsCount')) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('needsRestartAfterRegenerate')) {
+<span class="cstat-no" title="statement not covered" >          this.set('needsRestartAfterRegenerate', false);</span>
+<span class="cstat-no" title="statement not covered" >          App.router.get('mainServiceController').restartAllServices();</span>
+        }
+      }
+    }.observes('controllers.backgroundOperationsController.runningOperationsCount'),
+&nbsp;
+    /**
+     * performs cluster check before kerbefos security
+     * wizard starts if &lt;code&gt;preKerberizeCheck&lt;code&gt; supports is true
+     * otherwise runs &lt;code&gt;startKerberosWizard&lt;code&gt;
+     * @method checkAndStartKerberosWizard
+     */
+    checkAndStartKerberosWizard: <span class="fstat-no" title="function not covered" >function checkAndStartKerberosWizard() {</span>
+<span class="cstat-no" title="statement not covered" >      if (App.get('supports.preKerberizeCheck')) {</span>
+<span class="cstat-no" title="statement not covered" >        App.ajax.send({</span>
+          name: "admin.kerberos_security.checks",
+          sender: this,
+          success: "runSecurityCheckSuccess"
+        });
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.startKerberosWizard();</span>
+      }
+    },
+&nbsp;
+    /**
+     * success callback of &lt;code&gt;checkAndStartKerberosWizard()&lt;/code&gt;
+     * if there are some fails - it shows popup else open security wizard
+     * @param data {object}
+     * @param opt {object}
+     * @param params {object}
+     */
+    runSecurityCheckSuccess: function runSecurityCheckSuccess(data, opt, params) {
+      //TODO correct check
+      if (data.items.someProperty('UpgradeChecks.status', "FAIL")) {
+        var hasFails = data.items.someProperty('UpgradeChecks.status', 'FAIL'),
+            header = Em.I18n.t('popup.clusterCheck.Security.header').format(params.label),
+            title = Em.I18n.t('popup.clusterCheck.Security.title'),
+            alert = Em.I18n.t('popup.clusterCheck.Security.alert');
+&nbsp;
+        App.showClusterCheckPopup(data, {
+          header: header,
+          failTitle: title,
+          failAlert: alert,
+          noCallbackCondition: hasFails
+        });
+      } else {
+        this.startKerberosWizard();
+      }
+    },
+&nbsp;
+    startKerberosWizard: <span class="fstat-no" title="function not covered" >function startKerberosWizard() {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      this.checkServiceWarnings().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        self.setAddSecurityWizardStatus('RUNNING');</span>
+<span class="cstat-no" title="statement not covered" >        App.router.get('kerberosWizardController').setDBProperty('onClosePath', 'main.admin.adminKerberos.index');</span>
+<span class="cstat-no" title="statement not covered" >        App.router.transitionTo('adminKerberos.adminAddKerberos');</span>
+      });
+    },
+&nbsp;
+    /**
+     * Loads the security status from server (security_enabled property in cluster-env configuration)
+     */
+    loadSecurityStatusFromServer: <span class="fstat-no" title="function not covered" >function loadSecurityStatusFromServer() {</span>
+<span class="cstat-no" title="statement not covered" >      if (App.get('testMode')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('securityEnabled', !App.get('testEnableSecurity'));</span>
+<span class="cstat-no" title="statement not covered" >        this.set('dataIsLoaded', true);</span>
+      } else {
+        //get Security Status From Server
+<span class="cstat-no" title="statement not covered" >        this.getSecurityType();</span>
+<span class="cstat-no" title="statement not covered" >        return this.getSecurityStatus();</span>
+      }
+    },
+&nbsp;
+    /**
+     * Load security status from server.
+     * @returns {$.Deferred}
+     */
+    getSecurityStatus: <span class="fstat-no" title="function not covered" >function getSecurityStatus() {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      var dfd = $.Deferred();</span>
+<span class="cstat-no" title="statement not covered" >      if (App.get('testMode')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('securityEnabled', !App.get('testEnableSecurity'));</span>
+<span class="cstat-no" title="statement not covered" >        this.set('dataIsLoaded', true);</span>
+<span class="cstat-no" title="statement not covered" >        dfd.resolve();</span>
+      } else {
+        //get Security Status From Server
+<span class="cstat-no" title="statement not covered" >        App.ajax.send({</span>
+          name: 'admin.security_status',
+          sender: this,
+          success: 'getSecurityStatusSuccessCallback',
+          error: 'errorCallback'
+        }).always(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >          self.getSecurityType(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            dfd.resolve();</span>
+          });
+        });
+      }
+<span class="cstat-no" title="statement not covered" >      return dfd.promise();</span>
+    },
+&nbsp;
+    getSecurityStatusSuccessCallback: <span class="fstat-no" title="function not covered" >function getSecurityStatusSuccessCallback(data) {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('dataIsLoaded', true);</span>
+<span class="cstat-no" title="statement not covered" >      var securityType = data.Clusters.security_type;</span>
+<span class="cstat-no" title="statement not covered" >      this.set('securityEnabled', securityType === 'KERBEROS');</span>
+    },
+&nbsp;
+    errorCallback: <span class="fstat-no" title="function not covered" >function errorCallback(jqXHR) {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('dataIsLoaded', true);</span>
+      // Show the error popup if the API call received a response from the server.
+      // jqXHR.status will be empty when browser cancels the request. Refer to AMBARI-5921 for more info
+<span class="cstat-no" title="statement not covered" >      if (!!jqXHR.status) {</span>
+<span class="cstat-no" title="statement not covered" >        this.showSecurityErrorPopup();</span>
+      }
+    },
+&nbsp;
+    showSecurityErrorPopup: <span class="fstat-no" title="function not covered" >function showSecurityErrorPopup() {</span>
+<span class="cstat-no" title="statement not covered" >      App.ModalPopup.show({</span>
+        header: Em.I18n.t('common.error'),
+        secondary: false,
+        bodyClass: Ember.View.extend({
+          template: Ember.Handlebars.compile('&lt;p&gt;{{t admin.security.status.error}}&lt;/p&gt;')
+        })
+      });
+    },
+&nbsp;
+    /**
+     * Override &lt;code&gt;App.KerberosWizardStep4Controller&lt;/code&gt;
+     */
+    clearStep: <span class="fstat-no" title="function not covered" >function clearStep() {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('isEditMode', false);</span>
+<span class="cstat-no" title="statement not covered" >      this._super();</span>
+    },
+&nbsp;
+    /**
+     * Override &lt;code&gt;App.KerberosWizardStep4Controller&lt;/code&gt;
+     *
+     * @param {App.ServiceConfigProperty[]} properties
+     */
+    setStepConfigs: <span class="fstat-no" title="function not covered" >function setStepConfigs(properties) {</span>
+<span class="cstat-no" title="statement not covered" >      this.get('stepConfigs').clear();</span>
+<span class="cstat-no" title="statement not covered" >      this._super(properties);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('selectedService', this.get('stepConfigs')[0]);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('stepConfigs').forEach(<span class="fstat-no" title="function not covered" >function (serviceConfig) {</span></span>
+<span class="cstat-no" title="statement not covered" >        serviceConfig.set('initConfigsLength', serviceConfig.get('configs.length'));</span>
+      });
+    },
+&nbsp;
+    /**
+     * Override &lt;code&gt;App.KerberosWizardStep4Controller&lt;/code&gt;
+     *
+     * @param {App.ServiceConfigProperty[]} configs
+     * @returns {App.ServiceConfigProperty[]}
+     */
+    prepareConfigProperties: function prepareConfigProperties(configs) {
+      var self = this;
+      var configProperties = configs.slice(0);
+      var siteProperties = App.configsCollection.getAll();
+      var installedServiceNames = ['Cluster'].concat(App.Service.find().mapProperty('serviceName'));
+      configProperties = configProperties.filter(function (item) {
+        return installedServiceNames.contains(item.get('serviceName'));
+      });
+      configProperties.setEach('isSecureConfig', false);
+      configProperties.forEach(function (property, item, allConfigs) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (['spnego_keytab', 'spnego_principal'].contains(property.get('name'))) {
+<span class="cstat-no" title="statement not covered" >          property.addObserver('value', self, 'spnegoPropertiesObserver');</span>
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (property.get('observesValueFrom')) {
+<span class="cstat-no" title="statement not covered" >          var observedValue = allConfigs.findProperty('name', property.get('observesValueFrom')).get('value');</span>
+<span class="cstat-no" title="statement not covered" >          property.set('value', observedValue);</span>
+<span class="cstat-no" title="statement not covered" >          property.set('recommendedValue', observedValue);</span>
+        }
+        if (property.get('serviceName') == 'Cluster') {
+          property.set('category', 'Global');
+        } else {
+          property.set('category', property.get('serviceName'));
+        }
+        // All user identity should be grouped under "Ambari Principals" category
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (property.get('identityType') == 'user') <span class="cstat-no" title="statement not covered" >property.set('category', 'Ambari Principals');</span>
+        var siteProperty = siteProperties.findProperty('name', property.get('name'));
+        if (siteProperty) {
+          <span class="missing-if-branch" title="if path not taken" >I</span>if (siteProperty.category === property.get('category')) {
+<span class="cstat-no" title="statement not covered" >            property.set('displayName', siteProperty.displayName);</span>
+<span class="cstat-no" title="statement not covered" >            if (siteProperty.index) {</span>
+<span class="cstat-no" title="statement not covered" >              property.set('index', siteProperty.index);</span>
+            }
+          }
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (siteProperty.displayType) {
+            property.set('displayType', siteProperty.displayType);
+          }
+        }
+      });
+      configProperties.setEach('isEditable', false);
+      return configProperties;
+    },
+&nbsp;
+    getKDCSessionState: function getKDCSessionState(callback, kdcCancelHandler) {
+      var self = this;
+      if (this.get('securityEnabled') || App.get('isKerberosEnabled')) {
+        this.getSecurityType(function () {
+          if (!self.get('isManualKerberos')) {
+            App.ajax.send({
+              name: 'kerberos.session.state',
+              sender: self,
+              data: {
+                callback: callback
+              },
+              success: 'checkState',
+              kdcCancelHandler: kdcCancelHandler
+            });
+          } else {
+            callback();
+          }
+        });
+      } else {
+        callback();
+      }
+    },
+&nbsp;
+    /**
+     * Determines security type.
+     *
+     * @param {function} [callback] callback function to execute
+     * @returns {$.Deferred|null}
+     */
+    getSecurityType: function getSecurityType(callback) {
+      if (this.get('securityEnabled') || App.get('isKerberosEnabled')) {
+        if (!this.get('kdc_type')) {
+          return App.ajax.send({
+            name: 'admin.security.cluster_configs.kerberos',
+            sender: this,
+            data: {
+              clusterName: App.get('clusterName'),
+              additionalCallback: callback
+            },
+            success: 'getSecurityTypeSuccess'
+          });
+        } else {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (Em.typeOf(callback) === 'function') {
+            callback();
+          }
+          return $.Deferred().resolve().promise;
+        }
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (Em.typeOf(callback) === 'function') {
+        callback();
+      } else {
+<span class="cstat-no" title="statement not covered" >        return $.Deferred().resolve().promise;</span>
+      }
+    },
+&nbsp;
+    getSecurityTypeSuccess: function getSecurityTypeSuccess(data, opt, params) {
+      var kdcType = data.items &amp;&amp; data.items[0] &amp;&amp; Em.getWithDefault(Em.getWithDefault(data.items[0], 'configurations', []).findProperty('type', 'kerberos-env') || {}, 'properties.kdc_type', 'none') || 'none';
+      this.set('kdc_type', kdcType);
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (Em.typeOf(params.additionalCallback) === 'function') {
+<span class="cstat-no" title="statement not covered" >        params.additionalCallback();</span>
+      }
+    },
+&nbsp;
+    isManualKerberos: Em.computed.equal('kdc_type', 'none'),
+&nbsp;
+    checkState: <span class="fstat-no" title="function not covered" >function checkState(data, opt, params) {</span>
+<span class="cstat-no" title="statement not covered" >      var res = Em.get(data, 'Services.attributes.kdc_validation_result');</span>
+<span class="cstat-no" title="statement not covered" >      var message = Em.get(data, 'Services.attributes.kdc_validation_failure_details');</span>
+<span class="cstat-no" title="statement not covered" >      if (res.toUpperCase() === "OK") {</span>
+<span class="cstat-no" title="statement not covered" >        params.callback();</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        App.showInvalidKDCPopup(opt, App.format.kdcErrorMsg(message, false));</span>
+      }
+    },
+&nbsp;
+    /**
+     * Determines if some config value is changed
+     * @type {boolean}
+     */
+    isPropertiesChanged: Em.computed.someBy('stepConfigs', 'isPropertiesChanged', true),
+&nbsp;
+    /**
+     * Determines if the save button is disabled
+     */
+    isSaveButtonDisabled: Em.computed.or('isSubmitDisabled', '!isPropertiesChanged'),
+&nbsp;
+    /**
+     * Determines if the `Disbale Kerberos` and `Regenerate Keytabs` button are disabled
+     */
+    isKerberosButtonsDisabled: Em.computed.not('isSaveButtonDisabled'),
+&nbsp;
+    makeConfigsEditable: <span class="fstat-no" title="function not covered" >function makeConfigsEditable() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('stepConfigs') &amp;&amp; this.get('stepConfigs.length')) {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('isEditMode', true);</span>
+<span class="cstat-no" title="statement not covered" >        this.get('stepConfigs').forEach(<span class="fstat-no" title="function not covered" >function (_stepConfig) {</span></span>
+<span class="cstat-no" title="statement not covered" >          _stepConfig.get('configs').setEach('isEditable', true);</span>
+<span class="cstat-no" title="statement not covered" >          _stepConfig.get('configs').forEach(<span class="fstat-no" title="function not covered" >function (_config) {</span></span>
+<span class="cstat-no" title="statement not covered" >            _config.set('isEditable', _config.get('name') != 'realm');</span>
+          });
+        }, this);
+      }
+    },
+&nbsp;
+    _updateConfigs: <span class="fstat-no" title="function not covered" >function _updateConfigs() {</span>
+<span class="cstat-no" title="statement not covered" >      this.makeConfigsUneditable(true);</span>
+    },
+&nbsp;
+    /**
+     * @method makeConfigsUneditable
+     * @param configsUpdated
+     */
+    makeConfigsUneditable: <span class="fstat-no" title="function not covered" >function makeConfigsUneditable(configsUpdated) {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('isEditMode', false);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('stepConfigs').forEach(<span class="fstat-no" title="function not covered" >function (_stepConfig) {</span></span>
+<span class="cstat-no" title="statement not covered" >        _stepConfig.get('configs').forEach(<span class="fstat-no" title="function not covered" >function (_config) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (configsUpdated === true) {</span>
+            // configsUpdated should be checked for boolean true
+<span class="cstat-no" title="statement not covered" >            _config.set('savedValue', _config.get('value'));</span>
+<span class="cstat-no" title="statement not covered" >            _config.set('defaultValue', _config.get('value'));</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            _config.set('value', _config.get('savedValue') || _config.get('defaultValue'));</span>
+          }
+<span class="cstat-no" title="statement not covered" >          _config.set('isEditable', false);</span>
+        });
+      }, this);
+    },
+&nbsp;
+    /**
+     * Update kerberos descriptor and regenerate keytabs
+     */
+    submit: <span class="fstat-no" title="function not covered" >function submit(context) {</span>
+<span class="cstat-no" title="statement not covered" >      var callback;</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      var kerberosDescriptor = this.get('kerberosDescriptor');</span>
+<span class="cstat-no" title="statement not covered" >      var configs = [];</span>
+<span class="cstat-no" title="statement not covered" >      this.get('stepConfigs').forEach(<span class="fstat-no" title="function not covered" >function (_stepConfig) {</span></span>
+<span class="cstat-no" title="statement not covered" >        configs = configs.concat(_stepConfig.get('configs'));</span>
+      });
+<span class="cstat-no" title="statement not covered" >      callback = <span class="fstat-no" title="function not covered" >function callback() {</span></span>
+<span class="cstat-no" title="statement not covered" >        return App.ajax.send({</span>
+          name: 'admin.kerberos.cluster.artifact.update',
+          sender: self,
+          data: {
+            artifactName: 'kerberos_descriptor',
+            data: {
+              artifact_data: kerberosDescriptor
+            }
+          },
+          success: '_updateConfigs',
+          error: 'createKerberosDescriptor'
+        });
+      };
+<span class="cstat-no" title="statement not covered" >      this.updateKerberosDescriptor(kerberosDescriptor, configs);</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('isManualKerberos')) {</span>
+<span class="cstat-no" title="statement not covered" >        callback().done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          self.regenerateKeytabsRequest(false, false);</span>
+        });
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.restartServicesAfterRegenerate(false, callback);</span>
+      }
+    },
+&nbsp;
+    createKerberosDescriptor: <span class="fstat-no" title="function not covered" >function createKerberosDescriptor(requestData, ajaxOptions, error, opt, params) {</span>
+<span class="cstat-no" title="statement not covered" >      if (requestData &amp;&amp; requestData.status === 404) {</span>
+<span class="cstat-no" title="statement not covered" >        var artifactName = params.artifactName,</span>
+            data = params.data;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        App.ajax.send({</span>
+          name: 'admin.kerberos.cluster.artifact.create',
+          sender: self,
+          data: {
+            artifactName: artifactName,
+            data: data
+          },
+          success: '_updateConfigs'
+        });
+      }
+    },
+&nbsp;
+    /**
+     * List of the warnings regarding specific services before enabling/disabling Kerberos.
+     *
+     * @type {String[]}
+     */
+    serviceAlerts: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var messages = [];</span>
+<span class="cstat-no" title="statement not covered" >      var serviceAlertMap = {</span>
+        YARN: Em.I18n.t('admin.kerberos.service.alert.yarn')
+      };
+<span class="cstat-no" title="statement not covered" >      var installedServices = App.Service.find().mapProperty('serviceName');</span>
+<span class="cstat-no" title="statement not covered" >      Em.keys(serviceAlertMap).forEach(<span class="fstat-no" title="function not covered" >function (serviceName) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (installedServices.contains(serviceName)) {</span>
+<span class="cstat-no" title="statement not covered" >          messages.push(serviceAlertMap[serviceName]);</span>
+        }
+      });
+<span class="cstat-no" title="statement not covered" >      return messages;</span>
+    }.property(),
+&nbsp;
+    /**
+     * Check for additional info to display before enabling/disabling kerberos and show appropriate
+     * messages in popup if needed.
+     * @returns {$.Deferred} - promise
+     */
+    checkServiceWarnings: <span class="fstat-no" title="function not covered" >function checkServiceWarnings() {</span>
+<span class="cstat-no" title="statement not covered" >      var dfd = $.Deferred();</span>
+<span class="cstat-no" title="statement not covered" >      this.displayServiceWarnings(this.get('serviceAlerts'), dfd);</span>
+<span class="cstat-no" title="statement not covered" >      return dfd.promise();</span>
+    },
+&nbsp;
+    /**
+     * Show appropriate message regarding changes affected after enabling/disabling Kerberos
+     *
+     * @param {String[]} messages - list of the messages to display
+     * @param {$.Deferred} dfd - used to break recursive calls and reject/resolve promise returned by &lt;code&gt;checkServiceWarnings&lt;/code&gt;
+     */
+    displayServiceWarnings: <span class="fstat-no" title="function not covered" >function displayServiceWarnings(messages, dfd) {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      if (!messages.get('length')) {</span>
+<span class="cstat-no" title="statement not covered" >        dfd.resolve();</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        App.showConfirmationPopup(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          self.displayServiceWarnings(messages.slice(1), dfd);</span>
+        }, messages[0], <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >          dfd.reject();</span>
+        }, Em.I18n.t('common.warning'), Em.I18n.t('common.proceedAnyway'));
+      }
+    },
+&nbsp;
+    showManageKDCCredentialsPopup: <span class="fstat-no" title="function not covered" >function showManageKDCCredentialsPopup() {</span>
+<span class="cstat-no" title="statement not covered" >      return App.showManageCredentialsPopup();</span>
+    },
+&nbsp;
+    loadStep: <span class="fstat-no" title="function not covered" >function loadStep() {</span>
+<span class="cstat-no" title="statement not covered" >      var self = this;</span>
+<span class="cstat-no" title="statement not covered" >      if (this.get('isRecommendedLoaded') === false) {</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      this.clearStep();</span>
+<span class="cstat-no" title="statement not covered" >      this.getDescriptor().then(<span class="fstat-no" title="function not covered" >function (properties) {</span></span>
+<span class="cstat-no" title="statement not covered" >        self.setStepConfigs(self.createServicesStackDescriptorConfigs(properties));</span>
+      }).always(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        self.set('isRecommendedLoaded', true);</span>
+      });
+    },
+&nbsp;
+    showDownloadCsv: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      var hasUpgradePrivilege = App.isAuthorized('CLUSTER.UPGRADE_DOWNGRADE_STACK');</span>
+<span class="cstat-no" title="statement not covered" >      return hasUpgradePrivilege;</span>
+    }.property(),
+&nbsp;
+    downloadCSV: <span class="fstat-no" title="function not covered" >function downloadCSV() {</span>
+<span class="cstat-no" title="statement not covered" >      App.router.get('kerberosWizardStep5Controller').getCSVData(false);</span>
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

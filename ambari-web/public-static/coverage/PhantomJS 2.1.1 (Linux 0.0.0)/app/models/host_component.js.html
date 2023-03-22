@@ -1,0 +1,1887 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/models/host_component.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/models/host_component.js</span></h1>
+    <h2>
+        Statements: <span class="metric">66.67% <small>(58 / 87)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">61.36% <small>(81 / 132)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">76% <small>(19 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">70.73% <small>(58 / 82)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">app/models/</a> &#187; host_component.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">29</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">26</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">422</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">422</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">422</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">422</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _toConsumableArray(arr) {</span> <span class="cstat-no" title="statement not covered" >if (Array.isArray(arr)) { <span class="cstat-no" title="statement not covered" >for (var i = 0, arr2 = Array(arr.length); i &lt; arr.length; i++) { <span class="cstat-no" title="statement not covered" >arr2[i] = arr[i]; </span>} <span class="cstat-no" title="statement not covered" ></span>return arr2; </span>} else { <span class="cstat-no" title="statement not covered" >return Array.from(arr); </span>} </span>}
+&nbsp;
+;require.register("models/host_component", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.HostComponent = DS.Model.extend({
+    workStatus: DS.attr('string'),
+    passiveState: DS.attr('string'),
+    componentName: DS.attr('string'),
+    displayName: DS.attr('string'),
+    haStatus: DS.attr('string'),
+    displayNameAdvanced: DS.attr('string'),
+    staleConfigs: DS.attr('boolean'),
+    host: DS.belongsTo('App.Host'),
+    componentLogs: DS.belongsTo('App.HostComponentLog'),
+    hostName: DS.attr('string'),
+    publicHostName: DS.attr('string'),
+    service: DS.belongsTo('App.Service'),
+    adminState: DS.attr('string'),
+    haNameSpace: DS.attr('string'),
+    clusterIdValue: DS.attr('string'),
+&nbsp;
+    serviceDisplayName: Em.computed.truncate('service.displayName', 14, 11),
+&nbsp;
+    getDisplayName: Em.computed.truncate('displayName', 30, 25),
+&nbsp;
+    getDisplayNameAdvanced: Em.computed.truncate('displayNameAdvanced', 30, 25),
+&nbsp;
+    summaryLabelClassName: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return 'label_for_' + this.get('componentName').toLowerCase();</span>
+    }.property('componentName'),
+&nbsp;
+    summaryValueClassName: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return 'value_for_' + this.get('componentName').toLowerCase();</span>
+    }.property('componentName'),
+    /**
+     * Determine if component is client
+     * @returns {bool}
+     */
+    isClient: function () {
+      return App.HostComponent.isClient(this.get('componentName'));
+    }.property('componentName'),
+    /**
+     * Determine if component is running now
+     * Based on &lt;code&gt;workStatus&lt;/code&gt;
+     * @returns {bool}
+     */
+    isRunning: Em.computed.existsIn('workStatus', ['STARTED', 'STARTING']),
+&nbsp;
+    /**
+     * Determines if component is not installed
+     * Based on &lt;code&gt;workStatus&lt;/code&gt;
+     *
+     * @type {boolean}
+     */
+    isNotInstalled: Em.computed.existsIn('workStatus', ['INIT', 'INSTALL_FAILED']),
+&nbsp;
+    /**
+     * Determine if component is master
+     * @returns {bool}
+     */
+    isMaster: function () {
+      return App.HostComponent.isMaster(this.get('componentName'));
+    }.property('componentName', 'App.components.masters'),
+&nbsp;
+    /**
+     * Determine if component is slave
+     * @returns {bool}
+     */
+    isSlave: function () {
+      return App.HostComponent.isSlave(this.get('componentName'));
+    }.property('componentName'),
+    /**
+     * Only certain components can be deleted.
+     * They include some from master components,
+     * some from slave components, and rest from
+     * client components.
+     * @returns {bool}
+     */
+    isDeletable: function () {
+      return App.get('components.deletable').contains(this.get('componentName'));
+    }.property('componentName'),
+    /**
+     * A host-component is decommissioning when it is in HDFS service's list of
+     * decomNodes.
+     * @returns {bool}
+     */
+    isDecommissioning: function () {
+      var decommissioning = false;
+      var hostName = this.get('hostName');
+      var componentName = this.get('componentName');
+      var hdfsSvc = App.HDFSService.find().objectAt(0);
+      if (componentName === 'DATANODE' &amp;&amp; hdfsSvc) {
+        var decomNodes = hdfsSvc.get('decommissionDataNodes');
+        var decomNode = decomNodes != null ? decomNodes.findProperty("hostName", hostName) : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+        decommissioning = decomNode != null;
+      }
+      return decommissioning;
+    }.property('componentName', 'hostName', 'App.router.clusterController.isLoaded', 'App.router.updateController.isUpdated'),
+    /**
+     * User friendly host component status
+     * @returns {String}
+     */
+    isActive: function () {
+      var passiveState = this.get('passiveState');
+      if (passiveState === 'IMPLIED_FROM_HOST') {
+        passiveState = this.get('host.passiveState');
+      } else if (passiveState === 'IMPLIED_FROM_SERVICE') {
+        passiveState = this.get('service.passiveState');
+      } else if (passiveState === 'IMPLIED_FROM_SERVICE_AND_HOST') {
+        return this.get('service.passiveState') === 'OFF' &amp;&amp; this.get('host.passiveState') === 'OFF';
+      }
+      return passiveState === 'OFF';
+    }.property('passiveState', 'host.passiveState', 'service.passiveState'),
+&nbsp;
+    /**
+     * Determine if passiveState is implied from host or/and service
+     * @returns {Boolean}
+     */
+    isImpliedState: Em.computed.existsIn('passiveState', ['IMPLIED_FROM_SERVICE_AND_HOST', 'IMPLIED_FROM_HOST', 'IMPLIED_FROM_SERVICE']),
+&nbsp;
+    passiveTooltip: Em.computed.ifThenElse('isActive', '', Em.I18n.t('hosts.component.passive.mode')),
+    /**
+     * Determine if component is a HDP component
+     * @returns {bool}
+     */
+    isHDPComponent: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >      return !App.get('components.nonHDP').contains(this.get('componentName'));</span>
+    }.property('componentName', 'App.components.nonHDP'),
+&nbsp;
+    /**
+     * Does component have Critical Alerts
+     * @type {boolean}
+     */
+    hasCriticalAlerts: false,
+&nbsp;
+    /**
+     * Number of the Critical and Warning alerts for current component
+     * @type {number}
+     */
+    alertsCount: 0,
+&nbsp;
+    statusClass: function () {
+      return this.get('isActive') ? this.get('workStatus') : 'icon-medkit';
+    }.property('workStatus', 'isActive'),
+&nbsp;
+    statusIconClass: Em.computed.getByKey('statusIconClassMap', 'statusClass', ''),
+&nbsp;
+    statusIconClassMap: {
+      STARTED: App.healthIconClassGreen,
+      STARTING: App.healthIconClassGreen,
+      INSTALLED: App.healthIconClassRed,
+      STOPPING: App.healthIconClassRed,
+      UNKNOWN: App.healthIconClassYellow
+    },
+&nbsp;
+    componentTextStatus: function () {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (this.get('isClient') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.get("workStatus") === 'INSTALLED')</span> {
+<span class="cstat-no" title="statement not covered" >        return Em.I18n.t('common.installed');</span>
+      }
+      return App.HostComponentStatus.getTextStatus(this.get("workStatus"));
+    }.property('workStatus', 'isDecommissioning')
+  });
+&nbsp;
+  App.HostComponent.FIXTURES = [];
+&nbsp;
+  App.HostComponent.isClient = function (componentName) {
+    return App.get('components.clients').contains(componentName);
+  };
+&nbsp;
+  App.HostComponent.isMaster = function (componentName) {
+    return App.get('components.masters').contains(componentName);
+  };
+&nbsp;
+  App.HostComponent.isSlave = function (componentName) {
+    return App.get('components.slaves').contains(componentName);
+  };
+&nbsp;
+  /**
+   * get particular counter of host-component by name
+   * @param {string} componentName
+   * @param {string} type (installedCount|startedCount|totalCount)
+   * @returns {number}
+   */
+  App.HostComponent.getCount = function (componentName, type) {
+    switch (App.StackServiceComponent.find(componentName).get('componentCategory')) {
+      case 'MASTER':
+        return Number(App.MasterComponent.find(componentName).get(type));
+      case 'SLAVE':
+        return Number(App.SlaveComponent.find(componentName).get(type));
+      case 'CLIENT':
+        return Number(App.ClientComponent.find(componentName).get(type));
+      default:
+        return 0;
+    }
+  };
+&nbsp;
+  /**
+   * @param {string} componentName
+   * @param {string} hostName
+   * @returns {string}
+   */
+  App.HostComponent.getId = function (componentName, hostName) {
+    return componentName + '_' + hostName;
+  };
+&nbsp;
+  App.HostComponentStatus = {
+    started: "STARTED",
+    starting: "STARTING",
+    stopped: "INSTALLED",
+    stopping: "STOPPING",
+    install_failed: "INSTALL_FAILED",
+    installing: "INSTALLING",
+    upgrade_failed: "UPGRADE_FAILED",
+    unknown: "UNKNOWN",
+    disabled: "DISABLED",
+    init: "INIT",
+&nbsp;
+    /**
+     * Get host component status in "machine" format
+     * @param {String} value
+     * @returns {String}
+     */
+    getKeyName: function getKeyName(value) {
+      switch (value) {
+        case this.started:
+          return 'started';
+<span class="branch-1 cbranch-no" title="branch not covered" >        case this.starting:</span>
+<span class="cstat-no" title="statement not covered" >          return 'starting';</span>
+<span class="branch-2 cbranch-no" title="branch not covered" >        case this.stopped:</span>
+<span class="cstat-no" title="statement not covered" >          return 'installed';</span>
+<span class="branch-3 cbranch-no" title="branch not covered" >        case this.stopping:</span>
+<span class="cstat-no" title="statement not covered" >          return 'stopping';</span>
+<span class="branch-4 cbranch-no" title="branch not covered" >        case this.install_failed:</span>
+<span class="cstat-no" title="statement not covered" >          return 'install_failed';</span>
+<span class="branch-5 cbranch-no" title="branch not covered" >        case this.installing:</span>
+<span class="cstat-no" title="statement not covered" >          return 'installing';</span>
+<span class="branch-6 cbranch-no" title="branch not covered" >        case this.upgrade_failed:</span>
+<span class="cstat-no" title="statement not covered" >          return 'upgrade_failed';</span>
+<span class="branch-7 cbranch-no" title="branch not covered" >        case this.disabled:</span>
+<span class="branch-8 cbranch-no" title="branch not covered" >        case this.unknown:</span>
+<span class="cstat-no" title="statement not covered" >          return 'unknown';</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return 'unknown';</span>
+    },
+&nbsp;
+    /**
+     * Get user-friendly host component status
+     * @param {String} value
+     * @returns {String}
+     */
+    getTextStatus: function getTextStatus(value) {
+      switch (value) {
+        case this.installing:
+<span class="cstat-no" title="statement not covered" >          return 'Installing...';</span>
+        case this.install_failed:
+<span class="cstat-no" title="statement not covered" >          return 'Install Failed';</span>
+        case this.stopped:
+<span class="cstat-no" title="statement not covered" >          return 'Stopped';</span>
+        case this.started:
+<span class="cstat-no" title="statement not covered" >          return 'Started';</span>
+        case this.starting:
+<span class="cstat-no" title="statement not covered" >          return 'Starting...';</span>
+        case this.stopping:
+<span class="cstat-no" title="statement not covered" >          return 'Stopping...';</span>
+        case this.unknown:
+<span class="cstat-no" title="statement not covered" >          return 'Heartbeat Lost';</span>
+        case this.upgrade_failed:
+<span class="cstat-no" title="statement not covered" >          return 'Upgrade Failed';</span>
+        case this.disabled:
+<span class="cstat-no" title="statement not covered" >          return 'Disabled';</span>
+        case this.init:
+<span class="cstat-no" title="statement not covered" >          return 'Install Pending...';</span>
+      }
+      return 'Unknown';
+    },
+&nbsp;
+    /**
+     * Get list of possible &lt;code&gt;App.HostComponent&lt;/code&gt; statuses
+     * @returns {String[]}
+     */
+    getStatusesList: function getStatusesList() {
+      var ret = [];
+      for (var st in this) {
+        if (this.hasOwnProperty(st) &amp;&amp; Em.typeOf(this[st]) == 'string') {
+          ret.push(this[st]);
+        }
+      }
+      return ret;
+    }
+  };
+&nbsp;
+  App.HostComponentActionMap = {
+    getMap: function getMap(ctx) {
+      var NN = ctx.get('controller.content.hostComponents').findProperty('componentName', 'NAMENODE'),
+          RM = ctx.get('controller.content.hostComponents').findProperty('componentName', 'RESOURCEMANAGER'),
+          RA = ctx.get('controller.content.hostComponents').findProperty('componentName', 'RANGER_ADMIN'),
+          HM = ctx.get('controller.content.hostComponents').findProperty('componentName', 'HAWQMASTER'),
+          HS = ctx.get('controller.content.hostComponents').findProperty('componentName', 'HAWQSTANDBY'),
+          HMComponent = App.MasterComponent.find('HAWQMASTER'),
+          HSComponent = App.MasterComponent.find('HAWQSTANDBY'),
+          hasMultipleMasterComponentGroups = ctx.get('service.hasMultipleMasterComponentGroups'),
+          isClientsOnlyService = ctx.get('controller.isClientsOnlyService'),
+          isStartDisabled = ctx.get('controller.isStartDisabled'),
+          isStopDisabled = ctx.get('controller.isStopDisabled');
+&nbsp;
+      return {
+        START_ALL: {
+          action: hasMultipleMasterComponentGroups ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: 'startService',
+          label: Em.I18n.t('services.service.start'),
+          cssClass: 'glyphicon glyphicon-play ' + (isStartDisabled ? <span class="branch-0 cbranch-no" title="branch not covered" >'disabled' </span>: 'enabled'),
+          isHidden: isClientsOnlyService,
+          disabled: isStartDisabled,
+          hasSubmenu: !isStartDisabled &amp;&amp; hasMultipleMasterComponentGroups,
+          submenuOptions: !isStartDisabled &amp;&amp; hasMultipleMasterComponentGroups ? <span class="branch-0 cbranch-no" title="branch not covered" >this.getMastersSubmenu(ctx, 'startCertainHostComponents') </span>: []
+        },
+        STOP_ALL: {
+          action: hasMultipleMasterComponentGroups ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: 'stopService',
+          label: Em.I18n.t('services.service.stop'),
+          cssClass: 'glyphicon glyphicon-stop ' + (isStopDisabled ? <span class="branch-0 cbranch-no" title="branch not covered" >'disabled' </span>: 'enabled'),
+          isHidden: isClientsOnlyService,
+          disabled: isStopDisabled,
+          hasSubmenu: !isStopDisabled &amp;&amp; hasMultipleMasterComponentGroups,
+          submenuOptions: !isStopDisabled &amp;&amp; hasMultipleMasterComponentGroups ? <span class="branch-0 cbranch-no" title="branch not covered" >this.getMastersSubmenu(ctx, 'stopCertainHostComponents') </span>: []
+        },
+        RESTART_ALL: {
+          action: hasMultipleMasterComponentGroups ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: 'restartAllHostComponents',
+          context: ctx.get('serviceName'),
+          label: hasMultipleMasterComponentGroups ? <span class="branch-0 cbranch-no" title="branch not covered" >Em.I18n.t('common.restart') </span>: Em.I18n.t('restart.service.all'),
+          cssClass: 'glyphicon glyphicon-time',
+          disabled: false,
+          hasSubmenu: hasMultipleMasterComponentGroups,
+          submenuOptions: hasMultipleMasterComponentGroups ? <span class="branch-0 cbranch-no" title="branch not covered" >this.getMastersSubmenu(ctx, 'restartCertainHostComponents') </span>: []
+        },
+        RESTART_NAMENODES: {
+          action: '',
+          label: Em.I18n.t('rollingrestart.dialog.title').format(pluralize(App.format.role('NAMENODE', false))),
+          cssClass: 'glyphicon glyphicon-time',
+          isHidden: !hasMultipleMasterComponentGroups,
+          disabled: false,
+          hasSubmenu: true,
+          submenuOptions: this.getMastersSubmenu(ctx, 'restartCertainHostComponents', ['NAMENODE'])
+        },
+        RUN_SMOKE_TEST: {
+          action: 'runSmokeTest',
+          label: Em.I18n.t('services.service.actions.run.smoke'),
+          cssClass: 'glyphicon glyphicon-thumbs-up',
+          disabled: ctx.get('controller.isSmokeTestDisabled')
+        },
+        REFRESH_CONFIGS: {
+          action: 'refreshConfigs',
+          label: Em.I18n.t('hosts.host.details.refreshConfigs'),
+          cssClass: 'glyphicon glyphicon-refresh',
+          disabled: false
+        },
+        REGENERATE_KEYTAB_FILE_OPERATIONS: {
+          action: 'regenerateKeytabFileOperations',
+          label: Em.I18n.t('admin.kerberos.button.regenerateKeytabs'),
+          cssClass: 'glyphicon glyphicon-repeat',
+          isHidden: !App.get('isKerberosEnabled') || <span class="branch-1 cbranch-no" title="branch not covered" >App.get('router.mainAdminKerberosController.isManualKerberos')</span>
+        },
+        REFRESHQUEUES: {
+          action: 'refreshYarnQueues',
+          customCommand: 'REFRESHQUEUES',
+          context: Em.I18n.t('services.service.actions.run.yarnRefreshQueues.context'),
+          label: Em.I18n.t('services.service.actions.run.yarnRefreshQueues.menu'),
+          cssClass: 'glyphicon glyphicon-refresh',
+          disabled: false
+        },
+        ROLLING_RESTART: {
+          action: 'rollingRestart',
+          context: ctx.get('rollingRestartComponent'),
+          label: Em.I18n.t('rollingrestart.dialog.title'),
+          cssClass: 'glyphicon glyphicon-time',
+          disabled: false
+        },
+        TOGGLE_PASSIVE: {
+          action: 'turnOnOffPassive',
+          context: ctx.get('isPassive') ? Em.I18n.t('passiveState.turnOffFor').format(ctx.get('displayName')) : Em.I18n.t('passiveState.turnOnFor').format(ctx.get('displayName')),
+          label: ctx.get('isPassive') ? Em.I18n.t('passiveState.turnOff') : Em.I18n.t('passiveState.turnOn'),
+          cssClass: 'icon-medkit',
+          disabled: false
+        },
+        MANAGE_JN: {
+          action: 'manageJournalNode',
+          label: Em.I18n.t('admin.manageJournalNode.label'),
+          cssClass: 'icon-cog',
+          isHidden: !App.get('supports.manageJournalNode') || !App.get('isHaEnabled') || <span class="branch-2 cbranch-no" title="branch not covered" >App.router.get('mainHostController.totalCount') == 3 </span>&amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >App.HostComponent.find().filterProperty('componentName', 'JOURNALNODE').get('length') == 3</span>
+        },
+        TOGGLE_NN_HA: {
+          action: App.get('isHaEnabled') ? <span class="branch-0 cbranch-no" title="branch not covered" >'disableHighAvailability' </span>: 'enableHighAvailability',
+          label: App.get('isHaEnabled') ? <span class="branch-0 cbranch-no" title="branch not covered" >Em.I18n.t('admin.highAvailability.button.disable') </span>: Em.I18n.t('admin.highAvailability.button.enable'),
+          cssClass: App.get('isHaEnabled') ? <span class="branch-0 cbranch-no" title="branch not covered" >'glyphicon glyphicon-arrow-down' </span>: 'glyphicon glyphicon-arrow-up',
+          isHidden: App.get('isHaEnabled'),
+          disabled: App.get('isSingleNode') || !NN || <span class="branch-2 cbranch-no" title="branch not covered" >NN.get('isNotInstalled')</span>
+        },
+        TOGGLE_RM_HA: {
+          action: 'enableRMHighAvailability',
+          label: App.get('isRMHaEnabled') ? <span class="branch-0 cbranch-no" title="branch not covered" >Em.I18n.t('admin.rm_highAvailability.button.disable') </span>: Em.I18n.t('admin.rm_highAvailability.button.enable'),
+          cssClass: App.get('isRMHaEnabled') ? <span class="branch-0 cbranch-no" title="branch not covered" >'glyphicon glyphicon-arrow-down' </span>: 'glyphicon glyphicon-arrow-up',
+          isHidden: App.get('isRMHaEnabled'),
+          disabled: App.get('isSingleNode') || !RM || RM.get('isNotInstalled')
+        },
+        TOGGLE_RA_HA: {
+          action: 'enableRAHighAvailability',
+          label: Em.I18n.t('admin.ra_highAvailability.button.enable'),
+          cssClass: 'glyphicon glyphicon-arrow-up',
+          isHidden: App.get('isRAHaEnabled'),
+          disabled: App.get('isSingleNode') || !RA || <span class="branch-2 cbranch-no" title="branch not covered" >RA.get('isNotInstalled')</span>
+        },
+        MOVE_COMPONENT: {
+          action: 'reassignMaster',
+          context: '',
+          isHidden: !App.isAuthorized('SERVICE.MOVE'),
+          label: Em.I18n.t('services.service.actions.reassign.master'),
+          cssClass: 'glyphicon glyphicon-share-alt'
+        },
+        STARTDEMOLDAP: {
+          action: 'startLdapKnox',
+          customCommand: 'STARTDEMOLDAP',
+          context: Em.I18n.t('services.service.actions.run.startLdapKnox.context'),
+          label: Em.I18n.t('services.service.actions.run.startLdapKnox.context'),
+          cssClass: 'icon icon-play-sign',
+          disabled: false
+        },
+        STOPDEMOLDAP: {
+          action: 'stopLdapKnox',
+          customCommand: 'STOPDEMOLDAP',
+          context: Em.I18n.t('services.service.actions.run.stopLdapKnox.context'),
+          label: Em.I18n.t('services.service.actions.run.stopLdapKnox.context'),
+          cssClass: 'glyphicon glyphicon-stop',
+          disabled: false
+        },
+        RESTART_LLAP: {
+          action: 'restartLLAP',
+          customCommand: 'RESTART_LLAP',
+          context: Em.I18n.t('services.service.actions.run.restartLLAP'),
+          label: Em.I18n.t('services.service.actions.run.restartLLAP') + ' ∞',
+          cssClass: 'glyphicon glyphicon-refresh'
+        },
+        REBALANCEHDFS: {
+          action: 'rebalanceHdfsNodes',
+          customCommand: 'REBALANCEHDFS',
+          context: Em.I18n.t('services.service.actions.run.rebalanceHdfsNodes.context'),
+          label: Em.I18n.t('services.service.actions.run.rebalanceHdfsNodes'),
+          cssClass: 'glyphicon glyphicon-refresh',
+          disabled: false
+        },
+        DOWNLOAD_CLIENT_CONFIGS: {
+          action: ctx.get('controller.isSeveralClients') ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: 'downloadClientConfigs',
+          label: Em.I18n.t('services.service.actions.downloadClientConfigs'),
+          cssClass: 'glyphicon glyphicon-download-alt',
+          isHidden: !!ctx.get('controller.content.clientComponents') ? ctx.get('controller.content.clientComponents').rejectProperty('totalCount', 0).length == 0 : false,
+          disabled: false,
+          hasSubmenu: ctx.get('controller.isSeveralClients'),
+          submenuOptions: ctx.get('controller.clientComponents')
+        },
+        DELETE_SERVICE: {
+          action: 'deleteService',
+          context: ctx.get('serviceName'),
+          label: Em.I18n.t('services.service.actions.deleteService'),
+          cssClass: 'glyphicon glyphicon-remove',
+          isHidden: !App.get('services.supportsDeleteViaUI').contains(ctx.get('serviceName')) //hide the menu item when the service has a custom behavior setting in its metainfo.xml to disallow Delete Services via UI
+        },
+        IMMEDIATE_STOP_HAWQ_SERVICE: {
+          action: 'executeHawqCustomCommand',
+          customCommand: 'IMMEDIATE_STOP_HAWQ_SERVICE',
+          context: Em.I18n.t('services.service.actions.run.immediateStopHawqService.context'),
+          label: Em.I18n.t('services.service.actions.run.immediateStopHawqService.label'),
+          cssClass: 'glyphicon glyphicon-stop',
+          disabled: !HM || <span class="branch-1 cbranch-no" title="branch not covered" >HM.get('workStatus') != App.HostComponentStatus.started</span>
+        },
+        IMMEDIATE_STOP_HAWQ_SEGMENT: {
+          customCommand: 'IMMEDIATE_STOP_HAWQ_SEGMENT',
+          context: Em.I18n.t('services.service.actions.run.immediateStopHawqSegment.context'),
+          label: Em.I18n.t('services.service.actions.run.immediateStopHawqSegment.label'),
+          cssClass: 'glyphicon glyphicon-stop'
+        },
+        RESYNC_HAWQ_STANDBY: {
+          action: 'executeHawqCustomCommand',
+          customCommand: 'RESYNC_HAWQ_STANDBY',
+          context: Em.I18n.t('services.service.actions.run.resyncHawqStandby.context'),
+          label: Em.I18n.t('services.service.actions.run.resyncHawqStandby.label'),
+          cssClass: 'glyphicon glyphicon-refresh',
+          isHidden: App.get('isSingleNode') || !HS,
+          disabled: !(!!HMComponent &amp;&amp; HMComponent.get('startedCount') === 1 &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >!!HSComponent </span>&amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >HSComponent.get('startedCount') === 1)</span>
+        },
+        TOGGLE_ADD_HAWQ_STANDBY: {
+          action: 'addHawqStandby',
+          label: Em.I18n.t('admin.addHawqStandby.button.enable'),
+          cssClass: 'glyphicon glyphicon-plus',
+          isHidden: App.get('isSingleNode') || HS,
+          disabled: false
+        },
+        REMOVE_HAWQ_STANDBY: {
+          action: 'removeHawqStandby',
+          context: Em.I18n.t('admin.removeHawqStandby.button.enable'),
+          label: Em.I18n.t('admin.removeHawqStandby.button.enable'),
+          cssClass: 'glyphicon glyphicon-minus',
+          isHidden: App.get('isSingleNode') || !HS,
+          disabled: !HM || <span class="branch-1 cbranch-no" title="branch not covered" >HM.get('workStatus') != App.HostComponentStatus.started,</span>
+          hideFromComponentView: true
+        },
+        ACTIVATE_HAWQ_STANDBY: {
+          action: 'activateHawqStandby',
+          label: Em.I18n.t('admin.activateHawqStandby.button.enable'),
+          context: Em.I18n.t('admin.activateHawqStandby.button.enable'),
+          cssClass: 'glyphicon glyphicon-arrow-up',
+          isHidden: App.get('isSingleNode') || !HS,
+          disabled: false,
+          hideFromComponentView: true
+        },
+        HAWQ_CLEAR_CACHE: {
+          action: 'executeHawqCustomCommand',
+          customCommand: 'HAWQ_CLEAR_CACHE',
+          context: Em.I18n.t('services.service.actions.run.clearHawqCache.label'),
+          label: Em.I18n.t('services.service.actions.run.clearHawqCache.label'),
+          cssClass: 'glyphicon glyphicon-refresh',
+          isHidden: false,
+          disabled: !HM || <span class="branch-1 cbranch-no" title="branch not covered" >HM.get('workStatus') != App.HostComponentStatus.started</span>
+        },
+        RUN_HAWQ_CHECK: {
+          action: 'executeHawqCustomCommand',
+          customCommand: 'RUN_HAWQ_CHECK',
+          context: Em.I18n.t('services.service.actions.run.runHawqCheck.label'),
+          label: Em.I18n.t('services.service.actions.run.runHawqCheck.label'),
+          cssClass: 'glyphicon glyphicon-thumbs-up',
+          isHidden: false,
+          disabled: false
+        },
+        MASTER_CUSTOM_COMMAND: {
+          action: 'executeCustomCommand',
+          cssClass: 'glyphicon glyphicon-play-circle',
+          isHidden: false,
+          disabled: false
+        },
+        TOGGLE_NN_FEDERATION: {
+          action: 'openNameNodeFederationWizard',
+          label: Em.I18n.t('admin.nameNodeFederation.button.enable'),
+          cssClass: 'icon icon-sitemap',
+          disabled: !App.get('isHaEnabled')
+        },
+        UPDATE_REPLICATION: {
+          action: 'updateHBaseReplication',
+          customCommand: 'UPDATE_REPLICATION',
+          context: Em.I18n.t('services.service.actions.run.updateHBaseReplication.context'),
+          label: Em.I18n.t('services.service.actions.run.updateHBaseReplication.label'),
+          cssClass: 'glyphicon glyphicon-refresh',
+          disabled: false
+        },
+        STOP_REPLICATION: {
+          action: 'stopHBaseReplication',
+          customCommand: 'STOP_REPLICATION',
+          context: Em.I18n.t('services.service.actions.run.stopHBaseReplication.context'),
+          label: Em.I18n.t('services.service.actions.run.stopHBaseReplication.label'),
+          cssClass: 'glyphicon glyphicon-refresh',
+          disabled: false
+        }
+      };
+    },
+&nbsp;
+    getMastersSubmenu: function getMastersSubmenu(context, action, components) {
+      var serviceName = context.get('service.serviceName'),
+          groups = context.get('service.masterComponentGroups') || [],
+          allItem = {
+        action: action,
+        context: Object.assign({
+          label: Em.I18n.t('services.service.allComponents')
+        }, components ? {
+          components: components,
+          hosts: groups.mapProperty('hosts').reduce(<span class="fstat-no" title="function not covered" >function (acc, groupHosts) {</span>
+<span class="cstat-no" title="statement not covered" >            return [].concat(_toConsumableArray(acc), _toConsumableArray(groupHosts));</span>
+          }, []).uniq()
+        } : <span class="branch-1 cbranch-no" title="branch not covered" >{</span>
+          serviceName: serviceName
+        }),
+        disabled: false
+      },
+          groupItems = groups.map(<span class="fstat-no" title="function not covered" >function (group) {</span>
+<span class="cstat-no" title="statement not covered" >        return {</span>
+          action: action,
+          context: {
+            label: group.title,
+            hosts: group.hosts,
+            components: components || group.components,
+            serviceName: serviceName
+          },
+          disabled: false,
+          tooltip: group.title
+        };
+      });
+      return [allItem].concat(_toConsumableArray(groupItems));
+    }
+  };
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

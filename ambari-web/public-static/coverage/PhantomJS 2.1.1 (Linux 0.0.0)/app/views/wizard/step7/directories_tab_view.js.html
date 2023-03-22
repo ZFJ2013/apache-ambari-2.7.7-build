@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/wizard/step7/directories_tab_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">app/views/wizard/step7/directories_tab_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">75% <small>(39 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">87.5% <small>(14 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">64.29% <small>(9 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">74% <small>(37 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">app/views/wizard/step7/</a> &#187; directories_tab_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/wizard/step7/directories_tab_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.DirectoriesTabOnStep7View = Em.View.extend({
+&nbsp;
+    templateName: require('templates/wizard/step7/directories_tab'),
+&nbsp;
+    services: [],
+&nbsp;
+    setServices: function () {
+      var services = [];
+      var directoriesTabs = App.Tab.find().filterProperty('themeName', 'directories');
+      var stepConfigs = this.get('controller.stepConfigs');
+      var lastSelectedService = this.get('controller.tabs').findProperty('isActive').get('selectedServiceName');
+      stepConfigs.forEach(function (stepConfig) {
+        var tab = directoriesTabs.findProperty('serviceName', stepConfig.get('serviceName'));
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (tab) {
+          services.push(tab);
+        }
+      });
+      this.set('services', services);
+      this.get('services').setEach('isActive', false);
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (lastSelectedService) {
+        this.set('controller.selectedService', stepConfigs.findProperty('serviceName', lastSelectedService));
+      } else {
+<span class="cstat-no" title="statement not covered" >        this.set('controller.selectedService', stepConfigs[0]);</span>
+      }
+      this.get('controller').selectedServiceObserver();
+    }.observes('controller.stepConfigs'),
+&nbsp;
+    selectService: <span class="fstat-no" title="function not covered" >function selectService(event) {</span>
+<span class="cstat-no" title="statement not covered" >      this.set('controller.filter', '');</span>
+<span class="cstat-no" title="statement not covered" >      this.get('controller.filterColumns').setEach('selected', false);</span>
+<span class="cstat-no" title="statement not covered" >      this.get('services').setEach('isActive', false);</span>
+<span class="cstat-no" title="statement not covered" >      event.context.set('isActive', true);</span>
+<span class="cstat-no" title="statement not covered" >      this.set('controller.selectedService', this.get('controller.stepConfigs').findProperty('serviceName', event.context.get('serviceName')));</span>
+<span class="cstat-no" title="statement not covered" >      this.get('controller.tabs').findProperty('isActive', true).set('selectedServiceName', event.context.get('serviceName'));</span>
+    },
+&nbsp;
+    didInsertElement: function didInsertElement() {
+      this.setServices();
+      Em.run.next(this, <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        this.enableRightArrow();</span>
+      });
+    },
+&nbsp;
+    configsView: App.ServiceConfigView.extend({
+      templateName: require('templates/common/configs/service_config_wizard'),
+      selectedServiceBinding: 'controller.selectedService',
+      filterBinding: 'controller.filter',
+      columnsBinding: 'controller.filterColumns',
+      hideTabHeaders: true,
+      supportsConfigLayout: true,
+      themeTemplate: require('templates/wizard/step7/directories_theme_layout'),
+      tabs: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        var tabs = App.Tab.find().filterProperty('themeName', 'directories').filterProperty('serviceName', this.get('controller.selectedService.serviceName'));</span>
+<span class="cstat-no" title="statement not covered" >        return tabs;</span>
+      }.property('controller.selectedService.serviceName'),
+      updateFilterCounters: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        this.set('isAllConfigsHidden', this.get('tabs').everyProperty('allSectionsAreHiddenByFilter', true));</span>
+      }.observes('tabs.@each.allSectionsAreHiddenByFilter')
+    }),
+&nbsp;
+    isLeftArrowDisabled: true,
+&nbsp;
+    isRightArrowDisabled: true,
+&nbsp;
+    isNavArrowsHidden: Em.computed.and('isLeftArrowDisabled', 'isRightArrowDisabled'),
+&nbsp;
+    enableRightArrow: function enableRightArrow() {
+      var container = $(this.get('element')).find('.tabs-container');
+      var content = container.find('ul');
+      this.set('isRightArrowDisabled', container.width() &gt;= content.width());
+    },
+&nbsp;
+    getScrollInterval: function getScrollInterval() {
+      var INTERVAL = 300;
+      var container = $(this.get('element')).find('.tabs-container');
+      var content = container.find('ul');
+      var gap = content.width() - container.width();
+      var gapLeft = gap % INTERVAL;
+      var totalScrollsNamber = Math.floor(gap / INTERVAL) || 1;
+      return INTERVAL + Math.round(gapLeft / totalScrollsNamber) + 1;
+    },
+&nbsp;
+    scrollTabsLeft: function scrollTabsLeft() {
+      if (!this.get('isLeftArrowDisabled')) this.scrollTabs('left');
+    },
+&nbsp;
+    scrollTabsRight: function scrollTabsRight() {
+      if (!this.get('isRightArrowDisabled')) this.scrollTabs('right');
+    },
+&nbsp;
+    scrollTabs: function scrollTabs(dir) {
+      var container = $(this.get('element')).find('.tabs-container');
+      var content = container.find('ul');
+      var interval = this.getScrollInterval();
+      this.set('isLeftArrowDisabled', dir === 'left' &amp;&amp; interval &gt;= container.scrollLeft());
+      this.set('isRightArrowDisabled', dir === 'right' &amp;&amp; content.width() - container.width() &lt;= container.scrollLeft() + interval);
+      container.animate({
+        scrollLeft: (dir === 'left' ? '-' : '+') + '=' + interval + 'px'
+      });
+    }
+&nbsp;
+  });
+&nbsp;
+  App.DirectoriesLayoutCategoryView = Em.View.extend(App.ConfigOverridable, {
+    isCollapsed: false,
+    toggleCollapsed: <span class="fstat-no" title="function not covered" >function toggleCollapsed() {</span>
+<span class="cstat-no" title="statement not covered" >      this.$('.panel-body').toggle('blind', 500);</span>
+<span class="cstat-no" title="statement not covered" >      this.toggleProperty('isCollapsed');</span>
+    }
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

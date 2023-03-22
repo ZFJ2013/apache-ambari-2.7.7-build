@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/views/wizard/step3_view.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">app/views/wizard/step3_view.js</span></h1>
+    <h2>
+        Statements: <span class="metric">97.53% <small>(79 / 81)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">97.06% <small>(33 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">96% <small>(24 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">97.5% <small>(78 / 80)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">app/views/wizard/</a> &#187; step3_view.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">229</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">88</span>
+<span class="cline-any cline-yes">88</span>
+<span class="cline-any cline-yes">88</span>
+<span class="cline-any cline-yes">88</span>
+<span class="cline-any cline-yes">88</span>
+<span class="cline-any cline-yes">88</span>
+<span class="cline-any cline-yes">88</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-yes">233</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">88</span>
+<span class="cline-any cline-yes">88</span>
+<span class="cline-any cline-yes">88</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-yes">186</span>
+<span class="cline-any cline-yes">184</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-yes">72</span>
+<span class="cline-any cline-yes">360</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-yes">42</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+;require.register("views/wizard/step3_view", function (exports, require, module) {
+  /**
+   * Licensed to the Apache Software Foundation (ASF) under one
+   * or more contributor license agreements.  See the NOTICE file
+   * distributed with this work for additional information
+   * regarding copyright ownership.  The ASF licenses this file
+   * to you under the Apache License, Version 2.0 (the
+   * "License"); you may not use this file except in compliance
+   * with the License.  You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   */
+&nbsp;
+  var App = require('app');
+&nbsp;
+  App.WizardStep3View = App.TableView.extend({
+&nbsp;
+    templateName: require('templates/wizard/step3'),
+&nbsp;
+    /**
+     * List of hosts
+     * Same to &lt;code&gt;controller.hosts&lt;/code&gt;
+     * @type {Ember.Enumerable}
+     */
+    content: function () {
+      return this.get('controller.hosts');
+    }.property('controller.hosts.length'),
+&nbsp;
+    /**
+     * Message with info about registration result
+     * @type {string}
+     */
+    message: '',
+&nbsp;
+    /**
+     * Text to link for hosts' warnings popup
+     * @type {string}
+     */
+    linkText: '',
+&nbsp;
+    /**
+     * Registration status
+     * @type {string}
+     */
+    status: '',
+&nbsp;
+    /**
+     * Active category
+     * @type {string}
+     */
+    selectedCategory: Em.computed.findBy('categories', 'isActive', true),
+&nbsp;
+    /**
+     * Message about other registered hosts (not included in current registration)
+     * @type {string}
+     */
+    registeredHostsMessage: '',
+&nbsp;
+    /**
+     * Number of visible hosts on page
+     * @type {string}
+     */
+    displayLength: "25",
+&nbsp;
+    /**
+     * All checkboxes on page are checked
+     * @type {bool}
+     */
+    pageChecked: false,
+&nbsp;
+    /**
+     * bootStatus category object
+     * @type {Ember.Object}
+     */
+    categoryObject: Em.Object.extend({
+      hostsCount: 0,
+      label: Em.computed.format('{0} ({1})', 'value', 'hostsCount'),
+      isActive: false,
+      itemClass: Em.computed.ifThenElse('isActive', 'active', '')
+    }),
+&nbsp;
+    /**
+     * List of bootStatus categories
+     * @type {categoryObject[]}
+     */
+    categories: function () {
+      return [this.categoryObject.create({ value: Em.I18n.t('common.all'), hostsBootStatus: 'ALL', isActive: true }), this.categoryObject.create({ value: Em.I18n.t('installer.step3.hosts.status.installing'), hostsBootStatus: 'RUNNING' }), this.categoryObject.create({ value: Em.I18n.t('installer.step3.hosts.status.registering'), hostsBootStatus: 'REGISTERING' }), this.categoryObject.create({ value: Em.I18n.t('common.success'), hostsBootStatus: 'REGISTERED' }), this.categoryObject.create({ value: Em.I18n.t('common.fail'), hostsBootStatus: 'FAILED', last: true })];
+    }.property(),
+&nbsp;
+    didInsertElement: function didInsertElement() {
+      this.get('controller').loadStep();
+      this.$().on('mouseover', '#confirm-hosts-table tr', <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        App.tooltip($(this).find('.action .glyphicon'), { placement: 'bottom' });</span>
+      });
+    },
+&nbsp;
+    /**
+     * Select checkboxes of hosts on page
+     * @method onPageChecked
+     */
+    onPageChecked: function () {
+      if (this.get('selectionInProgress')) return;
+      this.get('pageContent').setEach('isChecked', this.get('pageChecked'));
+    }.observes('pageChecked'),
+&nbsp;
+    /**
+     * Select checkboxes of all hosts
+     * @method selectAll
+     */
+    selectAll: function selectAll() {
+      this.get('content').setEach('isChecked', true);
+    },
+&nbsp;
+    /**
+     * Reset checkbox of all hosts
+     * @method unSelectAll
+     */
+    unSelectAll: function unSelectAll() {
+      this.get('content').setEach('isChecked', false);
+    },
+&nbsp;
+    /**
+     * Call &lt;code&gt;watchSelection&lt;/code&gt; only once
+     * @method watchSelectionOnce
+     */
+    watchSelectionOnce: function () {
+      Em.run.once(this, 'watchSelection');
+    }.observes('content.@each.isChecked', 'content.@each.bootStatus', 'pageContent'),
+&nbsp;
+    /**
+     * Watch selection and calculate such flags as:
+     * &lt;ul&gt;
+     *  &lt;li&gt;noHostsSelected&lt;/li&gt;
+     *  &lt;li&gt;selectedHostsCount&lt;/li&gt;
+     *  &lt;li&gt;pageChecked&lt;/li&gt;
+     * &lt;/ul&gt;
+     * @method watchSelection
+     */
+    watchSelection: function watchSelection() {
+      this.set('selectionInProgress', true);
+      this.set('pageChecked', !!this.get('pageContent.length') &amp;&amp; this.get('pageContent').everyProperty('isChecked', true));
+      this.set('selectionInProgress', false);
+      var noNotRunningHostsSelected = true;
+      var selectedNotRunningHostsCount = 0;
+      var selectedHostsCount = 0;
+      this.get('content').forEach(function (host) {
+        var isSelectedAndNotRunning = host.get('isChecked') &amp;&amp; host.get('bootStatus') !== 'RUNNING';
+        selectedHostsCount += host.get('isChecked') ? 1 : 0;
+        selectedNotRunningHostsCount += isSelectedAndNotRunning ? 1 : 0;
+        noNotRunningHostsSelected = noNotRunningHostsSelected ? !isSelectedAndNotRunning : noNotRunningHostsSelected;
+      });
+      this.set('noNotRunningHostsSelected', noNotRunningHostsSelected);
+      this.set('selectedNotRunningHostsCount', selectedNotRunningHostsCount);
+      this.set('selectedHostsCount', selectedHostsCount);
+    },
+&nbsp;
+    /**
+     * Update &lt;code&gt;registeredHostsMessage&lt;/code&gt; according to &lt;code&gt;controller.registeredHots.length&lt;/code&gt;
+     * @method setRegisteredHosts
+     */
+    setRegisteredHosts: function () {
+      this.set('registeredHostsMessage', Em.I18n.t('installer.step3.warning.registeredHosts').format(this.get('controller.registeredHosts').length));
+    }.observes('controller.registeredHosts'),
+&nbsp;
+    /**
+     * Call filters and counters one time
+     * @method hostBootStatusObserver
+     */
+    hostBootStatusObserver: function () {
+      Em.run.once(this, 'countCategoryHosts');
+      Em.run.once(this, 'filter');
+      Em.run.once(this, 'monitorStatuses');
+    }.observes('content.@each.bootStatus'),
+&nbsp;
+    /**
+     * Calculate host count grouped by &lt;code&gt;bootStatus&lt;/code&gt;
+     * @method countCategoryHosts
+     */
+    countCategoryHosts: function countCategoryHosts() {
+      var counters = {
+        "RUNNING": 0,
+        "REGISTERING": 0,
+        "REGISTERED": 0,
+        "FAILED": 0
+      };
+      this.get('content').forEach(function (host) {
+        if (!Em.isNone(counters[host.get('bootStatus')])) {
+          counters[host.get('bootStatus')]++;
+        }
+      }, this);
+      counters["ALL"] = this.get('content.length');
+      this.get('categories').forEach(function (category) {
+        category.set('hostsCount', counters[category.get('hostsBootStatus')]);
+      }, this);
+    },
+&nbsp;
+    /**
+     * Filter hosts by category
+     * @method filter
+     */
+    filter: function () {
+      var self = this;
+      Em.run.next(function () {
+        self.doFilter();
+      });
+    }.observes('selectedCategory'),
+&nbsp;
+    /**
+     * Real filter-method
+     * Called from &lt;code&gt;filter&lt;/code&gt; in Em.run.next-wrapper
+     * @method doFilter
+     */
+    doFilter: function doFilter() {
+      var result = [];
+      var selectedCategory = this.get('selectedCategory');
+      if (!selectedCategory || selectedCategory.get('hostsBootStatus') === 'ALL') {
+        result = this.get('content');
+      } else {
+        result = this.get('content').filterProperty('bootStatus', this.get('selectedCategory.hostsBootStatus'));
+      }
+      this.set('filteredContent', result);
+    },
+&nbsp;
+    /**
+     * Trigger on Category click
+     * @param {Object} event
+     * @method selectCategory
+     */
+    selectCategory: function selectCategory(event) {
+      var categoryStatus = event.context.get('hostsBootStatus');
+      this.get('categories').forEach(function (category) {
+        category.set('isActive', category.get('hostsBootStatus') === categoryStatus);
+      });
+      this.watchSelection();
+    },
+&nbsp;
+    /**
+     * Select "All" hosts category
+     * run registration of failed hosts again
+     * @method retrySelectedHosts
+     */
+    retrySelectedHosts: function retrySelectedHosts() {
+      var eventObject = { context: Em.Object.create({ hostsBootStatus: 'ALL' }) };
+      this.selectCategory(eventObject);
+      this.get('controller').retrySelectedHosts();
+    },
+&nbsp;
+    /**
+     * Update &lt;code&gt;status&lt;/code&gt;, &lt;code&gt;linkText&lt;/code&gt;, &lt;code&gt;message&lt;/code&gt; according to hosts statuses
+     * @method monitorStatuses
+     */
+    monitorStatuses: function () {
+      var hosts = this.get('controller.bootHosts');
+      var failedHosts = hosts.filterProperty('bootStatus', 'FAILED').length;
+&nbsp;
+      if (hosts.length === 0) {
+        this.set('status', 'alert-warning');
+        this.set('linkText', '');
+        this.set('message', Em.I18n.t('installer.step3.warnings.missingHosts'));
+      } else {
+        if (!this.get('controller.isWarningsLoaded')) {
+          this.set('status', 'alert-info');
+          this.set('linkText', '');
+          this.set('message', Em.I18n.t('installer.step3.warning.loading'));
+        } else {
+          if (this.get('controller.isHostHaveWarnings') || this.get('controller.repoCategoryWarnings.length') || this.get('controller.diskCategoryWarnings.length') || this.get('controller.jdkCategoryWarnings.length') || this.get('controller.hostCheckWarnings.length') || this.get('controller.thpCategoryWarnings.length')) {
+            this.set('status', 'alert-warning');
+            this.set('linkText', Em.I18n.t('installer.step3.warnings.linkText'));
+            this.set('message', Em.I18n.t('installer.step3.warnings.fails').format(hosts.length - failedHosts));
+          } else {
+            this.set('status', 'alert-success');
+            this.set('linkText', Em.I18n.t('installer.step3.noWarnings.linkText'));
+            if (failedHosts == 0) {
+              // all are ok
+              this.set('message', Em.I18n.t('installer.step3.warnings.noWarnings').format(hosts.length));
+            } else {
+              <span class="missing-if-branch" title="else path not taken" >E</span>if (failedHosts == hosts.length) {
+                // all failed
+                this.set('status', 'alert-warning');
+                this.set('linkText', '');
+                this.set('message', Em.I18n.t('installer.step3.warnings.allFailed').format(failedHosts));
+              } else {
+                // some failed
+<span class="cstat-no" title="statement not covered" >                this.set('message', Em.I18n.t('installer.step3.warnings.someWarnings').format(hosts.length - failedHosts, failedHosts));</span>
+              }
+            }
+          }
+        }
+      }
+    }.observes('controller.isWarningsLoaded', 'controller.hostCheckWarnings', 'controller.isHostHaveWarnings', 'controller.repoCategoryWarnings', 'controller.diskCategoryWarnings', 'controller.jdkCategoryWarnings', 'controller.thpCategoryWarnings')
+  });
+&nbsp;
+  //todo: move it inside WizardStep3View
+  App.WizardHostView = Em.View.extend({
+&nbsp;
+    tagName: 'tr',
+&nbsp;
+    classNameBindings: ['hostInfo.bootStatus', 'hostInfo.isChecked:active'],
+&nbsp;
+    /**
+     * Host from parent view
+     * @type {Object}
+     */
+    hostInfo: null,
+&nbsp;
+    /**
+     * Remove selected host
+     * @method remove
+     */
+    remove: function remove() {
+      this.get('controller').removeHost(this.get('hostInfo'));
+    },
+&nbsp;
+    /**
+     * Retry register selected host
+     * @method retry
+     */
+    retry: function retry() {
+      this.get('controller').retryHost(this.get('hostInfo'));
+    }
+&nbsp;
+  });
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 01 2022 08:08:39 GMT+0530 (India Standard Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
